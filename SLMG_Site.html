@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sims Legacy Collection — Modding Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ── Root palette ──────────────────────────────────────── */
+:root {
+  --cream:      #F5F2E8;
+  --cream-dark: #EDE8D6;
+  --white:      #FFFFFF;
+  --green:      #3BAE5C;
+  --green-mid:  #2D8A47;
+  --green-dark: #1A5229;
+  --green-pale: #E6F5EB;
+  --gold:       #E8B84B;
+  --gold-pale:  #FDF5DC;
+  --gold-dark:  #9A6F10;
+  --teal:       #3AADA8;
+  --teal-pale:  #E1F5F4;
+  --red:        #D94F4F;
+  --red-pale:   #FDEAEA;
+  --ink:        #1C2B1F;
+  --ink-mid:    #3D5445;
+  --ink-muted:  #6B8A72;
+  --border:     rgba(27,82,41,0.12);
+  --shadow-sm:  0 1px 4px rgba(27,82,41,0.08);
+  --shadow-md:  0 4px 16px rgba(27,82,41,0.10);
+  --shadow-lg:  0 8px 32px rgba(27,82,41,0.12);
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+  --font-head:  'Paytone One', sans-serif;
+  --font-body:  'Nunito', sans-serif;
+  --font-mono:  'IBM Plex Mono', monospace;
+}
+
+/* ── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+::selection { background: var(--green); color: #fff; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--cream-dark); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 4px; }
+img { max-width: 100%; display: block; }
+a { color: var(--green-dark); }
+
+/* ── Neighbourhood grid background ─────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.5;
+}
+
+/* ── Plumbob shape ─────────────────────────────────────── */
+.plumbob {
+  display: inline-block;
+  width: 44px; height: 44px;
+  background: var(--green);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  flex-shrink: 0;
+}
+.plumbob.sm  { width: 18px; height: 18px; }
+.plumbob.md  { width: 28px; height: 28px; }
+.plumbob.lg  { width: 56px; height: 56px; background: var(--green); animation: pb-float 3s ease-in-out infinite; }
+.plumbob.gold { background: var(--gold); }
+.plumbob.teal { background: var(--teal); }
+.plumbob.red  { background: var(--red); }
+@keyframes pb-float {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%     { transform: translateY(-8px) rotate(5deg); }
+}
+
+/* ── Nav ───────────────────────────────────────────────── */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(245,242,232,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 2px solid var(--border);
+  padding: 0 24px;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; gap: 4px;
+  padding: 10px 0;
+  overflow-x: auto; scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; margin-right: 16px; flex-shrink: 0;
+}
+.nav-brand-text {
+  font-family: var(--font-head);
+  font-size: 14px;
+  color: var(--green-dark);
+  line-height: 1;
+}
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-mid);
+  text-decoration: none;
+  padding: 6px 13px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: all 0.18s ease;
+  border: 1.5px solid transparent;
+}
+.nav-link:hover {
+  background: var(--green-pale);
+  color: var(--green-dark);
+  border-color: rgba(27,82,41,0.15);
+}
+
+/* ── Hero ──────────────────────────────────────────────── */
+.hero {
+  position: relative; z-index: 1;
+  background: linear-gradient(160deg, #D6EFD8 0%, #EAF6E0 40%, var(--cream) 100%);
+  border-bottom: 3px solid var(--border);
+  overflow: hidden;
+  padding: 80px 24px 72px;
+  text-align: center;
+}
+/* Pixel houses decorative SVG behind hero */
+.hero-deco {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 100px; pointer-events: none; opacity: 0.12;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px; font-weight: 600;
+  color: var(--green-dark);
+  background: var(--white);
+  border: 2px solid rgba(27,82,41,0.18);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(32px, 6vw, 64px);
+  color: var(--green-dark);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.hero-title span { color: var(--green); }
+.hero-sub {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--ink-mid);
+  font-weight: 600;
+  max-width: 600px; margin: 0 auto 36px;
+}
+.hero-badges {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.badge {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 2px solid;
+  letter-spacing: 0.3px;
+}
+.badge-green { background: var(--green-pale); color: var(--green-dark); border-color: rgba(27,82,41,0.25); }
+.badge-gold  { background: var(--gold-pale);  color: var(--gold-dark);  border-color: rgba(232,184,75,0.4); }
+.badge-white { background: var(--white);      color: var(--ink-mid);    border-color: var(--border); }
+
+/* Quick nav grid */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  max-width: 900px; margin: 0 auto;
+}
+.quick-btn {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 16px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.quick-btn:hover {
+  border-color: var(--green);
+  background: var(--green-pale);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.quick-btn-emoji { font-size: 28px; line-height: 1; }
+.quick-btn-label {
+  font-family: var(--font-body);
+  font-size: 13px; font-weight: 800;
+  color: var(--green-dark);
+  text-align: center;
+}
+.quick-btn-sub {
+  font-size: 11px; color: var(--ink-muted);
+  text-align: center; line-height: 1.4;
+}
+
+/* ── Main ──────────────────────────────────────────────── */
+main {
+  max-width: 1200px; margin: 0 auto;
+  padding: 72px 24px 120px;
+  position: relative; z-index: 1;
+}
+
+/* ── Section heading ───────────────────────────────────── */
+.section-head {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 28px; margin-top: 80px;
+}
+.section-head:first-child { margin-top: 0; }
+.section-emoji {
+  width: 52px; height: 52px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+.section-title-wrap {}
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(20px, 3vw, 28px);
+  color: var(--green-dark);
+  line-height: 1.1;
+}
+.section-sub {
+  font-size: 14px; color: var(--ink-muted); font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ── Cards ─────────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  position: relative;
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(27,82,41,0.25);
+  transform: translateY(-2px);
+}
+.card-title {
+  font-family: var(--font-body);
+  font-size: 17px; font-weight: 800;
+  color: var(--ink); margin-bottom: 8px;
+  display: flex; align-items: center; gap: 10px;
+}
+.card-desc { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+.card-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px; font-weight: 600;
+  color: var(--green-dark);
+  text-decoration: none;
+  border: 2px solid rgba(27,82,41,0.2);
+  background: var(--green-pale);
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  margin-top: 12px;
+  transition: all 0.18s;
+}
+.card-link:hover { background: var(--green); color: white; border-color: var(--green); }
+
+/* Pill tags on cards */
+.tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  padding: 3px 10px; border-radius: 999px; border: 1.5px solid;
+}
+.tag-green { background: var(--green-pale); color: var(--green-dark); border-color: rgba(27,82,41,0.2); }
+.tag-gold  { background: var(--gold-pale);  color: var(--gold-dark);  border-color: rgba(232,184,75,0.35); }
+.tag-teal  { background: var(--teal-pale);  color: #1A6E6B;            border-color: rgba(58,173,168,0.3); }
+.tag-red   { background: var(--red-pale);   color: #8B1A1A;            border-color: rgba(217,79,79,0.3); }
+.tag-grey  { background: var(--cream-dark); color: var(--ink-mid);    border-color: var(--border); }
+
+/* Featured card variant */
+.card.featured {
+  border-color: var(--green);
+  border-width: 3px;
+}
+.card.featured::before {
+  content: 'Most Active 2025';
+  position: absolute; top: -1px; right: 18px;
+  background: var(--green);
+  color: white;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+/* ── Grids ─────────────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+
+/* ── Callouts ──────────────────────────────────────────── */
+.callout {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  border: 2px solid;
+  font-size: 14px; line-height: 1.7;
+  margin: 20px 0;
+}
+.callout-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+.callout-body strong { font-weight: 800; }
+.callout.green { background: var(--green-pale); border-color: rgba(27,82,41,0.22); color: var(--green-dark); }
+.callout.gold  { background: var(--gold-pale);  border-color: rgba(232,184,75,0.35); color: var(--gold-dark); }
+.callout.red   { background: var(--red-pale);   border-color: rgba(217,79,79,0.28); color: #8B1A1A; }
+.callout.teal  { background: var(--teal-pale);  border-color: rgba(58,173,168,0.3); color: #1A6E6B; }
+
+/* ── Code blocks ───────────────────────────────────────── */
+.code-block {
+  background: var(--ink);
+  color: #A8D8A8;
+  font-family: var(--font-mono); font-size: 13px;
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  overflow-x: auto; line-height: 1.8;
+  margin: 12px 0;
+}
+code {
+  background: var(--cream-dark);
+  color: var(--green-dark);
+  font-family: var(--font-mono); font-size: 13px;
+  padding: 2px 7px; border-radius: 5px;
+  font-weight: 600;
+}
+
+/* ── Table ─────────────────────────────────────────────── */
+.table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--radius-md); border: 2px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--white); }
+thead tr { background: var(--green-dark); }
+th {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.5px;
+  padding: 13px 16px; text-align: left;
+}
+td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--ink-mid); }
+td:first-child { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--green-dark); }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: rgba(230,245,235,0.35); }
+.ok  { color: var(--green-dark); font-weight: 800; }
+.warn{ color: var(--gold-dark);  font-weight: 800; }
+.no  { color: #8B1A1A;           font-weight: 800; }
+
+/* ── Mod cards ─────────────────────────────────────────── */
+.mod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
+.mod-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+  display: flex; flex-direction: column;
+}
+.mod-card:hover { border-color: var(--green); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.mod-name { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 3px; }
+.mod-by   { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); margin-bottom: 9px; }
+.mod-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.6; flex: 1; margin-bottom: 12px; }
+.mod-foot { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* ── Steps ─────────────────────────────────────────────── */
+.steps { counter-reset: step; display: flex; flex-direction: column; gap: 20px; }
+.step  { display: flex; gap: 18px; align-items: flex-start; }
+.step-num {
+  counter-increment: step;
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: var(--green-dark);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 16px; color: white;
+  box-shadow: 0 2px 8px rgba(26,82,41,0.25);
+}
+.step-num::after { content: counter(step); }
+.step-body h4 { font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+.step-body p  { font-size: 14px; color: var(--ink-mid); }
+
+/* ── Status rows ───────────────────────────────────────── */
+.status-row {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 22px 24px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.status-icon { font-size: 30px; flex-shrink: 0; }
+.status-title { font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 5px; }
+.status-body  { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+.status-row.can    { border-left: 5px solid var(--green); }
+.status-row.maybe  { border-left: 5px solid var(--gold); }
+.status-row.cannot { border-left: 5px solid var(--red); }
+
+/* ── Category label strip ──────────────────────────────── */
+.cat-label {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-head); font-size: 15px; color: var(--green-dark);
+  margin: 36px 0 16px;
+}
+.cat-label::after { content: ''; flex: 1; height: 2px; background: linear-gradient(90deg, var(--border), transparent); }
+
+/* ── Troubleshoot grid ─────────────────────────────────── */
+.trouble-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-sm);
+}
+.trouble-title {
+  font-size: 16px; font-weight: 800; color: var(--ink);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.trouble-list { list-style: none; padding: 0; }
+.trouble-list li {
+  font-size: 14px; color: var(--ink-mid);
+  padding: 5px 0 5px 22px;
+  border-bottom: 1px solid var(--border);
+  position: relative; line-height: 1.6;
+}
+.trouble-list li:last-child { border-bottom: none; }
+.trouble-list li::before {
+  content: '▸';
+  position: absolute; left: 4px;
+  color: var(--green); font-size: 12px;
+}
+
+/* ── Community links ───────────────────────────────────── */
+.community-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;
+  margin-top: 24px;
+}
+.community-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 20px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+}
+.community-card:hover { border-color: var(--green); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.community-icon { font-size: 28px; flex-shrink: 0; }
+.community-name { font-size: 14px; font-weight: 800; color: var(--green-dark); }
+.community-url  { font-family: var(--font-mono); font-size: 10px; color: var(--ink-muted); }
+
+/* ── Footer ────────────────────────────────────────────── */
+footer {
+  background: var(--green-dark);
+  color: rgba(255,255,255,0.8);
+  padding: 56px 24px 40px;
+  position: relative; z-index: 1;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  text-align: center;
+}
+.footer-brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-head); font-size: 20px; color: white;
+}
+.footer-links {
+  display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+}
+.footer-links a {
+  color: rgba(255,255,255,0.7); text-decoration: none;
+  font-size: 13px; font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.18s;
+}
+.footer-links a:hover { background: rgba(255,255,255,0.12); color: white; }
+footer p { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero { padding: 56px 16px 56px; }
+  main { padding: 48px 16px 80px; }
+  .step { flex-direction: column; }
+  .status-row { flex-direction: column; }
+  nav { padding: 0 12px; }
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  nav, footer, .hero-deco { display: none; }
+  body { background: white; }
+  .card { box-shadow: none; border: 1px solid #ccc; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">
+      <div class="plumbob sm"></div>
+      <span class="nav-brand-text">SIMS LEGACY COLLECTION</span>
+    </a>
+    <a class="nav-link" href="#install">📁 Install</a>
+    <a class="nav-link" href="#sites">🌐 Sites</a>
+    <a class="nav-link" href="#mods">⚙️ Mods</a>
+    <a class="nav-link" href="#cc">🎨 Make CC</a>
+    <a class="nav-link" href="#iff">🔧 IFF Hacking</a>
+    <a class="nav-link" href="#limits">🔬 What's Possible</a>
+    <a class="nav-link" href="#troubleshoot">🛠️ Help</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<header class="hero" id="top">
+
+  <!-- Decorative pixel houses SVG -->
+  <svg class="hero-deco" viewBox="0 0 1200 100" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <!-- House 1 -->
+    <rect x="40" y="55" width="60" height="45" fill="#2D8A47" rx="2"/>
+    <polygon points="40,55 100,55 70,30" fill="#1A5229"/>
+    <rect x="58" y="72" width="16" height="28" fill="#1A5229" rx="1"/>
+    <rect x="82" y="65" width="12" height="12" fill="rgba(255,255,255,0.3)" rx="1"/>
+    <!-- House 2 -->
+    <rect x="120" y="65" width="50" height="35" fill="#3BAE5C" rx="2"/>
+    <polygon points="120,65 170,65 145,44" fill="#2D8A47"/>
+    <rect x="136" y="78" width="14" height="22" fill="#2D8A47" rx="1"/>
+    <rect x="156" y="70" width="10" height="10" fill="rgba(255,255,255,0.25)" rx="1"/>
+    <!-- House 3 large -->
+    <rect x="220" y="45" width="80" height="55" fill="#3BAE5C" rx="2"/>
+    <polygon points="215,45 305,45 260,18" fill="#2D8A47"/>
+    <rect x="244" y="70" width="22" height="30" fill="#1A5229" rx="1"/>
+    <rect x="274" y="55" width="16" height="16" fill="rgba(255,255,255,0.3)" rx="1"/>
+    <rect x="228" y="55" width="14" height="14" fill="rgba(255,255,255,0.25)" rx="1"/>
+    <!-- Trees -->
+    <circle cx="180" cy="72" r="18" fill="#2D8A47"/>
+    <rect x="177" y="78" width="6" height="22" fill="#1A5229"/>
+    <!-- House 4 -->
+    <rect x="370" y="60" width="55" height="40" fill="#E8B84B" rx="2"/>
+    <polygon points="365,60 430,60 397,36" fill="#9A6F10"/>
+    <rect x="385" y="78" width="15" height="22" fill="#9A6F10" rx="1"/>
+    <rect x="405" y="65" width="12" height="12" fill="rgba(255,255,255,0.3)" rx="1"/>
+    <!-- Tree cluster -->
+    <circle cx="330" cy="70" r="20" fill="#1A5229"/>
+    <circle cx="348" cy="65" r="16" fill="#2D8A47"/>
+    <rect x="327" y="78" width="6" height="22" fill="#1A5229"/>
+    <!-- House 5 -->
+    <rect x="520" y="50" width="70" height="50" fill="#3BAE5C" rx="2"/>
+    <polygon points="515,50 595,50 555,22" fill="#1A5229"/>
+    <rect x="540" y="72" width="20" height="28" fill="#2D8A47" rx="1"/>
+    <rect x="566" y="60" width="14" height="14" fill="rgba(255,255,255,0.35)" rx="1"/>
+    <!-- More trees -->
+    <circle cx="470" cy="68" r="22" fill="#2D8A47"/>
+    <circle cx="490" cy="62" r="16" fill="#3BAE5C"/>
+    <rect x="467" y="76" width="6" height="24" fill="#1A5229"/>
+    <!-- House 6 small -->
+    <rect x="660" y="68" width="44" height="32" fill="#3AADA8" rx="2"/>
+    <polygon points="657,68 707,68 682,48" fill="#1A6E6B"/>
+    <rect x="672" y="82" width="13" height="18" fill="#1A6E6B" rx="1"/>
+    <!-- House 7 -->
+    <rect x="760" y="55" width="65" height="45" fill="#3BAE5C" rx="2"/>
+    <polygon points="755,55 830,55 792,28" fill="#2D8A47"/>
+    <rect x="776" y="76" width="18" height="24" fill="#1A5229" rx="1"/>
+    <rect x="800" y="65" width="14" height="14" fill="rgba(255,255,255,0.3)" rx="1"/>
+    <!-- Trees right side -->
+    <circle cx="720" cy="66" r="20" fill="#1A5229"/>
+    <circle cx="740" cy="60" r="15" fill="#2D8A47"/>
+    <rect x="717" y="75" width="6" height="25" fill="#1A5229"/>
+    <!-- House 8 -->
+    <rect x="900" y="62" width="56" height="38" fill="#E8B84B" rx="2"/>
+    <polygon points="895,62 960,62 927,40" fill="#9A6F10"/>
+    <rect x="913" y="78" width="15" height="22" fill="#9A6F10" rx="1"/>
+    <!-- House 9 -->
+    <rect x="1020" y="52" width="72" height="48" fill="#3BAE5C" rx="2"/>
+    <polygon points="1015,52 1097,52 1056,25" fill="#1A5229"/>
+    <rect x="1040" y="74" width="20" height="26" fill="#2D8A47" rx="1"/>
+    <rect x="1067" y="62" width="15" height="15" fill="rgba(255,255,255,0.3)" rx="1"/>
+    <!-- Trees far right -->
+    <circle cx="975" cy="65" r="20" fill="#2D8A47"/>
+    <circle cx="993" cy="60" r="14" fill="#3BAE5C"/>
+    <rect x="972" y="74" width="6" height="26" fill="#1A5229"/>
+    <!-- Ground line -->
+    <rect x="0" y="98" width="1200" height="4" fill="#2D8A47" opacity="0.5"/>
+  </svg>
+
+  <div class="plumbob lg" style="margin: 0 auto 24px;"></div>
+
+  <div class="hero-eyebrow">
+    <span>✦</span>
+    The Sims Legacy Collection
+    <span>✦</span>
+  </div>
+
+  <h1 class="hero-title">
+    The <span>Modding</span> Guide
+  </h1>
+
+  <p class="hero-sub">
+    Everything you need to mod, customise, and bring new life to The Sims Legacy Collection (2025)
+  </p>
+
+  <div class="hero-badges">
+    <span class="badge badge-green">✓ Patch 1.122 Compatible</span>
+    <span class="badge badge-gold">◆ Legacy Collection 2025</span>
+    <span class="badge badge-white">Updated March 2026</span>
+    <span class="badge badge-white">Windows 10 &amp; 11</span>
+  </div>
+
+  <nav class="quick-grid" aria-label="Jump to section">
+    <a class="quick-btn" href="#install">
+      <span class="quick-btn-emoji">📁</span>
+      <span class="quick-btn-label">Installing Mods</span>
+      <span class="quick-btn-sub">Folder paths &amp; how-to</span>
+    </a>
+    <a class="quick-btn" href="#sites">
+      <span class="quick-btn-emoji">🌐</span>
+      <span class="quick-btn-label">Download Sites</span>
+      <span class="quick-btn-sub">Best active mod sites</span>
+    </a>
+    <a class="quick-btn" href="#mods">
+      <span class="quick-btn-emoji">⚙️</span>
+      <span class="quick-btn-label">Must-Have Mods</span>
+      <span class="quick-btn-sub">QoL, bugs &amp; gameplay</span>
+    </a>
+    <a class="quick-btn" href="#cc">
+      <span class="quick-btn-emoji">🎨</span>
+      <span class="quick-btn-label">Creating CC</span>
+      <span class="quick-btn-sub">Skins, clothes &amp; hair</span>
+    </a>
+    <a class="quick-btn" href="#iff">
+      <span class="quick-btn-emoji">🔧</span>
+      <span class="quick-btn-label">IFF Hacking</span>
+      <span class="quick-btn-sub">Make your own mods</span>
+    </a>
+    <a class="quick-btn" href="#limits">
+      <span class="quick-btn-emoji">🔬</span>
+      <span class="quick-btn-label">What's Possible</span>
+      <span class="quick-btn-sub">Engine limits explained</span>
+    </a>
+  </nav>
+
+</header>
+
+<!-- ── MAIN ──────────────────────────────────────────────────────── -->
+<main>
+
+  <!-- ═══ INSTALL ═════════════════════════════════════════════════ -->
+  <section id="install">
+    <div class="section-head">
+      <div class="section-emoji">📁</div>
+      <div class="section-title-wrap">
+        <h2 class="section-title">Installing Mods</h2>
+        <p class="section-sub">Folder paths, rules, and save file location</p>
+      </div>
+    </div>
+
+    <div class="callout teal">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>Unlike Sims 4,</strong> mods go inside the <strong>game's install directory</strong> — not your Documents folder. The subfolder names are the same for both EA App and Steam installs.
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">🎮 Steam Install</div>
+        <div class="card-desc">Right-click the game → Manage → Browse local files to open this folder.</div>
+        <div class="code-block">C:\Program Files (x86)\Steam\steamapps\common\The Sims Legacy Collection\</div>
+      </div>
+      <div class="card">
+        <div class="card-title">🟧 EA App Install</div>
+        <div class="card-desc">In EA App, right-click the game → Manage → Open install folder.</div>
+        <div class="code-block">C:\Program Files\EA Games\The Sims Legacy\</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin:32px 0 14px;">What Goes Where</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>File Type</th><th>Destination Subfolder</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>.iff &amp; .FAR files</td><td>Downloads\</td><td style="color:var(--ink-mid);">The vast majority of mods go here</td></tr>
+          <tr><td>.BMP .CMX .SKN (skins)</td><td>GameData\Skins\</td><td><span class="no">⚠ NO subfolders — files must sit directly in this folder</span></td></tr>
+          <tr><td>.WLL (wall coverings)</td><td>GameData\Walls\</td><td style="color:var(--ink-mid);">Custom wallpaper &amp; walls</td></tr>
+          <tr><td>.FLR (floor tiles)</td><td>GameData\Floors\</td><td style="color:var(--ink-mid);">Custom floor textures</td></tr>
+          <tr><td>Game file overrides</td><td>GameData\Objects\</td><td style="color:var(--ink-mid);">For mods that replace existing game objects</td></tr>
+          <tr><td>Expansion overrides</td><td>ExpansionPack#\</td><td style="color:var(--ink-mid);"># = expansion number (1–7)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout green" style="margin-top:20px;">
+      <span class="callout-icon">🔄</span>
+      <div class="callout-body">
+        <strong>Using old mod instructions?</strong> Replace <code>C:\Program Files (x86)\Maxis\The Sims\</code> with the Steam or EA App path above. All subfolder names are identical.
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <span class="callout-icon">💾</span>
+      <div class="callout-body">
+        <strong>Save files live here — back them up before installing any mods!</strong><br>
+        <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code>
+      </div>
+    </div>
+
+    <div class="callout red">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>Critical rules:</strong> Skin files must be placed <em>directly</em> in GameData\Skins\ with no subfolders. Always unzip files before placing them. Add mods one at a time so you can easily spot any that cause problems.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SITES ════════════════════════════════════════════════════ -->
+  <section id="sites">
+    <div class="section-head">
+      <div class="section-emoji">🌐</div>
+      <div class="section-title-wrap">
+        <h2 class="section-title">Mod Download Sites</h2>
+        <p class="section-sub">All confirmed active and Legacy-compatible in 2025</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+
+      <div class="card featured">
+        <div class="card-title">Simblr.cc — Sims 1 Mods</div>
+        <div class="card-desc">The most active Sims 1 modding community right now. New content still being uploaded regularly throughout 2025. Gameplay hacks, bug fixes, new objects, and detailed tutorials all in one place.</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;">
+          <span class="tag tag-green">Gameplay mods</span>
+          <span class="tag tag-green">Bug fixes</span>
+          <span class="tag tag-green">Tutorials</span>
+          <span class="tag tag-green">Objects</span>
+        </div>
+        <a class="card-link" href="https://simblr.cc/ts1/mods/" target="_blank" rel="noopener">↗ simblr.cc/ts1/mods/</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Corylea's Sims 1 Mods</div>
+        <div class="card-desc">An extensive personal collection of high-quality QoL hacks. Last updated February 2026. Includes No Relationship Decay, Two-Hour Carpool Warning, No Forced Career Change, Flirt with Friends and dozens more.</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;">
+          <span class="tag tag-gold">Updated Feb 2026</span>
+          <span class="tag tag-green">QoL hacks</span>
+          <span class="tag tag-green">Careers</span>
+        </div>
+        <a class="card-link" href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank" rel="noopener">↗ corylea.com</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Nexus Mods — The Sims</div>
+        <div class="card-desc">Growing Sims 1 section since the Legacy launch. Well-documented mods with version tracking, user comments, and easy downloads.</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;">
+          <span class="tag tag-teal">Version tracking</span>
+          <span class="tag tag-green">Growing fast</span>
+        </div>
+        <a class="card-link" href="https://www.nexusmods.com/thesims/mods" target="_blank" rel="noopener">↗ nexusmods.com/thesims</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Simlogical</div>
+        <div class="card-desc">Classic, reliable Sims 1 site. Home of the Smart Curtains, Power-Nap Recliners and other beloved hacked objects. Detailed install notes included with everything.</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;">
+          <span class="tag tag-green">Objects</span>
+          <span class="tag tag-green">Hacks</span>
+          <span class="tag tag-green">Guides</span>
+        </div>
+        <a class="card-link" href="https://www.simlogical.com/" target="_blank" rel="noopener">↗ simlogical.com</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">SomeSimThings</div>
+        <div class="card-desc">Work From Home Computer mod, Simazon Delivery, hacked objects and conversions from other games. Great variety of quality-of-life additions.</div>
+        <a class="card-link" href="https://somesimthings.tumblr.com/" target="_blank" rel="noopener">↗ somesimthings.tumblr.com</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">The Sims Resource — Sims 1</div>
+        <div class="card-desc">Huge archive of clothing, hair and objects from the original era. An enormous catalogue to explore. Some content requires a free account.</div>
+        <a class="card-link" href="https://www.thesimsresource.com/downloads/browse/category/sims1/" target="_blank" rel="noopener">↗ thesimsresource.com</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">ModTheSims — Sims 1</div>
+        <div class="card-desc">The historic community hub. Sims 1-specific forums, legacy mod threads and tutorials going back to the year 2000. Vast archive.</div>
+        <a class="card-link" href="https://www.modthesims.info/d/368/" target="_blank" rel="noopener">↗ modthesims.info</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Pleasant Sims — 70+ Site Directory</div>
+        <div class="card-desc">The most comprehensive curated list of active Sims 1 CC sites on the internet. If you can't find something, someone on this list will have it. An essential bookmark.</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;">
+          <span class="tag tag-gold">Master directory</span>
+        </div>
+        <a class="card-link" href="https://pleasantsims.com/active-sims-1-sites/" target="_blank" rel="noopener">↗ pleasantsims.com</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ MODS ══════════════════════════════════════════════════════ -->
+  <section id="mods">
+    <div class="section-head">
+      <div class="section-emoji">⚙️</div>
+      <div class="section-title-wrap">
+        <h2 class="section-title">Must-Have Mods</h2>
+        <p class="section-sub">All confirmed working with Legacy Collection patch 1.122</p>
+      </div>
+    </div>
+
+    <div class="callout teal">
+      <span class="callout-icon">📂</span>
+      <div class="callout-body">All mods below go in your <code>Downloads\</code> folder unless a note says otherwise. Unzip everything before moving the files.</div>
+    </div>
+
+    <div class="cat-label">⚙️ Quality of Life</div>
+    <div class="mod-grid">
+      <div class="mod-card">
+        <div class="mod-name">No Relationship Decay</div>
+        <div class="mod-by">by Corylea</div>
+        <div class="mod-desc">Friends stay friends forever. Relationships still drop if you're mean, but not just from not calling for a few days. Requires Makin' Magic expansion.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://www.nexusmods.com/thesims/mods/251" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">Domcal Weekends Mod</div>
+        <div class="mod-by">A Little White Magic</div>
+        <div class="mod-desc">Adds actual weekends to the game. Sims will not be fired for missing work on Saturday and Sunday. One of the most requested QoL changes ever.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://white.leadpipecollection.net/" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">Two-Hour Carpool Warning</div>
+        <div class="mod-by">by Corylea</div>
+        <div class="mod-desc">Get a proper 2-hour advance notice before the carpool arrives, instead of last-minute panic.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">No Forced Career Change at Level 10</div>
+        <div class="mod-by">by Corylea</div>
+        <div class="mod-desc">Stops the game from randomly reassigning your Sim's career when they reach the top promotion level.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">No Friends Required for Promotions</div>
+        <div class="mod-by">ModTheSims Community</div>
+        <div class="mod-desc">Removes the friend count requirement for career advancement. Works for the Fame career in Superstar too.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://modthesims.info/showthread.php?t=690641" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">Need-Freezing — Community Lots</div>
+        <div class="mod-by">by Corylea</div>
+        <div class="mod-desc">Freezes motive bars while Sims are on community lots. No more Sims fainting mid-dinner at a restaurant.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">Work From Home Computer</div>
+        <div class="mod-by">SomeSimThings</div>
+        <div class="mod-desc">Skip the carpool entirely — Sims can complete their whole work shift from a home computer. Multiple styles available.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://somesimthings.tumblr.com/" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">Food Stays Fresh for a Week</div>
+        <div class="mod-by">by Corylea</div>
+        <div class="mod-desc">Dramatically slows how quickly prepared food goes bad, so leftovers are actually useful.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+    </div>
+
+    <div class="cat-label">🏠 Objects &amp; Furniture</div>
+    <div class="mod-grid">
+      <div class="mod-card">
+        <div class="mod-name">Smart Curtains</div>
+        <div class="mod-by">Simlogical</div>
+        <div class="mod-desc">Curtains that automatically open at dawn and close at dusk, with a toggle for manual control. Multiple styles; recolouring instructions included.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://www.simlogical.com/" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">Power-Nap Recliners</div>
+        <div class="mod-by">Simlogical</div>
+        <div class="mod-desc">4 recliner styles that let Sims take a short energy-restoring power nap. Toggle autonomous use on or off.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://www.simlogical.com/" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">ppxlSimBook Hacked Computer</div>
+        <div class="mod-by">ppxl on Simblr.cc</div>
+        <div class="mod-desc">An all-in-one computer: social need boost, all skills faster, video chat, shop from home, work from home, and pay bills. One object does everything. Uploaded 2025.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://simblr.cc/ts1/mods/" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">Bunk Beds</div>
+        <div class="mod-by">Simblr.cc Community</div>
+        <div class="mod-desc">Adds bunk beds and loft beds with a claimable top bunk. Brilliant for smaller homes or big families.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://simblr.cc/ts1/mods/" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">Hidden Objects Unlocked</div>
+        <div class="mod-by">Lenna on Simblr.cc</div>
+        <div class="mod-desc">Unlocks various hidden and debug objects from the Buy Mode catalogue that were in the game files but never made available to players.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://simblr.cc/ts1/mods/" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-name">Simazon Delivery Services</div>
+        <div class="mod-by">Damondamore on Simblr.cc</div>
+        <div class="mod-desc">Pick up the phone and order objects delivered straight to your door — like a Sims-world online shop.</div>
+        <div class="mod-foot"><a class="card-link" style="margin-top:0;" href="https://simblr.cc/ts1/mods/" target="_blank" rel="noopener">Download ↗</a></div>
+      </div>
+    </div>
+
+    <div class="cat-label">🐛 Bug Fixes</div>
+    <div class="callout green">
+      <span class="callout-icon">✅</span>
+      <div class="callout-body">All bug fixes below are by <strong>Lenna on Simblr.cc</strong> and go in your Downloads folder. Expansion packs noted where required. <a href="https://simblr.cc/ts1/mods/" target="_blank" style="color:var(--green-dark);font-weight:800;">Browse all on Simblr.cc →</a></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mod Name</th><th>What It Fixes</th><th>Expansion Required</th></tr></thead>
+        <tbody>
+          <tr><td>Pets Eat Fix</td><td>Pets refusing to eat from their food bowl</td><td>Unleashed</td></tr>
+          <tr><td>Cats Don't Eat Fish &amp; Birds</td><td>Cats killing aquarium fish and pet birds autonomously</td><td>Unleashed</td></tr>
+          <tr><td>Gophers Don't Destroy Crops</td><td>Gophers ravaging your garden without consequences</td><td>Base game</td></tr>
+          <tr><td>Obsessed Fan Fix</td><td>Broken NPC behaviour for the Obsessed Fan in Makin' Magic</td><td>Makin' Magic</td></tr>
+          <tr><td>Celebrity Award Bug Fix</td><td>Celebrities not receiving The Simmy and Sim Choice awards</td><td>Superstar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ CC CREATION ══════════════════════════════════════════════ -->
+  <section id="cc">
+    <div class="section-head">
+      <div class="section-emoji">🎨</div>
+      <div class="section-title-wrap">
+        <h2 class="section-title">Creating Custom Skins, Clothes &amp; Hair</h2>
+        <p class="section-sub">A beginner-friendly guide to making your own Sims 1 content</p>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <span class="callout-icon">📌</span>
+      <div class="callout-body">
+        <strong>Sims 1 is different from later games.</strong> A Sim's body and clothing are a single texture file. Hair is painted directly onto the head skin. You can't mix and match tops and bottoms — each outfit is a complete skin covering the whole body.
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:24px;">
+      <div class="card">
+        <div class="card-title">🛠️ The Sims Creator (TSC)</div>
+        <div class="card-desc">The official Maxis CC creation tool. Provides a 3D rotating Sim body to paint onto and automatically exports the correct game-ready files. <strong>This is your starting point for all clothing and hair creation.</strong></div>
+        <div class="card-desc" style="margin-top:8px;">Find it by searching "Sims Creator" on ModTheSims or The Sims Resource.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">🖼️ GIMP — Free Image Editor</div>
+        <div class="card-desc">For painting and editing textures in detail outside of TSC. Critical: before exporting your file, you <em>must</em> convert it: <strong>Image → Mode → Indexed</strong> (256 colours). Regular BMPs show as a blank white body in-game.</div>
+        <a class="card-link" href="https://www.gimp.org/" target="_blank" rel="noopener">↗ gimp.org — free download</a>
+      </div>
+    </div>
+
+    <h3 style="font-size:19px;font-weight:800;color:var(--ink);margin:36px 0 20px;">Making Custom Clothing — Step by Step</h3>
+    <div class="steps">
+      <div class="step"><div class="step-num"></div><div class="step-body">
+        <h4>Open The Sims Creator and choose a body mesh</h4>
+        <p>Pick the body type you're designing for: fit/fat/skinny, male/female, adult/child. Each needs a separate outfit — a fit female outfit won't work on a fat female body without a separate version.</p>
+      </div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body">
+        <h4>Export the base texture to your image editor</h4>
+        <p>You'll see the "UV layout" — a flat map of how the 2D texture wraps around the 3D body. The front torso is in the centre; arms are in strips to the sides; legs at the bottom.</p>
+      </div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body">
+        <h4>Paint your outfit on top in GIMP or Photoshop</h4>
+        <p>Work in layers — keep the base skin on one layer and paint your clothing on top. Use the Warp transform tool to fit patterns and textures around the body shape. Pay attention to edges where body parts join — seam misalignments show clearly in-game.</p>
+      </div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body">
+        <h4>Make all three skin tone versions</h4>
+        <p>Sims 1 has light, medium and dark skin tones. If your outfit covers the full body, make three copies — one per skin tone. Swap the base skin layer underneath your clothing for each and re-export.</p>
+      </div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body">
+        <h4>Save as Indexed BMP — this is critical!</h4>
+        <p>In GIMP: <strong>Image → Mode → Indexed → Export as .BMP</strong>. In Photoshop: <strong>Image → Mode → Indexed Colour → Save As .BMP</strong>. Do not save as a regular 24-bit BMP, PNG or JPG — the game will show it as a blank white body.</p>
+      </div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body">
+        <h4>Import back into TSC and export the final files</h4>
+        <p>TSC generates the .BMP, .CMX and .SKN files. Place all three <strong>directly inside GameData\Skins\</strong> with no subfolders whatsoever.</p>
+      </div></div>
+    </div>
+
+    <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin:36px 0 16px;">Useful Tutorials</h3>
+    <div class="grid-3">
+      <a class="card" href="https://simblr.cc/ts1/tutorial/1890-making-skins-for-the-sims-1-a-retexture-tutorial.html" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="card-title" style="font-size:15px;">Simblr.cc Retexture Tutorial</div>
+        <div class="card-desc">Using Sims 2 Body Shop textures as a source for Sims 1 outfits. Detailed walkthrough with images.</div>
+      </a>
+      <a class="card" href="https://beyondsims.com/the-sims/the-sims-1/tutorials-the-sims/" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="card-title" style="font-size:15px;">BeyondSims Tutorial Directory</div>
+        <div class="card-desc">A comprehensive list covering gameplay, skinning, CC creation and Windows 10/11 setup.</div>
+      </a>
+      <a class="card" href="https://www.thesimsdepot.com/sims-1/" target="_blank" rel="noopener" style="text-decoration:none;">
+        <div class="card-title" style="font-size:15px;">The Sims Depot</div>
+        <div class="card-desc">Must-have programs guide, adding skins and meshes. Good beginner-friendly resource.</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ IFF HACKING ══════════════════════════════════════════════ -->
+  <section id="iff">
+    <div class="section-head">
+      <div class="section-emoji">🔧</div>
+      <div class="section-title-wrap">
+        <h2 class="section-title">IFF Hacking — Creating Gameplay Mods</h2>
+        <p class="section-sub">Build your own objects, hacks and interactions</p>
+      </div>
+    </div>
+
+    <p style="color:var(--ink-mid);margin-bottom:20px;font-size:15px;">Every object in Sims 1 is an <code>.iff</code> file containing visual sprites, behaviour scripts (BHAV), numeric values (BCON) and text labels (STR#). IFF hacking means editing these to change how objects work — or creating new ones entirely.</p>
+
+    <div class="callout green">
+      <span class="callout-icon">⚡</span>
+      <div class="callout-body"><strong>Always clone an object before editing it.</strong> Use Transmogrifier to create a copy of any game object as a new .iff file. Never modify original game files directly — you may not be able to recover them.</div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:20px;">
+      <table>
+        <thead><tr><th>Tool</th><th>What It Does</th><th>Level</th><th>Download</th></tr></thead>
+        <tbody>
+          <tr><td>Transmogrifier (TMog)</td><td>Clones any game object as a new .iff — always start here</td><td class="ok">🟢 Beginner</td><td><a href="https://www.simlogical.com/ContentPages/ContentPages/tools.htm" target="_blank" style="color:var(--green-dark);font-weight:700;">Simlogical ↗</a></td></tr>
+          <tr><td>IFF Pencil 2</td><td>Full .iff editor — sprites, BHAV behaviour scripts, all resources</td><td class="warn">🟡 Intermediate</td><td><a href="https://github.com/trolando/Sims1Tools" target="_blank" style="color:var(--green-dark);font-weight:700;">GitHub ↗</a></td></tr>
+          <tr><td>Constant Contraption</td><td>Edit numeric values like price, skill gain rate, motive impact</td><td class="ok">🟢 Beginner</td><td><a href="https://github.com/trolando/Sims1Tools" target="_blank" style="color:var(--green-dark);font-weight:700;">GitHub ↗</a></td></tr>
+          <tr><td>Career Creator 3</td><td>Specialised editor for creating new career tracks</td><td class="ok">🟢 Beginner</td><td><a href="https://github.com/trolando/Sims1Tools" target="_blank" style="color:var(--green-dark);font-weight:700;">GitHub ↗</a></td></tr>
+          <tr><td>Strings Scavenger</td><td>Edit text labels — object names, interaction menu text</td><td class="ok">🟢 Beginner</td><td><a href="https://github.com/trolando/Sims1Tools" target="_blank" style="color:var(--green-dark);font-weight:700;">GitHub ↗</a></td></tr>
+          <tr><td>FARx</td><td>Extract .iff files from .FAR container bundles for editing</td><td class="warn">🟡 Intermediate</td><td><a href="https://github.com/trolando/Sims1Tools" target="_blank" style="color:var(--green-dark);font-weight:700;">GitHub ↗</a></td></tr>
+          <tr><td>Simpose</td><td>Create custom Sim poses and animations</td><td class="no">🔴 Advanced</td><td><a href="http://www.awesomeexpression.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Awesome Expression ↗</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ LIMITS ═══════════════════════════════════════════════════ -->
+  <section id="limits">
+    <div class="section-head">
+      <div class="section-emoji">🔬</div>
+      <div class="section-title-wrap">
+        <h2 class="section-title">What's Possible — Engine Limits</h2>
+        <p class="section-sub">Honest answers about what can and can't be done</p>
+      </div>
+    </div>
+
+    <div class="status-row can">
+      <div class="status-icon">✅</div>
+      <div>
+        <div class="status-title">Change outfit anytime via a mirror (intermediate IFF hack)</div>
+        <div class="status-body">Outfit changes through a Dresser or Wardrobe are already built into the base game. Adding this to a mirror requires cloning the mirror .iff and pointing it to the dresser's existing outfit-change behaviour routine in IFF Pencil 2. No standalone mod exists yet — check Simblr.cc, or try it yourself following the IFF Hacking section above.</div>
+      </div>
+    </div>
+
+    <div class="status-row maybe">
+      <div class="status-icon">⚠️</div>
+      <div>
+        <div class="status-title">Change Sim appearance (face/hair/skintone) in live mode</div>
+        <div class="status-body">Not possible in live mode via any current mod. <strong>Workaround:</strong> Use The Sims Creator to edit and replace a Sim's head or body skin files outside the game, then reload your save. A true in-game "makeover mirror" would need a behaviour that swaps skin file references — advanced territory that hasn't been cracked yet. Watch Simblr.cc for developments.</div>
+      </div>
+    </div>
+
+    <div class="status-row cannot">
+      <div class="status-icon">❌</div>
+      <div>
+        <div class="status-title">Children growing into Teens, Teens into Adults (Sims 2-style aging)</div>
+        <div class="status-body">The Sims 1 engine has only <strong>three life stages: Baby, Child, and Adult</strong>. The teen life stage didn't exist until Sims 2. Adding it would require modifying the core game executable (sims.exe), which is encrypted in the Legacy Collection. The only built-in child ageing path is the Makin' Magic "Age of Instant" charm — which ages a child to adult but fully randomises their appearance. For full generational aging, The Sims 2 Legacy Collection (included in the same bundle) has the complete baby → toddler → child → teen → adult → elder system.</div>
+      </div>
+    </div>
+
+    <div class="status-row cannot">
+      <div class="status-icon">❌</div>
+      <div>
+        <div class="status-title">Edge scrolling on dual monitors</div>
+        <div class="status-body">Edge scrolling requires Fullscreen mode. Dual monitors require Windowed or Windowed Fullscreen mode. These are mutually exclusive at engine level — no mod can fix this. <strong>Workaround:</strong> use WASD or the arrow keys for camera panning. Go to Game Options → Graphics and set "Windowed Fullscreen" for the best dual-monitor experience.</div>
+      </div>
+    </div>
+
+    <div class="status-row can">
+      <div class="status-icon">✅</div>
+      <div>
+        <div class="status-title">Higher resolution and sharper-looking sprites</div>
+        <div class="status-body">The March 2025 patch already added fractional scaling — at 4K, the game renders at 3× native scale for noticeably sharper sprites. Make sure your game is fully updated and set to your monitor's native resolution in Game Options → Graphics. Community texture upscale packs are beginning to appear on Simblr.cc and Nexus Mods.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TROUBLESHOOT ═════════════════════════════════════════════ -->
+  <section id="troubleshoot">
+    <div class="section-head">
+      <div class="section-emoji">🛠️</div>
+      <div class="section-title-wrap">
+        <h2 class="section-title">Troubleshooting</h2>
+        <p class="section-sub">Common problems and how to fix them</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+
+      <div class="trouble-card">
+        <div class="trouble-title">📁 Mods not showing in game</div>
+        <ul class="trouble-list">
+          <li>Unzip everything first — the game cannot read .zip files directly</li>
+          <li>Skin files must sit <strong>directly in GameData\Skins\</strong> — no subfolders at all</li>
+          <li>Check the file extension is correct (.iff, not .iff.zip)</li>
+          <li>Some mods need GameData\Objects\ or an ExpansionPack\ folder — always read the readme</li>
+        </ul>
+      </div>
+
+      <div class="trouble-card">
+        <div class="trouble-title">💥 Game crashes after a new mod</div>
+        <ul class="trouble-list">
+          <li>Remove all new mods, then add them back one at a time</li>
+          <li>Check Simblr.cc and EA Forums for patch 1.122 compatibility notes</li>
+          <li>Look for a Legacy-compatible update on the creator's page</li>
+          <li>Try adding to a fresh save rather than your main neighbourhood</li>
+        </ul>
+      </div>
+
+      <div class="trouble-card">
+        <div class="trouble-title">🤍 Skins show as a white blank body</div>
+        <ul class="trouble-list">
+          <li>Your BMP is not saved as Indexed (256-colour) format</li>
+          <li><strong>GIMP:</strong> Image → Mode → Indexed → Export As BMP</li>
+          <li><strong>Photoshop:</strong> Image → Mode → Indexed Colour → Save As BMP</li>
+          <li>Do not use PNG, JPG or 24-bit BMP formats</li>
+        </ul>
+      </div>
+
+      <div class="trouble-card">
+        <div class="trouble-title">📦 Old mod won't work in Legacy</div>
+        <ul class="trouble-list">
+          <li>Use the path translation in the Install section above</li>
+          <li>Mods that patch sims.exe directly won't work — the EXE is encrypted in Legacy</li>
+          <li>Check the mod creator's page for a Legacy-specific update</li>
+          <li>Post in the EA Forums Sims 1 section for community help</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin:40px 0 16px;">Community Help</h3>
+    <div class="community-grid">
+      <a class="community-card" href="https://forums.ea.com/discussions/the-sims-1-en/" target="_blank" rel="noopener">
+        <div class="community-icon">🏛️</div>
+        <div>
+          <div class="community-name">EA Forums — Sims 1</div>
+          <div class="community-url">forums.ea.com</div>
+        </div>
+      </a>
+      <a class="community-card" href="https://steamcommunity.com/app/3314060/discussions/" target="_blank" rel="noopener">
+        <div class="community-icon">🎮</div>
+        <div>
+          <div class="community-name">Steam Community</div>
+          <div class="community-url">steamcommunity.com</div>
+        </div>
+      </a>
+      <a class="community-card" href="https://simblr.cc/" target="_blank" rel="noopener">
+        <div class="community-icon">🌱</div>
+        <div>
+          <div class="community-name">Simblr.cc</div>
+          <div class="community-url">simblr.cc</div>
+        </div>
+      </a>
+      <a class="community-card" href="https://www.modthesims.info/d/368/" target="_blank" rel="noopener">
+        <div class="community-icon">🏗️</div>
+        <div>
+          <div class="community-name">ModTheSims</div>
+          <div class="community-url">modthesims.info</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="plumbob sm" style="background:var(--green);"></div>
+      The Sims Legacy Collection — Modding Guide
+    </div>
+    <div class="footer-links">
+      <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
+      <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
+      <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
+      <a href="https://www.nexusmods.com/thesims/mods" target="_blank">Nexus Mods</a>
+      <a href="https://modthesims.info/" target="_blank">ModTheSims</a>
+      <a href="https://pleasantsims.com/active-sims-1-sites/" target="_blank">70+ Sites Directory</a>
+    </div>
+    <p>Community guide · Not affiliated with EA or Maxis · Last updated March 2026 · Patch 1.122 compatible</p>
+  </div>
+</footer>
+
+</body>
+</html>
