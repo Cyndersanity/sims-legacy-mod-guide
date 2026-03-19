@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troubleshooting - Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F2E8;--cream-dark:#EDE8D6;--white:#FFFFFF;
+  --green:#3BAE5C;--green-mid:#2D8A47;--green-dark:#1A5229;--green-pale:#E6F5EB;
+  --gold:#E8B84B;--gold-pale:#FDF5DC;--gold-dark:#9A6F10;
+  --teal:#3AADA8;--teal-pale:#E1F5F4;
+  --red:#D94F4F;--red-pale:#FDEAEA;
+  --ink:#1C2B1F;--ink-mid:#3D5445;--ink-muted:#6B8A72;
+  --border:rgba(27,82,41,0.12);
+  --shadow-sm:0 1px 4px rgba(27,82,41,0.08);
+  --shadow-md:0 4px 16px rgba(27,82,41,0.10);
+  --radius-sm:8px;--radius-md:14px;--radius-lg:20px;
+  --font-head:'Paytone One',sans-serif;
+  --font-body:'Nunito',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden;}
+::selection{background:var(--green);color:#fff;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--cream-dark);}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px;}
+a{color:var(--green-dark);}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:0.5;}
+.plumbob{display:inline-block;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);flex-shrink:0;}
+.plumbob.sm{width:16px;height:16px;background:var(--green);}
+.plumbob.md{width:28px;height:28px;background:var(--green);}
+.plumbob.lg{width:52px;height:52px;background:var(--green);animation:pb-float 3s ease-in-out infinite;}
+.plumbob.gold{background:var(--gold)!important;}
+@keyframes pb-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:4px;padding:10px 0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:16px;flex-shrink:0;}
+.nav-brand-text{font-family:var(--font-head);font-size:13px;color:var(--green-dark);line-height:1;}
+.nav-link{font-family:var(--font-body);font-size:13px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:6px 12px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
+.nav-link:hover,.nav-link.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+
+/* PAGE HERO */
+.page-hero{position:relative;z-index:1;background:linear-gradient(160deg,#D6EFD8 0%,#EAF6E0 40%,var(--cream) 100%);border-bottom:3px solid var(--border);padding:56px 24px 48px;text-align:center;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--green-dark);background:var(--white);border:2px solid rgba(27,82,41,0.18);padding:5px 14px;border-radius:999px;margin-bottom:16px;}
+.page-title{font-family:var(--font-head);font-size:clamp(28px,5vw,52px);color:var(--green-dark);line-height:1.1;margin-bottom:12px;}
+.page-title span{color:var(--green);}
+.page-sub{font-size:16px;color:var(--ink-mid);font-weight:600;max-width:560px;margin:0 auto;}
+
+/* LAYOUT */
+.page-layout{max-width:1200px;margin:0 auto;padding:48px 24px 80px;display:grid;grid-template-columns:240px 1fr;gap:40px;position:relative;z-index:1;align-items:start;}
+@media(max-width:900px){.page-layout{grid-template-columns:1fr;}.toc{display:none;}}
+
+/* TABLE OF CONTENTS */
+.toc{position:sticky;top:80px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);}
+.toc-title{font-family:var(--font-head);font-size:13px;color:var(--green-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.toc-list{list-style:none;}
+.toc-list li{margin-bottom:2px;}
+.toc-list a{font-size:13px;font-weight:600;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:6px;display:block;border-left:2px solid transparent;transition:all 0.15s;}
+.toc-list a:hover{color:var(--green-dark);background:var(--green-pale);border-left-color:var(--green);}
+.toc-list .toc-sub a{font-size:12px;padding-left:20px;font-weight:600;}
+.toc-divider{height:1px;background:var(--border);margin:10px 0;}
+.toc-back{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;margin-top:12px;transition:all 0.15s;}
+.toc-back:hover{background:var(--green-pale);color:var(--green-dark);}
+
+/* CONTENT */
+.content section{margin-bottom:56px;}
+.section-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border);}
+.section-emoji{font-size:32px;flex-shrink:0;}
+.section-title{font-family:var(--font-head);font-size:clamp(20px,3vw,28px);color:var(--ink);}
+.section-sub{font-size:14px;color:var(--ink-muted);font-weight:600;margin-top:4px;}
+
+/* CARDS */
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:24px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.card:hover{border-color:var(--green);box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.card-title{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.card-desc{font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:12px;}
+.tag{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:10px;font-weight:600;padding:3px 9px;border-radius:999px;border:1.5px solid;}
+.tag.green{border-color:var(--green);color:var(--green-dark);background:var(--green-pale);}
+.tag.gold{border-color:var(--gold);color:var(--gold-dark);background:var(--gold-pale);}
+.tag.teal{border-color:var(--teal);color:#0d6e6a;background:var(--teal-pale);}
+.tag.red{border-color:var(--red);color:#7a1a1a;background:var(--red-pale);}
+.pill-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--green-dark);text-decoration:none;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.2);padding:5px 13px;border-radius:999px;transition:all 0.18s;margin-top:8px;}
+.pill-link:hover{background:var(--green);color:#fff;border-color:var(--green);}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+
+/* CALLOUTS */
+.callout{border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;border-left:4px solid;font-size:15px;line-height:1.7;}
+.callout.green{background:var(--green-pale);border-color:var(--green);}
+.callout.gold{background:var(--gold-pale);border-color:var(--gold);}
+.callout.red{background:var(--red-pale);border-color:var(--red);}
+.callout.teal{background:var(--teal-pale);border-color:var(--teal);}
+.callout strong{font-weight:800;}
+
+/* CODE */
+.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;}
+code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);}
+th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:11px;letter-spacing:0.5px;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:2px solid var(--border);}
+td{padding:12px 16px;border-bottom:1px solid rgba(27,82,41,0.06);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(59,174,92,0.04);}
+td:first-child{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--green-dark);}
+.ok{color:#1A5229;font-weight:700;} .warn{color:#9A6F10;font-weight:700;} .no{color:#7a1a1a;font-weight:700;}
+
+/* STEPS */
+.steps{counter-reset:step;}
+.step{display:flex;gap:18px;margin-bottom:24px;}
+.step-num{counter-increment:step;flex-shrink:0;width:38px;height:38px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:14px;color:#fff;}
+.step-num::after{content:counter(step);}
+.step-content h4{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.step-content p{font-size:14px;color:var(--ink-mid);}
+
+/* STATUS ROWS */
+.status-row{display:flex;gap:16px;padding:20px 22px;border-radius:var(--radius-md);background:var(--white);border:2px solid var(--border);margin-bottom:14px;box-shadow:var(--shadow-sm);}
+.status-row.can{border-left:4px solid var(--green);}
+.status-row.maybe{border-left:4px solid var(--gold);}
+.status-row.cannot{border-left:4px solid var(--red);}
+.status-icon{font-size:26px;flex-shrink:0;margin-top:2px;}
+.status-title{font-weight:800;font-size:16px;margin-bottom:6px;}
+.status-body{font-size:14px;color:var(--ink-mid);line-height:1.7;}
+
+/* TROUBLE CARDS */
+.trouble-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);}
+.trouble-title{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:12px;}
+.trouble-list{list-style:none;padding:0;}
+.trouble-list li{font-size:14px;color:var(--ink-mid);padding:5px 0 5px 20px;position:relative;border-bottom:1px solid var(--border);}
+.trouble-list li:last-child{border-bottom:none;}
+.trouble-list li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700;}
+
+/* MOD CARDS */
+.mod-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.mod-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.mod-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.mod-by{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);margin-bottom:8px;}
+.mod-desc{font-size:13px;color:var(--ink-mid);margin-bottom:10px;line-height:1.6;}
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+.cat-label{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--green-dark);text-transform:uppercase;letter-spacing:1px;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);display:inline-block;padding:4px 12px;border-radius:999px;margin:28px 0 14px;}
+
+/* COMMUNITY CARDS */
+.community-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px;}
+.community-card{display:flex;align-items:center;gap:14px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:16px 18px;text-decoration:none;color:var(--ink);transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.community-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.community-icon{font-size:24px;flex-shrink:0;}
+.community-name{font-weight:800;font-size:14px;}
+.community-url{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,255,255,0.8);padding:40px 24px;}
+.footer-inner{max-width:1200px;margin:0 auto;text-align:center;}
+.footer-brand{font-family:var(--font-head);font-size:15px;color:#fff;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.footer-links{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;transition:all 0.15s;}
+.footer-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
+footer p{font-size:12px;color:rgba(255,255,255,0.5);}
+
+@media(max-width:640px){
+  .page-layout{padding:32px 16px 60px;}
+  .step{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <span class="plumbob sm"></span>
+      <span class="nav-brand-text">SIMS LEGACY COLLECTION</span>
+    </a>
+    <a href="index.html" class="nav-link">🏠 Home</a>
+<a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
+<a href="installing-mods.html" class="nav-link">📁 Install</a>
+<a href="download-sites.html" class="nav-link">🌐 Sites</a>
+<a href="mod-list.html" class="nav-link">⚙️ Mods</a>
+<a href="making-cc.html" class="nav-link">🎨 Make CC</a>
+<a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
+<a href="troubleshooting.html" class="nav-link active">🛠️ Troubleshoot</a>
+
+  </div>
+</nav>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Troubleshooting</div>
+  <h1 class="page-title"><span>Troubleshooting</span></h1>
+  <p class="page-sub">Fixes for common mod issues and game problems</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#mods-not-showing">Mods Not Showing</a></li><li><a href="#crashes">Game Crashes</a></li><li><a href="#white-skins">White/Blank Skins</a></li><li><a href="#old-mods">Old Mods Not Working</a></li><li><a href="#far-files">FAR Files Issues</a></li><li><a href="#community">Community Help</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
+    </div>
+  </aside>
+  <main class="content">
+    
+<div class="callout green">Start by removing all new mods and adding them back <strong>one at a time</strong> - this is the fastest way to find the one causing problems.</div>
+
+<section id="mods-not-showing">
+  <div class="section-head"><div class="section-emoji">📁</div><div class="section-title-wrap"><h2 class="section-title">Mods Not Showing in Game</h2></div></div>
+  <div class="trouble-card">
+    <div class="trouble-title">Check these things in order:</div>
+    <ul class="trouble-list">
+      <li>Unzip files first - the game cannot read .zip files directly</li>
+      <li>Skin files (.BMP/.CMX/.SKN) must be <strong>directly in GameData\Skins\</strong> - no subfolders at all</li>
+      <li>Check the file extension is correct (.iff, not .iff.zip)</li>
+      <li>Some mods need GameData\Objects\ or an ExpansionPack\ subfolder - always read the included readme</li>
+      <li>Check your game install path matches - Steam and EA App have different root folders</li>
+    </ul>
+  </div>
+</section>
+
+<section id="crashes">
+  <div class="section-head"><div class="section-emoji">💥</div><div class="section-title-wrap"><h2 class="section-title">Game Crashes After Installing a Mod</h2></div></div>
+  <div class="trouble-card">
+    <ul class="trouble-list">
+      <li>Remove all new mods and add them back one at a time until the crash reappears</li>
+      <li>Check Simblr.cc and EA Forums for known compatibility issues with the current patch (1.122)</li>
+      <li>Look on the mod creator's page - they may have released a Legacy-compatible update</li>
+      <li>Try the mod in a fresh test neighbourhood before adding it to your main save</li>
+      <li>Some mods that worked in the old Complete Collection need path adjustments for Legacy - see <a href="installing-mods.html">Installing Mods</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="white-skins">
+  <div class="section-head"><div class="section-emoji">🤍</div><div class="section-title-wrap"><h2 class="section-title">Skins Show as a White Blank Body</h2></div></div>
+  <div class="callout red"><strong>This is almost always a BMP format issue.</strong> Sims 1 requires Indexed (256-colour) BMP files - not regular 24-bit BMPs, PNGs or JPGs.</div>
+  <div class="trouble-card" style="margin-top:16px;">
+    <div class="trouble-title">How to fix it:</div>
+    <ul class="trouble-list">
+      <li><strong>GIMP:</strong> Image → Mode → Indexed (select 256 colours) → File → Export As → save as .BMP</li>
+      <li><strong>Photoshop:</strong> Image → Mode → Indexed Colour → File → Save As → BMP format</li>
+      <li><strong>Paint.NET:</strong> Install the IndirectBitmap plugin, then save as Indexed BMP</li>
+      <li>Do not use PNG, JPG, WebP or 24-bit BMP - none of these work in Sims 1</li>
+    </ul>
+  </div>
+</section>
+
+<section id="old-mods">
+  <div class="section-head"><div class="section-emoji">📦</div><div class="section-title-wrap"><h2 class="section-title">Old Mods Not Working in Legacy</h2></div></div>
+  <div class="trouble-card">
+    <ul class="trouble-list">
+      <li>Try the path translation - see the <a href="installing-mods.html">Installing Mods</a> page for how to convert old Maxis\ paths to Legacy paths</li>
+      <li>Mods that directly patched sims.exe will not work in Legacy - the EXE is encrypted</li>
+      <li>Check the mod creator's page or Simblr.cc for a Legacy-updated version</li>
+      <li>Post on EA Forums Sims 1 section or Simblr.cc - the community is good at identifying what's broken</li>
+    </ul>
+  </div>
+</section>
+
+<section id="far-files">
+  <div class="section-head"><div class="section-emoji">📦</div><div class="section-title-wrap"><h2 class="section-title">FAR Files Not Loading</h2></div></div>
+  <div class="trouble-card">
+    <ul class="trouble-list">
+      <li>.FAR files go in <code>Downloads\</code> alongside .iff files</li>
+      <li>If the FAR was designed for a specific expansion, it may need to be in that expansion's subfolder (ExpansionPack1–7)</li>
+      <li>Use FARx to extract the contents of the FAR and check what's inside - it may contain files that need to go in different folders</li>
+      <li>Check the readme included with the mod for specific placement instructions</li>
+    </ul>
+  </div>
+</section>
+
+<section id="community">
+  <div class="section-head"><div class="section-emoji">💬</div><div class="section-title-wrap"><h2 class="section-title">Still Stuck? Community Help</h2></div></div>
+  <div class="community-grid">
+    <a class="community-card" href="https://forums.ea.com/discussions/the-sims-1-en/" target="_blank" rel="noopener"><div class="community-icon">🏛️</div><div><div class="community-name">EA Forums - Sims 1</div><div class="community-url">forums.ea.com</div></div></a>
+    <a class="community-card" href="https://steamcommunity.com/app/3314060/discussions/" target="_blank" rel="noopener"><div class="community-icon">🎮</div><div><div class="community-name">Steam Community</div><div class="community-url">steamcommunity.com</div></div></a>
+    <a class="community-card" href="https://simblr.cc/" target="_blank" rel="noopener"><div class="community-icon">🌱</div><div><div class="community-name">Simblr.cc</div><div class="community-url">simblr.cc</div></div></a>
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection - Modding Guide
+    </div>
+    <div class="footer-links">
+      <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
+      <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
+      <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
+    </div>
+    <p>Community guide · Not affiliated with EA or Maxis · Last updated March 2026 · Patch 1.122 compatible</p>
+  </div>
+</footer>
+</body>
+</html>

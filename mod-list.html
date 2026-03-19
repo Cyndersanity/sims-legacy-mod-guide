@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Must-Have Mods - Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F2E8;--cream-dark:#EDE8D6;--white:#FFFFFF;
+  --green:#3BAE5C;--green-mid:#2D8A47;--green-dark:#1A5229;--green-pale:#E6F5EB;
+  --gold:#E8B84B;--gold-pale:#FDF5DC;--gold-dark:#9A6F10;
+  --teal:#3AADA8;--teal-pale:#E1F5F4;
+  --red:#D94F4F;--red-pale:#FDEAEA;
+  --ink:#1C2B1F;--ink-mid:#3D5445;--ink-muted:#6B8A72;
+  --border:rgba(27,82,41,0.12);
+  --shadow-sm:0 1px 4px rgba(27,82,41,0.08);
+  --shadow-md:0 4px 16px rgba(27,82,41,0.10);
+  --radius-sm:8px;--radius-md:14px;--radius-lg:20px;
+  --font-head:'Paytone One',sans-serif;
+  --font-body:'Nunito',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden;}
+::selection{background:var(--green);color:#fff;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--cream-dark);}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px;}
+a{color:var(--green-dark);}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:0.5;}
+.plumbob{display:inline-block;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);flex-shrink:0;}
+.plumbob.sm{width:16px;height:16px;background:var(--green);}
+.plumbob.md{width:28px;height:28px;background:var(--green);}
+.plumbob.lg{width:52px;height:52px;background:var(--green);animation:pb-float 3s ease-in-out infinite;}
+.plumbob.gold{background:var(--gold)!important;}
+@keyframes pb-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:4px;padding:10px 0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:16px;flex-shrink:0;}
+.nav-brand-text{font-family:var(--font-head);font-size:13px;color:var(--green-dark);line-height:1;}
+.nav-link{font-family:var(--font-body);font-size:13px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:6px 12px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
+.nav-link:hover,.nav-link.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+
+/* PAGE HERO */
+.page-hero{position:relative;z-index:1;background:linear-gradient(160deg,#D6EFD8 0%,#EAF6E0 40%,var(--cream) 100%);border-bottom:3px solid var(--border);padding:56px 24px 48px;text-align:center;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--green-dark);background:var(--white);border:2px solid rgba(27,82,41,0.18);padding:5px 14px;border-radius:999px;margin-bottom:16px;}
+.page-title{font-family:var(--font-head);font-size:clamp(28px,5vw,52px);color:var(--green-dark);line-height:1.1;margin-bottom:12px;}
+.page-title span{color:var(--green);}
+.page-sub{font-size:16px;color:var(--ink-mid);font-weight:600;max-width:560px;margin:0 auto;}
+
+/* LAYOUT */
+.page-layout{max-width:1200px;margin:0 auto;padding:48px 24px 80px;display:grid;grid-template-columns:240px 1fr;gap:40px;position:relative;z-index:1;align-items:start;}
+@media(max-width:900px){.page-layout{grid-template-columns:1fr;}.toc{display:none;}}
+
+/* TABLE OF CONTENTS */
+.toc{position:sticky;top:80px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);}
+.toc-title{font-family:var(--font-head);font-size:13px;color:var(--green-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.toc-list{list-style:none;}
+.toc-list li{margin-bottom:2px;}
+.toc-list a{font-size:13px;font-weight:600;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:6px;display:block;border-left:2px solid transparent;transition:all 0.15s;}
+.toc-list a:hover{color:var(--green-dark);background:var(--green-pale);border-left-color:var(--green);}
+.toc-list .toc-sub a{font-size:12px;padding-left:20px;font-weight:600;}
+.toc-divider{height:1px;background:var(--border);margin:10px 0;}
+.toc-back{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;margin-top:12px;transition:all 0.15s;}
+.toc-back:hover{background:var(--green-pale);color:var(--green-dark);}
+
+/* CONTENT */
+.content section{margin-bottom:56px;}
+.section-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border);}
+.section-emoji{font-size:32px;flex-shrink:0;}
+.section-title{font-family:var(--font-head);font-size:clamp(20px,3vw,28px);color:var(--ink);}
+.section-sub{font-size:14px;color:var(--ink-muted);font-weight:600;margin-top:4px;}
+
+/* CARDS */
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:24px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.card:hover{border-color:var(--green);box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.card-title{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.card-desc{font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:12px;}
+.tag{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:10px;font-weight:600;padding:3px 9px;border-radius:999px;border:1.5px solid;}
+.tag.green{border-color:var(--green);color:var(--green-dark);background:var(--green-pale);}
+.tag.gold{border-color:var(--gold);color:var(--gold-dark);background:var(--gold-pale);}
+.tag.teal{border-color:var(--teal);color:#0d6e6a;background:var(--teal-pale);}
+.tag.red{border-color:var(--red);color:#7a1a1a;background:var(--red-pale);}
+.pill-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--green-dark);text-decoration:none;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.2);padding:5px 13px;border-radius:999px;transition:all 0.18s;margin-top:8px;}
+.pill-link:hover{background:var(--green);color:#fff;border-color:var(--green);}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+
+/* CALLOUTS */
+.callout{border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;border-left:4px solid;font-size:15px;line-height:1.7;}
+.callout.green{background:var(--green-pale);border-color:var(--green);}
+.callout.gold{background:var(--gold-pale);border-color:var(--gold);}
+.callout.red{background:var(--red-pale);border-color:var(--red);}
+.callout.teal{background:var(--teal-pale);border-color:var(--teal);}
+.callout strong{font-weight:800;}
+
+/* CODE */
+.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;}
+code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);}
+th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:11px;letter-spacing:0.5px;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:2px solid var(--border);}
+td{padding:12px 16px;border-bottom:1px solid rgba(27,82,41,0.06);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(59,174,92,0.04);}
+td:first-child{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--green-dark);}
+.ok{color:#1A5229;font-weight:700;} .warn{color:#9A6F10;font-weight:700;} .no{color:#7a1a1a;font-weight:700;}
+
+/* STEPS */
+.steps{counter-reset:step;}
+.step{display:flex;gap:18px;margin-bottom:24px;}
+.step-num{counter-increment:step;flex-shrink:0;width:38px;height:38px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:14px;color:#fff;}
+.step-num::after{content:counter(step);}
+.step-content h4{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.step-content p{font-size:14px;color:var(--ink-mid);}
+
+/* STATUS ROWS */
+.status-row{display:flex;gap:16px;padding:20px 22px;border-radius:var(--radius-md);background:var(--white);border:2px solid var(--border);margin-bottom:14px;box-shadow:var(--shadow-sm);}
+.status-row.can{border-left:4px solid var(--green);}
+.status-row.maybe{border-left:4px solid var(--gold);}
+.status-row.cannot{border-left:4px solid var(--red);}
+.status-icon{font-size:26px;flex-shrink:0;margin-top:2px;}
+.status-title{font-weight:800;font-size:16px;margin-bottom:6px;}
+.status-body{font-size:14px;color:var(--ink-mid);line-height:1.7;}
+
+/* TROUBLE CARDS */
+.trouble-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);}
+.trouble-title{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:12px;}
+.trouble-list{list-style:none;padding:0;}
+.trouble-list li{font-size:14px;color:var(--ink-mid);padding:5px 0 5px 20px;position:relative;border-bottom:1px solid var(--border);}
+.trouble-list li:last-child{border-bottom:none;}
+.trouble-list li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700;}
+
+/* MOD CARDS */
+.mod-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.mod-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.mod-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.mod-by{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);margin-bottom:8px;}
+.mod-desc{font-size:13px;color:var(--ink-mid);margin-bottom:10px;line-height:1.6;}
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+.cat-label{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--green-dark);text-transform:uppercase;letter-spacing:1px;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);display:inline-block;padding:4px 12px;border-radius:999px;margin:28px 0 14px;}
+
+/* COMMUNITY CARDS */
+.community-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px;}
+.community-card{display:flex;align-items:center;gap:14px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:16px 18px;text-decoration:none;color:var(--ink);transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.community-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.community-icon{font-size:24px;flex-shrink:0;}
+.community-name{font-weight:800;font-size:14px;}
+.community-url{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,255,255,0.8);padding:40px 24px;}
+.footer-inner{max-width:1200px;margin:0 auto;text-align:center;}
+.footer-brand{font-family:var(--font-head);font-size:15px;color:#fff;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.footer-links{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;transition:all 0.15s;}
+.footer-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
+footer p{font-size:12px;color:rgba(255,255,255,0.5);}
+
+@media(max-width:640px){
+  .page-layout{padding:32px 16px 60px;}
+  .step{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <span class="plumbob sm"></span>
+      <span class="nav-brand-text">SIMS LEGACY COLLECTION</span>
+    </a>
+    <a href="index.html" class="nav-link">🏠 Home</a>
+<a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
+<a href="installing-mods.html" class="nav-link">📁 Install</a>
+<a href="download-sites.html" class="nav-link">🌐 Sites</a>
+<a href="mod-list.html" class="nav-link active">⚙️ Mods</a>
+<a href="making-cc.html" class="nav-link">🎨 Make CC</a>
+<a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
+<a href="troubleshooting.html" class="nav-link">🛠️ Troubleshoot</a>
+
+  </div>
+</nav>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Mod List</div>
+  <h1 class="page-title">Must-Have <span>Mods</span></h1>
+  <p class="page-sub">Quality of life, bug fixes, objects and gameplay improvements</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#qol">Quality of Life</a></li><li><a href="#objects">Objects & Furniture</a></li><li><a href="#bugfixes">Bug Fixes</a></li><li><a href="#careers">Careers</a></li><li><a href="#magic">Magic & Superstar</a></li><li><a href="#pets">Pets</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
+    </div>
+  </aside>
+  <main class="content">
+    
+<div class="callout green">All mods go in your <code>Downloads\</code> folder unless noted. All confirmed working with Legacy Collection patch 1.122. Please make sure to read each download page's instructions completely before putting any CC/Mod files into folders. Some CC do state they need to be in specifc folders to work.</div>
+
+<section id="qol">
+  <div class="section-head"><div class="section-emoji">⚙️</div><div class="section-title-wrap"><h2 class="section-title">Quality of Life</h2><p class="section-sub">The mods every player should have</p></div></div>
+  <div class="mod-grid">
+    <div class="mod-card"><div class="mod-name">Eliminate Relationship Decay</div><div class="mod-by">by Corylea</div><div class="mod-desc">Friends stay friends indefinitely. Relationships still drop if you're mean, but not just from not calling or interacting for long periods of time.</div><div><span class="tag gold">Requires Makin' Magic</span></div><a class="pill-link" href="http://corylea.com/EliminateRelationshipDecayModForTheSims1ByCorylea.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Domcal Weekends Mod</div><div class="mod-by">A Little White Magic</div><div class="mod-desc">Adds actual weekends! Sims won't be fired for missing work on Saturday and Sunday.</div><a class="pill-link" href="https://white.leadpipecollection.net/sims1.php?g=m#dd_domcal" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Two-Hour Carpool Warning</div><div class="mod-by">by Corylea</div><div class="mod-desc">Get a proper 2-hour warning before the carpool arrives instead of last-minute panic.</div><a class="pill-link" href="http://corylea.com/TWOHourCarpoolNotice.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">No Forced Career Change at Level 10</div><div class="mod-by">by Corylea</div><div class="mod-desc">Stops the game from randomly reassigning careers when a Sim reaches the top level.</div><a class="pill-link" href="http://corylea.com/NoForcedCareerChangeSims1.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Need-Freezing - Community Lots</div><div class="mod-by">by Corylea</div><div class="mod-desc">Freezes motive bars while on Old Town community lots. No more Sims fainting at restaurants.</div><a class="pill-link" href="http://corylea.com/NeedAdjustingModForTheSims1.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Food Stays Fresh for a Week</div><div class="mod-by">by Corylea</div><div class="mod-desc">Drastically slows how quickly prepared food spoils in the fridge.</div><a class="pill-link" href="http://corylea.com/Sims%201%20Food%20Lasts%20a%20Week%20Mod.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">More Walk-Bys</div><div class="mod-by">by Corylea</div><div class="mod-desc">Increases frequency of random Sims walking past your lot - makes socialising much easier.</div><a class="pill-link" href="http://corylea.com/MoreWalkBysForTheSims1.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Eliminate Need Decay</div><div class="mod-by">by Corylea</div><div class="mod-desc">Stops all motive bars from decaying. Useful for build mode or photography play.</div><a class="pill-link" href="http://corylea.com/EliminateNeedDecayMod.html" target="_blank">Download ↗</a></div>
+  </div>
+  <div class="callout gold" style="margin-top:24px;">
+    <strong>⭐ Notable Mention - No Pets Allowed Sign</strong><br><br>
+    This isn't a mod or CC - it's a built-in base game object that many players don't know about, but it's incredibly useful if you have the Unleashed expansion. Strays wandering onto your lot can dig up your garden, pee on things, and generally make a mess. The <strong>No Pets Allowed</strong> sign fixes this completely - when a stray approaches your lot boundary, it reads the sign and walks away without setting foot on your property.<br><br>
+    <strong>How to find it:</strong> In Buy Mode, click the <strong>Decorative</strong> (paintings) category, then the <strong>Misc Decorative</strong> subcategory. The sign appears early in that list. Place it anywhere on your lot, ideally near the entrance or front fence. No configuration needed - it works automatically.<br><br>
+    <span style="font-size:12px;opacity:0.8;">Requires The Sims: Unleashed expansion pack.</span>
+  </div>
+</section>
+
+<section id="objects">
+  <div class="section-head"><div class="section-emoji">🏠</div><div class="section-title-wrap"><h2 class="section-title">Objects & Furniture</h2></div></div>
+  <div class="mod-grid">
+    <div class="mod-card"><div class="mod-name">Smart Curtains</div><div class="mod-by">Simlogical</div><div class="mod-desc">Curtains that auto-open at dawn and close at dusk. Multiple styles, recolouring instructions included.</div><a class="pill-link" href="https://www.simlogical.com/simlogical-classic-sims-1-curtains/" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Power-Nap Recliners</div><div class="mod-by">Simlogical</div><div class="mod-desc">Recliners for short energy-restoring naps. Toggle autonomous use on/off. 4 recliner styles.</div><a class="pill-link" href="https://www.simlogical.com/simological-classic-sims-1-motive-and-skill-enhancers/" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">ppxlSimBook Hacked Computer</div><div class="mod-by">ppxl on Simblr.cc</div><div class="mod-desc">All-in-one: social need, all skills faster, video chat, shop/work from home, pay bills. One object!</div><a class="pill-link" href="https://simblr.cc/ts1/mod/5546-ppxlsimbook.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Simazon Delivery Services</div><div class="mod-by">Damondamore</div><div class="mod-desc">Phone interaction to order objects delivered to your door. Fun QoL addition.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/239-simazon-core-plus.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Hidden Objects Unlocked</div><div class="mod-by">Lenna on Simblr.cc</div><div class="mod-desc">Unlocks hidden and debug objects in the Buy Mode catalogue.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/4848-hidden-objects-unlocked.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Invisible Chairs</div><div class="mod-by">Damondamore</div><div class="mod-desc">Lets Sims sit on beds, bathtubs and other non-chair objects autonomously.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/238-invisible-rug-chairs.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">SimCity Adoption Services</div><div class="mod-by">Kakengo</div><div class="mod-desc">Phone interaction to adopt a baby without pregnancy. Child can still be taken by social worker if neglected.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/2544-child-adoption-phone-plugin.html" target="_blank">Download ↗</a></div>
+  </div>
+</section>
+
+<section id="bugfixes">
+  <div class="section-head"><div class="section-emoji">🐛</div><div class="section-title-wrap"><h2 class="section-title">Bug Fixes</h2><p class="section-sub">Community patches - all by Lenna on Simblr.cc</p></div></div>
+  <div class="callout teal">All bug fix mods are available from <a href="https://simblr.cc/ts1/mods/" target="_blank" style="font-weight:700;">Simblr.cc ↗</a>. Place in your <code>Downloads\</code> folder.</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Mod Name</th><th>What It Fixes</th><th>Requires</th></tr></thead>
+    <tbody>
+      <tr><td>Pets Eat Fix</td><td>Pets refusing to eat from their food bowl</td><td>Unleashed</td></tr>
+      <tr><td>Cats Don't Eat Fish & Birds</td><td>Cats killing aquarium fish and pet birds</td><td>Unleashed</td></tr>
+      <tr><td>Gophers Don't Destroy Crops</td><td>Gophers destroying your garden</td><td>Base game</td></tr>
+      <tr><td>Obsessed Fan Fix</td><td>Broken Obsessed Fan NPC in Makin' Magic</td><td>Makin' Magic</td></tr>
+      <tr><td>Celebrity Award Bug Fix</td><td>Celebrities not receiving The Simmy / Sim Choice awards</td><td>Superstar</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="careers">
+  <div class="section-head"><div class="section-emoji">💼</div><div class="section-title-wrap"><h2 class="section-title">Careers</h2></div></div>
+  <div class="mod-grid">
+    <div class="mod-card"><div class="mod-name">Career Creator 3 (Tool)</div><div class="mod-by">trolando</div><div class="mod-desc">Want to make your own career? Career Creator 3 makes it straightforward.</div><div><span class="tag teal">Modding Tool</span></div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Download ↗</a></div>
+  </div>
+</section>
+
+<section id="magic">
+  <div class="section-head"><div class="section-emoji">🪄</div><div class="section-title-wrap"><h2 class="section-title">Magic & Superstar</h2></div></div>
+  <div class="mod-grid">
+    <div class="mod-card"><div class="mod-name">Obsessed Fan Alarm</div><div class="mod-by">Community</div><div class="mod-desc">Stops the obsessed fan from appearing on your home lot in the Superstar expansion.</div><div><span class="tag gold">Superstar Required</span></div><a class="pill-link" href="https://www.somesimthings.com/Elec/02El.htm" target="_blank">More info ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Eliminate Fame Decay</div><div class="mod-by">by Corylea</div><div class="mod-desc">Stops Fame from decreasing passively in the Superstar expansion.</div><div><span class="tag gold">Superstar Required</span></div><a class="pill-link" href="http://corylea.com/EliminateFameDecayForTheSims1.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Better Mystery Box</div><div class="mod-by">by Corylea</div><div class="mod-desc">Improves the rewards from the Magic Town Mystery Box.</div><div><span class="tag gold">Makin' Magic Required</span></div><a class="pill-link" href="http://corylea.com/BetterMysteryBox.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Faster Magical Growths</div><div class="mod-by">by Corylea</div><div class="mod-desc">Magic plants and crops grow faster in Makin' Magic.</div><div><span class="tag gold">Makin' Magic Required</span></div><a class="pill-link" href="http://corylea.com/FasterMagicalGrowthsSims1.html" target="_blank">Download ↗</a></div>
+  </div>
+</section>
+
+<section id="pets">
+  <div class="section-head"><div class="section-emoji">🐾</div><div class="section-title-wrap"><h2 class="section-title">Pets</h2><p class="section-sub">Unleashed expansion required for all</p></div></div>
+  <div class="mod-grid">
+    <div class="mod-card"><div class="mod-name">Smarter Pets</div><div class="mod-by">by Corylea</div><div class="mod-desc">Makes pets learn tricks more easily and behave more intelligently.</div><a class="pill-link" href="http://corylea.com/Sims%201%20Hacked%20Pet%20Objects.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Pets Eat Fix</div><div class="mod-by">Lenna - Simblr.cc</div><div class="mod-desc">Fixes pets refusing to eat from their food bowl.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/4844-pet-eating-fix.html" target="_blank">Download ↗</a></div>
+    <div class="mod-card"><div class="mod-name">Cats Don't Eat Fish & Birds</div><div class="mod-by">Lenna - Simblr.cc</div><div class="mod-desc">Stops cats from killing aquarium fish and pet birds.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/4843-cats-dont-eat-fish-birds.html/" target="_blank">Download ↗</a></div>
+  </div>
+</section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection - Modding Guide
+    </div>
+    <div class="footer-links">
+      <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
+      <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
+      <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
+    </div>
+    <p>Community guide · Not affiliated with EA or Maxis · Last updated March 2026 · Patch 1.122 compatible</p>
+  </div>
+</footer>
+</body>
+</html>
