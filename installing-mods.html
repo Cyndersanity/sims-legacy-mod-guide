@@ -57,11 +57,11 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .page-sub{font-size:16px;color:var(--ink-mid);font-weight:600;max-width:560px;margin:0 auto;}
 
 /* LAYOUT */
-.page-layout{max-width:1200px;margin:0 auto;padding:48px 24px 80px;display:grid;grid-template-columns:240px 1fr;gap:40px;position:relative;z-index:1;align-items:start;}
+.page-layout{max-width:1200px;margin:0 auto;padding:48px 48px 80px;display:grid;grid-template-columns:200px 1fr;gap:52px;position:relative;z-index:1;align-items:start;}
 @media(max-width:900px){.page-layout{grid-template-columns:1fr;}.toc{display:none;}}
 
 /* TABLE OF CONTENTS */
-.toc{position:sticky;top:80px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);}
+.toc{position:sticky;top:72px;max-height:calc(100vh - 100px);overflow-y:auto;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);}
 .toc-title{font-family:var(--font-head);font-size:13px;color:var(--green-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .toc-list{list-style:none;}
 .toc-list li{margin-bottom:2px;}
@@ -71,6 +71,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .toc-divider{height:1px;background:var(--border);margin:10px 0;}
 .toc-back{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;margin-top:12px;transition:all 0.15s;}
 .toc-back:hover{background:var(--green-pale);color:var(--green-dark);}
+.page-layout aside{align-self:stretch;}
 
 /* CONTENT */
 .content section{margin-bottom:56px;}
@@ -111,7 +112,7 @@ code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--fo
 /* TABLE */
 .table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
 table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);}
-th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:11px;letter-spacing:0.5px;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:2px solid var(--border);}
+th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.3px;text-transform:uppercase;padding:13px 16px;text-align:left;border-bottom:2px solid var(--border);}
 td{padding:12px 16px;border-bottom:1px solid rgba(27,82,41,0.06);vertical-align:top;}
 tr:last-child td{border-bottom:none;}
 tr:hover td{background:rgba(59,174,92,0.04);}
@@ -120,11 +121,13 @@ td:first-child{font-family:var(--font-mono);font-size:13px;font-weight:600;color
 
 /* STEPS */
 .steps{counter-reset:step;}
-.step{display:flex;gap:18px;margin-bottom:24px;}
-.step-num{counter-increment:step;flex-shrink:0;width:38px;height:38px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:14px;color:#fff;}
+.step{display:flex;gap:14px;margin-bottom:10px;counter-increment:step;}
+.step-num{flex-shrink:0;width:30px;height:30px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:13px;color:#fff;margin-top:2px;}
 .step-num::after{content:counter(step);}
-.step-content h4{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:4px;}
-.step-content p{font-size:14px;color:var(--ink-mid);}
+.step-body{border-left:4px solid var(--green);background:var(--white);padding:13px 16px;border-radius:0 8px 8px 0;flex:1;}
+.step-body h4{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.step-body p{font-size:14px;color:var(--ink-mid);line-height:1.7;margin:0;}
+.step-body p+p{margin-top:6px;}
 
 /* STATUS ROWS */
 .status-row{display:flex;gap:16px;padding:20px 22px;border-radius:var(--radius-md);background:var(--white);border:2px solid var(--border);margin-bottom:14px;box-shadow:var(--shadow-sm);}
@@ -170,7 +173,7 @@ footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,2
 footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 @media(max-width:640px){
-  .page-layout{padding:32px 16px 60px;}
+  .page-layout{padding:32px 24px 60px;}
   .step{flex-direction:column;}
 }
 </style>
@@ -213,11 +216,11 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="section-emoji">📋</div>
     <div class="section-title-wrap">
       <h2 class="section-title">Overview</h2>
-      <p class="section-sub">The key difference from Sims 4</p>
+      <p class="section-sub">Modding works differently here than in other Sims games</p>
     </div>
   </div>
   <div class="callout green">
-    <strong>Unlike Sims 4</strong>, mods go inside the <strong>game's install directory</strong> - not in your Documents folder. The folder structure is identical for both Steam and EA App, only the root path differs.
+    <strong>The Sims Legacy Collection handles mods differently to every other game in the series.</strong> Rather than dropping files into a Documents folder like you might expect, all custom content and mods live inside the game's actual install directory. This applies whether you're on Steam or the EA App - the subfolder names are identical between both versions, only the root path changes.
   </div>
 </section>
 
@@ -285,15 +288,23 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   <div class="section-head">
     <div class="section-emoji">📦</div>
     <div class="section-title-wrap">
-      <h2 class="section-title">Installing Old Mods (2000–2003)</h2>
+      <h2 class="section-title">Installing Old Mods (2000-2003)</h2>
       <p class="section-sub">Most old mods still work - just translate the path</p>
     </div>
   </div>
   <div class="callout gold">
-    <strong>Old mod instructions</strong> will reference: <code>C:\Program Files (x86)\Maxis\The Sims\</code><br>
-    Simply replace that with your Steam or EA App path above. All subfolder names are identical.
+    <p><strong>Old mod instructions</strong> will reference: <code>C:\Program Files (x86)\Maxis\The Sims\</code></p>
+    <p style="margin-top:8px;">Simply replace that with your Steam or EA App path above. All subfolder names are identical.</p>
+    <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(154,111,16,0.25);">
+      <strong>Example:</strong><br>
+      <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px;">
+        <span>Old path:</span> <code>Maxis\The Sims\ExpansionPack5\</code>
+      </span>
+      <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px;">
+        <span>New path (Steam):</span> <code>The Sims Legacy Collection\ExpansionPack5\</code>
+      </span>
+    </div>
   </div>
-  <p style="color:var(--ink-mid);margin-top:16px;">For example, if old instructions say to place a file in <code>Maxis\The Sims\ExpansionPack5\</code>, you would place it in <code>The Sims Legacy Collection\ExpansionPack5\</code> on Steam.</p>
 </section>
 
 <section id="rules">
@@ -318,12 +329,15 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <h2 class="section-title">Step-by-Step: Installing Your First Mod</h2>
     </div>
   </div>
+  <div class="callout red" style="margin-bottom:20px;">
+    <strong>Back up your save files before installing any mods.</strong> Your neighbourhood saves are stored at <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code> - copy that folder somewhere safe before you start. Some mods can make permanent changes to save data that persist even after the mod is removed.
+  </div>
   <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-content"><h4>Download the mod</h4><p>Download from a trusted site (see the <a href="download-sites.html">Download Sites</a> page). You'll usually get a .zip file.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-content"><h4>Extract the zip</h4><p>Right-click the .zip → Extract All. Look inside - you should find .iff, .FAR, .BMP or similar files.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-content"><h4>Find your game folder</h4><p>Steam: right-click game → Manage → Browse local files. EA App: right-click → Manage → Open install folder.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-content"><h4>Place the files</h4><p>Move .iff/.FAR files to <code>Downloads\</code>. Move skin files (.BMP/.CMX/.SKN) to <code>GameData\Skins\</code> directly - no subfolders.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-content"><h4>Launch the game and test</h4><p>Start the game and check the mod is working. If something's wrong, see the <a href="troubleshooting.html">Troubleshooting</a> page.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download the mod</h4><p>Download from a trusted site (see the <a href="download-sites.html">Download Sites</a> page).</p><p>You'll usually get a .zip file - if so, continue to step 2. If the download gives you the mod files directly (e.g. a .iff, .FAR or .BMP file), skip straight to steps 3 and 4 to place them in the right folders.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Extract the zip</h4><p>Right-click the .zip file and choose your extraction method. The options you see will depend on whether you're using Windows built-in extraction, 7-Zip or WinRAR:</p><p style="margin-top:12px;"><strong>Extract To "zip folder name":</strong> Creates a new folder with the same name as the zip file and places all the contents inside it. This is the tidiest option as everything stays contained in one place. Open that folder to find your mod files.</p><p style="margin-top:12px;"><strong>Extract Files:</strong> Opens a dialogue letting you choose exactly where the extracted files are placed. Use this if you want to send them straight to a specific folder you've already set up. Navigate to your destination and confirm the files have extracted properly.</p><p style="margin-top:12px;"><strong>Extract Here:</strong> Extracts everything directly into the same folder where the zip file currently sits, following the same folder structure that's inside the zip. If the zip contained a subfolder, that subfolder will appear in the current location. Best used when the zip contains only the mod files with no extra wrapper folder.</p><p style="margin-top:12px;">Whichever method you use, make sure you can find the actual .iff, .FAR, .BMP or similar mod files before moving on.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find your game folder</h4><p><strong>Steam:</strong> right-click game → Manage → Browse local files.</p><p><strong>EA App:</strong> right-click → Manage → Open install folder.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place the files</h4><p>Move Object files (<strong>.iff/.FAR</strong>) to <code>Downloads\</code>.</p><p>Move Skin files (<strong>.BMP/.CMX/.SKN</strong>) to <code>GameData\Skins\</code> directly - no subfolders.</p><p>Move Decor files (<strong>.WLL/.FLR</strong>) to <code>GameData\Walls\</code> or <code>GameData\Floors\</code>, depending on the type of décor.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Launch the game and test</h4><p>Start the game and check the mod is working. If something's wrong, see the <a href="troubleshooting.html">Troubleshooting</a> page.</p></div></div>
   </div>
 </section>
 
@@ -334,7 +348,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection - Modding Guide
+      The Sims Legacy Collection — Modding Guide
     </div>
     <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
