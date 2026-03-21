@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terminology - Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F2E8;--cream-dark:#EDE8D6;--white:#FFFFFF;
+  --green:#3BAE5C;--green-mid:#2D8A47;--green-dark:#1A5229;--green-pale:#E6F5EB;
+  --gold:#E8B84B;--gold-pale:#FDF5DC;--gold-dark:#9A6F10;
+  --teal:#3AADA8;--teal-pale:#E1F5F4;
+  --red:#D94F4F;--red-pale:#FDEAEA;
+  --ink:#1C2B1F;--ink-mid:#3D5445;--ink-muted:#6B8A72;
+  --border:rgba(27,82,41,0.12);
+  --shadow-sm:0 1px 4px rgba(27,82,41,0.08);
+  --shadow-md:0 4px 16px rgba(27,82,41,0.10);
+  --radius-sm:8px;--radius-md:14px;--radius-lg:20px;
+  --font-head:'Paytone One',sans-serif;
+  --font-body:'Nunito',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden;}
+::selection{background:var(--green);color:#fff;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--cream-dark);}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px;}
+a{color:var(--green-dark);}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:0.5;}
+.plumbob{display:inline-block;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);flex-shrink:0;}
+.plumbob.sm{width:16px;height:16px;background:var(--green);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
+.nav-wrapper{position:relative;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;padding:10px 0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-scroll-hint{display:none;position:absolute;right:0;top:0;bottom:0;width:40px;background:linear-gradient(to right,transparent,rgba(245,242,232,0.97));align-items:center;justify-content:flex-end;padding-right:6px;pointer-events:none;font-size:16px;color:var(--green-dark);}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:16px;flex-shrink:0;}
+.nav-brand-text{font-family:var(--font-head);font-size:12px;color:var(--green-dark);line-height:1;}
+.nav-link{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
+.nav-link:hover,.nav-link.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+
+/* PAGE HERO */
+.page-hero{position:relative;z-index:1;background:linear-gradient(160deg,#D6EFD8 0%,#EAF6E0 40%,var(--cream) 100%);border-bottom:3px solid var(--border);padding:56px 24px 48px;text-align:center;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--green-dark);background:var(--white);border:2px solid rgba(27,82,41,0.18);padding:5px 14px;border-radius:999px;margin-bottom:16px;}
+.page-title{font-family:var(--font-head);font-size:clamp(28px,5vw,52px);color:var(--green-dark);line-height:1.1;margin-bottom:12px;}
+.page-title span{color:var(--green);}
+.page-sub{font-size:16px;color:var(--ink-mid);font-weight:600;max-width:560px;margin:0 auto;}
+
+/* LAYOUT */
+.page-layout{max-width:1200px;margin:0 auto;padding:48px 48px 80px;display:grid;grid-template-columns:200px 1fr;gap:52px;position:relative;z-index:1;align-items:start;}
+@media(max-width:900px){.page-layout{grid-template-columns:1fr;}.toc{display:none;}}
+
+/* TOC */
+.toc{position:sticky;top:72px;max-height:calc(100vh - 100px);overflow-y:auto;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);}
+.toc-title{font-family:var(--font-head);font-size:13px;color:var(--green-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.toc-list{list-style:none;}
+.toc-list li{margin-bottom:2px;}
+.toc-list a{font-size:13px;font-weight:600;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:6px;display:block;border-left:2px solid transparent;transition:all 0.15s;}
+.toc-list a:hover{color:var(--green-dark);background:var(--green-pale);border-left-color:var(--green);}
+.toc-divider{height:1px;background:var(--border);margin:10px 0;}
+.toc-back{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;margin-top:12px;transition:all 0.15s;}
+.toc-back:hover{background:var(--green-pale);color:var(--green-dark);}
+.page-layout aside{align-self:stretch;}
+
+/* CONTENT */
+.content section{margin-bottom:48px;}
+.section-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border);}
+.section-emoji{font-size:32px;flex-shrink:0;}
+.section-title{font-family:var(--font-head);font-size:clamp(20px,3vw,28px);color:var(--ink);}
+.section-sub{font-size:14px;color:var(--ink-muted);font-weight:600;margin-top:4px;}
+
+/* CALLOUTS */
+.callout{border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;border-left:4px solid;font-size:15px;line-height:1.7;}
+.callout.green{background:var(--green-pale);border-color:var(--green);}
+.callout.gold{background:var(--gold-pale);border-color:var(--gold);}
+.callout.teal{background:var(--teal-pale);border-color:var(--teal);}
+.callout strong{font-weight:800;}
+code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;}
+
+/* TERM CARDS */
+.term-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:24px 26px;margin-bottom:14px;box-shadow:var(--shadow-sm);}
+.term-card:hover{border-color:var(--green);}
+.term-title{font-family:var(--font-head);font-size:18px;color:var(--green-dark);margin-bottom:4px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.term-also{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--ink-muted);background:var(--cream-dark);padding:2px 8px;border-radius:999px;}
+.term-body{font-size:15px;color:var(--ink-mid);line-height:1.8;margin-top:10px;}
+.term-body p+p{margin-top:10px;}
+.term-body strong{color:var(--ink);font-weight:800;}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,255,255,0.8);padding:40px 24px;}
+.footer-inner{max-width:1200px;margin:0 auto;text-align:center;}
+.footer-brand{font-family:var(--font-head);font-size:15px;color:#fff;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.footer-links{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;transition:all 0.15s;}
+.footer-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
+footer p{font-size:12px;color:rgba(255,255,255,0.5);}
+
+@media(max-width:640px){.page-layout{padding:32px 24px 60px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+    <a class="nav-brand" href="index.html">
+      <span class="plumbob sm"></span>
+      <span class="nav-brand-text">SIMS LEGACY COLLECTION</span>
+    </a>
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
+    <a href="installing-mods.html" class="nav-link">📁 Install</a>
+    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
+    <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
+    <a href="cheats.html" class="nav-link">🎮 Cheats</a>
+    <a href="making-cc.html" class="nav-link">🎨 Create CC</a>
+    <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
+    <a href="troubleshooting.html" class="nav-link">🛠️ Troubleshoot</a>
+    <a href="terminology.html" class="nav-link active">📖 Terminology</a>
+    <a href="updates.html" class="nav-link">📋 Updates</a>
+    <a href="contact.html" class="nav-link">✉️ Contact</a>
+  </div>
+  <div class="nav-scroll-hint" id="navHint">›</div>
+  </div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){if(!nav||!hint)return;hint.style.display=(nav.scrollWidth>nav.clientWidth+4)?'flex':'none';}
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,100);
+})();
+</script>
+
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection Guide</div>
+  <h1 class="page-title">Sims 1 <span>Terminology</span></h1>
+  <p class="page-sub">What people mean when they say CC, mods, hacking and everything else</p>
+</div>
+
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#intro">Why This Matters</a></li>
+        <li><a href="#cc">CC</a></li>
+        <li><a href="#mod">Mod</a></li>
+        <li><a href="#hacking">Hacking</a></li>
+        <li><a href="#iff">IFF & FAR</a></li>
+        <li><a href="#skins">Skins</a></li>
+        <li><a href="#complete-collection">Complete Collection</a></li>
+        <li><a href="#other">Other Terms</a></li>
+      </ul>
+      <div class="toc-divider"></div>
+      <a class="toc-back" href="index.html">← Back to Home</a>
+    </div>
+  </aside>
+
+  <main class="content">
+
+<section id="intro">
+  <div class="section-head">
+    <div class="section-emoji">📖</div>
+    <div class="section-title-wrap">
+      <h2 class="section-title">Why This Page Exists</h2>
+    </div>
+  </div>
+  <div class="callout teal">The Sims 1 community has been around since 2000 and has developed its own language over that time. Some terms mean something specific to this game that they don't mean anywhere else. Others are borrowed from broader gaming culture but used loosely. And a few are genuinely confusing because the same abbreviation means different things depending on context - "CC" being the main culprit.</div>
+  <p style="color:var(--ink-mid);margin-top:16px;">If you've landed on a forum post, a mod readme, or a download page and found yourself unsure what something means, this page should clear it up.</p>
+</section>
+
+<section id="cc">
+  <div class="section-head">
+    <div class="section-emoji">👗</div>
+    <div class="section-title-wrap">
+      <h2 class="section-title">CC - Custom Content</h2>
+    </div>
+  </div>
+  <div class="term-card">
+    <div class="term-title">CC <span class="term-also">Custom Content</span></div>
+    <div class="term-body">
+      <p>In the Sims community, CC means <strong>Custom Content</strong> - any file made by a player (not Maxis/EA) that adds something visual to the game. This includes custom clothing, hairstyles, skin tones, furniture, wall coverings, floors and objects.</p>
+      <p>CC is the catch-all term for things that change how the game <em>looks</em> without changing how it plays. A new outfit is CC. A custom sofa is CC. A wall pattern is CC.</p>
+    </div>
+  </div>
+  <div class="callout gold">
+    <strong>⚠️ Sims 1 CC vs The Sims Complete Collection (also abbreviated CC)</strong><br><br>
+    This is the main source of confusion. The Complete Collection was the original boxed set of The Sims 1 with all expansion packs included, released in 2002. Players and stores often abbreviated it to "The Sims CC" or just "CC". If you're reading an old forum post or mod readme from the early 2000s and it mentions "CC", the author might mean the Complete Collection rather than custom content - read the context carefully. A line like "works with Sims CC" most likely means the Complete Collection. A line like "drop this file in your CC folder" means custom content.
+  </div>
+</section>
+
+<section id="mod">
+  <div class="section-head">
+    <div class="section-emoji">⚙️</div>
+    <div class="section-title-wrap">
+      <h2 class="section-title">Mod</h2>
+    </div>
+  </div>
+  <div class="term-card">
+    <div class="term-title">Mod <span class="term-also">Modification</span></div>
+    <div class="term-body">
+      <p>A mod is a file (or set of files) that changes how the game <strong>behaves</strong>. In Sims 1, this usually means a modified .iff file that alters an object's price, the carpool timing, how relationships decay, how quickly skills are gained, or similar gameplay values.</p>
+      <p>The distinction between a mod and CC gets blurry in Sims 1. A custom chair that looks different but works the same as the base game chair is really CC. A chair that's been edited so Sims gain Body skill by sitting in it is a mod. In practice, the community often uses "mod" and "CC" interchangeably for any downloaded file, so don't read too much into which word someone uses.</p>
+    </div>
+  </div>
+</section>
+
+<section id="hacking">
+  <div class="section-head">
+    <div class="section-emoji">🔧</div>
+    <div class="section-title-wrap">
+      <h2 class="section-title">Hacking</h2>
+    </div>
+  </div>
+  <div class="term-card">
+    <div class="term-title">Hacking <span class="term-also">Object Hacking / IFF Hacking</span></div>
+    <div class="term-body">
+      <p>In the Sims community, "hacking" has nothing to do with breaking into systems or doing anything illegal. It refers to <strong>opening and editing the game's object files</strong> - specifically .iff files - to change how objects work.</p>
+      <p>When someone says they've "hacked" an object, it means they've opened it in a tool like IFF Pencil 2, modified the values or scripts inside, and saved a new version. A "hack" is the resulting modified file.</p>
+      <p>The term comes from the earliest days of Sims modding when this kind of editing was novel and required genuine technical knowledge. It stuck even as the tools became much easier to use. Today "hacking" and "modding" are used interchangeably when people talk about editing game objects, even if no coding is involved.</p>
+    </div>
+  </div>
+  <div class="callout green">So when you see "object hack", "gameplay hack" or a site calling itself a hacking resource - this is normal Sims community language for creating or editing gameplay mods. Nobody is doing anything untoward.</div>
+</section>
+
+<section id="iff">
+  <div class="section-head">
+    <div class="section-emoji">📄</div>
+    <div class="section-title-wrap">
+      <h2 class="section-title">IFF & FAR Files</h2>
+    </div>
+  </div>
+  <div class="term-card">
+    <div class="term-title">IFF <span class="term-also">Interchange File Format</span></div>
+    <div class="term-body">
+      <p>An .iff file is the core file format for Sims 1 objects. Every buyable item, piece of furniture, interactive object and most gameplay modifications exist as .iff files. The format is actually quite old - it was developed by EA and used across many of their games in the 1980s and 90s before The Sims adopted it.</p>
+      <p>An .iff file is essentially a container that holds multiple different resources together: the object's 3D sprites (the images that make it look right), its BHAV scripts (the code that tells the game what the object does), its price and category information, its name, and more. When modders talk about editing an object, they mean editing the contents of its .iff file.</p>
+    </div>
+  </div>
+  <div class="term-card" style="margin-top:14px;">
+    <div class="term-title">FAR <span class="term-also">File Archive</span></div>
+    <div class="term-body">
+      <p>A .FAR file is a bundle that contains multiple .iff files packed together. Think of it like a zip file, but one the game can read directly without you needing to unpack it. Many older mods and all of the Sims 1 expansion pack content is distributed as .FAR files.</p>
+      <p>Most modern mods come as loose .iff files rather than .FAR files, but you may still encounter them. Both go in the same <code>Downloads\</code> folder and the game handles them the same way.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skins">
+  <div class="section-head">
+    <div class="section-emoji">👤</div>
+    <div class="section-title-wrap">
+      <h2 class="section-title">Skins</h2>
+    </div>
+  </div>
+  <div class="term-card">
+    <div class="term-title">Skins <span class="term-also">Body textures / Head textures</span></div>
+    <div class="term-body">
+      <p>In Sims 1, "skins" refers specifically to the <strong>image files that make a Sim look the way they do</strong> - their clothing, body shape appearance, facial features and hair. These are bitmap (.BMP) files that get painted onto the 3D Sim body and head models.</p>
+      <p>Unlike later Sims games where clothing and hair are separate items with meshes, in Sims 1 the entire Sim is essentially one texture. A "skin" for an outfit means a complete body image - top, bottom and shoes all in one file. Hair is painted directly onto the head texture rather than being a separate item. This is why skin files must go in <code>GameData\Skins\</code> with no subfolders - the game scans that one directory directly at load time.</p>
+      <p>When you see "skin download" on an old Sims 1 site, it means a new outfit, hairstyle or character appearance - not a separate mesh or item.</p>
+    </div>
+  </div>
+</section>
+
+<section id="complete-collection">
+  <div class="section-head">
+    <div class="section-emoji">📦</div>
+    <div class="section-title-wrap">
+      <h2 class="section-title">Complete Collection vs Legacy Collection</h2>
+    </div>
+  </div>
+  <div class="term-card">
+    <div class="term-title">Complete Collection <span class="term-also">Sims CC / TCC</span></div>
+    <div class="term-body">
+      <p>The Complete Collection was a boxed retail version of The Sims 1 released in 2002 that included the base game and all expansion packs available at the time. It was later updated to include Makin' Magic. Most players who played Sims 1 in its original era will have had the Complete Collection rather than individual discs.</p>
+      <p>Because it was abbreviated as "CC" or "Sims CC", this causes confusion when reading old modding guides that also use CC to mean custom content. <strong>Context is everything</strong> - if a readme from 2002 says "tested with Sims CC", it means the Complete Collection. If it says "put CC files in this folder", it means custom content files.</p>
+    </div>
+  </div>
+  <div class="term-card" style="margin-top:14px;">
+    <div class="term-title">Legacy Collection <span class="term-also">The Sims 25 / LC</span></div>
+    <div class="term-body">
+      <p>The Legacy Collection is the 2025 re-release of The Sims 1, available on Steam and the EA App. It includes the base game and all seven expansion packs, updated to run on Windows 10 and 11. This is the version this guide is written for.</p>
+      <p>The internal save file folder is named "The Sims 25" (referencing the 25th anniversary), which is why some paths on this guide reference that name. The Legacy Collection is functionally identical to the Complete Collection for modding purposes - the same folders, the same file types, just different root paths.</p>
+    </div>
+  </div>
+</section>
+
+<section id="other">
+  <div class="section-head">
+    <div class="section-emoji">📝</div>
+    <div class="section-title-wrap">
+      <h2 class="section-title">Other Terms You Might See</h2>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">BHAV <span class="term-also">Behaviour</span></div>
+    <div class="term-body">A BHAV is a behaviour script inside an .iff file that tells the game what an object does and how Sims interact with it. When modders talk about BHAV editing or BHAV scripting, they mean changing the logic that drives object interactions - the most advanced type of Sims 1 modding. You don't need to touch BHAVs to use most mods, but you do if you want to create new interactions from scratch.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">WCIF <span class="term-also">Where Can I Find</span></div>
+    <div class="term-body">WCIF is an acronym used across Sims forums meaning "Where Can I Find". You'll see it in forum thread titles like "WCIF: purple couch" or "WCIF: no bills mod". It's simply someone asking where to download a specific piece of CC or a mod they've seen.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">Default Replacement</div>
+    <div class="term-body">A default replacement is a mod that swaps out an existing Maxis base-game file with a modified version. Rather than adding something new to the game, it replaces something that's already there. A default replacement skin, for example, changes what the base Maxis Sims look like rather than adding new clothing options alongside them.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">Cloning</div>
+    <div class="term-body">Cloning means taking an existing game object and making a copy of it to modify. This is the standard starting point for creating new objects - you clone a Maxis original in Transmogrifier, then edit the copy rather than the original. This keeps the base game intact and means your mod doesn't break anything if it's removed.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">Meshing</div>
+    <div class="term-body">Creating or editing the 3D geometry of an object rather than just its texture. Meshing in Sims 1 is much more limited than in later games - the engine renders objects as 2D sprites from fixed angles rather than true 3D, so "meshing" usually means editing those sprite images rather than a proper 3D mesh. Full 3D mesh editing in Sims 1 is rarely done.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">Simmer</div>
+    <div class="term-body">Just the community word for someone who plays The Sims. Widely used across all generations of the game.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">EP <span class="term-also">Expansion Pack</span></div>
+    <div class="term-body">EP stands for Expansion Pack. The Sims 1 had 7 EPs: Livin' Large, House Party, Hot Date, Vacation, Unleashed, Superstar and Makin' Magic. When a mod readme says "requires EP5" it means Unleashed (the 5th expansion). The numbering isn't always consistent across sources, so it's worth checking what each number refers to in context. The Legacy Collection includes all 7.</div>
+  </div>
+
+</section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection - Modding Guide
+    </div>
+    <div class="footer-links">
+      <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
+      <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
+      <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
+      <a href="updates.html">Updates & Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide · Not affiliated with EA or Maxis · Last updated March 2026 · Patch 1.122 compatible</p>
+  </div>
+</footer>
+</body>
+</html>
