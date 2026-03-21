@@ -90,6 +90,13 @@ code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--fo
 /* FORM CONTAINER */
 .form-container{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);}
 .form-container iframe{width:100%;border:none;display:block;}
+.form-mobile-link{display:none;text-align:center;padding:28px;background:var(--green-pale);border:2px solid var(--green);border-radius:var(--radius-md);}
+.form-mobile-link p{color:var(--ink-mid);margin-bottom:16px;font-size:15px;}
+.form-mobile-link a{display:inline-block;background:var(--green);color:#fff;font-family:var(--font-head);font-size:15px;padding:12px 28px;border-radius:999px;text-decoration:none;}
+@media(max-width:768px){
+  .form-container{display:none;}
+  .form-mobile-link{display:block;}
+}
 
 /* PLACEHOLDER - shown before iframe is added */
 .form-placeholder{background:var(--white);border:2px dashed var(--green);border-radius:var(--radius-md);padding:48px 32px;text-align:center;}
@@ -107,6 +114,39 @@ footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,2
 footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 @media(max-width:640px){.page-wrap{padding:32px 24px 60px;}}
+
+/* ── RESPONSIVE / MOBILE ───────────────────────────────────────────── */
+@media(max-width:900px){
+  .page-layout{grid-template-columns:1fr;padding:32px 24px 60px;}
+  .toc{display:none;}
+  .grid-2,.grid-3,.mod-grid,.roadmap-grid,.welcome-grid{grid-template-columns:1fr;}
+  .status-row{flex-direction:column;gap:10px;}
+  .section-head{gap:12px;}
+  .section-emoji{font-size:26px;}
+}
+@media(max-width:640px){
+  .page-layout{padding:24px 16px 48px;}
+  .step{flex-direction:column;}
+  .step-body{border-left:none;border-top:3px solid var(--green);border-radius:0 0 8px 8px;}
+  .hero-title{font-size:clamp(26px,8vw,44px);}
+  .quick-grid{grid-template-columns:1fr 1fr;gap:10px;padding:0 16px;}
+  .quick-card{padding:18px 12px;}
+  .quick-icon{font-size:28px;}
+  .quick-label{font-size:13px;}
+  .quick-desc{font-size:11px;}
+  .callout{padding:14px 16px;font-size:14px;}
+  .table-wrap{font-size:13px;}
+  th{font-size:11px;padding:10px 12px;}
+  td{padding:10px 12px;font-size:13px;}
+  .intro-section{padding:0 16px 16px;}
+  .mod-card{padding:16px;}
+  .card{padding:16px;}
+  footer{padding:28px 16px;}
+  .footer-links{gap:4px;}
+  .footer-links a{font-size:12px;padding:3px 8px;}
+}
+/* Nav touch scrolling */
+.nav-inner{-webkit-overflow-scrolling:touch;touch-action:pan-x;}
 </style>
 </head>
 <body>
@@ -199,6 +239,10 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
     <div class="form-container">
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmlD0p1kW2QHEWVh30qNv1g_AOFESePBJxnA04pS4S1pDaJA/viewform?embedded=true" width="100%" height="2584" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+    <div class="form-mobile-link">
+      <p>Embedded forms don't scroll well on phones. Tap below to open the form directly - it works exactly the same and your response still goes to the same place.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmlD0p1kW2QHEWVh30qNv1g_AOFESePBJxnA04pS4S1pDaJA/viewform" target="_blank">Open Contact Form ↗</a>
     </div>
   </section>
 

@@ -104,6 +104,39 @@ footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,2
 footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 @media(max-width:640px){.page-layout{padding:32px 24px 60px;}}
+
+/* ── RESPONSIVE / MOBILE ───────────────────────────────────────────── */
+@media(max-width:900px){
+  .page-layout{grid-template-columns:1fr;padding:32px 24px 60px;}
+  .toc{display:none;}
+  .grid-2,.grid-3,.mod-grid,.roadmap-grid,.welcome-grid{grid-template-columns:1fr;}
+  .status-row{flex-direction:column;gap:10px;}
+  .section-head{gap:12px;}
+  .section-emoji{font-size:26px;}
+}
+@media(max-width:640px){
+  .page-layout{padding:24px 16px 48px;}
+  .step{flex-direction:column;}
+  .step-body{border-left:none;border-top:3px solid var(--green);border-radius:0 0 8px 8px;}
+  .hero-title{font-size:clamp(26px,8vw,44px);}
+  .quick-grid{grid-template-columns:1fr 1fr;gap:10px;padding:0 16px;}
+  .quick-card{padding:18px 12px;}
+  .quick-icon{font-size:28px;}
+  .quick-label{font-size:13px;}
+  .quick-desc{font-size:11px;}
+  .callout{padding:14px 16px;font-size:14px;}
+  .table-wrap{font-size:13px;}
+  th{font-size:11px;padding:10px 12px;}
+  td{padding:10px 12px;font-size:13px;}
+  .intro-section{padding:0 16px 16px;}
+  .mod-card{padding:16px;}
+  .card{padding:16px;}
+  footer{padding:28px 16px;}
+  .footer-links{gap:4px;}
+  .footer-links a{font-size:12px;padding:3px 8px;}
+}
+/* Nav touch scrolling */
+.nav-inner{-webkit-overflow-scrolling:touch;touch-action:pan-x;}
 </style>
 </head>
 <body>
