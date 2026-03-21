@@ -43,9 +43,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 /* NAV */
 nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
 .nav-wrapper{position:relative;}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;padding:10px 0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;padding:10px 36px 10px 0;overflow-x:auto;scrollbar-width:none;}
 .nav-inner::-webkit-scrollbar{display:none;}
-.nav-scroll-hint{display:none;position:absolute;right:0;top:0;bottom:0;width:40px;background:linear-gradient(to right,transparent,rgba(245,242,232,0.97));align-items:center;justify-content:flex-end;padding-right:6px;pointer-events:none;font-size:16px;color:var(--green-dark);}
+.nav-scroll-hint{display:none;position:absolute;right:0;top:0;bottom:0;width:32px;background:linear-gradient(to right,transparent 0%,rgba(245,242,232,0.98) 60%);align-items:center;justify-content:flex-end;padding-right:4px;pointer-events:none;font-size:14px;color:var(--green-dark);}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:16px;flex-shrink:0;}
 .nav-brand-text{font-family:var(--font-head);font-size:12px;color:var(--green-dark);line-height:1;}
 .nav-link{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
@@ -179,6 +179,17 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   .step{flex-direction:column;}
 }
 
+
+/* Mobile table - stack as cards */
+@media(max-width:640px){
+  .table-wrap table,.table-wrap thead,.table-wrap tbody,.table-wrap th,.table-wrap td,.table-wrap tr{display:block;}
+  .table-wrap thead{display:none;}
+  .table-wrap tr{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);margin-bottom:10px;padding:0;}
+  .table-wrap td{border-bottom:1px solid rgba(27,82,41,0.06);padding:10px 14px;font-size:13px;white-space:normal!important;}
+  .table-wrap td:first-child{font-size:14px;font-weight:800;color:var(--green-dark);border-bottom:2px solid var(--border);background:var(--green-pale);}
+  .table-wrap td:last-child{border-bottom:none;}
+  .table-wrap td[style*="white-space:nowrap"]{white-space:normal!important;}
+}
 /* ── RESPONSIVE / MOBILE ───────────────────────────────────────────── */
 @media(max-width:900px){
   .page-layout{grid-template-columns:1fr;padding:32px 24px 60px;}
@@ -212,6 +223,14 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;touch-action:pan-x;}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
 </head>
 <body>
 
@@ -316,16 +335,17 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </section>
 
 <section id="careers">
-  <div class="section-head"><div class="section-emoji">💼</div><div class="section-title-wrap"><h2 class="section-title">Creating Custom Careers</h2><p class="section-sub">Beginner-friendly with Career Creator 3</p></div></div>
-  <div class="callout teal">Career Creator 3 is the dedicated tool for building new career tracks. It gives you a simple interface for setting up job titles, wages, promotion requirements, work schedules and skill requirements - no raw BHAV coding needed. The end result is a new .iff file you drop in your Downloads folder like any other mod.</div>
-  <div class="callout green" style="margin-bottom:24px;">Download Career Creator 3 from the <a href="https://github.com/trolando/Sims1Tools" target="_blank" style="font-weight:700;">GitHub Sims1Tools repository ↗</a>. It's included in the same toolkit as IFF Pencil 2 and the other tools.</div>
+  <div class="section-head"><div class="section-emoji">💼</div><div class="section-title-wrap"><h2 class="section-title">Creating Custom Careers</h2><p class="section-sub">Replaces an existing career - this is a Sims 1 engine limitation</p></div></div>
+  <div class="callout gold"><strong>Important - you cannot add new careers, only replace existing ones.</strong> This is a hard limitation of The Sims 1 engine and there is currently no way around it. Career Creator 3 lets you fully customise a career's name, job titles, wages, schedules and requirements - but the result will overwrite one of the 10 base game career tracks. Choose which career you're least likely to want your Sims to use and replace that one. Your custom career will appear in its place in the newspaper and computer job listings.</div>
+  <div class="callout teal" style="margin-top:0;">Career Creator 3 handles all of this through a simple form-based interface - no raw BHAV coding needed. The end result is a modified .iff file that goes into <code>GameData\Objects\</code> (not Downloads - it's replacing a base game file).</div>
+  <div class="callout green" style="margin-bottom:24px;">Download Career Creator 3 from the <a href="https://github.com/trolando/Sims1Tools" target="_blank" style="font-weight:700;">GitHub Sims1Tools repository ↗</a>. It's in the same toolkit as IFF Pencil 2 and the other tools.</div>
   <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open Career Creator 3</h4><p>Launch the tool. You'll see a form-based interface with fields for each aspect of the career. It's straightforward to navigate - each tab covers a different part of the career structure.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set up the career basics</h4><p>Give your career a name and set the number of job levels (up to 10). Each level gets its own job title, daily wage, and work schedule. Think about how the career should progress - entry-level jobs typically pay less and have more days worked per week.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Configure each job level</h4><p>For each level, fill in the job title, salary, work days and hours, and the number of friends required for promotion. You can also set which skills are needed to advance - for example, requiring a certain level of Cooking or Charisma before a Sim can be promoted.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set the carpool vehicle</h4><p>Choose which vehicle picks your Sim up for work. The options correspond to the in-game vehicles available in your installed expansions. This is purely visual but adds a nice touch of variety.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export the career file</h4><p>When you're happy with the setup, use the Export option to save the career as an .iff file. Give it a clear filename so you can find it easily later.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Install and test</h4><p>Drop the .iff file into your <code>Downloads\</code> folder and launch the game. Your new career should appear in the job listings when a Sim looks for work via the newspaper or computer. If it doesn't show up, double-check the file is in the right folder and not still inside a zip.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Decide which career to replace</h4><p>The Sims 1 has 10 career tracks: Business, Entertainment, Law Enforcement, Medicine, Military, Politics, Pro Athlete, Science, Slacker and Xtreme. Pick whichever one you're happy to lose - your custom career will take its slot completely. Sims already in that career will continue in it but the track will now have your custom names and values.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open Career Creator 3 and load the career</h4><p>Launch the tool and open the .iff file for the career you're replacing. Career .iff files are in your game's <code>GameData\Objects\</code> folder - they're named things like <code>career_business.iff</code>. Loading the original gives you all the existing values to work from.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set up the career basics</h4><p>Change the career name and set the number of job levels (up to 10). Each level gets its own job title, daily wage, and work schedule. Think through the progression - entry-level jobs typically pay less and have more days worked per week.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Configure each job level</h4><p>For each level, fill in the job title, salary, work days and hours, and the number of friends required for promotion. You can also set which skills are needed to advance - requiring Cooking or Charisma, for example, before a Sim can move up.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set the carpool vehicle</h4><p>Choose which vehicle picks your Sim up for work. Options correspond to vehicles available in your installed expansions. Purely visual, but worth setting to something that fits your career theme.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save and install</h4><p>Save the modified .iff file and drop it into <code>GameData\Objects\</code> - not the Downloads folder. Since you're replacing a base game file, it needs to go where the original lives. Back up the original .iff first so you can restore it if needed. Launch the game and the career should appear with your new name and values in the job listings.</p></div></div>
   </div>
 </section>
 
@@ -359,6 +379,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <a href="contact.html">Contact</a>
     </div>
     <p>Community guide · Not affiliated with EA or Maxis · Last updated March 2026 · Patch 1.122 compatible</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
 </body>
