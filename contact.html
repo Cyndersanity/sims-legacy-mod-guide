@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F2E8;--cream-dark:#EDE8D6;--white:#FFFFFF;
+  --green:#3BAE5C;--green-mid:#2D8A47;--green-dark:#1A5229;--green-pale:#E6F5EB;
+  --gold:#E8B84B;--gold-pale:#FDF5DC;--gold-dark:#9A6F10;
+  --teal:#3AADA8;--teal-pale:#E1F5F4;
+  --red:#D94F4F;--red-pale:#FDEAEA;
+  --ink:#1C2B1F;--ink-mid:#3D5445;--ink-muted:#6B8A72;
+  --border:rgba(27,82,41,0.12);
+  --shadow-sm:0 1px 4px rgba(27,82,41,0.08);
+  --shadow-md:0 4px 16px rgba(27,82,41,0.10);
+  --radius-sm:8px;--radius-md:14px;--radius-lg:20px;
+  --font-head:'Paytone One',sans-serif;
+  --font-body:'Nunito',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden;}
+::selection{background:var(--green);color:#fff;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--cream-dark);}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px;}
+a{color:var(--green-dark);}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:0.5;}
+.plumbob{display:inline-block;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);flex-shrink:0;}
+.plumbob.sm{width:16px;height:16px;background:var(--green);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:4px;padding:10px 0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:16px;flex-shrink:0;}
+.nav-brand-text{font-family:var(--font-head);font-size:13px;color:var(--green-dark);line-height:1;}
+.nav-link{font-family:var(--font-body);font-size:13px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:6px 12px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
+.nav-link:hover,.nav-link.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+
+/* PAGE HERO */
+.page-hero{position:relative;z-index:1;background:linear-gradient(160deg,#D6EFD8 0%,#EAF6E0 40%,var(--cream) 100%);border-bottom:3px solid var(--border);padding:56px 24px 48px;text-align:center;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--green-dark);background:var(--white);border:2px solid rgba(27,82,41,0.18);padding:5px 14px;border-radius:999px;margin-bottom:16px;}
+.page-title{font-family:var(--font-head);font-size:clamp(28px,5vw,52px);color:var(--green-dark);line-height:1.1;margin-bottom:12px;}
+.page-title span{color:var(--green);}
+.page-sub{font-size:16px;color:var(--ink-mid);font-weight:600;max-width:560px;margin:0 auto;}
+
+/* LAYOUT - single column centred for contact page */
+.page-wrap{max-width:780px;margin:0 auto;padding:56px 48px 80px;position:relative;z-index:1;}
+
+/* SECTION */
+.section-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border);}
+.section-emoji{font-size:32px;flex-shrink:0;}
+.section-title{font-family:var(--font-head);font-size:clamp(20px,3vw,28px);color:var(--ink);}
+.section-sub{font-size:14px;color:var(--ink-muted);font-weight:600;margin-top:4px;}
+section{margin-bottom:56px;}
+
+/* CALLOUTS */
+.callout{border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;border-left:4px solid;font-size:15px;line-height:1.7;}
+.callout.green{background:var(--green-pale);border-color:var(--green);}
+.callout.gold{background:var(--gold-pale);border-color:var(--gold);}
+.callout.teal{background:var(--teal-pale);border-color:var(--teal);}
+.callout strong{font-weight:800;}
+code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;}
+
+/* WHAT I WELCOME CARDS */
+.welcome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:24px 0;}
+.welcome-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:18px 20px;box-shadow:var(--shadow-sm);}
+.welcome-icon{font-size:26px;margin-bottom:8px;}
+.welcome-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.welcome-desc{font-size:13px;color:var(--ink-mid);line-height:1.6;}
+
+/* SETUP INSTRUCTIONS */
+.setup-steps{counter-reset:setup;margin:20px 0;}
+.setup-step{display:flex;gap:14px;margin-bottom:12px;counter-increment:setup;}
+.setup-num{flex-shrink:0;width:28px;height:28px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:12px;color:#fff;margin-top:2px;}
+.setup-num::after{content:counter(setup);}
+.setup-body{font-size:14px;color:var(--ink-mid);line-height:1.7;padding-top:4px;}
+.setup-body strong{color:var(--ink);}
+
+/* FORM CONTAINER */
+.form-container{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);}
+.form-container iframe{width:100%;border:none;display:block;}
+
+/* PLACEHOLDER - shown before iframe is added */
+.form-placeholder{background:var(--white);border:2px dashed var(--green);border-radius:var(--radius-md);padding:48px 32px;text-align:center;}
+.form-placeholder-icon{font-size:48px;margin-bottom:16px;}
+.form-placeholder-title{font-family:var(--font-head);font-size:20px;color:var(--green-dark);margin-bottom:8px;}
+.form-placeholder-body{font-size:14px;color:var(--ink-mid);line-height:1.7;max-width:480px;margin:0 auto;}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,255,255,0.8);padding:40px 24px;}
+.footer-inner{max-width:1200px;margin:0 auto;text-align:center;}
+.footer-brand{font-family:var(--font-head);font-size:15px;color:#fff;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.footer-links{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;transition:all 0.15s;}
+.footer-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
+footer p{font-size:12px;color:rgba(255,255,255,0.5);}
+
+@media(max-width:640px){.page-wrap{padding:32px 24px 60px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <span class="plumbob sm"></span>
+      <span class="nav-brand-text">SIMS LEGACY COLLECTION</span>
+    </a>
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
+    <a href="installing-mods.html" class="nav-link">📁 Install</a>
+    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
+    <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
+    <a href="cheats.html" class="nav-link">🎮 Cheats</a>
+    <a href="making-cc.html" class="nav-link">🎨 Make CC</a>
+    <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
+    <a href="troubleshooting.html" class="nav-link">🛠️ Troubleshoot</a>
+    <a href="updates.html" class="nav-link">📋 Updates</a>
+    <a href="contact.html" class="nav-link active">✉️ Contact</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection Guide</div>
+  <h1 class="page-title">Get in <span>Touch</span></h1>
+  <p class="page-sub">Corrections, suggestions, missing mods, broken links - all welcome</p>
+</div>
+
+<div class="page-wrap">
+
+  <section id="welcome">
+    <div class="section-head">
+      <div class="section-emoji">💬</div>
+      <div class="section-title-wrap">
+        <h2 class="section-title">What I'd Love to Hear About</h2>
+      </div>
+    </div>
+    <p style="color:var(--ink-mid);margin-bottom:20px;">This guide is a community resource and it gets better with community input. If you've spotted something wrong, found a mod that should be on the list, or have a suggestion for a new section, the form below goes straight to a spreadsheet I check regularly.</p>
+    <div class="welcome-grid">
+      <div class="welcome-card">
+        <div class="welcome-icon">🐛</div>
+        <div class="welcome-title">Corrections</div>
+        <div class="welcome-desc">Something on the guide is wrong or out of date - a folder path, a mod description, a broken link.</div>
+      </div>
+      <div class="welcome-card">
+        <div class="welcome-icon">🧩</div>
+        <div class="welcome-title">Missing Mods</div>
+        <div class="welcome-desc">A mod that should be on the must-have list but isn't. Include the mod name and where to find it.</div>
+      </div>
+      <div class="welcome-card">
+        <div class="welcome-icon">💡</div>
+        <div class="welcome-title">Suggestions</div>
+        <div class="welcome-desc">A new page, section, or topic you'd like to see covered on the guide.</div>
+      </div>
+      <div class="welcome-card">
+        <div class="welcome-icon">🔗</div>
+        <div class="welcome-title">Broken Links</div>
+        <div class="welcome-desc">A download link or external site link that's no longer working.</div>
+      </div>
+    </div>
+    <div class="callout teal">Responses go into a Google Sheet that I review when I update the guide. I may not reply directly, but I do read everything and useful suggestions will make it into future updates - credited if you'd like.</div>
+  </section>
+
+  <section id="form">
+    <div class="section-head">
+      <div class="section-emoji">📝</div>
+      <div class="section-title-wrap">
+        <h2 class="section-title">Contact Form</h2>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmlD0p1kW2QHEWVh30qNv1g_AOFESePBJxnA04pS4S1pDaJA/viewform?embedded=true" width="100%" height="2584" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection - Modding Guide
+    </div>
+    <div class="footer-links">
+      <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
+      <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
+      <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
+    </div>
+    <p>Community guide · Not affiliated with EA or Maxis · Last updated March 2026 · Patch 1.122 compatible</p>
+  </div>
+</footer>
+</body>
+</html>
