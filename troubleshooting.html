@@ -42,11 +42,13 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 
 /* NAV */
 nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:4px;padding:10px 0;overflow-x:auto;scrollbar-width:none;}
+.nav-wrapper{position:relative;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;padding:10px 0;overflow-x:auto;scrollbar-width:none;}
 .nav-inner::-webkit-scrollbar{display:none;}
+.nav-scroll-hint{display:none;position:absolute;right:0;top:0;bottom:0;width:40px;background:linear-gradient(to right,transparent,rgba(245,242,232,0.97));align-items:center;justify-content:flex-end;padding-right:6px;pointer-events:none;font-size:16px;color:var(--green-dark);}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:16px;flex-shrink:0;}
-.nav-brand-text{font-family:var(--font-head);font-size:13px;color:var(--green-dark);line-height:1;}
-.nav-link{font-family:var(--font-body);font-size:13px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:6px 12px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
+.nav-brand-text{font-family:var(--font-head);font-size:12px;color:var(--green-dark);line-height:1;}
+.nav-link{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
 .nav-link:hover,.nav-link.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
 
 /* PAGE HERO */
@@ -181,7 +183,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <body>
 
 <nav>
-  <div class="nav-inner">
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
     <a class="nav-brand" href="index.html">
       <span class="plumbob sm"></span>
       <span class="nav-brand-text">SIMS LEGACY COLLECTION</span>
@@ -194,9 +197,25 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <a href="making-cc.html" class="nav-link">🎨 Make CC</a>
 <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
 <a href="troubleshooting.html" class="nav-link active">🛠️ Troubleshoot</a>
-
+    <a href="updates.html" class="nav-link">📋 Updates</a>
+    <a href="contact.html" class="nav-link">✉️ Contact</a>
+  </div>
+  <div class="nav-scroll-hint" id="navHint">›</div>
   </div>
 </nav>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){
+    if(!nav||!hint)return;
+    hint.style.display=(nav.scrollWidth>nav.clientWidth+4)?'flex':'none';
+  }
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);
+  setTimeout(check,100);
+})();
+</script>
 <div class="page-hero">
   <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Troubleshooting</div>
   <h1 class="page-title"><span>Troubleshooting</span></h1>
@@ -206,7 +225,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#mods-not-showing">Mods Not Showing</a></li><li><a href="#crashes">Game Crashes</a></li><li><a href="#white-skins">White/Blank Skins</a></li><li><a href="#old-mods">Old Mods Not Working</a></li><li><a href="#far-files">FAR Files Issues</a></li><li><a href="#community">Community Help</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
+      <ul class="toc-list"><li><a href="#mods-not-showing">Mods Not Showing</a></li><li><a href="#crashes">Game Crashes</a></li><li><a href="#white-skins">White/Blank Skins</a></li><li><a href="#cc-limits">CC Limits & Glitches</a></li><li><a href="#old-mods">Old Mods Not Working</a></li><li><a href="#far-files">FAR Files Issues</a></li><li><a href="#community">Community Help</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
     </div>
   </aside>
   <main class="content">
@@ -250,6 +269,29 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <li><strong>Photoshop:</strong> Image → Mode → Indexed Colour → File → Save As → BMP format</li>
       <li><strong>Paint.NET:</strong> Install the IndirectBitmap plugin, then save as Indexed BMP</li>
       <li>Do not use PNG, JPG, WebP or 24-bit BMP - none of these work in Sims 1</li>
+    </ul>
+  </div>
+</section>
+
+<section id="cc-limits">
+  <div class="section-head"><div class="section-emoji">📦</div><div class="section-title-wrap"><h2 class="section-title">Game Crashes or Glitches After Adding Lots of CC</h2><p class="section-sub">The engine has built-in limits that can cause problems if exceeded</p></div></div>
+  <div class="callout gold"><strong>The Sims 1 engine has hard caps on how much custom content it can load.</strong> These existed in the original game and the Legacy Collection has not confirmed that any of them have been changed. If you've added a large amount of CC and the game is behaving strangely, these limits are the most likely cause.</div>
+  <div class="trouble-card" style="margin-top:16px;">
+    <div class="trouble-title">Known limits and their symptoms:</div>
+    <ul class="trouble-list">
+      <li><strong>Build Mode objects (doors, windows, fences, stairs etc.)</strong> - capped at 200 per category on the base game. With Unleashed, this rises to 2,000. Typical symptoms: fences replacing pool ladders, plants replacing fireplaces, windows replacing staircases. The objects are still installed, they're just showing up as the wrong thing.</li>
+      <li><strong>Walls</strong> - capped at 90 on the base game, 65,000 with Livin' Large or later.</li>
+      <li><strong>Floors</strong> - capped at 63 on the base game, 65,000 with Livin' Large or later.</li>
+      <li><strong>Downloads folder size</strong> - community testing suggests keeping this below 2.5-3 GB. If you have a large object collection and are getting random crashes with no obvious cause, folder size is worth checking.</li>
+      <li><strong>Skins</strong> - no confirmed hard number, but crashes have been reported with very large collections (3,000+ files). If your game crashes with lots of skins installed, try removing half and testing to narrow it down.</li>
+    </ul>
+  </div>
+  <div class="trouble-card" style="margin-top:12px;">
+    <div class="trouble-title">What to do:</div>
+    <ul class="trouble-list">
+      <li>Move excess CC out of the game folder temporarily - store it in a folder outside the install directory. The game only reads folders it knows to look for, so a folder named something like "CC Storage" sitting in the root will be ignored.</li>
+      <li>Rotate CC in and out in themed batches rather than keeping everything installed at once.</li>
+      <li>If you suspect a specific skin file is corrupted and causing crashes, remove half your skins, test, then keep halving until you find the problem file.</li>
     </ul>
   </div>
 </section>
@@ -301,6 +343,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
       <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
+      <a href="updates.html">Updates & Roadmap</a>
+      <a href="contact.html">Contact</a>
     </div>
     <p>Community guide · Not affiliated with EA or Maxis · Last updated March 2026 · Patch 1.122 compatible</p>
   </div>
