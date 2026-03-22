@@ -38,10 +38,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 
 /* NAV */
 nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
-.nav-wrapper{position:relative;}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;padding:10px 36px 10px 0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;padding:10px 48px 10px 0;overflow-x:auto;scrollbar-width:none;}
 .nav-inner::-webkit-scrollbar{display:none;}
-.nav-scroll-hint{display:none;position:absolute;right:0;top:0;bottom:0;width:32px;background:linear-gradient(to right,transparent 0%,rgba(245,242,232,0.98) 60%);align-items:center;justify-content:flex-end;padding-right:4px;pointer-events:none;font-size:14px;color:var(--green-dark);}
+.nav-scroll-hint{display:none;position:absolute;right:0;top:0;bottom:0;width:48px;background:linear-gradient(to right,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-end;padding-right:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-scroll-hint:hover{color:var(--green);background:linear-gradient(to right,transparent 0%,rgba(230,245,235,0.98) 50%);}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:16px;flex-shrink:0;}
 .nav-brand-text{font-family:var(--font-head);font-size:12px;color:var(--green-dark);line-height:1;}
 .nav-link{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
@@ -147,7 +147,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   .footer-links a{font-size:12px;padding:3px 8px;}
 }
 /* Nav touch scrolling */
-.nav-inner{-webkit-overflow-scrolling:touch;touch-action:pan-x;}
+.nav-inner{-webkit-overflow-scrolling:touch;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -161,7 +161,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <body>
 
 <nav>
-  <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
     <a class="nav-brand" href="index.html">
       <span class="plumbob sm"></span>
@@ -180,16 +179,25 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="updates.html" class="nav-link">📋 Updates</a>
     <a href="contact.html" class="nav-link">✉️ Contact</a>
   </div>
-  <div class="nav-scroll-hint" id="navHint">›</div>
-  </div>
+    <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
 </nav>
 <script>
 (function(){
   var nav=document.getElementById('navInner');
   var hint=document.getElementById('navHint');
-  function check(){if(!nav||!hint)return;hint.style.display=(nav.scrollWidth>nav.clientWidth+4)?'flex':'none';}
+  function check(){
+    if(!nav||!hint)return;
+    var overflows=nav.scrollWidth>nav.clientWidth+4;
+    var atEnd=nav.scrollLeft+nav.clientWidth>=nav.scrollWidth-8;
+    hint.style.display=(overflows&&!atEnd)?'flex':'none';
+  }
+  if(hint){
+    hint.addEventListener('click',function(){
+      nav.scrollBy({left:120,behavior:'smooth'});
+    });
+  }
   if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);setTimeout(check,100);
+  window.addEventListener('load',check);setTimeout(check,200);
 })();
 </script>
 
@@ -209,7 +217,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
         <li><a href="#mod">Mod</a></li>
         <li><a href="#hacking">Hacking</a></li>
         <li><a href="#iff">IFF & FAR</a></li>
-        <li><a href="#skins">Skins</a></li>
+        <li><a href="#skins">Skins & Filename Prefixes</a></li>
         <li><a href="#complete-collection">Complete Collection</a></li>
         <li><a href="#other">Other Terms</a></li>
       </ul>
@@ -321,6 +329,46 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <p>In Sims 1, "skins" refers specifically to the <strong>image files that make a Sim look the way they do</strong> - their clothing, body shape appearance, facial features and hair. These are bitmap (.BMP) files that get painted onto the 3D Sim body and head models.</p>
       <p>Unlike later Sims games where clothing and hair are separate items with meshes, in Sims 1 the entire Sim is essentially one texture. A "skin" for an outfit means a complete body image - top, bottom and shoes all in one file. Hair is painted directly onto the head texture rather than being a separate item. This is why skin files must go in <code>GameData\Skins\</code> with no subfolders - the game scans that one directory directly at load time.</p>
       <p>When you see "skin download" on an old Sims 1 site, it means a new outfit, hairstyle or character appearance - not a separate mesh or item.</p>
+    </div>
+  </div>
+
+  <div class="term-card" style="margin-top:14px;">
+    <div class="term-title">Skin Filename Prefixes <span class="term-also">How the game knows what type of outfit it is</span></div>
+    <div class="term-body">
+      <p>Everything the game needs to know about a skin is encoded in its filename. The <strong>first letter tells the game what clothing category the skin belongs to</strong> - which dresser drawer it appears in, whether it's buyable at a clothing rack, and which expansion unlocked it.</p>
+      <div style="margin-top:12px;">
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+          <thead><tr>
+            <th style="text-align:left;padding:8px 12px;background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:12px;border-bottom:2px solid var(--border);">Prefix</th>
+            <th style="text-align:left;padding:8px 12px;background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:12px;border-bottom:2px solid var(--border);">Type</th>
+            <th style="text-align:left;padding:8px 12px;background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:12px;border-bottom:2px solid var(--border);">Where it appears</th>
+            <th style="text-align:left;padding:8px 12px;background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:12px;border-bottom:2px solid var(--border);">Requires</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">C</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Cranium (Head)</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Create-A-Sim head selection</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Base game</td></tr>
+            <tr style="background:rgba(59,174,92,0.03);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">B</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Body (Everyday)</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Dresser - everyday clothing drawer</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Base game</td></tr>
+            <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">L</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Lingerie (Pajamas / Sleepwear)</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - sleepwear section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Hot Date</td></tr>
+            <tr style="background:rgba(59,174,92,0.03);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">F</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Formal</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - formal section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Hot Date</td></tr>
+            <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">S</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Swimwear</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - swimwear section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Hot Date</td></tr>
+            <tr style="background:rgba(59,174,92,0.03);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">W</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Winterwear</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - winterwear section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Vacation</td></tr>
+            <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">H</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">High Fashion</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - high fashion section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Superstar</td></tr>
+            <tr style="background:rgba(59,174,92,0.03);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">H</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Hand files</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Sim's hand texture (separate from body)</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Base game</td></tr>
+            <tr><td style="padding:7px 12px;font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">xskin-</td><td style="padding:7px 12px;">Mesh file (.skn)</td><td style="padding:7px 12px;">Defines the 3D shape - paired with BMP textures</td><td style="padding:7px 12px;">Base game</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:12px;">After the type prefix, the rest of the filename encodes: <strong>gender</strong> (f = female, m = male), <strong>age</strong> (a = adult, c = child), <strong>body type</strong> (3 letters), <strong>skin tone</strong> (lgt / med / drk), then an underscore and the outfit name. For example: <code>Lfa fit lgt_MySleepwear.bmp</code> = Lingerie, female adult, fit body type, light skin tone.</p>
+      <p style="margin-top:10px;"><strong>Note on H:</strong> Both High Fashion and hand files start with H. The game distinguishes them by context - hand files are referenced directly in character files, while High Fashion skins appear in the clothing rack like other buyable types.</p>
+    </div>
+  </div>
+
+  <div class="term-card" style="margin-top:14px;">
+    <div class="term-title">Buyable Skins & the SkinsBuy Folder <span class="term-also">Hot Date, Vacation, Superstar</span></div>
+    <div class="term-body">
+      <p>The <strong>L, F, S, W and H prefixed skins</strong> are "buyable" - they don't appear in your Sim's home dresser but are instead purchased from a clothing rack on a community lot (introduced in Hot Date). This means your Sims have to visit a shopping lot to buy them, just like in real life.</p>
+      <p>In the original game and older installation guides, buyable skins were told to go in a separate <code>SkinsBuy\</code> folder rather than the main Skins folder. In the Legacy Collection, this folder exists at <code>ExpansionShared\SkinsBuy\</code>.</p>
+      <div class="callout gold" style="margin-top:12px;"><strong>Which folder should buyable skins go in for the Legacy Collection?</strong> Community testing confirms that the <code>ExpansionShared\SkinsBuy\</code> folder is the correct location for buyable skins (L, F, S, W, H prefix) in the Legacy Collection. Dropping them in the regular <code>GameData\Skins\</code> folder may work for some, but using the dedicated SkinsBuy folder is the more reliable approach. The no-subfolders rule applies to both locations.</div>
+      <div class="callout teal" style="margin-top:0;"><strong>Buyable skins do not appear in Create-A-Sim.</strong> This is intentional - the L, F, S, W and H categories are shopping-only outfits by design. Your Sim needs to visit a clothing rack on a community lot to purchase them. They will never show up in the dresser at home or in the initial character creator, regardless of which folder they're installed in. If you want a skin to be available in Create-A-Sim, it needs to have a <strong>B prefix</strong> (everyday). You can rename a buyable skin's files to use a B prefix to make it appear in CAS, but doing so removes it from the clothing racks entirely - it's one or the other.</div>
     </div>
   </div>
 </section>

@@ -42,10 +42,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 
 /* NAV */
 nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
-.nav-wrapper{position:relative;}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;padding:10px 36px 10px 0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;padding:10px 48px 10px 0;overflow-x:auto;scrollbar-width:none;}
 .nav-inner::-webkit-scrollbar{display:none;}
-.nav-scroll-hint{display:none;position:absolute;right:0;top:0;bottom:0;width:32px;background:linear-gradient(to right,transparent 0%,rgba(245,242,232,0.98) 60%);align-items:center;justify-content:flex-end;padding-right:4px;pointer-events:none;font-size:14px;color:var(--green-dark);}
+.nav-scroll-hint{display:none;position:absolute;right:0;top:0;bottom:0;width:48px;background:linear-gradient(to right,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-end;padding-right:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-scroll-hint:hover{color:var(--green);background:linear-gradient(to right,transparent 0%,rgba(230,245,235,0.98) 50%);}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:16px;flex-shrink:0;}
 .nav-brand-text{font-family:var(--font-head);font-size:12px;color:var(--green-dark);line-height:1;}
 .nav-link{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
@@ -221,7 +221,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   .footer-links a{font-size:12px;padding:3px 8px;}
 }
 /* Nav touch scrolling */
-.nav-inner{-webkit-overflow-scrolling:touch;touch-action:pan-x;}
+.nav-inner{-webkit-overflow-scrolling:touch;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -235,7 +235,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <body>
 
 <nav>
-  <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
     <a class="nav-brand" href="index.html">
       <span class="plumbob sm"></span>
@@ -253,8 +252,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="updates.html" class="nav-link">📋 Updates</a>
     <a href="contact.html" class="nav-link">✉️ Contact</a>
   </div>
-  <div class="nav-scroll-hint" id="navHint">›</div>
-  </div>
+    <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
 </nav>
 <script>
 (function(){
@@ -262,11 +260,18 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   var hint=document.getElementById('navHint');
   function check(){
     if(!nav||!hint)return;
-    hint.style.display=(nav.scrollWidth>nav.clientWidth+4)?'flex':'none';
+    var overflows=nav.scrollWidth>nav.clientWidth+4;
+    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
+    hint.style.display=(overflows&&!atEnd)?'flex':'none';
+  }
+  if(hint){
+    hint.addEventListener('click',function(){
+      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
+    });
   }
   if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
   window.addEventListener('load',check);
-  setTimeout(check,100);
+  setTimeout(check,200);
 })();
 </script>
 <div class="page-hero">
@@ -340,7 +345,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   <div class="grid-2">
     <div class="card"><div class="card-title"><span class="tag green">.iff</span> Object File</div><div class="card-desc">The most common mod format. Contains object data, interactions and behaviour. Goes in <code>Downloads\</code> unless the readme specifies otherwise.</div></div>
     <div class="card"><div class="card-title"><span class="tag green">.FAR</span> Container File</div><div class="card-desc">Bundles multiple .iff or .xa files together. Also goes in <code>Downloads\</code>.</div></div>
-    <div class="card"><div class="card-title"><span class="tag gold">.BMP .CMX .SKN</span> Skin Files</div><div class="card-desc">Custom clothing, hair and head textures. Goes directly in <code>GameData\Skins\</code> - no subfolders.</div></div>
+    <div class="card"><div class="card-title"><span class="tag gold">.BMP .CMX .SKN</span> Skin Files</div><div class="card-desc">Custom clothing, hair and head textures. <strong>Everyday skins (prefix B or C)</strong> go directly in <code>GameData\Skins\</code> - no subfolders. <strong>Buyable skins (prefix L, F, S, W, H)</strong> go in <code>ExpansionShared\SkinsBuy\</code> - also no subfolders.</div></div>
     <div class="card"><div class="card-title"><span class="tag teal">.WLL / .FLR</span> Decor Files</div><div class="card-desc">Custom wall and floor textures. Goes in <code>GameData\Walls\</code> or <code>GameData\Floors\</code>. Subfolders are supported in both.</div></div>
     <div class="card"><div class="card-title"><span class="tag teal">Roof textures</span></div><div class="card-desc">Goes in <code>GameData\Roofs\</code> directly - no subfolders.</div></div>
     <div class="card"><div class="card-title"><span class="tag red">.iff</span> Game File Override</div><div class="card-desc">Mods that replace an existing base game file go in <code>GameData\Objects\</code>, not <code>Downloads\</code>. The readme will specify this.</div></div>
@@ -391,7 +396,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
   </div>
   <div class="grid-2">
-    <div class="callout red"><strong>No subfolders for skins.</strong> Skin files (.BMP/.CMX/.SKN) must sit directly in GameData\Skins\ - any subfolder and the game won't load them.</div>
+    <div class="callout red"><strong>No subfolders for skins - in either folder.</strong> Everyday skin files (.BMP/.CMX/.SKN with prefix B or C) must sit directly in <code>GameData\Skins\</code>. Buyable skins (prefix L, F, S, W or H) must sit directly in <code>ExpansionShared\SkinsBuy\</code>. Any subfolder in either location and the game won't read them.</div>
     <div class="callout gold"><strong>Unzip everything first.</strong> The game cannot read .zip files. Always extract before moving files into place.</div>
     <div class="callout teal"><strong>Add one mod at a time.</strong> Install one mod, test in game, then add the next. Makes identifying problems much easier.</div>
     <div class="callout green"><strong>Check for virus warnings.</strong> Many Sims 1 mod files are 20+ years old. Scan with your antivirus before opening, especially from lesser-known sites.</div>
@@ -422,7 +427,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download the mod</h4><p>Download from a trusted site (see the <a href="download-sites.html">Download Sites</a> page).</p><p>You'll usually get a .zip file - if so, continue to step 2. If the download gives you the mod files directly (e.g. a .iff, .FAR or .BMP file), skip straight to steps 3 and 4 to place them in the right folders.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Extract the zip</h4><p>Right-click the .zip file and choose your extraction method. The options you see will depend on whether you're using Windows built-in extraction, 7-Zip or WinRAR:</p><p style="margin-top:12px;"><strong>Extract To "zip folder name":</strong> Creates a new folder with the same name as the zip file and places all the contents inside it. This is the tidiest option as everything stays contained in one place. Open that folder to find your mod files.</p><p style="margin-top:12px;"><strong>Extract Files:</strong> Opens a dialogue letting you choose exactly where the extracted files are placed. Use this if you want to send them straight to a specific folder you've already set up. Navigate to your destination and confirm the files have extracted properly.</p><p style="margin-top:12px;"><strong>Extract Here:</strong> Extracts everything directly into the same folder where the zip file currently sits, following the same folder structure that's inside the zip. If the zip contained a subfolder, that subfolder will appear in the current location. Best used when the zip contains only the mod files with no extra wrapper folder.</p><p style="margin-top:12px;">Whichever method you use, make sure you can find the actual .iff, .FAR, .BMP or similar mod files before moving on.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find your game folder</h4><p><strong>Steam:</strong> right-click game → Manage → Browse local files.</p><p><strong>EA App:</strong> right-click → Manage → Open install folder.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place the files</h4><p><strong>Always check for a readme first.</strong> Many mods include a readme (.txt) file that tells you exactly where to put things. If one is included, follow those instructions over anything else - some mods need to go into a specific folder to work correctly, and the readme will tell you which one.</p><p style="margin-top:10px;">If there is no readme, use the file type and mod description as your guide. The most common locations are:</p><p style="margin-top:10px;"><strong>Most mods (.iff/.FAR)</strong> → <code>Downloads\</code><br>Custom objects, furniture, buyable items and most gameplay tweaks go here. This is the default destination for the majority of mods.</p><p style="margin-top:10px;"><strong>Skin files (.BMP/.CMX/.SKN)</strong> → <code>GameData\Skins\</code><br>Custom clothing, hair and head textures. Must go directly in this folder - no subfolders or the game won't read them.</p><p style="margin-top:10px;"><strong>Wall coverings (.WLL)</strong> → <code>GameData\Walls\</code><br>Subfolders are supported here if you want to organise by style or creator.</p><p style="margin-top:10px;"><strong>Floor tiles (.FLR)</strong> → <code>GameData\Floors\</code><br>Subfolders are supported here too.</p><p style="margin-top:10px;"><strong>Roof textures</strong> → <code>GameData\Roofs\</code><br>Must go directly in the folder - no subfolders.</p><p style="margin-top:10px;"><strong>Game file overrides (.iff)</strong> → <code>GameData\Objects\</code><br>Mods that replace or modify an existing base game file rather than adding something new. For example, Corylea's Two Hour Carpool replaces the original carpool object to change when it arrives - because it's overriding a base game file rather than adding a new object, it needs to go in <code>GameData\Objects\</code> rather than <code>Downloads\</code>. The readme will always specify this.</p><p style="margin-top:10px;"><strong>Expansion-specific overrides</strong> → <code>ExpansionPack#\</code> (where # is 1-7)<br>Some mods target a specific expansion pack's files rather than the base game. These go in the relevant expansion folder. Again, the readme will tell you which number corresponds to which expansion.</p><p style="margin-top:10px;"><strong>Downloaded lots (.iff)</strong> → <code>UserData\Houses\</code> (or <code>UserData1\Houses\</code> etc. depending on which neighbourhood)<br>Lots are placed into the Houses folder for the neighbourhood you want them to appear in.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place the files</h4><p><strong>Always check for a readme first.</strong> Many mods include a readme (.txt) file that tells you exactly where to put things. If one is included, follow those instructions over anything else - some mods need to go into a specific folder to work correctly, and the readme will tell you which one.</p><p style="margin-top:10px;">If there is no readme, use the file type and mod description as your guide. The most common locations are:</p><p style="margin-top:10px;"><strong>Most mods (.iff/.FAR)</strong> → <code>Downloads\</code><br>Custom objects, furniture, buyable items and most gameplay tweaks go here. This is the default destination for the majority of mods.</p><p style="margin-top:10px;"><strong>Everyday skin files (.BMP/.CMX/.SKN) with prefix B or C</strong> → <code>GameData\Skins\</code><br>Everyday body outfits (prefix B) and head textures (prefix C) go here. Must go directly in this folder - no subfolders or the game won't read them. These appear in your Sim's home dresser.</p><p style="margin-top:10px;"><strong>Buyable skin files with prefix L, F, S, W or H</strong> → <code>ExpansionShared\SkinsBuy\</code><br>Hot Date introduced buyable clothing purchased from a clothing rack on a community lot - not found in the home dresser. These skins use specific first-letter prefixes: <strong>L</strong> = Lingerie/Sleepwear, <strong>F</strong> = Formal, <strong>S</strong> = Swimwear, <strong>W</strong> = Winterwear (Vacation), <strong>H</strong> = High Fashion (Superstar). These go in <code>ExpansionShared\SkinsBuy\</code> rather than the regular Skins folder - no subfolders. See the <a href="terminology.html#skins">Terminology page</a> for the full prefix reference.</p><p style="margin-top:10px;"><strong>Wall coverings (.WLL)</strong> → <code>GameData\Walls\</code><br>Subfolders are supported here if you want to organise by style or creator.</p><p style="margin-top:10px;"><strong>Floor tiles (.FLR)</strong> → <code>GameData\Floors\</code><br>Subfolders are supported here too.</p><p style="margin-top:10px;"><strong>Roof textures</strong> → <code>GameData\Roofs\</code><br>Must go directly in the folder - no subfolders.</p><p style="margin-top:10px;"><strong>Game file overrides (.iff)</strong> → <code>GameData\Objects\</code><br>Mods that replace or modify an existing base game file rather than adding something new. For example, Corylea's Two Hour Carpool replaces the original carpool object to change when it arrives - because it's overriding a base game file rather than adding a new object, it needs to go in <code>GameData\Objects\</code> rather than <code>Downloads\</code>. The readme will always specify this.</p><p style="margin-top:10px;"><strong>Expansion-specific overrides</strong> → <code>ExpansionPack#\</code> (where # is 1-7)<br>Some mods target a specific expansion pack's files rather than the base game. These go in the relevant expansion folder. Again, the readme will tell you which number corresponds to which expansion.</p><p style="margin-top:10px;"><strong>Downloaded lots (.iff)</strong> → <code>UserData\Houses\</code> (or <code>UserData1\Houses\</code> etc. depending on which neighbourhood)<br>Lots are placed into the Houses folder for the neighbourhood you want them to appear in.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Launch the game and test</h4><p>Start the game and check the mod is working. If something's wrong, see the <a href="troubleshooting.html">Troubleshooting</a> page.</p></div></div>
   </div>
 </section>
