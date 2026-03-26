@@ -342,68 +342,55 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="vulkan">
   <div class="section-head"><div class="section-emoji">🖥️</div><div><h2 class="section-title">Vulkan Initialization Failed</h2><p class="section-sub">The most common launch error in Legacy Collection</p></div></div>
   <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">The Legacy Collection uses the Vulkan graphics API. If your GPU or drivers don't support Vulkan, the game refuses to launch. Try these in order:</p>
-  <div class="status-row can">
-    <div class="status-icon">1️⃣</div>
-    <div><div class="status-title">Update your GPU drivers</div>
-    <div class="status-body">Visit your GPU manufacturer's site directly - NVIDIA (<a href="https://www.nvidia.com/drivers" target="_blank">nvidia.com/drivers</a>), AMD (<a href="https://www.amd.com/support" target="_blank">amd.com/support</a>), or Intel (<a href="https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html" target="_blank">intel.com</a>). Do not rely on Windows Update for GPU drivers. Restart your PC after updating, then try launching again.</div></div>
-  </div>
-  <div class="status-row can">
-    <div class="status-icon">2️⃣</div>
-    <div><div class="status-title">Remove the Vulkan/OpenGL Compatibility Pack</div>
-    <div class="status-body">A Windows component called "OpenCL, OpenGL, and Vulkan Compatibility Pack" can conflict with the game's Vulkan implementation. Open Settings &#8594; Apps &#8594; search for "Vulkan" or "OpenCL" &#8594; Uninstall it. This alone fixes the error for many users, especially on systems with Intel integrated graphics.</div></div>
-  </div>
-  <div class="status-row can">
-    <div class="status-icon">3️⃣</div>
-    <div><div class="status-title">NVIDIA + AMD hybrid systems: disable graphics switching</div>
-    <div class="status-body">If your PC has both a dedicated GPU and Intel/AMD integrated graphics, Vulkan may be initialising on the wrong one. In NVIDIA Control Panel or AMD settings, force Sims.exe to use your dedicated GPU. On laptops this is often under Power Management or Switchable Graphics settings.</div></div>
-  </div>
-  <div class="status-row maybe">
-    <div class="status-icon">4️⃣</div>
-    <div><div class="status-title">Older Intel integrated graphics may not be compatible</div>
-    <div class="status-body">Intel HD Graphics older than Iris Xe (pre-2020, typically 4th-8th gen Core processors) generally don't support Vulkan at all. If this is your only GPU, Legacy Collection cannot run on your hardware. The original Complete Collection (which used DirectDraw) works on these systems, but Legacy requires Vulkan.</div></div>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Update your GPU drivers</h4>
+      <p>Visit your GPU manufacturer's site directly — NVIDIA (<a href="https://www.nvidia.com/drivers" target="_blank">nvidia.com/drivers</a>), AMD (<a href="https://www.amd.com/support" target="_blank">amd.com/support</a>), or Intel (<a href="https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html" target="_blank">intel.com</a>). Do not rely on Windows Update for GPU drivers. Restart your PC after updating, then try launching again.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Remove the Vulkan/OpenGL Compatibility Pack</h4>
+      <p>A Windows component called "OpenCL, OpenGL, and Vulkan Compatibility Pack" can conflict with the game's Vulkan implementation. Open Settings &#8594; Apps &#8594; search for "Vulkan" or "OpenCL" &#8594; Uninstall it. This alone fixes the error for many users, especially on systems with Intel integrated graphics.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>NVIDIA + AMD hybrid systems: disable graphics switching</h4>
+      <p>If your PC has both a dedicated GPU and Intel/AMD integrated graphics, Vulkan may be initialising on the wrong one. In NVIDIA Control Panel or AMD settings, force Sims.exe to use your dedicated GPU. On laptops this is often under Power Management or Switchable Graphics settings.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Older Intel integrated graphics may not be compatible</h4>
+      <p>Intel HD Graphics older than Iris Xe (pre-2020, typically 4th-8th gen Core processors) generally don't support Vulkan at all. If this is your only GPU, Legacy Collection cannot run on your hardware. The original Complete Collection (which used DirectDraw) works on these systems, but Legacy requires Vulkan.</p>
+    </div></div>
   </div>
 </section>
 
 <section id="nvidia-glitch">
   <div class="section-head"><div class="section-emoji">📐</div><div><h2 class="section-title">NVIDIA: Scrambled Pixels / Misaligned UI</h2></div></div>
   <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">On some NVIDIA GPUs, rows of pixels appear shifted or scrambled - most visible on motive bars, UI buttons and loading screens. This is a known NVIDIA driver issue with Vulkan presentation via DXGI swapchain.</p>
-  <div class="trouble-card">
-    <div class="trouble-title">Fix via NVIDIA Control Panel:</div>
-    <ul class="trouble-list">
-      <li>Right-click desktop &#8594; NVIDIA Control Panel</li>
-      <li>Go to Manage 3D Settings &#8594; Program Settings tab</li>
-      <li>Find or add Sims.exe to the list</li>
-      <li>Find "Vulkan/OpenGL present method" and set it to <strong>Prefer native</strong></li>
-      <li>Apply and restart the game</li>
-    </ul>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open NVIDIA Control Panel</h4><p>Right-click your desktop and select <strong>NVIDIA Control Panel</strong>.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find Sims.exe in Program Settings</h4><p>Go to Manage 3D Settings &#8594; Program Settings tab. Find or add <code>Sims.exe</code> to the list.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Change Vulkan present method</h4><p>Find "Vulkan/OpenGL present method" and set it to <strong>Prefer native</strong>. Apply and restart the game.</p></div></div>
   </div>
-  <div class="callout teal" style="margin-top:12px;">&#8505;&#65039; Keeping NVIDIA drivers up to date may also resolve this - NVIDIA have been releasing fixes for this class of Vulkan issue.</div>
+  <div class="callout teal">ℹ️ Keeping NVIDIA drivers up to date may also resolve this — NVIDIA have been releasing fixes for this class of Vulkan issue.</div>
 </section>
 
 <section id="wont-launch">
   <div class="section-head"><div class="section-emoji">🚫</div><div><h2 class="section-title">Game Won't Launch / Closes Immediately</h2></div></div>
-  <div class="trouble-card">
-    <ul class="trouble-list">
-      <li>Update GPU drivers first (see Vulkan section above)</li>
-      <li>Verify game files in Steam: right-click game &#8594; Properties &#8594; Installed Files &#8594; Verify integrity of game files</li>
-      <li>Run Sims.exe as Administrator: right-click &#8594; Run as administrator. Some Windows 10 setups need this.</li>
-      <li>Set compatibility mode: right-click Sims.exe &#8594; Properties &#8594; Compatibility tab &#8594; tick "Run this program in compatibility mode for Windows 7"</li>
-      <li>Check your antivirus isn't blocking the game - add the game folder as an exception</li>
-      <li>Try the <code>-w</code> launch flag (windowed mode) - some GPUs can't initialise in fullscreen mode correctly</li>
-    </ul>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Update GPU drivers first</h4><p>See the Vulkan section above — outdated drivers are the most common cause.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Verify game files (Steam)</h4><p>Right-click the game in Steam &#8594; Properties &#8594; Installed Files &#8594; Verify integrity of game files.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Run as Administrator</h4><p>Right-click <code>Sims.exe</code> in the game folder &#8594; Run as administrator. Some Windows 10/11 setups require this.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set Windows 7 compatibility mode</h4><p>Right-click <code>Sims.exe</code> &#8594; Properties &#8594; Compatibility tab &#8594; tick "Run this program in compatibility mode for Windows 7".</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Check antivirus exceptions</h4><p>Antivirus software may block the game. Add the entire game folder as an exception in your antivirus settings.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Try windowed mode</h4><p>Add the <code>-w</code> launch flag — some GPUs can't initialise Vulkan in fullscreen mode correctly.</p></div></div>
   </div>
 </section>
 
 <section id="multi-monitor">
   <div class="section-head"><div class="section-emoji">🖥️</div><div><h2 class="section-title">Multi-Monitor Crash or Wrong Monitor</h2></div></div>
   <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">Moving the game window between monitors while running causes a crash. The game can also launch on the wrong monitor. Use launch flags to control this.</p>
-  <div class="trouble-card">
-    <ul class="trouble-list">
-      <li>Add <code>-monitor:0</code> to launch options to force the game onto your primary monitor</li>
-      <li>Add <code>-monitor:1</code> to force it onto your secondary monitor</li>
-      <li>See the Launch Options section below for how to set these in Steam or EA App</li>
-      <li>Do not drag the game window between monitors while it's running - close and relaunch with the correct flag instead</li>
-    </ul>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Force the game to the correct monitor</h4><p>Add <code>-monitor:0</code> to launch options for your primary monitor, or <code>-monitor:1</code> for your secondary. See the Launch Options section below for where to enter this in Steam or the EA App.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Never drag the window between monitors while running</h4><p>Moving the game window between monitors during play causes a crash. Close the game and relaunch with the correct <code>-monitor</code> flag instead.</p></div></div>
   </div>
 </section>
 
@@ -431,29 +418,25 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="minimising">
   <div class="section-head"><div class="section-emoji">📉</div><div><h2 class="section-title">Game Keeps Minimising</h2></div></div>
-  <div class="trouble-card">
-    <ul class="trouble-list">
-      <li>This was fixed in the March 14, 2025 patch (Patch 7). Make sure your game is fully up to date.</li>
-      <li>If still occurring: play in fullscreen rather than windowed mode - the issue primarily affected windowed mode when another application stole focus</li>
-      <li>Disable overlays that may trigger focus changes: Discord overlay, Steam overlay, NVIDIA GeForce Experience overlay</li>
-    </ul>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Update the game</h4><p>This was fixed in the March 14, 2025 patch (Patch 7). Ensure your game is fully up to date via Steam or the EA App.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Switch to fullscreen mode</h4><p>The issue primarily affected windowed mode when another application stole focus. Press F5 in-game &#8594; Graphics &#8594; set display to Fullscreen.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Disable overlays</h4><p>Disable overlays that can trigger focus changes: Discord overlay, Steam overlay, and NVIDIA GeForce Experience overlay.</p></div></div>
   </div>
 </section>
 
 <section id="special-characters">
   <div class="section-head"><div class="section-emoji">🔤</div><div><h2 class="section-title">Crashes Related to Windows Username</h2></div></div>
-  <div class="callout gold"><strong>⚠️ Windows usernames with special characters can cause crashes.</strong> The save file path includes your Windows username (<code>C:\Users\YOUR-NAME\Saved Games\...</code>). Certain characters in that username - spaces, accented letters, symbols like #, @, % - can cause the game to crash when reading or writing save data. EA added a warning for this in the April 2025 patch.</div>
-  <div class="trouble-card" style="margin-top:12px;">
-    <ul class="trouble-list">
-      <li>If your Windows username contains special characters, try creating a new Windows user account with only plain letters and numbers, and play from that account</li>
-      <li>The game will show a warning at launch if it detects a problematic username (Patch 8 onwards)</li>
-    </ul>
+  <div class="callout gold"><strong>⚠️ Windows usernames with special characters can cause crashes.</strong> The save path includes your Windows username. Certain characters — spaces, accented letters, symbols like #, @, % — can cause crashes when the game reads or writes save data. EA added a launch warning for this in the April 2025 patch.</div>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a new Windows user account</h4><p>If your username contains special characters, create a new Windows user account with only plain letters and numbers, and launch the game from that account.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Watch for the in-game warning</h4><p>From Patch 8 onwards, the game shows a warning at launch if it detects a problematic username.</p></div></div>
   </div>
 </section>
 
 <section id="launch-options">
   <div class="section-head"><div class="section-emoji">⌨️</div><div><h2 class="section-title">Launch Options Reference</h2><p class="section-sub">Command line flags for Steam and EA App</p></div></div>
-  <div class="callout teal">&#8505;&#65039; <strong>Steam:</strong> Right-click the game &#8594; Properties &#8594; General tab &#8594; Launch Options box at the bottom. Type flags separated by spaces.<br><br><strong>EA App:</strong> Installed Games &#8594; three-dot menu &#8594; Manage &#8594; View Properties &#8594; Advanced Launch Options box.</div>
+  <div class="callout teal">ℹ️ <strong>Steam:</strong> Right-click the game &#8594; Properties &#8594; General tab &#8594; Launch Options box at the bottom. Type flags separated by spaces.<br><br><strong>EA App:</strong> Installed Games &#8594; three-dot menu &#8594; Manage &#8594; View Properties &#8594; Advanced Launch Options box.</div>
   <div class="table-wrap" style="margin-top:12px;">
     <table>
       <thead><tr><th style="width:25%">Flag</th><th>What it does</th></tr></thead>
@@ -465,7 +448,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       </tbody>
     </table>
   </div>
-  <div class="callout green" style="margin-top:8px;">&#10003; <strong>Example combination:</strong> <code>-w -r1024x768 -monitor:0</code> launches windowed at 1024x768 on primary monitor. A useful starting point when the game won't open normally.</div>
+  <div class="callout green" style="margin-top:8px;">✅ <strong>Example combination:</strong> <code>-w -r1024x768 -monitor:0</code> launches windowed at 1024x768 on primary monitor. A useful starting point when the game won't open normally.</div>
 </section>
 
 <section id="community">

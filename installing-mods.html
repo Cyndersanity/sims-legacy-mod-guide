@@ -351,7 +351,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="overview">
   <div class="section-head">
     <div class="section-emoji">📋</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Overview</h2>
       <p class="section-sub">Modding works differently here than in other Sims games</p>
     </div>
@@ -364,7 +364,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="steam-path">
   <div class="section-head">
     <div class="section-emoji">🎮</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Steam Install Paths</h2>
       <p class="section-sub">Right-click the game in Steam → Manage → Browse local files</p>
     </div>
@@ -386,7 +386,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="ea-path">
   <div class="section-head">
     <div class="section-emoji">🟠</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">EA App Install Paths</h2>
       <p class="section-sub">Right-click in EA App → Manage → Open install folder</p>
     </div>
@@ -398,7 +398,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="file-types">
   <div class="section-head">
     <div class="section-emoji">📄</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">File Type Quick Reference</h2>
     </div>
   </div>
@@ -407,7 +407,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="card"><div class="card-title"><span class="tag green">.FAR</span> Container File</div><div class="card-desc">Bundles multiple .iff or .xa files together. Also goes in <code>Downloads\</code>.</div></div>
     <div class="card"><div class="card-title"><span class="tag gold">.BMP .CMX .SKN</span> Skin Files</div><div class="card-desc">Custom clothing, hair and head textures. <strong>Everyday skins (prefix B or C)</strong> go directly in <code>GameData\Skins\</code> - no subfolders. <strong>Buyable skins (prefix L, F, S, W, H)</strong> go in <code>ExpansionShared\SkinsBuy\</code> - also no subfolders.</div></div>
     <div class="card"><div class="card-title"><span class="tag teal">.WLL / .FLR</span> Decor Files</div><div class="card-desc">Custom wall and floor textures. Goes in <code>GameData\Walls\</code> or <code>GameData\Floors\</code>. Subfolders are supported in both.</div></div>
-    <div class="card"><div class="card-title"><span class="tag teal">Roof textures</span></div><div class="card-desc">Goes in <code>GameData\Roofs\</code> directly - no subfolders.</div></div>
+    <div class="card"><div class="card-title"><span class="tag teal">.BMP</span> Roof Textures</div><div class="card-desc">Custom roof textures are 32×32 .BMP files. Goes in <code>GameData\Roofs\</code> directly — no subfolders. Distinguished from skin BMPs by their small file size and location.</div></div>
     <div class="card"><div class="card-title"><span class="tag red">.iff</span> Game File Override</div><div class="card-desc">Mods that replace an existing base game file go in <code>GameData\Objects\</code>, not <code>Downloads\</code>. The readme will specify this.</div></div>
     <div class="card"><div class="card-title"><span class="tag red">.iff</span> Expansion Override</div><div class="card-desc">Mods targeting a specific expansion's files go in <code>ExpansionPack#\</code> where # is the expansion number 1-7. Check the readme.</div></div>
     <div class="card"><div class="card-title"><span class="tag gold">.iff</span> Downloaded Lots</div><div class="card-desc">Lot files go in <code>UserData\Houses\</code> for your default neighbourhood, or <code>UserData1\Houses\</code>, <code>UserData2\Houses\</code> etc. for others.</div></div>
@@ -417,7 +417,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="saves">
   <div class="section-head">
     <div class="section-emoji">💾</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Save File Location</h2>
     </div>
   </div>
@@ -428,7 +428,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="old-mods">
   <div class="section-head">
     <div class="section-emoji">📦</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Installing Old Mods (2000-2003)</h2>
       <p class="section-sub">Most old mods still work - just translate the path</p>
     </div>
@@ -451,7 +451,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="rules">
   <div class="section-head">
     <div class="section-emoji">⚠️</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Important Rules</h2>
     </div>
   </div>
@@ -461,22 +461,25 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="callout teal"><strong>Add one mod at a time.</strong> Install one mod, test in game, then add the next. Makes identifying problems much easier.</div>
     <div class="callout green"><strong>Check for virus warnings.</strong> Many Sims 1 mod files are 20+ years old. Scan with your antivirus before opening, especially from lesser-known sites.</div>
   </div>
-  <div class="callout gold" style="margin-top:16px;">
-    <strong>⚠️ Know the limits before you go big on CC.</strong> The original Sims 1 engine had several built-in caps that can cause strange behaviour or crashes if you exceed them. The Legacy Collection has not officially confirmed these have been lifted, so treat them as still active unless you find community reports saying otherwise.
-    <ul style="margin-top:10px;padding-left:18px;line-height:2;">
-      <li><strong>Build Mode objects</strong> (doors, windows, fences, stairs etc.) are capped at <strong>200 items per category</strong> on the base game only. With the Unleashed expansion, this rises to 2,000. Exceeding the limit causes visual glitches - too many fences makes pool ladders disappear, too many plants makes fireplaces turn into plants, and so on.</li>
-      <li><strong>Walls</strong> are capped at 90 on the base game, rising to 65,000 with Livin' Large or later.</li>
-      <li><strong>Floors</strong> are capped at 63 on the base game, also rising to 65,000 with Livin' Large or later.</li>
-      <li><strong>Downloads folder size</strong> - community testing found keeping it below around 2.5-3 GB helps avoid random crashes. FAR file capacity is estimated at around 2 GB.</li>
-      <li><strong>Skins</strong> - there is no confirmed hard limit on the number of skin files, but players have reported crashes with very large collections (3,000+) while smaller sets (a few hundred) work fine. If you have a large skin collection and the game is crashing, try splitting it into smaller batches to identify the cause.</li>
-    </ul>
+  <div class="callout gold" style="margin-top:16px;"><strong>⚠️ Know the limits before you go big on CC.</strong> The original Sims 1 engine has several built-in caps. The Legacy Collection has not confirmed these have been raised, so treat them as still active.</div>
+  <div class="table-wrap" style="margin-top:12px;">
+    <table>
+      <thead><tr><th style="width:22%">CC Type</th><th style="width:20%">Base Game Cap</th><th style="width:22%">With Expansion</th><th>Notes / Symptoms</th></tr></thead>
+      <tbody>
+        <tr><td>Build mode objects</td><td>200 per category</td><td>2,000 (Unleashed)</td><td>Fences replacing pool ladders, plants replacing fireplaces — objects are still there, categories are overflowing</td></tr>
+        <tr><td>Wall coverings</td><td>90</td><td>65,000 (Livin' Large+)</td><td>Extra walls simply won't appear in-game</td></tr>
+        <tr><td>Floor tiles</td><td>63</td><td>65,000 (Livin' Large+)</td><td>Same as walls — excess floors invisible</td></tr>
+        <tr><td>Downloads folder</td><td colspan="2">Keep under 2.5–3 GB</td><td>Random crashes with no obvious cause often trace back to folder size. FAR file capacity estimated ~2 GB.</td></tr>
+        <tr><td>Skin files</td><td colspan="2">No confirmed hard cap</td><td>Crashes reported above ~3,000 files. Binary-search the Skins folder if suspected.</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
 <section id="step-by-step">
   <div class="section-head">
     <div class="section-emoji">🚶</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Step-by-Step: Installing Your First Mod</h2>
     </div>
   </div>
@@ -493,11 +496,11 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </section>
 
 <section id="lots-families">
-  <div class="section-head"><div class="section-emoji">🏠</div><div class="section-title-wrap"><h2 class="section-title">Downloading Lots &amp; Families</h2><p class="section-sub">Importing houses and families into Legacy Collection</p></div></div>
+  <div class="section-head"><div class="section-emoji">🏠</div><div><h2 class="section-title">Downloading Lots &amp; Families</h2><p class="section-sub">Importing houses and families into Legacy Collection</p></div></div>
 
-  <div class="callout teal">&#8505;&#65039; <strong>Most common confusion point.</strong> Lots and families go into your <strong>save directory</strong>, not the game install directory. This is different from every other type of mod or CC.</div>
+  <div class="callout teal">ℹ️ <strong>Most common confusion point.</strong> Lots and families go into your <strong>save directory</strong>, not the game install directory. This is different from every other type of mod or CC.</div>
 
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--green-dark);margin:24px 0 12px;">UserData folder structure</h3>
+  <h3 style="font-family:var(--font-head);font-size:16px;color:var(--ink);margin:24px 0 12px;">UserData folder structure</h3>
   <p>Each neighbourhood in Sims 1 corresponds to a numbered UserData folder inside your save directory. You need to know which folder is which when placing downloaded lots and families.</p>
   <div class="table-wrap"><table>
     <thead><tr><th style="width:28%">Folder</th><th>Neighbourhood</th></tr></thead>
@@ -513,21 +516,21 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   <p style="margin-top:12px;">These all live inside:<br>  <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code></p>
   <div class="callout gold" style="margin-top:12px;">&#9888;&#65039; <strong>Steam Deck:</strong> The save path on SteamOS is:<br><code style="font-size:11px;">/home/deck/.local/share/Steam/steamapps/compatdata/3314060/pfx/dosdevices/c:/users/steamuser/Saved Games/Electronic Arts/The Sims 25</code></div>
 
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--green-dark);margin:24px 0 12px;">Installing a downloaded house</h3>
+  <h3 style="font-family:var(--font-head);font-size:16px;color:var(--ink);margin:24px 0 12px;">Installing a downloaded house</h3>
   <div class="steps">
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Identify the house file</h4><p>House files have the extension <code>.iff</code>, usually named like <code>House04.iff</code>. If the download includes wall or floor files, install those to <code>GameData\Walls\</code> and <code>GameData\Floors\</code> in your game install directory first.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place it in the Houses folder</h4><p>Navigate to your save directory, open the UserData folder for the neighbourhood you want the lot in, and drop the .iff file into the <code>Houses</code> subfolder inside it.</p><p style="margin-top:8px;">Example for neighbourhood 1:<br><code>Saved Games\Electronic Arts\The Sims 25\UserData\Houses\</code></p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Launch and check the neighbourhood view</h4><p>The lot should appear as a vacant plot. If it does not show up, confirm the file is directly in the Houses folder (not inside a subfolder inside it) and in the right UserData folder.</p></div></div>
   </div>
 
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--green-dark);margin:24px 0 12px;">Installing a downloaded family</h3>
+  <h3 style="font-family:var(--font-head);font-size:16px;color:var(--ink);margin:24px 0 12px;">Installing a downloaded family</h3>
   <div class="steps">
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Identify the family file</h4><p>Family files have the extension <code>.fam</code>. Downtown lot families may use <code>.dtl</code>.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place it in the Import folder</h4><p>Drop the .fam file into the <code>Import</code> subfolder inside your UserData folder:<br><code>Saved Games\Electronic Arts\The Sims 25\UserData\Import\</code><br><br>If the Import folder does not exist yet, create it manually.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import in-game</h4><p>On the neighbourhood screen, click the Import button (arrow pointing into a house). Select your family from the list and confirm. They will appear ready to move into a lot.</p></div></div>
   </div>
 
-  <div class="callout teal" style="margin-top:4px;">&#8505;&#65039; <strong>Sharing your own lots:</strong> When you save the game, the neighbourhood automatically exports shareable versions of your lots to <code>UserData\Export\</code>. Share the .iff files from there — other players drop them in their own <code>UserData\Houses\</code> folder.</div>
+  <div class="callout teal" style="margin-top:4px;">ℹ️ <strong>Sharing your own lots:</strong> When you save the game, the neighbourhood automatically exports shareable versions of your lots to <code>UserData\Export\</code>. Share the .iff files from there — other players drop them in their own <code>UserData\Houses\</code> folder.</div>
 </section>
 
   </main>

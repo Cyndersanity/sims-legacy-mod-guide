@@ -337,7 +337,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
   </aside>
   <main class="content">
-<div class="callout green">Start by removing all new mods and adding them back <strong>one at a time</strong> - this is the fastest way to find the one causing problems.</div>
+<div class="callout green">✅ Start by removing all new mods and adding them back <strong>one at a time</strong> - this is the fastest way to find the one causing problems.</div>
 
 <section id="mods-not-showing">
   <div class="section-head"><div class="section-emoji">📁</div><div><h2 class="section-title">Mods Not Showing in Game</h2></div></div>
@@ -370,7 +370,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="white-skins">
   <div class="section-head"><div class="section-emoji">🧍</div><div><h2 class="section-title">Skins Show as a White Blank Body</h2></div></div>
-  <div class="callout red"><strong>This is almost always a BMP colour depth issue.</strong> Sims 1 requires Indexed (256-colour) BMP files. Regular 24-bit BMPs, PNGs or JPGs will always show as a white silhouette in-game.</div>
+  <div class="callout red"><strong>🚨 This is almost always a BMP colour depth issue.</strong> Sims 1 requires Indexed (256-colour) BMP files. Regular 24-bit BMPs, PNGs or JPGs will always show as a white silhouette in-game.</div>
   <div class="trouble-card" style="margin-top:16px;">
     <div class="trouble-title">How to convert to 8-bit indexed BMP:</div>
     <ul class="trouble-list">
@@ -381,29 +381,25 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <li>Do not use PNG, JPG, WebP or 24-bit BMP - none of these work in Sims 1</li>
     </ul>
   </div>
-  <div class="callout teal" style="margin-top:0;">&#8505;&#65039; If you downloaded the skin rather than made it yourself, try re-downloading from the original source - some archived sites incorrectly serve 24-bit BMPs even when the original file was correct.</div>
+  <div class="callout teal" style="margin-top:0;">ℹ️ If you downloaded the skin rather than made it yourself, try re-downloading from the original source - some archived sites incorrectly serve 24-bit BMPs even when the original file was correct.</div>
 </section>
 
 <section id="cc-limits">
   <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">CC Limits and Engine Caps</h2><p class="section-sub">Glitches caused by exceeding built-in limits</p></div></div>
-  <div class="callout gold"><strong>The Sims 1 engine has hard caps on CC.</strong> These existed in the original game and have not been raised in Legacy Collection. If you have a lot of CC and the game behaves strangely, these limits are often the cause.</div>
-  <div class="trouble-card" style="margin-top:16px;">
-    <div class="trouble-title">Known limits and their symptoms:</div>
-    <ul class="trouble-list">
-      <li><strong>Build mode objects per category (base game):</strong> 200. With Unleashed: 2,000. Symptom: fences replacing pool ladders, plants replacing fireplaces, objects showing as the wrong item. The CC is still there, categories are just overflowing.</li>
-      <li><strong>Wall coverings (base game):</strong> 90. With Livin' Large or later: 65,000.</li>
-      <li><strong>Floor tiles (base game):</strong> 63. With Livin' Large or later: 65,000.</li>
-      <li><strong>Downloads folder size:</strong> Keep under 2.5-3 GB. Random crashes with no obvious cause often trace back to folder size.</li>
-      <li><strong>Skin files:</strong> No confirmed hard cap, but crashes reported above ~3,000 files. Binary-search your Skins folder if you suspect this.</li>
-    </ul>
+  <div class="callout gold"><strong>⚠️ The Sims 1 engine has hard caps on CC.</strong> These existed in the original game and have not been raised in Legacy Collection. If you have a lot of CC and the game behaves strangely, these limits are often the cause.</div>
+  <div class="table-wrap" style="margin-top:12px;">
+    <table>
+      <thead><tr><th style="width:22%">CC Type</th><th style="width:18%">Base Game Cap</th><th style="width:22%">With Expansion</th><th>Symptom when exceeded</th></tr></thead>
+      <tbody>
+        <tr><td>Build mode objects</td><td>200 per category</td><td>2,000 (Unleashed)</td><td>Fences show as pool ladders, plants show as fireplaces — CC is still there, categories are overflowing</td></tr>
+        <tr><td>Wall coverings</td><td>90</td><td>65,000 (Livin' Large+)</td><td>Extra walls don't appear in-game</td></tr>
+        <tr><td>Floor tiles</td><td>63</td><td>65,000 (Livin' Large+)</td><td>Same as walls — excess floors invisible</td></tr>
+        <tr><td>Downloads folder</td><td colspan="2">Keep under 2.5–3 GB total</td><td>Random crashes with no obvious cause. FAR file capacity estimated ~2 GB.</td></tr>
+        <tr><td>Skin files</td><td colspan="2">No confirmed hard cap</td><td>Crashes reported above ~3,000 files — binary-search the Skins folder to identify the culprit</td></tr>
+      </tbody>
+    </table>
   </div>
-  <div class="trouble-card" style="margin-top:12px;">
-    <div class="trouble-title">Managing large CC collections:</div>
-    <ul class="trouble-list">
-      <li>Create a folder outside the game install (e.g. on your Desktop) and move excess CC there temporarily. The game only reads the folders it knows to look for.</li>
-      <li>Rotate CC in themed batches - install only what you plan to use in a particular session.</li>
-    </ul>
-  </div>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Managing large collections:</strong> Create a staging folder outside the game install (e.g. your Desktop) and move excess CC there. The game only reads the folders it knows to look for. Rotate CC in themed batches — install only what you plan to use in a session.</div>
 </section>
 
 <section id="old-mods">
@@ -451,7 +447,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <p>Objects go in <code>Downloads\</code>, skins in <code>GameData\Skins\</code> etc. The folder names inside the archive usually indicate the destination.</p>
     </div></div>
   </div>
-  <div class="callout green" style="margin-top:8px;">&#10003; Alternatively, use the pre-extracted Legacy-compatible archive: <a href="https://github.com/alon-abadi/the-sims-1-legacy-collection-get-cool-stuff" target="_blank">github.com/alon-abadi/the-sims-1-legacy-collection-get-cool-stuff</a></div>
+  <div class="callout green" style="margin-top:8px;">✅ Alternatively, use the pre-extracted Legacy-compatible archive: <a href="https://github.com/alon-abadi/the-sims-1-legacy-collection-get-cool-stuff" target="_blank">github.com/alon-abadi/the-sims-1-legacy-collection-get-cool-stuff</a></div>
 </section>
 
 <section id="tools-registry">

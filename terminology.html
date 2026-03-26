@@ -291,7 +291,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="intro">
   <div class="section-head">
     <div class="section-emoji">📖</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Why This Page Exists</h2>
     </div>
   </div>
@@ -302,27 +302,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="cc">
   <div class="section-head">
     <div class="section-emoji">👗</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">CC - Custom Content</h2>
     </div>
   </div>
   <div class="term-card">
     <div class="term-title">CC <span class="term-also">Custom Content</span></div>
     <div class="term-body">
-      <p>In the Sims community, CC means <strong>Custom Content</strong> - any file made by a player (not Maxis/EA) that adds something visual to the game. This includes custom clothing, hairstyles, skin tones, furniture, wall coverings, floors and objects.</p>
+      <p>In the Sims community, CC means <strong>Custom Content</strong> — any file made by a player (not Maxis/EA) that adds something visual to the game. This includes custom clothing, hairstyles, skin tones, furniture, wall coverings, floors and objects.</p>
       <p>CC is the catch-all term for things that change how the game <em>looks</em> without changing how it plays. A new outfit is CC. A custom sofa is CC. A wall pattern is CC.</p>
+      <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
+      <p style="font-weight:800;color:var(--gold-dark);">⚠️ Sims 1 CC vs The Sims Complete Collection (also abbreviated CC)</p>
+      <p style="margin-top:8px;">This is the main source of confusion. The Complete Collection was the original boxed set of The Sims 1 with all expansion packs included, released in 2002. Players and stores often abbreviated it to "The Sims CC" or just "CC".</p>
+      <p style="margin-top:8px;">If you're reading an old forum post or mod readme from the early 2000s and it mentions "CC", the author might mean the Complete Collection rather than custom content. A line like <em>"works with Sims CC"</em> most likely means the Complete Collection. A line like <em>"drop this file in your CC folder"</em> means custom content.</p>
     </div>
-  </div>
-  <div class="callout gold">
-    <strong>⚠️ Sims 1 CC vs The Sims Complete Collection (also abbreviated CC)</strong><br><br>
-    This is the main source of confusion. The Complete Collection was the original boxed set of The Sims 1 with all expansion packs included, released in 2002. Players and stores often abbreviated it to "The Sims CC" or just "CC". If you're reading an old forum post or mod readme from the early 2000s and it mentions "CC", the author might mean the Complete Collection rather than custom content - read the context carefully. A line like "works with Sims CC" most likely means the Complete Collection. A line like "drop this file in your CC folder" means custom content.
   </div>
 </section>
 
 <section id="mod">
   <div class="section-head">
     <div class="section-emoji">⚙️</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Mod</h2>
     </div>
   </div>
@@ -338,7 +338,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="hacking">
   <div class="section-head">
     <div class="section-emoji">🔧</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Hacking</h2>
     </div>
   </div>
@@ -348,15 +348,16 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <p>In the Sims community, "hacking" has nothing to do with breaking into systems or doing anything illegal. It refers to <strong>opening and editing the game's object files</strong> - specifically .iff files - to change how objects work.</p>
       <p>When someone says they've "hacked" an object, it means they've opened it in a tool like IFF Pencil 2, modified the values or scripts inside, and saved a new version. A "hack" is the resulting modified file.</p>
       <p>The term comes from the earliest days of Sims modding when this kind of editing was novel and required genuine technical knowledge. It stuck even as the tools became much easier to use. Today "hacking" and "modding" are used interchangeably when people talk about editing game objects, even if no coding is involved.</p>
+      <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
+      <p>So when you see "object hack", "gameplay hack" or a site calling itself a hacking resource — this is normal Sims community language for creating or editing gameplay mods. Nobody is doing anything untoward.</p>
     </div>
   </div>
-  <div class="callout green">So when you see "object hack", "gameplay hack" or a site calling itself a hacking resource - this is normal Sims community language for creating or editing gameplay mods. Nobody is doing anything untoward.</div>
 </section>
 
 <section id="iff">
   <div class="section-head">
     <div class="section-emoji">📄</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">IFF & FAR Files</h2>
     </div>
   </div>
@@ -379,7 +380,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="skins">
   <div class="section-head">
     <div class="section-emoji">👤</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Skins</h2>
     </div>
   </div>
@@ -396,27 +397,22 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="term-title">Skin Filename Prefixes <span class="term-also">How the game knows what type of outfit it is</span></div>
     <div class="term-body">
       <p>Everything the game needs to know about a skin is encoded in its filename. The <strong>first letter tells the game what clothing category the skin belongs to</strong> - which dresser drawer it appears in, whether it's buyable at a clothing rack, and which expansion unlocked it.</p>
-      <div style="margin-top:12px;">
-        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <div class="table-wrap" style="margin-top:12px;"><table>
           <thead><tr>
-            <th style="text-align:left;padding:8px 12px;background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:12px;border-bottom:2px solid var(--border);">Prefix</th>
-            <th style="text-align:left;padding:8px 12px;background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:12px;border-bottom:2px solid var(--border);">Type</th>
-            <th style="text-align:left;padding:8px 12px;background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:12px;border-bottom:2px solid var(--border);">Where it appears</th>
-            <th style="text-align:left;padding:8px 12px;background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:12px;border-bottom:2px solid var(--border);">Requires</th>
+            <th>Prefix</th><th>Type</th><th>Where it appears</th><th>Requires</th>
           </tr></thead>
           <tbody>
-            <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">C</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Cranium (Head)</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Create-A-Sim head selection</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Base game</td></tr>
-            <tr style="background:rgba(59,174,92,0.03);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">B</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Body (Everyday)</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Dresser - everyday clothing drawer</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Base game</td></tr>
-            <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">L</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Lingerie (Pajamas / Sleepwear)</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - sleepwear section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Hot Date</td></tr>
-            <tr style="background:rgba(59,174,92,0.03);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">F</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Formal</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - formal section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Hot Date</td></tr>
-            <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">S</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Swimwear</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - swimwear section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Hot Date</td></tr>
-            <tr style="background:rgba(59,174,92,0.03);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">W</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Winterwear</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - winterwear section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Vacation</td></tr>
-            <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">H</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">High Fashion</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Buyable at clothing rack - high fashion section</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Superstar</td></tr>
-            <tr style="background:rgba(59,174,92,0.03);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">H</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Hand files</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Sim's hand texture (separate from body)</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Base game</td></tr>
-            <tr><td style="padding:7px 12px;font-family:var(--font-mono);font-weight:700;color:var(--green-dark);">xskin-</td><td style="padding:7px 12px;">Mesh file (.skn)</td><td style="padding:7px 12px;">Defines the 3D shape - paired with BMP textures</td><td style="padding:7px 12px;">Base game</td></tr>
+            <tr><td>C</td><td>Cranium (Head)</td><td>Create-A-Sim head selection</td><td>Base game</td></tr>
+            <tr><td>B</td><td>Body (Everyday)</td><td>Dresser - everyday clothing drawer</td><td>Base game</td></tr>
+            <tr><td>L</td><td>Lingerie (Pajamas / Sleepwear)</td><td>Buyable at clothing rack - sleepwear section</td><td>Hot Date</td></tr>
+            <tr><td>F</td><td>Formal</td><td>Buyable at clothing rack - formal section</td><td>Hot Date</td></tr>
+            <tr><td>S</td><td>Swimwear</td><td>Buyable at clothing rack - swimwear section</td><td>Hot Date</td></tr>
+            <tr><td>W</td><td>Winterwear</td><td>Buyable at clothing rack - winterwear section</td><td>Vacation</td></tr>
+            <tr><td>H</td><td>High Fashion</td><td>Buyable at clothing rack - high fashion section</td><td>Superstar</td></tr>
+            <tr><td>H</td><td>Hand files</td><td>Sim's hand texture (separate from body)</td><td>Base game</td></tr>
+            <tr><td>xskin-</td><td>Mesh file (.skn)</td><td>Defines the 3D shape - paired with BMP textures</td><td>Base game</td></tr>
           </tbody>
-        </table>
-      </div>
+        </table></div>
       <p style="margin-top:12px;">After the type prefix, the rest of the filename encodes: <strong>gender</strong> (f = female, m = male), <strong>age</strong> (a = adult, c = child), <strong>body type</strong> (3 letters), <strong>skin tone</strong> (lgt / med / drk), then an underscore and the outfit name. For example: <code>Lfa fit lgt_MySleepwear.bmp</code> = Lingerie, female adult, fit body type, light skin tone.</p>
       <p style="margin-top:10px;"><strong>Note on H:</strong> Both High Fashion and hand files start with H. The game distinguishes them by context - hand files are referenced directly in character files, while High Fashion skins appear in the clothing rack like other buyable types.</p>
     </div>
@@ -436,7 +432,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="complete-collection">
   <div class="section-head">
     <div class="section-emoji">📦</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Complete Collection vs Legacy Collection</h2>
     </div>
   </div>
@@ -459,7 +455,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="other">
   <div class="section-head">
     <div class="section-emoji">📝</div>
-    <div class="section-title-wrap">
+    <div>
       <h2 class="section-title">Other Terms You Might See</h2>
     </div>
   </div>
