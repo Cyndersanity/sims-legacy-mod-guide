@@ -337,11 +337,12 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
   </aside>
   <main class="content">
-<div class="callout red"><strong>Always update your GPU drivers first</strong> before troubleshooting any launch or graphics issue. Outdated drivers are responsible for the majority of reported Vulkan errors and launch crashes.</div>
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#vulkan">Vulkan Failed</a><a href="#nvidia-glitch">NVIDIA Pixels</a><a href="#wont-launch">Won't Launch</a><a href="#multi-monitor">Multi-Monitor</a><a href="#empty-neighbourhood">Empty Neighbourhood</a><a href="#minimising">Keeps Minimising</a><a href="#special-characters">Username Crashes</a><a href="#launch-options">Launch Options</a><a href="#community">Community Help</a></div></details>
 
 <section id="vulkan">
   <div class="section-head"><div class="section-emoji">🖥️</div><div><h2 class="section-title">Vulkan Initialization Failed</h2><p class="section-sub">The most common launch error in Legacy Collection</p></div></div>
-  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">The Legacy Collection uses the Vulkan graphics API. If your GPU or drivers don't support Vulkan, the game refuses to launch. Try these in order:</p>
+  <p>The Legacy Collection uses the Vulkan graphics API. If your GPU or drivers don't support Vulkan, the game refuses to launch. Try these in order:</p>
+  <div class="callout red" style="margin-bottom:16px;"><strong>Always update your GPU drivers first.</strong> Outdated drivers are responsible for the majority of Vulkan errors and launch crashes.</div>
   <div class="steps">
     <div class="step"><div class="step-num"></div><div class="step-body">
       <h4>Update your GPU drivers</h4>
@@ -364,7 +365,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="nvidia-glitch">
   <div class="section-head"><div class="section-emoji">📐</div><div><h2 class="section-title">NVIDIA: Scrambled Pixels / Misaligned UI</h2></div></div>
-  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">On some NVIDIA GPUs, rows of pixels appear shifted or scrambled - most visible on motive bars, UI buttons and loading screens. This is a known NVIDIA driver issue with Vulkan presentation via DXGI swapchain.</p>
+  <p>On some NVIDIA GPUs, rows of pixels appear shifted or scrambled - most visible on motive bars, UI buttons and loading screens. This is a known NVIDIA driver issue with Vulkan presentation via DXGI swapchain.</p>
   <div class="steps">
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open NVIDIA Control Panel</h4><p>Right-click your desktop and select <strong>NVIDIA Control Panel</strong>.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find Sims.exe in Program Settings</h4><p>Go to Manage 3D Settings &#8594; Program Settings tab. Find or add <code>Sims.exe</code> to the list.</p></div></div>
@@ -387,7 +388,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="multi-monitor">
   <div class="section-head"><div class="section-emoji">🖥️</div><div><h2 class="section-title">Multi-Monitor Crash or Wrong Monitor</h2></div></div>
-  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">Moving the game window between monitors while running causes a crash. The game can also launch on the wrong monitor. Use launch flags to control this.</p>
+  <p>Moving the game window between monitors while running causes a crash. The game can also launch on the wrong monitor. Use launch flags to control this.</p>
   <div class="steps">
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Force the game to the correct monitor</h4><p>Add <code>-monitor:0</code> to launch options for your primary monitor, or <code>-monitor:1</code> for your secondary. See the Launch Options section below for where to enter this in Steam or the EA App.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Never drag the window between monitors while running</h4><p>Moving the game window between monitors during play causes a crash. Close the game and relaunch with the correct <code>-monitor</code> flag instead.</p></div></div>
@@ -480,5 +481,28 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
+  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  if(ham)ham.addEventListener('click',openD);
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  if(btt){
+    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
+    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+})();
+</script>
 </body>
 </html>

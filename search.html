@@ -477,7 +477,7 @@ function doSearch() {
   allPages.style.display = 'none';
 
   if (!results.length) {
-    resultsList.innerHTML = '<div class="no-results"><span class="plumbob lg" style="background:var(--ink-muted);"></span><p>No results for <strong>"' + raw + '"</strong></p><p style="margin-top:8px;font-size:13px;">Try a different search term, or browse the pages below.</p></div>';
+    resultsList.innerHTML = '<div class="no-results"><span class="plumbob lg" style="background:var(--ink-muted);"></span><p>No results for <strong>"' + raw + '"</strong></p><p>Try a different search term, or browse the pages below.</p></div>';
     resultCount.textContent = 'No results found.';
     return;
   }

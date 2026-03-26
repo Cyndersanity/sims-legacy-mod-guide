@@ -342,9 +342,11 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
   </aside>
   <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#what-is">What Is Legacy?</a><a href="#history">History</a><a href="#expansion-reference">Expansion Reference</a><a href="#technical-changes">Technical Changes</a><a href="#patch-history">Patch History</a><a href="#missing-content">Missing Content</a><a href="#settings">In-Game Settings</a></div></details>
+
 <section id="what-is">
   <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">What Is the Legacy Collection?</h2></div></div>
-  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:16px;">The Sims Legacy Collection is the 2025 re-release of the original The Sims (2000) and all seven expansion packs, in a single digital purchase. Released January 31, 2025 on Steam, EA App, and Epic Games Store. It is digital only - no physical or boxed edition was released. It replaces the older Complete Collection as the standard way to buy the original game new.</p>
+  <p>The Sims Legacy Collection is the 2025 re-release of the original The Sims (2000) and all seven expansion packs, in a single digital purchase. Released January 31, 2025 on Steam, EA App, and Epic Games Store. It is digital only - no physical or boxed edition was released. It replaces the older Complete Collection as the standard way to buy the original game new.</p>
   <div class="grid-2">
     <div class="card">
       <div class="card-title"><span class="tag green">INCLUDED</span> What's included</div>
@@ -381,7 +383,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="expansion-reference">
   <div class="section-head"><div class="section-emoji">🗂️</div><div><h2 class="section-title">Expansion Pack Folder Reference</h2><p class="section-sub">Which folder number is which pack</p></div></div>
-  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">When mod readmes say to put files in "ExpansionPack4" or similar, here's what each number means. These folder names are identical in both Steam and EA App installs.</p>
+  <p>When mod readmes say to put files in "ExpansionPack4" or similar, here's what each number means. These folder names are identical in both Steam and EA App installs.</p>
   <div class="table-wrap">
     <table>
       <thead><tr><th style="width:24%">Folder</th><th style="width:28%">Expansion Pack</th><th>Key modding notes</th></tr></thead>
@@ -498,7 +500,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="missing-content">
   <div class="section-head"><div class="section-emoji">🎁</div><div><h2 class="section-title">Missing Official Maxis Content</h2><p class="section-sub">The "Get Cool Stuff" downloads not included in Legacy</p></div></div>
-  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">Between 2000 and 2003, Maxis ran a "Get Cool Stuff" section on the official Sims website with free downloadable objects, skins, tools and houses. Most of this was not included in Legacy Collection - either because licenses expired (branded objects) or it was simply not bundled. The community has archived all of it and made it Legacy-compatible.</p>
+  <p>Between 2000 and 2003, Maxis ran a "Get Cool Stuff" section on the official Sims website with free downloadable objects, skins, tools and houses. Most of this was not included in Legacy Collection - either because licenses expired (branded objects) or it was simply not bundled. The community has archived all of it and made it Legacy-compatible.</p>
   <div class="callout red"><strong>⚠️ Do not run the original .exe installers.</strong> The original Maxis downloads were distributed as Windows installers that look for the game in the old Complete Collection registry path. They will fail silently on Legacy. Use the GitHub archive below instead - files are pre-extracted and ready to copy.</div>
   <div class="grid-2" style="margin-top:12px;">
     <div class="card">
@@ -533,5 +535,28 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
+  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  if(ham)ham.addEventListener('click',openD);
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  if(btt){
+    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
+    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+})();
+</script>
 </body>
 </html>

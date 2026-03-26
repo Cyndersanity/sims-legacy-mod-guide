@@ -287,6 +287,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   </aside>
 
   <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#cc">CC</a><a href="#mod">Mod</a><a href="#hacking">Hacking</a><a href="#iff">IFF & FAR</a><a href="#skins">Skins</a><a href="#complete-collection">Complete Collection</a><a href="#other">Other Terms</a></div></details>
+
 
 <section id="intro">
   <div class="section-head">
@@ -296,7 +298,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
   </div>
   <div class="callout teal">The Sims 1 community has been around since 2000 and has developed its own language over that time. Some terms mean something specific to this game that they don't mean anywhere else. Others are borrowed from broader gaming culture but used loosely. And a few are genuinely confusing because the same abbreviation means different things depending on context - "CC" being the main culprit.</div>
-  <p style="color:var(--ink-mid);margin-top:16px;">If you've landed on a forum post, a mod readme, or a download page and found yourself unsure what something means, this page should clear it up.</p>
+  <p>If you've landed on a forum post, a mod readme, or a download page and found yourself unsure what something means, this page should clear it up.</p>
 </section>
 
 <section id="cc">
@@ -313,8 +315,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <p>CC is the catch-all term for things that change how the game <em>looks</em> without changing how it plays. A new outfit is CC. A custom sofa is CC. A wall pattern is CC.</p>
       <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
       <p style="font-weight:800;color:var(--gold-dark);">⚠️ Sims 1 CC vs The Sims Complete Collection (also abbreviated CC)</p>
-      <p style="margin-top:8px;">This is the main source of confusion. The Complete Collection was the original boxed set of The Sims 1 with all expansion packs included, released in 2002. Players and stores often abbreviated it to "The Sims CC" or just "CC".</p>
-      <p style="margin-top:8px;">If you're reading an old forum post or mod readme from the early 2000s and it mentions "CC", the author might mean the Complete Collection rather than custom content. A line like <em>"works with Sims CC"</em> most likely means the Complete Collection. A line like <em>"drop this file in your CC folder"</em> means custom content.</p>
+      <p>This is the main source of confusion. The Complete Collection was the original boxed set of The Sims 1 with all expansion packs included, released in 2002. Players and stores often abbreviated it to "The Sims CC" or just "CC".</p>
+      <p>If you're reading an old forum post or mod readme from the early 2000s and it mentions "CC", the author might mean the Complete Collection rather than custom content. A line like <em>"works with Sims CC"</em> most likely means the Complete Collection. A line like <em>"drop this file in your CC folder"</em> means custom content.</p>
     </div>
   </div>
 </section>
@@ -413,8 +415,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
             <tr><td>xskin-</td><td>Mesh file (.skn)</td><td>Defines the 3D shape - paired with BMP textures</td><td>Base game</td></tr>
           </tbody>
         </table></div>
-      <p style="margin-top:12px;">After the type prefix, the rest of the filename encodes: <strong>gender</strong> (f = female, m = male), <strong>age</strong> (a = adult, c = child), <strong>body type</strong> (3 letters), <strong>skin tone</strong> (lgt / med / drk), then an underscore and the outfit name. For example: <code>Lfa fit lgt_MySleepwear.bmp</code> = Lingerie, female adult, fit body type, light skin tone.</p>
-      <p style="margin-top:10px;"><strong>Note on H:</strong> Both High Fashion and hand files start with H. The game distinguishes them by context - hand files are referenced directly in character files, while High Fashion skins appear in the clothing rack like other buyable types.</p>
+      <p>After the type prefix, the rest of the filename encodes: <strong>gender</strong> (f = female, m = male), <strong>age</strong> (a = adult, c = child), <strong>body type</strong> (3 letters), <strong>skin tone</strong> (lgt / med / drk), then an underscore and the outfit name. For example: <code>Lfa fit lgt_MySleepwear.bmp</code> = Lingerie, female adult, fit body type, light skin tone.</p>
+      <p><strong>Note on H:</strong> Both High Fashion and hand files start with H. The game distinguishes them by context - hand files are referenced directly in character files, while High Fashion skins appear in the clothing rack like other buyable types.</p>
     </div>
   </div>
 
@@ -544,5 +546,28 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
+  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  if(ham)ham.addEventListener('click',openD);
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  if(btt){
+    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
+    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+})();
+</script>
 </body>
 </html>

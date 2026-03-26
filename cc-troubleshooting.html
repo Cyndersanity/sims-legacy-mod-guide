@@ -337,6 +337,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
   </aside>
   <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#not-showing">Mods Not Showing</a><a href="#crashes">Crashes After Mods</a><a href="#white-skins">White Skins</a><a href="#cc-limits">CC Limits</a><a href="#old-mods">Old Mods</a><a href="#far-files">FAR Files</a><a href="#exe-installers">Exe Installers</a><a href="#registry">Registry Fix</a><a href="#community">Community Help</a></div></details>
+
 <div class="callout green">✅ Start by removing all new mods and adding them back <strong>one at a time</strong> - this is the fastest way to find the one causing problems.</div>
 
 <section id="mods-not-showing">
@@ -427,7 +429,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="exe-installers">
   <div class="section-head"><div class="section-emoji">⚙️</div><div><h2 class="section-title">Old Maxis .exe Installers Won't Work</h2><p class="section-sub">Get Cool Stuff downloads from the original Maxis website</p></div></div>
-  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">The original "Get Cool Stuff" content from the Maxis website (2000-2003) was distributed as Windows .exe installers. These look for the game at the old Complete Collection registry location, which Legacy Collection doesn't create. The installer will either fail silently or say it can't find the game.</p>
+  <p>The original "Get Cool Stuff" content from the Maxis website (2000-2003) was distributed as Windows .exe installers. These look for the game at the old Complete Collection registry location, which Legacy Collection doesn't create. The installer will either fail silently or say it can't find the game.</p>
   <div class="callout gold"><strong>⚠️ Do not run the .exe files.</strong> Open them with 7-Zip as archives and extract the content manually instead.</div>
   <div class="steps" style="margin-top:12px;">
     <div class="step"><div class="step-num"></div><div class="step-body">
@@ -452,7 +454,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="tools-registry">
   <div class="section-head"><div class="section-emoji">🔑</div><div><h2 class="section-title">CC Creation Tools Can't Find the Game</h2><p class="section-sub">The Sims Creator, Home Crafter and similar old tools</p></div></div>
-  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">Old CC tools locate the game by reading a Windows Registry entry at <code>HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Maxis\The Sims</code>. The Legacy Collection creates no registry entries, so these tools either fail to launch or save output to the wrong location.</p>
+  <p>Old CC tools locate the game by reading a Windows Registry entry at <code>HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Maxis\The Sims</code>. The Legacy Collection creates no registry entries, so these tools either fail to launch or save output to the wrong location.</p>
   <div class="callout red"><strong>⚠️ Edit the registry carefully.</strong> Only add the specific key described below. Registry errors can cause system problems - if you're not comfortable with this, ask for help.</div>
   <div class="steps" style="margin-top:12px;">
     <div class="step"><div class="step-num"></div><div class="step-body">
@@ -467,7 +469,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <h4>Add the InstallPath value</h4>
       <p>Click the "The Sims" key. In the right panel, right-click &#8594; New &#8594; String Value. Name it <strong>InstallPath</strong>. Double-click and set the value to your full game path:</p>
       <div class="code-block">C:\Program Files (x86)\Steam\steamapps\common\The Sims Legacy Collection\</div>
-      <p style="margin-top:8px;">Or for EA App: <code>C:\Program Files\EA Games\The Sims Legacy\</code></p>
+      <p>Or for EA App: <code>C:\Program Files\EA Games\The Sims Legacy\</code></p>
     </div></div>
     <div class="step"><div class="step-num"></div><div class="step-body">
       <h4>Test the tool</h4>
@@ -505,5 +507,28 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
+  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  if(ham)ham.addEventListener('click',openD);
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  if(btt){
+    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
+    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+})();
+</script>
 </body>
 </html>

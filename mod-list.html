@@ -347,6 +347,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
   </aside>
   <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#qol">Quality of Life</a><a href="#objects">Objects</a><a href="#debug-tools">Debug Tools</a><a href="#bugfixes">Bug Fixes</a><a href="#careers">Careers</a><a href="#magic">Magic & Superstar</a><a href="#pets">Pets</a></div></details>
+
     
 <div class="callout green">All mods go in your <code>Downloads\</code> folder unless noted. Please make sure to read each download page's instructions completely before putting any CC/Mod files into folders. Some CC do state they need to be in specifc folders to work.</div>
 
@@ -387,26 +389,18 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </section>
 
 <section id="debug-tools">
-  <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">Exe Patches & Debug Tools</h2><p class="section-sub">Run before launching the game to unlock features not available by default</p></div></div>
-  <div class="callout gold">These tools work differently to regular mods - they patch the game's executable file rather than adding files to your Downloads folder. Read the instructions carefully before using them, and make sure you back up your original <code>Sims.exe</code> first.</div>
+  <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">Debug &amp; Runtime Tools</h2><p class="section-sub">Run before launching the game to unlock features not available by default</p></div></div>
+  <p>These tools run <strong>alongside</strong> the game rather than adding files to your Downloads folder. They patch the game in memory at runtime — nothing is permanently modified. Run them before launching the game each session, keep them open while you play, and close when done.</p>
   <div class="mod-grid" style="margin-top:20px;">
     <div class="mod-card">
       <div class="mod-name">Sims 1 Legacy Collection Hacks</div>
       <div class="mod-by">by FaithBeam</div>
       <div class="mod-desc">A runtime memory patcher that unlocks hidden debug cheats disabled in the Legacy Collection, including the <strong>edit_char</strong> cheat which opens Create-A-Sim in live mode. Run <code>Sims1LegacyHacks.exe</code> before launching the game each session and keep it open while you play. Sims.exe is never permanently modified. Works on both Steam and EA App - no Steamless required.</div>
-      <div style="margin-top:10px;font-size:13px;color:var(--ink-mid);">
-        <strong>What edit_char unlocks:</strong>
-        <ul style="padding-left:16px;margin-top:6px;line-height:1.9;">
-          <li>Change Sim appearance (face, hair, skintone) in live mode</li>
-          <li>Full Create-A-Sim access for any playable Sim while in-game</li>
-        </ul>
-        <strong style="display:block;margin-top:8px;">Using edit_char:</strong>
-        <ol style="padding-left:16px;margin-top:6px;line-height:1.9;">
-          <li>Download from GitHub, extract the zip, and run <code>Sims1LegacyHacks.exe</code> before you launch the game</li>
-          <li>In game, press <strong>Ctrl+Shift+C</strong> to open the cheat console</li>
-          <li>Type <code>edit_char</code> and press Enter</li>
-          <li>Click any Sim on the lot to open Create-A-Sim for that Sim</li>
-        </ol>
+      <div class="callout green" style="margin:12px 0 8px;">✅ Unlocks: Change Sim appearance in live mode &amp; full Create-A-Sim access for any Sim while playing.</div>
+      <div class="steps" style="margin-top:10px;">
+        <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download &amp; run</h4><p>Download from GitHub, extract the zip, run <code>Sims1LegacyHacks.exe</code> <strong>before</strong> you launch the game. Keep it open while you play.</p></div></div>
+        <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the cheat console</h4><p>In-game, press <strong>Ctrl+Shift+C</strong> to open the cheat console.</p></div></div>
+        <div class="step"><div class="step-num"></div><div class="step-body"><h4>Type edit_char</h4><p>Type <code>edit_char</code> and press Enter, then click any Sim on the lot to open Create-A-Sim for that Sim.</p></div></div>
       </div>
       <a class="pill-link" href="https://github.com/FaithBeam/Sims1LegacyCollectionHacks" target="_blank">View on GitHub ↗</a>
     </div>
@@ -414,13 +408,15 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <div class="mod-name">Children Ageing Up (with Birthday Cake mod)</div>
       <div class="mod-by">FaithBeam patch + birthday cake mod</div>
       <div class="mod-desc">Combined with the FaithBeam runtime tool above and a birthday cake mod, children can be aged up to adults without needing Makin' Magic. Previously the only built-in method was the "Age of Instant" charm in Makin' Magic, which aged the child but fully randomised their adult appearance. Using <code>edit_char</code> after ageing gives you full control over the result.</div>
-      <div style="margin-top:10px;font-size:13px;color:var(--ink-mid);">
-        <strong>Two birthday cake mods are known to work for this:</strong>
-        <ul style="padding-left:16px;margin-top:6px;line-height:1.9;">
-          <li><strong>Puberty Blows</strong> - posted by user <strong>ed95</strong> on the Mod The Sims forum thread "WCIF: Puberty Blows Birthday Cake?". Search for that thread title on ModTheSims to find the download link in the replies.</li>
-          <li><strong>SimLifeCycle birthday cake mod</strong> - originally from SimLifeCycle.com (now defunct). An archived version of the downloads page is available at: <a href="https://web.archive.org/web/20031207102900/http://www.simlifecycle.com:80/download.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Wayback Machine archive ↗</a> - check this for the specific file download.</li>
-        </ul>
-        If neither link works, post on <a href="https://simblr.cc/" target="_blank" style="color:var(--green-dark);font-weight:700;">Simblr.cc</a> or the Sims 1 subreddit - the community will know the current best source for a working version.
+      <div class="callout teal" style="margin:12px 0 8px;">ℹ️ Two birthday cake mods are known to work. If neither link is live, ask on Simblr.cc or r/thesims1 — the community tracks the current best source.</div>
+      <div class="table-wrap" style="margin-top:8px;">
+        <table>
+          <thead><tr><th>Mod</th><th>Where to find it</th></tr></thead>
+          <tbody>
+            <tr><td>Puberty Blows</td><td>Posted by user <strong>ed95</strong> on ModTheSims. Search the forum for "WCIF: Puberty Blows Birthday Cake?" to find the download in the replies.</td></tr>
+            <tr><td>SimLifeCycle birthday cake mod</td><td>Original site defunct. Try the <a href="https://web.archive.org/web/20031207102900/http://www.simlifecycle.com:80/download.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Wayback Machine archive ↗</a> for the download.</td></tr>
+          </tbody>
+        </table>
       </div>
       <a class="pill-link" href="https://simblr.cc/ts1/mods/" target="_blank">Browse Simblr.cc ↗</a>
     </div>
@@ -490,5 +486,28 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
+  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  if(ham)ham.addEventListener('click',openD);
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  if(btt){
+    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
+    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+})();
+</script>
 </body>
 </html>
