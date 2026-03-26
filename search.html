@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search - Sims Legacy Collection Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F2E8;--cream-dark:#EDE8D6;--white:#FFFFFF;
+  --green:#3BAE5C;--green-mid:#2D8A47;--green-dark:#1A5229;--green-pale:#E6F5EB;
+  --gold:#E8B84B;--gold-pale:#FDF5DC;--gold-dark:#9A6F10;
+  --teal:#3AADA8;--teal-pale:#E1F5F4;
+  --red:#D94F4F;--red-pale:#FDEAEA;
+  --ink:#1C2B1F;--ink-mid:#3D5445;--ink-muted:#6B8A72;
+  --border:rgba(27,82,41,0.12);
+  --shadow-sm:0 1px 4px rgba(27,82,41,0.08);
+  --shadow-md:0 4px 16px rgba(27,82,41,0.10);
+  --radius-sm:8px;--radius-md:14px;--radius-lg:20px;
+  --font-head:'Paytone One',sans-serif;
+  --font-body:'Nunito',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7;overflow-x:hidden;}
+::selection{background:var(--green);color:#fff;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--cream-dark);}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px;}
+a{color:var(--green-dark);}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:0.5;}
+.plumbob{display:inline-block;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);flex-shrink:0;}
+.plumbob.sm{width:16px;height:16px;background:var(--green);}
+.plumbob.md{width:28px;height:28px;background:var(--green);}
+.plumbob.lg{width:52px;height:52px;background:var(--green);animation:pb-float 3s ease-in-out infinite;}
+.plumbob.gold{background:var(--gold)!important;}
+@keyframes pb-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:2px;padding:10px 48px 10px 0;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-scroll-hint{display:none;position:absolute;right:0;top:0;bottom:0;width:48px;background:linear-gradient(to right,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-end;padding-right:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-scroll-hint:hover{color:var(--green);background:linear-gradient(to right,transparent 0%,rgba(230,245,235,0.98) 50%);}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:16px;flex-shrink:0;}
+.nav-brand-text{font-family:var(--font-head);font-size:12px;color:var(--green-dark);line-height:1;}
+.nav-link{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
+.nav-link:hover,.nav-link.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+
+
+/* ── NAV SEPARATORS (desktop) ─────────────────────── */
+.nav-sep{width:1px;height:18px;background:var(--border);margin:0 6px;flex-shrink:0;}
+
+/* ── HAMBURGER BUTTON (mobile only) ──────────────────── */
+.nav-ham{display:none;background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:5px 9px;color:var(--green-dark);cursor:pointer;font-size:16px;margin-left:auto;flex-shrink:0;}
+.nav-ham:hover{background:var(--green-pale);border-color:var(--green);}
+
+/* ── MOBILE DRAWER ──────────────────────────────────── */
+.nav-drawer{position:fixed;inset:0;z-index:1000;display:flex;pointer-events:none;opacity:0;transition:opacity 0.22s;}
+.nav-drawer.open{opacity:1;pointer-events:auto;}
+.nav-drawer-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.45);}
+.nav-drawer-panel{position:relative;width:min(320px,90vw);background:var(--cream);height:100%;overflow-y:auto;padding:0 0 40px;box-shadow:4px 0 24px rgba(0,0,0,0.18);transform:translateX(-100%);transition:transform 0.25s cubic-bezier(.4,0,.2,1);}
+.nav-drawer.open .nav-drawer-panel{transform:translateX(0);}
+.nav-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:2px solid var(--border);background:var(--green-pale);}
+.nav-drawer-title{font-family:var(--font-head);font-size:12px;color:var(--green-dark);letter-spacing:1px;}
+.nav-drawer-close{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:4px 9px;color:var(--ink-mid);cursor:pointer;font-size:15px;}
+.nav-drawer-close:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-drawer-group{padding:14px 12px 6px;}
+.nav-drawer-group-label{font-family:var(--font-mono);font-size:10px;font-weight:600;color:var(--ink-muted);text-transform:uppercase;letter-spacing:1px;padding:0 8px;margin-bottom:4px;}
+.nav-drawer-link{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:14px;font-weight:600;transition:all 0.15s;margin-bottom:2px;}
+.nav-drawer-link:hover,.nav-drawer-link.active{background:var(--green-pale);color:var(--green-dark);}
+.nav-drawer-link.active{border-left:3px solid var(--green);padding-left:11px;}
+.nav-drawer-icon{font-size:16px;flex-shrink:0;}
+.nav-drawer-divider{height:1px;background:var(--border);margin:4px 20px;}
+
+/* ── BACK TO TOP ──────────────────────────────────── */
+.back-top{position:fixed;bottom:28px;right:24px;z-index:500;width:40px;height:40px;background:var(--green);border:none;border-radius:50%;color:#fff;font-size:18px;cursor:pointer;box-shadow:0 4px 14px rgba(27,82,41,0.3);opacity:0;transform:translateY(12px);transition:all 0.22s;display:flex;align-items:center;justify-content:center;}
+.back-top.visible{opacity:1;transform:translateY(0);}
+.back-top:hover{background:var(--green-dark);transform:translateY(-2px);}
+
+/* ── MOBILE TOC TOGGLE ───────────────────────────── */
+.mobile-toc{display:none;margin-bottom:24px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);overflow:hidden;}
+.mobile-toc summary{padding:13px 18px;font-family:var(--font-head);font-size:13px;color:var(--green-dark);cursor:pointer;display:flex;align-items:center;gap:8px;list-style:none;user-select:none;}
+.mobile-toc summary::-webkit-details-marker{display:none;}
+.mobile-toc summary::after{content:'▾';margin-left:auto;font-size:12px;color:var(--ink-muted);transition:transform 0.15s;}
+.mobile-toc[open] summary::after{transform:rotate(-180deg);}
+.mobile-toc-links{padding:4px 12px 14px;}
+.mobile-toc-links a{display:block;padding:7px 10px;border-radius:6px;text-decoration:none;color:var(--ink-mid);font-size:14px;font-weight:600;border-left:2px solid transparent;}
+.mobile-toc-links a:hover{color:var(--green-dark);background:var(--green-pale);border-left-color:var(--green);}
+
+@media(max-width:900px){
+  .nav-ham{display:flex;align-items:center;}
+  .nav-inner .nav-link,.nav-inner .nav-sep{display:none;}
+  .nav-scroll-hint{display:none!important;}
+  .mobile-toc{display:block;}
+}
+@media(max-width:640px){
+  .back-top{bottom:20px;right:16px;width:36px;height:36px;font-size:16px;}
+}
+
+/* PAGE HERO */
+.page-hero{position:relative;z-index:1;background:linear-gradient(160deg,#D6EFD8 0%,#EAF6E0 40%,var(--cream) 100%);border-bottom:3px solid var(--border);padding:56px 24px 48px;text-align:center;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--green-dark);background:var(--white);border:2px solid rgba(27,82,41,0.18);padding:5px 14px;border-radius:999px;margin-bottom:16px;}
+.page-title{font-family:var(--font-head);font-size:clamp(28px,5vw,52px);color:var(--green-dark);line-height:1.1;margin-bottom:12px;}
+.page-title span{color:var(--green);}
+.page-sub{font-size:16px;color:var(--ink-mid);font-weight:600;max-width:560px;margin:0 auto;}
+
+/* LAYOUT */
+.page-layout{max-width:1200px;margin:0 auto;padding:48px 48px 80px;display:grid;grid-template-columns:200px 1fr;gap:52px;position:relative;z-index:1;align-items:start;}
+@media(max-width:900px){.page-layout{grid-template-columns:1fr;}.toc{display:none;}}
+
+/* TABLE OF CONTENTS */
+.toc{position:sticky;top:72px;max-height:calc(100vh - 100px);overflow-y:auto;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);}
+.toc-title{font-family:var(--font-head);font-size:13px;color:var(--green-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.toc-list{list-style:none;}
+.toc-list li{margin-bottom:2px;}
+.toc-list a{font-size:13px;font-weight:600;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:6px;display:block;border-left:2px solid transparent;transition:all 0.15s;}
+.toc-list a:hover{color:var(--green-dark);background:var(--green-pale);border-left-color:var(--green);}
+.toc-list .toc-sub a{font-size:12px;padding-left:20px;font-weight:600;}
+.toc-divider{height:1px;background:var(--border);margin:10px 0;}
+.toc-back{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;margin-top:12px;transition:all 0.15s;}
+.toc-back:hover{background:var(--green-pale);color:var(--green-dark);}
+.page-layout aside{align-self:stretch;}
+
+/* CONTENT */
+.content section{margin-bottom:56px;}
+.section-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border);}
+.section-emoji{font-size:32px;flex-shrink:0;}
+.section-title{font-family:var(--font-head);font-size:clamp(20px,3vw,28px);color:var(--ink);}
+.section-sub{font-size:14px;color:var(--ink-muted);font-weight:600;margin-top:4px;}
+
+/* CARDS */
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:24px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.card:hover{border-color:var(--green);box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.card-title{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.card-desc{font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:12px;}
+.tag{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:10px;font-weight:600;padding:3px 9px;border-radius:999px;border:1.5px solid;}
+.tag.green{border-color:var(--green);color:var(--green-dark);background:var(--green-pale);}
+.tag.gold{border-color:var(--gold);color:var(--gold-dark);background:var(--gold-pale);}
+.tag.teal{border-color:var(--teal);color:#0d6e6a;background:var(--teal-pale);}
+.tag.red{border-color:var(--red);color:#7a1a1a;background:var(--red-pale);}
+.pill-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--green-dark);text-decoration:none;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.2);padding:5px 13px;border-radius:999px;transition:all 0.18s;margin-top:8px;}
+.pill-link:hover{background:var(--green);color:#fff;border-color:var(--green);}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+
+/* CALLOUTS */
+.callout{border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;border-left:4px solid;font-size:15px;line-height:1.7;}
+.callout.green{background:var(--green-pale);border-color:var(--green);}
+.callout.gold{background:var(--gold-pale);border-color:var(--gold);}
+.callout.red{background:var(--red-pale);border-color:var(--red);}
+.callout.teal{background:var(--teal-pale);border-color:var(--teal);}
+.callout strong{font-weight:800;}
+
+/* CODE */
+.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;}
+code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);}
+th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.3px;text-transform:uppercase;padding:13px 16px;text-align:left;border-bottom:2px solid var(--border);}
+td{padding:12px 16px;border-bottom:1px solid rgba(27,82,41,0.06);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(59,174,92,0.04);}
+td:first-child{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--green-dark);}
+.ok{color:#1A5229;font-weight:700;} .warn{color:#9A6F10;font-weight:700;} .no{color:#7a1a1a;font-weight:700;}
+
+/* STEPS */
+.steps{counter-reset:step;}
+.step{display:flex;gap:14px;margin-bottom:10px;counter-increment:step;}
+.step-num{flex-shrink:0;width:30px;height:30px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:13px;color:#fff;margin-top:2px;}
+.step-num::after{content:counter(step);}
+.step-body{border-left:4px solid var(--green);background:var(--white);padding:13px 16px;border-radius:0 8px 8px 0;flex:1;}
+.step-body h4{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.step-body p{font-size:14px;color:var(--ink-mid);line-height:1.7;margin:0;}
+.step-body p+p{margin-top:6px;}
+
+/* STATUS ROWS */
+.status-row{display:flex;gap:16px;padding:20px 22px;border-radius:var(--radius-md);background:var(--white);border:2px solid var(--border);margin-bottom:14px;box-shadow:var(--shadow-sm);}
+.status-row.can{border-left:4px solid var(--green);}
+.status-row.maybe{border-left:4px solid var(--gold);}
+.status-row.cannot{border-left:4px solid var(--red);}
+.status-icon{font-size:26px;flex-shrink:0;margin-top:2px;}
+.status-title{font-weight:800;font-size:16px;margin-bottom:6px;}
+.status-body{font-size:14px;color:var(--ink-mid);line-height:1.7;}
+
+/* TROUBLE CARDS */
+.trouble-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);}
+.trouble-title{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:12px;}
+.trouble-list{list-style:none;padding:0;}
+.trouble-list li{font-size:14px;color:var(--ink-mid);padding:5px 0 5px 20px;position:relative;border-bottom:1px solid var(--border);}
+.trouble-list li:last-child{border-bottom:none;}
+.trouble-list li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700;}
+
+/* MOD CARDS */
+.mod-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.mod-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.mod-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.mod-by{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);margin-bottom:8px;}
+.mod-desc{font-size:13px;color:var(--ink-mid);margin-bottom:10px;line-height:1.6;}
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+.cat-label{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--green-dark);text-transform:uppercase;letter-spacing:1px;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);display:inline-block;padding:4px 12px;border-radius:999px;margin:28px 0 14px;}
+
+/* COMMUNITY CARDS */
+.community-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px;}
+.community-card{display:flex;align-items:center;gap:14px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:16px 18px;text-decoration:none;color:var(--ink);transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.community-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.community-icon{font-size:24px;flex-shrink:0;}
+.community-name{font-weight:800;font-size:14px;}
+.community-url{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,255,255,0.8);padding:40px 24px;}
+.footer-inner{max-width:1200px;margin:0 auto;text-align:center;}
+.footer-brand{font-family:var(--font-head);font-size:15px;color:#fff;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.footer-links{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;transition:all 0.15s;}
+.footer-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
+footer p{font-size:12px;color:rgba(255,255,255,0.5);}
+
+@media(max-width:640px){
+  .page-layout{padding:32px 24px 60px;}
+  .step{flex-direction:column;}
+}
+
+
+/* Mobile table - stack as cards */
+@media(max-width:640px){
+  .table-wrap table,.table-wrap thead,.table-wrap tbody,.table-wrap th,.table-wrap td,.table-wrap tr{display:block;}
+  .table-wrap thead{display:none;}
+  .table-wrap tr{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);margin-bottom:10px;padding:0;}
+  .table-wrap td{border-bottom:1px solid rgba(27,82,41,0.06);padding:10px 14px;font-size:13px;white-space:normal!important;}
+  .table-wrap td:first-child{font-size:14px;font-weight:800;color:var(--green-dark);border-bottom:2px solid var(--border);background:var(--green-pale);}
+  .table-wrap td:last-child{border-bottom:none;}
+  .table-wrap td[style*="white-space:nowrap"]{white-space:normal!important;}
+}
+/* ── RESPONSIVE / MOBILE ───────────────────────────────────────────── */
+@media(max-width:900px){
+  .page-layout{grid-template-columns:1fr;padding:32px 24px 60px;}
+  .toc{display:none;}
+  .grid-2,.grid-3,.mod-grid,.roadmap-grid,.welcome-grid{grid-template-columns:1fr;}
+  .status-row{flex-direction:column;gap:10px;}
+  .section-head{gap:12px;}
+  .section-emoji{font-size:26px;}
+}
+@media(max-width:640px){
+  .page-layout{padding:24px 16px 48px;}
+  .step{flex-direction:column;}
+  .step-body{border-left:none;border-top:3px solid var(--green);border-radius:0 0 8px 8px;}
+  .hero-title{font-size:clamp(26px,8vw,44px);}
+  .quick-grid{grid-template-columns:1fr 1fr;gap:10px;padding:0 16px;}
+  .quick-card{padding:18px 12px;}
+  .quick-icon{font-size:28px;}
+  .quick-label{font-size:13px;}
+  .quick-desc{font-size:11px;}
+  .callout{padding:14px 16px;font-size:14px;}
+  .table-wrap{font-size:13px;}
+  th{font-size:11px;padding:10px 12px;}
+  td{padding:10px 12px;font-size:13px;}
+  .intro-section{padding:0 16px 16px;}
+  .mod-card{padding:16px;}
+  .card{padding:16px;}
+  footer{padding:28px 16px;}
+  .footer-links{gap:4px;}
+  .footer-links a{font-size:12px;padding:3px 8px;}
+}
+/* Nav touch scrolling */
+.nav-inner{-webkit-overflow-scrolling:touch;}
+
+.search-hero{max-width:700px;margin:40px auto 32px;padding:0 24px;position:relative;z-index:1;}
+.search-input-wrap{display:flex;gap:0;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm);transition:border-color 0.15s;}
+.search-input-wrap:focus-within{border-color:var(--green);}
+.search-input{flex:1;font-family:var(--font-body);font-size:16px;padding:14px 18px;border:none;outline:none;color:var(--ink);background:transparent;}
+.search-btn{background:var(--green);border:none;color:#fff;padding:0 20px;font-size:18px;cursor:pointer;transition:background 0.15s;}
+.search-btn:hover{background:var(--green-dark);}
+.search-hint{font-size:13px;color:var(--ink-muted);margin-top:10px;text-align:center;}
+.search-results{max-width:800px;margin:0 auto;padding:0 24px 80px;position:relative;z-index:1;}
+.result-count{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);margin-bottom:20px;}
+.result-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px 22px;margin-bottom:12px;text-decoration:none;display:block;transition:all 0.18s;box-shadow:var(--shadow-sm);}
+.result-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);transform:translateX(3px);}
+.result-title{font-family:var(--font-head);font-size:18px;color:var(--green-dark);margin-bottom:6px;}
+.result-desc{font-size:14px;color:var(--ink-mid);line-height:1.6;}
+.result-file{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);margin-top:6px;}
+.result-hl{background:var(--green);color:#fff;padding:0 3px;border-radius:3px;}
+.no-results{text-align:center;padding:48px 24px;color:var(--ink-muted);}
+.no-results .plumbob{display:block;margin:0 auto 20px;opacity:0.3;}
+.all-pages{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
+</head>
+<body>
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+    <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="about-legacy.html" class="nav-link">📖 About Legacy</a>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
+    <a href="installing-mods.html" class="nav-link">📁 Install</a>
+    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
+    <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
+    <a href="cheats.html" class="nav-link">🎮 Cheats</a>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <a href="making-cc.html" class="nav-link">🎨 Create CC</a>
+    <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
+    <a href="tools.html" class="nav-link">🧰 Tools</a>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
+    <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <a href="terminology.html" class="nav-link">📖 Terminology</a>
+    <a href="updates.html" class="nav-link">📋 Site Updates</a>
+    <a href="contact.html" class="nav-link">✉️ Contact</a>
+    <a href="search.html" class="nav-link active">🔍 Search</a>
+  </div>
+  <button class="nav-ham" id="navHam" aria-label="Open menu">&#9776;</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll nav">&#8250;</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection Guide</div>
+  <h1 class="page-title">Search the <span>Guide</span></h1>
+  <p class="page-sub">Find anything across all 17 pages</p>
+</div>
+
+<div class="search-hero">
+  <div class="search-input-wrap">
+    <input class="search-input" id="searchInput" type="text" placeholder="e.g. vulkan, buyable skins, rosebud..." autofocus autocomplete="off">
+    <button class="search-btn" onclick="doSearch()" aria-label="Search">&#128269;</button>
+  </div>
+  <p class="search-hint">Search page titles, descriptions and content</p>
+</div>
+
+<div class="search-results" id="searchResults">
+  <p class="result-count" id="resultCount"></p>
+  <div id="resultsList">
+    <div class="all-pages" id="allPages">
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection &mdash; Modding Guide</div>
+    <div class="footer-links">
+      <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
+      <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
+      <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
+      <a href="https://www.ea.com/games/the-sims/news" target="_blank">EA Patch Notes</a>
+      <a href="updates.html">Updates &amp; Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group">
+      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
+      <a href="about-legacy.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>About Legacy</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Playing</div>
+      <a href="whats-possible.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link"><span class="nav-drawer-icon">📁</span>Install</a>
+      <a href="download-sites.html" class="nav-drawer-link"><span class="nav-drawer-icon">🌐</span>Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link"><span class="nav-drawer-icon">⚙️</span>Mods</a>
+      <a href="cheats.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎮</span>Cheats</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎨</span>Create CC</a>
+      <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Help</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Reference</div>
+      <a href="terminology.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
+      <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
+      <a href="search.html" class="nav-drawer-link active"><span class="nav-drawer-icon">🔍</span>Search</a>
+    </div>
+  </div>
+</div>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
+  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  if(ham)ham.addEventListener('click',openD);
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  if(btt){
+    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
+    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+})();
+</script>
+
+<script>
+const INDEX = [{"file": "index.html", "title": "Home", "desc": "Guide overview and navigation", "keywords": "the sims legacy collection - modding guide the sims legacy collection the modding guide everything you need to mod, customise, and bring new life to the sims legacy collection (2025) ◆ legacy collection 2025 updated march 2026 windows 10 / 11 welcome back to the neighbourhood! the sims legacy collection launched in january 2025, and over a year later the modding community is well established and growing. almost all classic sims 1 mods (2000–2003) still work, new mods are being made specifically for legacy, and this guide covers everything you need to get started. new here? start with these 📖 about legacy what the legacy collection is, patch history, technical changes 🔬 what's possible what the engine can and cannot do, and what mods are possible 📁 installing mods folder paths, file types and step-by-step installation downloads &amp; playing 🌐 download sites best active mod sites confirmed working in 2026 ⚙️ must-have mods qol hacks, bug fixes, objects and gameplay improvements 🎮 cheat codes every working cheat and how to use them 🧰 tools modding tools, cc creators and community-built utilities creating content 🎨 creating cc custom skins, clothing, hairstyles, walls and floors 🔧 iff hacking build your own gameplay mods and object hacks help &amp; reference 🛠️ cc issues mods not showing, white skins, cc limits, registry fix 🖥️ game issues vulkan errors, launch crashes, multi-monitor fixes 📖 terminology what cc, mods, iff, far and other terms mean 📋 site updates guide changelog, roadmap and what's coming next"}, {"file": "about-legacy.html", "title": "About the Legacy Collection", "desc": "History, technical changes, patch notes, expansion pack reference, missing Maxis content", "keywords": "about the legacy collection - sims legacy collection guide sims legacy collection - about about the legacy collection what it is, how it differs from the original, and all technical changes on this page what is legacy collection? history of releases expansion pack reference technical changes system requirements ea patch history missing maxis content &#8592; back to home 📦 what is the legacy collection? the sims legacy collection is the 2025 re-release of the original the sims (2000) and all seven expansion packs, in a single digital purchase. released january 31, 2025 on steam, ea app, and epic games store. it is digital only - no physical or boxed edition was released. it replaces the older complete collection as the standard way to buy the original game new. included what's included base game (2000) plus all 7 expansion packs: livin' large, house party, hot date, vacation, unleashed, superstar, and makin' magic. also grants the sims 4 with the throwback fit pack on the same ea account. digital only - available on steam, ea app and epic games store. no physical or boxed edition was released. not included licensed content removed branded objects (mcdonald's cart, pepsi machine, intel computer) and licensed simlish songs were removed when their licenses expired. these are fully archived and can be added manually - see the missing maxis content section below. &#8505;&#65039; the legacy collection runs on the same underlying game code as the original. almost all mods and cc made for the original sims 1 still work, with path adjustments and a few technical differences covered on this page. 📅 history of the sims 1 releases year release notes 2000 the sims (base game) original release. base game only. hard limits: 200 objects/category, 90 walls, 63 floors. 2000 livin' large (ep1) new objects, careers, npcs. raises wall and floor cc caps to 65,000. 2001 house party (ep2) party system, costume trunk, entertainment objects. 2001 hot date (ep3) downtown lots, clothing racks. introduces buyable skins - l, f, s filename prefixes. 2002 vacation (ep4) vacation islands. winterwear (w prefix) buyable skins. 2002 unleashed (ep5) pets, outdoor gardening, neighbourhood editing. raises build mode object limit to 2,000. 2003 superstar (ep6) celebrity system, studio town. high fashion (h prefix) buyable skins. 2003 makin' magic (ep7) magic system, spells, baking. final expansion pack. 2002 complete collection retail boxed set with base game + all 7 eps. common in old forum posts as \"tcc\" or \"cc\". mods made for this version work in legacy with path adjustments. 2025 legacy collection digital re-release for windows 10/11. vulkan renderer, new save location, no registry entries. all 7 eps included. 🗂️ expansion pack folder reference which folder number is which pack when mod readmes say to put files in \"expansionpack4\" or similar, here's what each number means. these folder names are identical in both steam and ea app installs. folder expansion pack key modding notes exp"}, {"file": "whats-possible.html", "title": "What's Possible", "desc": "Engine limits, what can be modded, Steam Deck, resolution scaling", "keywords": "what's possible - sims legacy collection guide sims legacy collection - engine limits what's possible what you can mod, what the engine won't allow, and why on this page what can be done partial / workaround not possible resolution & graphics ← back to home this page explains the real limits of the sims 1 engine - including requests that come up often in the community. what can be modded? 👗 custom clothing new body skins and outfits for all skin tones and body types. each outfit is a complete body texture - tops and bottoms are combined. 💇 hair &amp; heads new face textures and hairstyles - hair is painted directly onto the head skin texture, not a separate item like later games. 🪑 objects &amp; furniture new .iff objects with custom interactions, prices and behaviour. from hacked chairs to entirely new functional items. ⚙️ gameplay hacks behaviour tweaks, new careers, qol improvements and need fixes. some of the most impactful mods available. 🏠 walls &amp; floors custom wall coverings and floor tiles using the official home crafter tool. import any image and generate the game files. 🐛 bug fixes community patches for vanilla game bugs not fixed by ea - pets, careers, expansions and more. 🎮 steam deck - confirmed working the legacy collection runs well on steam deck according to consistent community reports. the smaller screen size actually suits the original sims 1 resolution well. standard mod install paths apply - find your steam install in the deck's file manager at the same location as a windows steam install. 📐 improved resolution scaling (patch 7, march 2025) the march 2025 patch overhauled how the game handles display resolution. it now renders onto an internal canvas at the next clean integer scale up from your chosen resolution - so at 1920x1080 it effectively renders at 2x, and at 4k at 3x. this gives noticeably sharper sprites than before. the game window is freely resizable but the effective in-game resolution only updates when you restart. for the sharpest result, choose a resolution that divides cleanly into your monitor's native resolution. see the about legacy page for more technical detail. ✅ what can be done ✅ change outfit via a mirror (intermediate iff hack) outfit changes through a dresser or wardrobe are already built into the base game. adding this to a mirror requires cloning the mirror .iff and pointing it to the dresser's existing outfit-change behaviour routine in iff pencil 2. no standalone mod exists yet - check simblr.cc, or try it yourself using the iff hacking guide . ✅ new careers, objects, interactions and gameplay hacks all achievable through standard .iff modding. the community has been doing this since 2000. see the iff hacking page and mod list for examples. ✅ custom clothing, hair, skins, walls and floors fully supported. the sims creator and home crafter tools make this accessible to beginners. see the making cc page for a full guide. ✅ now possible — requires mods or patches these were previously limited b"}, {"file": "installing-mods.html", "title": "Installing Mods", "desc": "Folder paths, file types, step-by-step installation guide, old mod path translation", "keywords": "installing mods - sims legacy collection guide sims legacy collection - install guide installing mods folder paths, file types and step-by-step installation on this page overview steam paths ea app paths file type reference save file location installing old mods important rules step-by-step guide ← back to home 📋 overview modding works differently here than in other sims games the sims legacy collection handles mods differently to every other game in the series. rather than dropping files into a documents folder like you might expect, all custom content and mods live inside the game's actual install directory. this applies whether you're on steam or the ea app - the subfolder names are identical between both versions, only the root path changes. 🎮 steam install paths right-click the game in steam → manage → browse local files c:\program files (x86)\steam\steamapps\common\the sims legacy collection\ file type subfolder notes .iff &amp; .far (objects, hacks) downloads\ most mods go here .bmp .cmx .skn (skins) gamedata\skins\ ⚠️ no subfolders! .wll (wall coverings) gamedata\walls\ .flr (floor tiles) gamedata\floors\ game file overrides gamedata\objects\ only for mods replacing base files expansion overrides expansionpack#\ # = expansion number 1–7 🟠 ea app install paths right-click in ea app → manage → open install folder c:\program files\ea games\the sims legacy\ same subfolder names as steam - downloads\, gamedata\skins\, gamedata\walls\ etc. only the root path differs. 📄 file type quick reference .iff object file the most common mod format. contains object data, interactions and behaviour. goes in downloads\ unless the readme specifies otherwise. .far container file bundles multiple .iff or .xa files together. also goes in downloads\ . .bmp .cmx .skn skin files custom clothing, hair and head textures. everyday skins (prefix b or c) go directly in gamedata\skins\ - no subfolders. buyable skins (prefix l, f, s, w, h) go in expansionshared\skinsbuy\ - also no subfolders. .wll / .flr decor files custom wall and floor textures. goes in gamedata\walls\ or gamedata\floors\ . subfolders are supported in both. roof textures goes in gamedata\roofs\ directly - no subfolders. .iff game file override mods that replace an existing base game file go in gamedata\objects\ , not downloads\ . the readme will specify this. .iff expansion override mods targeting a specific expansion's files go in expansionpack#\ where # is the expansion number 1-7. check the readme. .iff downloaded lots lot files go in userdata\houses\ for your default neighbourhood, or userdata1\houses\ , userdata2\houses\ etc. for others. 💾 save file location c:\users\%userprofile%\saved games\electronic arts\the sims 25\ back this folder up before installing any mods! some mods can make permanent changes to save data that persist even after the mod is removed. 📦 installing old mods (2000-2003) most old mods still work - just translate the path old mod instructions will reference: c:\program files "}, {"file": "download-sites.html", "title": "Download Sites", "desc": "Best active mod sites, archive sites, Simblr tutorials, tools, directories", "keywords": "download sites - sims legacy collection guide sims legacy collection - mod sites mod download sites best active sites confirmed working with the legacy collection on this page most active (2026) archive sites tools & tutorials site directories ← back to home 🌟 most active sites (2026) moderators appear to still be active and new mods occasionally get added simblr.cc - sims 1 mods most active the most active sims 1 modding community right now. new uploads as recently as march 2026. gameplay hacks, bug fixes, new objects and tutorials. start here. ↗ simblr.cc/ts1/mods/ corylea's mods updated mar 2026 actively maintained and legacy-compatible. corylea updates mods specifically for the legacy collection and includes path translation notes for every mod. extensive personal collection of quality-of-life hacks. no relationship decay, two-hour carpool warning, no forced career change, and dozens more. ↗ corylea.com 📚 archive sites large collections from the original era - mostly still working the sims resource - sims 1 free account required huge archive of clothing, hair and objects from the original game era. some items need a free account to download. ↗ thesimsresource.com around the sims sandy's site - one of the most respected sims 1 cc archives. she has since moved on to newer sims games but her entire sims 1 archive remains up for download: objects, skins, heads and build content. high quality work with a consistent aesthetic. aroundthesims3.com &#8599; sims file share - yononna massive collection of cc shared by creator yononna. recently collated and updated to be more accessible. tonnes of build objects, hairs, skins and more. thousands of files. ↗ simfileshare.net andrasta's world gothic and grungy style cc and mods. unique dark aesthetic for atmospheric builds. ↗ doortomore.net a little white magic gameplay plugins, decor and mods. home of the domcal weekends mod. ↗ white.leadpipecollection.net sims freaks / the real sim objects, clothes, houses and general build mode items. ↗ simfreaks.com wayback machine - sims 1 cc listing large list of zip files containing loads of different cc options archived from the original era. ↗ archive.org wayback machine - sims 1 cc search search the wayback machine to find archived sims 1 cc sites from the original era. ↗ web.archive.org 🔧 tools &amp; tutorials github - sims1tools (trolando) essential modding toolkit: iff pencil 2, farx, career creator 3, constant contraption, strings scavenger. ↗ github.com/trolando/sims1tools sims 1 tutorials - awesome expression advanced tutorials covering custom animations, custom food, custom sounds and object cloning with transmogrifier. ↗ awesomeexpression.com the sims depot must-have programs, adding skins and meshes. good beginner resource for tools and setup. ↗ thesimsdepot.com parsimonious - adding downloads to your game step-by-step instructions for installing all different file types for sims 1 custom content, plus troubleshooting common reasons downloads don't show u"}, {"file": "mod-list.html", "title": "Must-Have Mods", "desc": "QoL mods, bug fixes, objects, debug runtime tools, careers, pets, gameplay improvements", "keywords": "must-have mods - sims legacy collection guide sims legacy collection - mod list must-have mods quality of life, bug fixes, objects and gameplay improvements on this page quality of life objects & furniture exe patches & debug tools bug fixes careers magic & superstar pets ← back to home all mods go in your downloads\ folder unless noted. please make sure to read each download page's instructions completely before putting any cc/mod files into folders. some cc do state they need to be in specifc folders to work. ⚙️ quality of life the mods every player should have eliminate relationship decay by corylea friends stay friends indefinitely. relationships still drop if you're mean, but not just from not calling or interacting for long periods of time. requires makin' magic download ↗ domcal weekends mod a little white magic adds actual weekends! sims won't be fired for missing work on saturday and sunday. download ↗ two-hour carpool warning by corylea get a proper 2-hour warning before the carpool arrives instead of last-minute panic. download ↗ no forced career change at level 10 by corylea stops the game from randomly reassigning careers when a sim reaches the top level. download ↗ need-freezing - community lots by corylea freezes motive bars while on old town community lots. no more sims fainting at restaurants. download ↗ food stays fresh for a week by corylea drastically slows how quickly prepared food spoils in the fridge. download ↗ more walk-bys by corylea increases frequency of random sims walking past your lot - makes socialising much easier. download ↗ eliminate need decay by corylea stops all motive bars from decaying. useful for build mode or photography play. download ↗ ⭐ notable mention - no pets allowed sign this isn't a mod or cc - it's a built-in base game object that many players don't know about, but it's incredibly useful if you have the unleashed expansion. strays wandering onto your lot can dig up your garden, pee on things, and generally make a mess. the no pets allowed sign fixes this completely - when a stray approaches your lot boundary, it reads the sign and walks away without setting foot on your property. how to find it: in buy mode, click the decorative (paintings) category, then the misc decorative subcategory. the sign appears early in that list. place it anywhere on your lot, ideally near the entrance or front fence. no configuration needed - it works automatically. requires the sims: unleashed expansion pack. 🏠 objects & furniture smart curtains simlogical curtains that auto-open at dawn and close at dusk. multiple styles, recolouring instructions included. download ↗ power-nap recliners simlogical recliners for short energy-restoring naps. toggle autonomous use on/off. 4 recliner styles. download ↗ ppxlsimbook hacked computer ppxl on simblr.cc all-in-one: social need, all skills faster, video chat, shop/work from home, pay bills. one object! download ↗ simazon delivery services damondamore phone interaction to order"}, {"file": "cheats.html", "title": "Cheat Codes", "desc": "Every working cheat, money cheats, debug cheats, FaithBeam runtime tool", "keywords": "cheats - sims legacy collection guide sims legacy collection - cheats cheat codes how to enable cheats and every working code for the legacy collection on this page how to enable cheats cheat tips & tricks money gameplay build & buy mode debug & display unlocking debug cheats ← back to home ⌨️ how to enable cheats same shortcut as every other sims game cheats in the sims 1 don't require any setup or a separate \"enable cheats\" command - you just open the console and type. no testingcheats true needed. open the cheat console press ctrl + shift + c while in game. a text box will appear in the top-left corner of the screen. type your cheat type the cheat code exactly as shown in the tables below. cheats are not case-sensitive - rosebud and rosebud both work. press enter hit enter to apply the cheat. some cheats give immediate feedback (a message or the money counter ticking up), others take effect silently. close the console press ctrl + shift + c again, or just press escape , to close the cheat box. 💡 cheat tips & tricks stacking money with rosebud each ;! you add after rosebud repeats the cheat once. so rosebud;!;!;!;!;!;!;!;!;! gives you 10,000 simoleons in one go. fill the text box with as many ;! entries as it will hold for a big payout. repeat the last cheat type ! into the cheat console and press enter to repeat the last cheat you entered, without retyping it. useful for stacking multiple rounds of rosebud. combining multiple cheats in one line separate cheats with a semicolon to enter more than one at a time. for example: rosebud;move_objects on applies both in a single enter press. resetting a sim's mood (the move_objects trick) enable move_objects on , then in buy mode delete the sim while they're sitting on a chair or lying in bed. the sim disappears. click their portrait to bring them back - they'll return with fully maxed motive bars. this is the fastest way to get your sim promoted. delete the chair, not the sim directly. blocking the carpool with move_objects on , place an object in the road before your sim leaves for work. the carpool gets stuck and can't drive away, giving you extra time to get your sim in the car even if you're running late. delete the object once they're in and the car will leave normally. copy and paste in the cheat console the cheat console supports standard keyboard shortcuts. use shift + arrow keys to highlight text, ctrl+c to copy and ctrl+v to paste. this means you can type rosebud;!;!;!;!;! once, select it all with shift+home, copy it, then paste it repeatedly to fill the box with a huge chain of repeats very quickly. getting rid of a sim's unwanted command queue if a sim is stuck doing something or has a queue of actions you can't cancel, enable move_objects on , switch to buy mode and delete the sim, then go back to live mode and click their portrait. they return fresh with a clear queue and full mood bars. make sure the sim isn't mid-animation when you delete them or the game may crash - wait for them to "}, {"file": "making-cc.html", "title": "Creating CC", "desc": "Custom skins, clothing, hairstyles, walls, floors, tools tutorials, TSO conversions", "keywords": "creating cc - sims legacy collection guide sims legacy collection - creating cc creating custom content skins, clothing, hairstyles, walls and floors - made by you on this page how skins work in sims 1 tools you need installing the tools making clothing making hair & heads walls & floors tutorials ← back to home 💡 how skins work in sims 1 very different from later games important: sims 1 cc works completely differently from sims 4. the differences trip up a lot of people coming from later games. 👕 clothing = body skin a sim's body and clothing are one combined texture file . there's no separate top or bottom layer - each outfit is a complete body image. 💇 hair = head skin hair is painted directly onto the head texture . it's not a separate item - you change hairstyle by changing the whole head file. 🎨 3 skin tones sims 1 has light, medium and dark skin tones. if your outfit covers the body, you need three separate versions - one per tone. ⚠️ 256-colour bmp only all textures must be saved as indexed (256-colour) bmp files. regular bmps, pngs or jpgs show as a white blank body in-game. 🛠️ tools you need the sims creator (tsc) start here official maxis cc creation tool. provides a 3d sim body to paint onto and exports game-ready .bmp/.cmx/.skn files. download free from the internet archive. ↗ download from archive.org home crafter walls &amp; floors official maxis tool for creating custom walls and floors. import any image and it generates the correct game file automatically. download free from the internet archive. ↗ download from archive.org gimp free free image editor for detailed texture painting. critical: before exporting, go image → mode → indexed (256 colours), then export as bmp. ↗ gimp.org paint.net free simpler free alternative to gimp. also supports indexed bmp export with the right plugin. ↗ getpaint.net ⚙️ installing the sims creator &amp; home crafter how to get these tools running note: these are old maxis tools from the early 2000s. they run fine on windows 10/11 but may need to be run as administrator. if you get a compatibility warning, click \"run anyway\" - they are safe official maxis programs. download from the internet archive click the archive.org download links above. on the archive.org page, click the download button and save the zip or exe file to your computer. extract if zipped if the download is a .zip file, right-click it and choose extract all . open the extracted folder to find the installer (.exe) inside. run the installer double-click the .exe to install. if windows shows a security warning, click more info then run anyway . you may also need to right-click and choose run as administrator . launch the tool once installed, open the sims creator or home crafter from your start menu or desktop shortcut. they do not need to be inside your sims game folder to work - they run independently and export files that you then copy into your game. 👗 making custom clothing how it works open the sims creator and choose a body mesh"}, {"file": "iff-hacking.html", "title": "IFF Hacking", "desc": "Create gameplay mods, object hacks, BHAV scripts, career creator, tools guide", "keywords": "iff hacking - sims legacy collection guide sims legacy collection - iff hacking iff hacking create your own gameplay mods and object hacks from scratch on this page what is an iff file? tools your first mod adding interactions custom careers further resources ← back to home 📄 what is an iff file? every object in the sims 1 is an .iff file - a container holding multiple resources that together define how an object looks and behaves. 🖼️ sprites the visual frames of the object at different zoom levels and angles. 🌳 bhav scripts \"behaviour\" trees - the logic controlling what interactions the object offers and what happens when a sim uses them. 🔢 bcon constants numeric values like price, skill gain rate, motive impact and decay rate. 📝 str# strings all the text you see in-game - object names, interaction menu labels, descriptions. iff hacking means editing these resources to change how objects behave, adding new interactions, or creating entirely new objects. 🧰 tools all free - all from the same github repository always clone first. use transmogrifier to create a copy of any object before editing it. never modify original game files directly - you could corrupt your game. tool what it does level download transmogrifier (tmog) clones any game object as a new .iff - always start every mod here 🟢 beginner simlogical ↗ iff pencil 2 full .iff editor - sprites, bhav scripts and all other resources 🟡 intermediate github ↗ constant contraption edit numeric values like price, skill gain rate, motive impact 🟢 beginner github ↗ career creator 3 specialised editor for creating new career tracks 🟢 beginner github ↗ strings scavenger edit text labels - object names and interaction menu text 🟢 beginner github ↗ farx extract individual .iff files from .far container bundles for editing 🟡 intermediate github ↗ simpose / simposium create custom sim poses and animation sequences 🔴 advanced awesome expression ↗ 🚀 your first mod - changing object values a beginner-friendly starting point a great first mod is changing an object's price, skill gain speed, or motive impact using constant contraption. no bhav scripting needed. open transmogrifier find the object you want to modify and click clone. this creates a safe copy to edit without touching the original game file. open the clone in constant contraption the bcon entries list numeric values for the object. labels will help you identify what each value controls - prices, skill rates, energy impacts etc. change the values you want edit the numbers - for example, increase a bookcase's skill gain value to make it teach skills faster, or lower a sofa's price. save and test place the cloned .iff in your downloads\ folder, launch the game and test. if something seems off, go back and adjust. 💬 adding new interactions intermediate - requires understanding bhav trees this is how mods like \"change outfit at a mirror\" would be created. it's more involved than value tweaking, but very achievable with practice. clone your target objec"}, {"file": "tools.html", "title": "Modding Tools", "desc": "Transmogrifier, IFF Pencil 2, Career Creator, FARx, FaithBeam runtime hacks, Sims Creator, Home Crafter", "keywords": "modding tools - sims legacy collection guide sims legacy collection - tools modding tools every tool you need - free download links and usage notes on this page essential tools cc creation community tools &#8592; back to home on this page essential tools cc creation community tools 🔧 essential modding tools all free - all from the sims1tools github repo unless noted &#10003; all sims1tools in one place: github.com/trolando/sims1tools beginner transmogrifier (tmog) always start here. clones any existing game object as a new .iff file so you edit the copy without touching the original. essential first step for any object mod. from simlogical. simlogical &#8599; intermediate iff pencil 2 the full .iff editor. view and edit sprites, bhav behaviour trees, bcon constants, str# strings, and every other resource inside an .iff file. the main tool for creating complex mods. sims1tools &#8599; beginner constant contraption edits numeric values in .iff files - price, skill gain rate, motive impact. the easiest way to make gameplay tweaks without touching bhav scripts. good first mod project. sims1tools &#8599; beginner career creator 3 specialised editor for creating custom career tracks. replaces existing careers - you can't add new ones. output goes in gamedata\objects\ not downloads\. sims1tools &#8599; beginner strings scavenger edits text labels - object names, interaction menu text and descriptions. simpler than editing str# resources directly in iff pencil 2. sims1tools &#8599; intermediate farx extracts individual .iff files from .far container bundles. use when a mod is packaged as a far but specific files need to go in different folders. sims1tools &#8599; advanced simpose / simposium creates custom sim poses and animation sequences. advanced - requires understanding the animation system. tutorials at awesome expression. awesome expression &#8599; intermediate faithbeam legacy hacks a runtime memory patcher that unlocks edit_char and other hidden debug features. run it before launching the game each session and keep it open while you play. works on both steam and ea app - no steamless required. never permanently modifies sims.exe. github &#8599; 🎨 cc creation tools official maxis tools from the internet archive &#9888;&#65039; registry note: these tools look for the game at the old registry path. legacy collection creates no registry entries. if a tool can't find your game, see the cc troubleshooting registry fix . beginner the sims creator official maxis tool for creating custom body skins and head textures. provides a 3d sim body to paint onto and exports game-ready .bmp/.cmx/.skn files. the standard starting point for custom cc. archive.org &#8599; beginner home crafter official maxis tool for custom wall coverings and floor tiles. import any image and it generates the correct .wll or .flr file automatically. archive.org &#8599; free gimp free image editor for skin texture painting. critical: go image &#8594; mode &#8594; indexed (256 colours) "}, {"file": "cc-troubleshooting.html", "title": "CC & Mod Troubleshooting", "desc": "Mods not showing, white skins, CC limits, old mods, FAR files, registry fix, exe installers, Simscord", "keywords": "cc & mod troubleshooting - sims legacy collection guide sims legacy collection - cc troubleshooting cc & mod troubleshooting fixing problems with custom content, mods, skins and file installation on this page mods not showing crashes after mods white/blank skins cc limits & engine caps old mods not working far files old .exe installers cc tools registry fix community help &#8592; back to home start by removing all new mods and adding them back one at a time - this is the fastest way to find the one causing problems. 📁 mods not showing in game check these things in order: unzip files first - the game cannot read .zip or .rar files directly. extract all contents before copying to the game folder skin files (.bmp/.cmx/.skn) must be directly in gamedata\skins\ - no subfolders at all. same applies to skinsbuy\ check the file extension is correct (.iff not .iff.zip, .bmp not .bmp.txt) some mods need gamedata\objects\ or an expansionpack\ subfolder rather than downloads\ - always read the included readme first check your game install path - steam and ea app have different root folders. see installing mods buyable skins (l, f, s, w, h prefix) only appear at clothing racks on downtown/community lots - they will never show in the home dresser or create-a-sim 💥 game crashes after installing a mod remove all new mods and add them back one at a time until the crash reappears. binary search works well - remove half, test, keep halving until you find the culprit check simblr.cc and ea forums for known compatibility issues with that specific mod check the mod creator's page - they may have released a legacy-compatible update since the original was made try the mod in a fresh test neighbourhood before using it in your main save mods that directly patched the original sims.exe will not work in legacy at all - the exe is drm-protected. check simblr.cc for an updated version see installing mods for how to translate complete collection paths to legacy paths for older mods 🧍 skins show as a white blank body this is almost always a bmp colour depth issue. sims 1 requires indexed (256-colour) bmp files. regular 24-bit bmps, pngs or jpgs will always show as a white silhouette in-game. how to convert to 8-bit indexed bmp: photoshop: image &#8594; mode &#8594; indexed color &#8594; set colours to 256 &#8594; ok. then file &#8594; save as &#8594; bmp (it will default to 8-bit after conversion) gimp: image &#8594; mode &#8594; indexed &#8594; maximum colors: 255 &#8594; convert. then file &#8594; export as &#8594; save as .bmp irfanview (free): image &#8594; decrease color depth &#8594; 256 colors. then file &#8594; save as &#8594; bmp paint.net: install the indirectbitmap plugin, then save as indexed bmp do not use png, jpg, webp or 24-bit bmp - none of these work in sims 1 &#8505;&#65039; if you downloaded the skin rather than made it yourself, try re-downloading from the original source - some archived sites incorrectly serve 24-bit bmps even when the original file was co"}, {"file": "game-troubleshooting.html", "title": "Game Troubleshooting", "desc": "Vulkan errors, NVIDIA fix, launch crashes, multi-monitor, launch options, empty neighbourhood, Simscord", "keywords": "game troubleshooting - sims legacy collection guide sims legacy collection - game troubleshooting game troubleshooting vulkan errors, launch crashes, and known game issues with community fixes on this page vulkan initialization failed nvidia pixel glitch game won't launch multi-monitor crash empty neighbourhood game keeps minimising username crashes launch options reference community help &#8592; back to home always update your gpu drivers first before troubleshooting any launch or graphics issue. outdated drivers are responsible for the majority of reported vulkan errors and launch crashes. 🖥️ vulkan initialization failed the most common launch error in legacy collection the legacy collection uses the vulkan graphics api. if your gpu or drivers don't support vulkan, the game refuses to launch. try these in order: 1️⃣ update your gpu drivers visit your gpu manufacturer's site directly - nvidia ( nvidia.com/drivers ), amd ( amd.com/support ), or intel ( intel.com ). do not rely on windows update for gpu drivers. restart your pc after updating, then try launching again. 2️⃣ remove the vulkan/opengl compatibility pack a windows component called \"opencl, opengl, and vulkan compatibility pack\" can conflict with the game's vulkan implementation. open settings &#8594; apps &#8594; search for \"vulkan\" or \"opencl\" &#8594; uninstall it. this alone fixes the error for many users, especially on systems with intel integrated graphics. 3️⃣ nvidia + amd hybrid systems: disable graphics switching if your pc has both a dedicated gpu and intel/amd integrated graphics, vulkan may be initialising on the wrong one. in nvidia control panel or amd settings, force sims.exe to use your dedicated gpu. on laptops this is often under power management or switchable graphics settings. 4️⃣ older intel integrated graphics may not be compatible intel hd graphics older than iris xe (pre-2020, typically 4th-8th gen core processors) generally don't support vulkan at all. if this is your only gpu, legacy collection cannot run on your hardware. the original complete collection (which used directdraw) works on these systems, but legacy requires vulkan. 📐 nvidia: scrambled pixels / misaligned ui on some nvidia gpus, rows of pixels appear shifted or scrambled - most visible on motive bars, ui buttons and loading screens. this is a known nvidia driver issue with vulkan presentation via dxgi swapchain. fix via nvidia control panel: right-click desktop &#8594; nvidia control panel go to manage 3d settings &#8594; program settings tab find or add sims.exe to the list find \"vulkan/opengl present method\" and set it to prefer native apply and restart the game &#8505;&#65039; keeping nvidia drivers up to date may also resolve this - nvidia have been releasing fixes for this class of vulkan issue. 🚫 game won't launch / closes immediately update gpu drivers first (see vulkan section above) verify game files in steam: right-click game &#8594; properties &#8594; installed files &#8594; verify integ"}, {"file": "terminology.html", "title": "Terminology", "desc": "CC, mod, hacking, IFF, FAR, Vulkan, BHAV, skins, buyable skins, Get Cool Stuff", "keywords": "terminology - sims legacy collection guide sims legacy collection guide sims 1 terminology what people mean when they say cc, mods, hacking and everything else on this page why this matters cc mod hacking iff & far skins & filename prefixes complete collection other terms far file, vulkan, get cool stuff ← back to home 📖 why this page exists the sims 1 community has been around since 2000 and has developed its own language over that time. some terms mean something specific to this game that they don't mean anywhere else. others are borrowed from broader gaming culture but used loosely. and a few are genuinely confusing because the same abbreviation means different things depending on context - \"cc\" being the main culprit. if you've landed on a forum post, a mod readme, or a download page and found yourself unsure what something means, this page should clear it up. 👗 cc - custom content cc custom content in the sims community, cc means custom content - any file made by a player (not maxis/ea) that adds something visual to the game. this includes custom clothing, hairstyles, skin tones, furniture, wall coverings, floors and objects. cc is the catch-all term for things that change how the game looks without changing how it plays. a new outfit is cc. a custom sofa is cc. a wall pattern is cc. ⚠️ sims 1 cc vs the sims complete collection (also abbreviated cc) this is the main source of confusion. the complete collection was the original boxed set of the sims 1 with all expansion packs included, released in 2002. players and stores often abbreviated it to \"the sims cc\" or just \"cc\". if you're reading an old forum post or mod readme from the early 2000s and it mentions \"cc\", the author might mean the complete collection rather than custom content - read the context carefully. a line like \"works with sims cc\" most likely means the complete collection. a line like \"drop this file in your cc folder\" means custom content. ⚙️ mod mod modification a mod is a file (or set of files) that changes how the game behaves . in sims 1, this usually means a modified .iff file that alters an object's price, the carpool timing, how relationships decay, how quickly skills are gained, or similar gameplay values. the distinction between a mod and cc gets blurry in sims 1. a custom chair that looks different but works the same as the base game chair is really cc. a chair that's been edited so sims gain body skill by sitting in it is a mod. in practice, the community often uses \"mod\" and \"cc\" interchangeably for any downloaded file, so don't read too much into which word someone uses. 🔧 hacking hacking object hacking / iff hacking in the sims community, \"hacking\" has nothing to do with breaking into systems or doing anything illegal. it refers to opening and editing the game's object files - specifically .iff files - to change how objects work. when someone says they've \"hacked\" an object, it means they've opened it in a tool like iff pencil 2, modified the values or scripts "}, {"file": "updates.html", "title": "Site Updates & Roadmap", "desc": "Guide changelog, roadmap, crash monitor tool, planned features", "keywords": "site updates & roadmap - sims legacy collection guide sims legacy collection guide site updates & roadmap changes to this guide, the roadmap, and what's being worked on - not ea game updates on this page changelog roadmap ← back to home &#8505;&#65039; this page covers changes to this guide , not ea's game patches. for official ea patch notes, see ea.com/games/the-sims/news . 📋 changelog most recent changes first this page tracks all meaningful content changes to the guide. minor fixes like typos and formatting tweaks aren't listed individually - only content additions, corrections and structural changes. if you spotted something wrong and submitted feedback, check here to see if it's been addressed. date page what changed mar 2026 site-wide major restructure: added about legacy collection page (history, ep reference, technical changes, vulkan info, patch history, missing maxis content). split troubleshooting into cc &amp; mod troubleshooting and game troubleshooting - game page covers vulkan errors, nvidia pixel fix, multi-monitor crash, launch options reference, username crash, empty neighbourhood fix. removed patch version badge from all pages, added ea patch notes link to footer. crash log monitor tool added to roadmap (in progress). mar 2026 new pages added four new pages: cheats (all working codes, tips and faithbeam debug unlock), terminology (what cc, mods, hacking and iff actually mean - including the complete collection vs custom content cc confusion), updates & roadmap (this page), and contact with an embedded google form for feedback and suggestions. mar 2026 site-wide ageing up children & edit_char: reddit user insightsie flagged that children ageing up and live-mode appearance changes are now possible in the legacy collection. the underlying tool was created by faithbeam - their sims1legacycollectionhacks patches the game in memory at runtime to unlock the hidden edit_char debug cheat (no permanent exe modification). combined with a birthday cake mod (creator/s still to be confirmed - puberty blows by ed95 on mts is one option), children can now be aged up without makin' magic. updated across what's possible, mods, and cheats pages. installing mods: expanded to cover all possible file destination folders, added engine cc limits (caps on objects, walls, floors, downloads folder size), and better step-by-step extraction instructions. iff hacking: added full step-by-step instructions to the custom careers section. sites: removed dead links, added sims file share (yononna), sims freaks and wayback machine cc resources. creating cc: archive.org download links added for the sims creator and home crafter. tool installation steps added. 🗺️ roadmap what's being worked on and what's planned this is a rough public roadmap. things in \"planned\" will happen when time allows. things in \"considering\" depend on whether enough people find them useful - if something on this list matters to you, let me know via the contact form . currently working on i"}, {"file": "contact.html", "title": "Contact", "desc": "Send corrections, suggest mods, report broken links", "keywords": "contact - sims legacy collection guide sims legacy collection guide get in touch corrections, suggestions, missing mods, broken links - all welcome 💬 what i'd love to hear about this guide is a community resource and it gets better with community input. if you've spotted something wrong, found a mod that should be on the list, or have a suggestion for a new section, the form below goes straight to a spreadsheet i check regularly. 🐛 corrections something on the guide is wrong or out of date - a folder path, a mod description, a broken link. 🧩 missing mods a mod that should be on the must-have list but isn't. include the mod name and where to find it. 💡 suggestions a new page, section, or topic you'd like to see covered on the guide. 🔗 broken links a download link or external site link that's no longer working. responses go into a google sheet that i review when i update the guide. i may not reply directly, but i do read everything and useful suggestions will make it into future updates - credited if you'd like. 📝 contact form loading… embedded forms don't scroll well on phones. tap below to open the form directly - it works exactly the same and your response still goes to the same place. open contact form ↗"}];
+
+function hl(text, q) {
+  if (!q) return text;
+  const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'gi');
+  return text.replace(re, m => '<span class="result-hl">' + m + '</span>');
+}
+
+function score(item, terms) {
+  let s = 0;
+  const title = item.title.toLowerCase();
+  const desc = item.desc.toLowerCase();
+  const kw = item.keywords;
+  for (const t of terms) {
+    if (title.includes(t)) s += 10;
+    if (desc.includes(t)) s += 5;
+    const kwCount = (kw.match(new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'g')) || []).length;
+    s += Math.min(kwCount, 8);
+  }
+  return s;
+}
+
+function doSearch() {
+  const raw = document.getElementById('searchInput').value.trim();
+  const allPages = document.getElementById('allPages');
+  const resultsList = document.getElementById('resultsList');
+  const resultCount = document.getElementById('resultCount');
+
+  if (!raw) {
+    allPages.style.display = 'grid';
+    resultsList.innerHTML = '';
+    resultsList.appendChild(allPages);
+    resultCount.textContent = '';
+    return;
+  }
+
+  const terms = raw.toLowerCase().split(/\s+/).filter(t => t.length > 1);
+  const results = INDEX
+    .map(item => ({ item, s: score(item, terms) }))
+    .filter(r => r.s > 0)
+    .sort((a, b) => b.s - a.s);
+
+  allPages.style.display = 'none';
+
+  if (!results.length) {
+    resultsList.innerHTML = '<div class="no-results"><span class="plumbob lg" style="background:var(--ink-muted);"></span><p>No results for <strong>"' + raw + '"</strong></p><p style="margin-top:8px;font-size:13px;">Try a different search term, or browse the pages below.</p></div>';
+    resultCount.textContent = 'No results found.';
+    return;
+  }
+
+  resultCount.textContent = results.length + ' page' + (results.length === 1 ? '' : 's') + ' match "' + raw + '"';
+  resultsList.innerHTML = results.map(r => {
+    const item = r.item;
+    const qHl = raw.toLowerCase();
+    return '<a class="result-card" href="' + item.file + '">' +
+      '<div class="result-title">' + hl(item.title, qHl) + '</div>' +
+      '<div class="result-desc">' + hl(item.desc, qHl) + '</div>' +
+      '<div class="result-file">' + item.file + '</div>' +
+      '</a>';
+  }).join('');
+}
+
+// Populate the all-pages grid on load
+(function() {
+  const allPages = document.getElementById('allPages');
+  allPages.innerHTML = INDEX.map(item =>
+    '<a class="result-card" href="' + item.file + '">' +
+    '<div class="result-title">' + item.title + '</div>' +
+    '<div class="result-desc">' + item.desc + '</div>' +
+    '</a>'
+  ).join('');
+
+  document.getElementById('resultCount').textContent = 'Browse all ' + INDEX.length + ' pages, or type above to search.';
+
+  document.getElementById('searchInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') doSearch();
+  });
+
+  // Pre-fill from URL param ?q=
+  const urlQ = new URLSearchParams(window.location.search).get('q');
+  if (urlQ) {
+    document.getElementById('searchInput').value = urlQ;
+    doSearch();
+  }
+})();
+</script>
+</body>
+</html>

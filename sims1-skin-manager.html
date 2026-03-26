@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sims 1 Skin Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1a12;--surface:#162019;--surface2:#1d2d22;--green:#3BAE5C;--green-pale:#1a3322;--green-glow:rgba(59,174,92,0.15);--gold:#d4a029;--gold-pale:#2a2010;--red:#e05252;--red-pale:#2a1010;--text:#e8f0ea;--text-mid:#8aaa90;--text-dim:#4a6450;--border:rgba(59,174,92,0.18);--border-bright:rgba(59,174,92,0.4);--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;}
+header{position:relative;z-index:10;padding:22px 26px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px;}
+.logo-d{width:22px;height:22px;background:var(--green);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);animation:fl 3s ease-in-out infinite;flex-shrink:0;}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.logo-t{font-family:var(--mono);font-size:11px;color:var(--green);letter-spacing:1px;}
+.logo-s{font-size:11px;color:var(--text-dim);font-family:var(--mono);}
+main{position:relative;z-index:1;max-width:1300px;margin:0 auto;padding:26px 18px 80px;}
+
+/* Drop zone */
+.drop-zone{border:2px dashed var(--border-bright);border-radius:16px;padding:48px 32px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--green-pale);position:relative;margin-bottom:26px;}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--green);background:var(--green-glow);}
+.drop-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.dt{font-family:var(--mono);font-size:15px;color:var(--green);margin:8px 0 6px;}
+.ds{font-size:13px;color:var(--text-dim);}
+.ds code{font-family:var(--mono);font-size:10px;background:var(--surface2);padding:2px 6px;border-radius:4px;color:var(--green);}
+
+/* Progress */
+.pbar{height:3px;background:var(--border);border-radius:2px;margin-bottom:22px;overflow:hidden;display:none;}
+.pfill{height:100%;background:var(--green);border-radius:2px;transition:width 0.2s;width:0%;}
+
+/* Stats */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:22px;}
+.sc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 15px;}
+.sc.ok{border-color:rgba(59,174,92,0.35);} .sc.err{border-color:rgba(224,82,82,0.35);}
+.sv{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--green);line-height:1;margin-bottom:3px;}
+.sc.err .sv{color:var(--red);}
+.sl{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;}
+
+/* Issues panel */
+.ip{background:var(--surface);border:1px solid rgba(224,82,82,0.3);border-radius:14px;overflow:hidden;margin-bottom:20px;}
+.ip-hdr{background:rgba(224,82,82,0.08);padding:13px 18px;font-family:var(--mono);font-size:12px;color:var(--red);display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;}
+.ip-hdr:hover{background:rgba(224,82,82,0.14);}
+.ip-tog{margin-left:auto;font-size:10px;color:var(--text-dim);}
+.ip-body{padding:2px 18px 16px;}
+.ii{padding:14px 0;border-bottom:1px solid var(--border);}
+.ii:last-child{border-bottom:none;}
+.ii-file{font-family:var(--mono);font-size:11px;color:var(--text);margin-bottom:5px;}
+.ii-what{font-size:13px;color:var(--red);font-weight:500;margin-bottom:5px;}
+.ii-why{font-size:13px;color:var(--text-mid);margin-bottom:8px;line-height:1.6;}
+.fix-lbl{font-family:var(--mono);font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;}
+.fix-steps{font-size:13px;color:var(--text);line-height:1.75;padding-left:2px;}
+.fix-steps li{margin-left:18px;margin-bottom:3px;}
+
+/* Controls */
+.ctrl{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;align-items:center;}
+.fb{font-family:var(--mono);font-size:10px;padding:5px 11px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text-mid);cursor:pointer;transition:all 0.12s;white-space:nowrap;}
+.fb:hover{border-color:var(--green);color:var(--green);}
+.fb.on{background:var(--green);border-color:var(--green);color:#0f1a12;font-weight:700;}
+.sb{font-family:var(--mono);font-size:11px;padding:5px 11px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);outline:none;width:190px;}
+.sb:focus{border-color:var(--green);}
+.eb{font-family:var(--mono);font-size:10px;padding:5px 13px;border-radius:8px;border:1px solid var(--border-bright);background:transparent;color:var(--green);cursor:pointer;margin-left:auto;}
+.eb:hover{background:var(--green);color:#0f1a12;}
+.rb{font-family:var(--mono);font-size:10px;padding:5px 12px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;}
+.rb:hover{color:var(--text);border-color:var(--text-dim);}
+
+/* Table */
+.tw{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:680px;}
+thead th{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.6px;color:var(--text-dim);padding:11px 12px;text-align:left;border-bottom:1px solid var(--border);background:var(--surface2);cursor:pointer;user-select:none;white-space:nowrap;}
+thead th:hover{color:var(--green);}
+thead th.asc::after{content:' ↑';color:var(--green);}
+thead th.desc::after{content:' ↓';color:var(--green);}
+tbody td{padding:9px 12px;border-bottom:1px solid rgba(59,174,92,0.05);vertical-align:top;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover td{background:var(--green-pale);}
+tbody tr.bad td{background:rgba(224,82,82,0.04);}
+tbody tr.bad:hover td{background:rgba(224,82,82,0.08);}
+.fn{font-family:var(--mono);font-size:11px;color:var(--text);word-break:break-all;}
+.fsz{font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-top:2px;}
+.fp{font-family:var(--mono);font-size:10px;color:var(--green);background:var(--green-pale);padding:3px 8px;border-radius:6px;display:inline-block;}
+.bdg{display:inline-flex;align-items:center;font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap;}
+.B{background:rgba(59,174,92,0.15);color:#6fd98a;border:1px solid rgba(59,174,92,0.3);}
+.C{background:rgba(46,196,182,0.12);color:#4de8d8;border:1px solid rgba(46,196,182,0.3);}
+.L{background:rgba(180,100,200,0.12);color:#d090e8;border:1px solid rgba(180,100,200,0.3);}
+.F{background:rgba(212,160,41,0.15);color:#f0c050;border:1px solid rgba(212,160,41,0.3);}
+.S{background:rgba(65,120,220,0.12);color:#80aaff;border:1px solid rgba(65,120,220,0.3);}
+.W{background:rgba(150,200,240,0.12);color:#aadcff;border:1px solid rgba(150,200,240,0.3);}
+.H{background:rgba(230,80,150,0.12);color:#f090c0;border:1px solid rgba(230,80,150,0.3);}
+.MESH{background:rgba(100,100,100,0.15);color:var(--text-mid);border:1px solid rgba(100,100,100,0.3);}
+.OTHER{background:rgba(80,80,80,0.1);color:var(--text-dim);border:1px solid var(--border);}
+.ok-b{background:rgba(59,174,92,0.1);color:var(--green);border:1px solid rgba(59,174,92,0.25);}
+.err-b{background:var(--red-pale);color:var(--red);border:1px solid rgba(224,82,82,0.25);}
+.td{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px;}
+.tlgt{background:#f5e0c0;}.tmed{background:#c89060;}.tdrk{background:#6b3c18;}
+.dc{font-size:12px;color:var(--text-mid);}
+.empty{text-align:center;padding:44px;color:var(--text-dim);font-family:var(--mono);font-size:12px;}
+.hidden{display:none!important;}
+
+.hl{background:#3BAE5C;color:#0f1a12;padding:0 2px;border-radius:2px;font-weight:700;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-d"></div>
+  <div>
+    <div class="logo-t">SIMS 1 · SKIN FILE MANAGER</div>
+    <div class="logo-s">Legacy Collection · Categorise · Validate · Organise</div>
+  </div>
+</header>
+<main>
+  <div class="drop-zone" id="dz">
+    <input type="file" id="fi" multiple accept=".bmp,.cmx,.skn">
+    <div style="font-size:34px;opacity:0.55;margin-bottom:8px;">◆</div>
+    <div class="dt">Drop your skin files here</div>
+    <div class="ds" style="margin-bottom:6px;">or click to browse</div>
+    <div class="ds">Select all .bmp, .cmx and .skn files from <code>GameData\Skins\</code> and/or <code>ExpansionShared\SkinsBuy\</code></div>
+  </div>
+  <div class="pbar" id="pb"><div class="pfill" id="pf"></div></div>
+
+  <div id="res" class="hidden">
+    <div class="stat-grid" id="sg"></div>
+
+    <div id="isec" class="hidden">
+      <div class="ip">
+        <div class="ip-hdr" id="ihdr" onclick="toggleIssues()">
+          <span id="ihdrtxt">⚠ Issues found — click to expand</span>
+          <span class="ip-tog" id="itog">Show ▾</span>
+        </div>
+        <div class="ip-body hidden" id="ibody"></div>
+      </div>
+    </div>
+
+    <div class="ctrl">
+      <button class="fb on"  onclick="filt('all',this)">All</button>
+      <button class="fb"     onclick="filt('B',this)">B · Everyday</button>
+      <button class="fb"     onclick="filt('C',this)">C · Head</button>
+      <button class="fb"     onclick="filt('L',this)">L · Sleepwear</button>
+      <button class="fb"     onclick="filt('F',this)">F · Formal</button>
+      <button class="fb"     onclick="filt('S',this)">S · Swimwear</button>
+      <button class="fb"     onclick="filt('W',this)">W · Winterwear</button>
+      <button class="fb"     onclick="filt('H',this)">H · High Fashion</button>
+      <button class="fb"     onclick="filt('MESH',this)">Mesh / CMX</button>
+      <button class="fb"     id="ibtn" onclick="filt('issues',this)">Issues</button>
+      <input  class="sb" id="srch" type="text" placeholder="Search filename..." oninput="sq=this.value;render()">
+      <button class="eb"     onclick="exportCSV()">Export CSV ↓</button>
+      <button class="rb"     onclick="reset()">↺ Load new files</button>
+    </div>
+
+    <div class="tw">
+      <table id="tbl">
+        <thead><tr>
+          <th onclick="sortBy('name')">Filename</th>
+          <th onclick="sortBy('type')">Type</th>
+          <th>Details</th>
+          <th onclick="sortBy('folder')">Install folder</th>
+          <th onclick="sortBy('status')">Status</th>
+        </tr></thead>
+        <tbody id="tb"></tbody>
+      </table>
+      <div class="empty hidden" id="emp">No files match this filter</div>
+    </div>
+  </div>
+</main>
+<script>
+const T={
+  B:   {l:'Everyday (B)',    f:'GameData\\Skins\\',           ep:'Base game', d:'Appears in dresser at home and Create-A-Sim'},
+  C:   {l:'Head/Cranium (C)',f:'GameData\\Skins\\',           ep:'Base game', d:'Head texture, shown in Create-A-Sim'},
+  L:   {l:'Sleepwear (L)',   f:'ExpansionShared\\SkinsBuy\\', ep:'Hot Date',  d:'Buyable from clothing rack - never in dresser or CAS'},
+  F:   {l:'Formal (F)',      f:'ExpansionShared\\SkinsBuy\\', ep:'Hot Date',  d:'Buyable from clothing rack - never in dresser or CAS'},
+  S:   {l:'Swimwear (S)',    f:'ExpansionShared\\SkinsBuy\\', ep:'Hot Date',  d:'Buyable from clothing rack - never in dresser or CAS'},
+  W:   {l:'Winterwear (W)', f:'ExpansionShared\\SkinsBuy\\', ep:'Vacation',  d:'Buyable from clothing rack - never in dresser or CAS'},
+  H:   {l:'High Fashion (H)',f:'ExpansionShared\\SkinsBuy\\', ep:'Superstar', d:'Buyable from clothing rack - never in dresser or CAS'},
+  MESH:{l:'Mesh / CMX',     f:'GameData\\Skins\\',           ep:'—',         d:'Shape file (.skn) or texture pointer (.cmx)'},
+  OTHER:{l:'Unknown prefix', f:'GameData\\Skins\\',           ep:'—',         d:'Unrecognised prefix - check the filename carefully'},
+};
+const G={f:'Female',m:'Male',u:'Unisex'};
+const A={a:'Adult',c:'Child'};
+const B={fit:'Fit',fat:'Fat',skn:'Skinny',chd:'Child',pet:'Pet'};
+const TN={lgt:'Light skin',med:'Medium skin',drk:'Dark skin'};
+
+let rows=[],af='all',sq='',sc='name',sd=1;
+
+function parse(name){
+  const ext=name.split('.').pop().toLowerCase();
+  const base=name.replace(/\.[^.]+$/,'');
+  if(ext==='skn'||ext==='cmx') return {tk:'MESH',ext,base,g:null,a:null,b:null,tn:null,n:base};
+  const ch=base[0].toUpperCase();
+  const tk=T[ch]?ch:'OTHER';
+  if(tk==='OTHER') return {tk,ext,base,g:null,a:null,b:null,tn:null,n:base};
+  const rest=base.slice(1);
+  let g=null,a=null,bdy=null,tn=null,n=base;
+  const tm=rest.match(/(lgt|med|drk)_/i);
+  if(tm){
+    tn=tm[1].toLowerCase();
+    const bef=rest.slice(0,tm.index);
+    n=rest.slice(tm.index+tm[0].length)||base;
+    const gm=bef.match(/([fmu])([ac])/i);
+    if(gm){g=gm[1].toLowerCase();a=gm[2].toLowerCase();const af2=bef.slice(gm.index+2);const bm=af2.match(/^(fit|fat|skn|chd|pet)/i);if(bm)bdy=bm[1].toLowerCase();}
+  }else{const gm=rest.match(/([fmu])([ac])/i);if(gm){g=gm[1].toLowerCase();a=gm[2].toLowerCase();}}
+  return {tk,ext,base,g,a,b:bdy,tn,n};
+}
+
+async function readBpp(file){
+  try{const v=new DataView(await file.slice(0,32).arrayBuffer());if(v.getUint8(0)!==0x42||v.getUint8(1)!==0x4D)return'invalid';return v.getUint16(28,true);}catch{return'err';}
+}
+
+function makeIssue(type,bpp){
+  const issues={
+    not_bmp:{
+      what:'Not a valid BMP file',
+      why:'The file has a .bmp extension but is not a real bitmap. This usually means a download was incomplete, the file was corrupted, or it was saved in the wrong format.',
+      steps:['Try re-downloading the skin from the original site — a corrupted BMP is most often a download problem.','If you made this skin yourself, re-export it from your image editor by choosing File > Save As > BMP specifically (do not just rename the file extension).','If no re-download is possible, delete this file. It will not work in game and cannot be repaired without the original source.']
+    },
+    bad_bmp:{
+      what:`Wrong colour depth (${bpp}-bit BMP, needs 8-bit)`,
+      why:`Sims 1 only reads 8-bit indexed BMPs (256 colours). This file is ${bpp}-bit, which means it will appear completely white in game — the Sim will show up as a white silhouette. This is the most common reason custom skins show white.`,
+      steps:[`In Photoshop: open the file, go to Image > Mode > Indexed Color. Set Palette to Adaptive and Colors to 256. Click OK, then File > Save As, choose BMP, click OK when it asks about bit depth (it will default to 8-bit after the conversion).`,`In GIMP: open the file, go to Image > Mode > Indexed. Set Maximum number of colors to 255, click Convert. Then File > Export As, save as BMP format.`,`Free option using IrfanView (download free from irfanview.com): open the file, go to Image > Decrease Color Depth, choose 256 Colors, click OK. Then File > Save As, choose BMP.`,`If this skin came from a download and you have not edited it, try re-downloading — some older sites served 24-bit BMPs incorrectly.`]
+    },
+    missing_cmx:{
+      what:'No matching .cmx file found in your selection',
+      why:'Every BMP skin needs a paired .cmx file (a pointer file) that tells the game which 3D mesh shape to use. Without the .cmx, the game cannot display this skin at all — it will simply not appear in the dresser, CAS, or on any Sim.',
+      steps:['Check the original download zip: open it and look for a .cmx file with the same base name as this BMP (e.g. Bfa fit lgt_MyOutfit.cmx). If it is there, copy it to your Skins folder alongside the BMP.','If you selected your skin files individually rather than selecting the whole folder: you may already have the .cmx in your Skins folder — it just was not included in this batch. Select all files in that folder and re-scan.','If you created this skin in The Sims Creator: the tool should have generated the .cmx automatically when you saved. Look in the same folder where the BMP was saved.','If no .cmx exists anywhere and the download site is gone: search your Skins folder for .cmx files with a very similar name (same gender/age/body type and mesh number, different outfit name). Skins that use the same mesh can share a .cmx — if you find a match, copy it and rename it to match your BMP exactly. Open the copy in Notepad first to confirm the mesh reference looks right.','If none of the above works: the skin is effectively broken without its .cmx. You can keep the BMP for reference but it will not work in game.']
+    },
+    missing_bmp:{
+      what:'No matching .bmp texture file found in your selection',
+      why:'This .cmx pointer file references a BMP texture that was not included in your selection. The .cmx on its own is harmless, but without the BMP there is nothing to display — no outfit will appear.',
+      steps:['Check the original download zip for a .bmp file with the same base name as this .cmx.','If the skin comes in light/medium/dark skin tone variants, make sure you have the BMP for each tone — filenames typically end in lgt_, med_, and drk_ before the outfit name.','If you selected files individually rather than the whole folder, the BMP may already be in your Skins folder — include it in your next scan.','If no BMP exists at all (e.g. the site is gone and the file was missing from the download): this .cmx is unusable. You can safely delete it — it will cause no harm in the folder but serves no purpose without its texture.']
+    }
+  };
+  return issues[type];
+}
+
+async function go(fileList){
+  const files=Array.from(fileList).filter(f=>/\.(bmp|cmx|skn)$/i.test(f.name));
+  if(!files.length){alert('No .bmp, .cmx or .skn files found.\n\nSelect files from your GameData\\Skins\\ or ExpansionShared\\SkinsBuy\\ folder.');return;}
+  document.getElementById('dz').classList.add('hidden');
+  const pb=document.getElementById('pb'),pf=document.getElementById('pf');
+  pb.style.display='block';
+  const bmps=new Set(files.filter(f=>/\.bmp$/i.test(f.name)).map(f=>f.name.toLowerCase().replace(/\.bmp$/,'')));
+  const cmxs=new Set(files.filter(f=>/\.cmx$/i.test(f.name)).map(f=>f.name.toLowerCase().replace(/\.cmx$/,'')));
+  rows=[];
+  for(let i=0;i<files.length;i++){
+    pf.style.width=Math.round(i/files.length*100)+'%';
+    const file=files[i];
+    const p=parse(file.name);
+    const iss=[];
+    if(/\.bmp$/i.test(file.name)){
+      const bpp=await readBpp(file);
+      if(bpp==='invalid') iss.push(makeIssue('not_bmp',null));
+      else if(typeof bpp==='number'&&bpp!==8) iss.push(makeIssue('bad_bmp',bpp));
+      if(!cmxs.has(file.name.toLowerCase().replace(/\.bmp$/,''))) iss.push(makeIssue('missing_cmx',null));
+    }
+    if(/\.cmx$/i.test(file.name)){
+      if(!bmps.has(file.name.toLowerCase().replace(/\.cmx$/,''))) iss.push(makeIssue('missing_bmp',null));
+    }
+    const sz=file.size<1024?file.size+'B':file.size<1048576?(file.size/1024).toFixed(1)+'KB':(file.size/1048576).toFixed(2)+'MB';
+    rows.push({file,p,iss,sz});
+  }
+  pf.style.width='100%';
+  setTimeout(()=>{pb.style.display='none';},350);
+  document.getElementById('res').classList.remove('hidden');
+  buildStats();buildIssues();render();
+}
+
+function buildStats(){
+  const c={B:0,C:0,L:0,F:0,S:0,W:0,H:0,MESH:0,OTHER:0};let iss=0;
+  rows.forEach(r=>{c[r.p.tk]=(c[r.p.tk]||0)+1;if(r.iss.length)iss++;});
+  const buy=c.L+c.F+c.S+c.W+c.H;
+  document.getElementById('sg').innerHTML=`
+    <div class="sc ok"><div class="sv">${rows.length}</div><div class="sl">Total files</div></div>
+    <div class="sc ok"><div class="sv">${c.B}</div><div class="sl">B · Everyday</div></div>
+    <div class="sc ok"><div class="sv">${c.C}</div><div class="sl">C · Head</div></div>
+    <div class="sc"><div class="sv">${buy}</div><div class="sl">Buyable skins</div></div>
+    <div class="sc"><div class="sv">${c.MESH}</div><div class="sl">Mesh / CMX</div></div>
+    <div class="sc ${iss>0?'err':'ok'}"><div class="sv">${iss}</div><div class="sl">${iss>0?'Issues':'All OK'}</div></div>`;
+  document.getElementById('ibtn').textContent=`Issues (${iss})`;
+}
+
+function buildIssues(){
+  const bad=rows.filter(r=>r.iss.length>0);
+  const sec=document.getElementById('isec');
+  if(!bad.length){sec.classList.add('hidden');return;}
+  sec.classList.remove('hidden');
+  document.getElementById('ibody').innerHTML=bad.slice(0,60).flatMap(r=>
+    r.iss.map(is=>`<div class="ii"><div class="ii-file">◆ ${r.file.name}</div><div class="ii-what">${is.what}</div><div class="ii-why">${is.why}</div><div class="fix-lbl">How to fix</div><ol class="fix-steps">${is.steps.map(s=>`<li>${s}</li>`).join('')}</ol></div>`)
+  ).join('')+(bad.length>60?`<div style="padding:10px 0;font-family:var(--mono);font-size:11px;color:var(--text-dim)">...and ${bad.length-60} more. Export CSV to see all.</div>`:'');
+}
+
+function toggleIssues(){
+  const b=document.getElementById('ibody'),t=document.getElementById('itog'),h=document.getElementById('ihdrtxt');
+  const hidden=b.classList.toggle('hidden');
+  t.textContent=hidden?'Show ▾':'Hide ▴';
+  h.textContent=hidden?'⚠ Issues found — click to expand':'⚠ Issues found';
+}
+
+function render(){
+  const tbody=document.getElementById('tb'),emp=document.getElementById('emp');
+  let data=[...rows];
+  if(af==='issues') data=data.filter(r=>r.iss.length>0);
+  else if(af!=='all') data=data.filter(r=>r.p.tk===af);
+  if(sq){const q=sq.toLowerCase();data=data.filter(r=>r.file.name.toLowerCase().includes(q));}
+  data.sort((a,b)=>{
+    let va='',vb='';
+    if(sc==='name'){va=a.file.name;vb=b.file.name;}
+    if(sc==='type'){va=a.p.tk;vb=b.p.tk;}
+    if(sc==='folder'){va=T[a.p.tk]?.f||'';vb=T[b.p.tk]?.f||'';}
+    if(sc==='status'){va=a.iss.length>0?'1':'0';vb=b.iss.length>0?'1':'0';}
+    return va.localeCompare(vb)*sd;
+  });
+  document.querySelectorAll('#tbl thead th').forEach(th=>th.classList.remove('asc','desc'));
+  const cols=['name','type',null,'folder','status'];
+  const idx=cols.indexOf(sc);
+  if(idx>=0){const ths=document.querySelectorAll('#tbl thead th');ths[idx]&&ths[idx].classList.add(sd===1?'asc':'desc');}
+  if(!data.length){tbody.innerHTML='';emp.classList.remove('hidden');return;}
+  emp.classList.add('hidden');
+  tbody.innerHTML=data.map(r=>{
+    const t=T[r.p.tk]||T.OTHER,p=r.p;
+    const dp=[];
+    if(p.g) dp.push(`<span class="dc">${G[p.g]||p.g}</span>`);
+    if(p.a) dp.push(`<span class="dc">${A[p.a]||p.a}</span>`);
+    if(p.b) dp.push(`<span class="dc">${B[p.b]||p.b}</span>`);
+    if(p.tn) dp.push(`<span class="dc"><span class="td t${p.tn}"></span>${TN[p.tn]||p.tn}</span>`);
+    const det=dp.join('<span style="color:var(--text-dim);margin:0 3px">·</span>')||'<span style="color:var(--text-dim);font-size:12px">—</span>';
+    const stat=r.iss.length===0?`<span class="bdg ok-b">✓ OK</span>`:r.iss.map(i=>`<span class="bdg err-b" style="margin-bottom:3px;display:block">⚠ ${i.what.split('(')[0].split(',')[0].trim()}</span>`).join('');
+    return `<tr class="${r.iss.length?'bad':''}"><td><div class="fn">${hlText(r.file.name,sq)}</div><div class="fsz">${r.sz}</div></td><td><span class="bdg ${r.p.tk}" style="margin-bottom:3px;display:inline-block">${r.p.tk}</span><div style="font-size:11px;color:var(--text-dim);margin-top:2px">${t.d}</div></td><td style="min-width:150px">${det}</td><td><span class="fp">${t.f}</span><div style="font-size:11px;color:var(--text-dim);margin-top:4px">Requires: ${t.ep}</div></td><td style="min-width:110px">${stat}</td></tr>`;
+  }).join('');
+}
+
+function filt(f,btn){af=f;document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));btn.classList.add('on');render();}
+function sortBy(col){if(sc===col)sd*=-1;else{sc=col;sd=1;}render();}
+
+function reset(){
+  rows=[];af='all';sq='';sc='name';sd=1;
+  document.getElementById('res').classList.add('hidden');
+  document.getElementById('isec').classList.add('hidden');
+  document.getElementById('ibody').classList.add('hidden');
+  document.getElementById('dz').classList.remove('hidden');
+  document.getElementById('fi').value='';
+  document.getElementById('srch').value='';
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+  document.querySelector('.fb').classList.add('on');
+}
+
+function exportCSV(){
+  const hdr=['Filename','Extension','Type','Type Label','Install Folder','EP Required','Gender','Age','Body Type','Skin Tone','Issues'];
+  const data=rows.map(r=>{const t=T[r.p.tk]||T.OTHER,p=r.p;return[r.file.name,p.ext,p.tk,t.l,t.f,t.ep,p.g?G[p.g]||p.g:'',p.a?A[p.a]||p.a:'',p.b?B[p.b]||p.b:'',p.tn?TN[p.tn]||p.tn:'',r.iss.map(i=>i.what).join('; ')].map(v=>`"${String(v||'').replace(/"/g,'""')}"`).join(',');});
+  const blob=new Blob([[hdr.join(','),...data].join('\n')],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='sims1-skins-report.csv';a.click();
+}
+
+const dz=document.getElementById('dz'),fi=document.getElementById('fi');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-over');});
+dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag-over');go(e.dataTransfer.files);});
+fi.addEventListener('change',e=>{if(e.target.files.length)go(e.target.files);});
+</script>
+</body>
+</html>

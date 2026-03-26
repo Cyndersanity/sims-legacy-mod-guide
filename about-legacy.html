@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Sites - Sims Legacy Collection Guide</title>
-
+<title>About the Legacy Collection - Sims Legacy Collection Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -273,6 +272,11 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 }
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
+
+/* History table - release name cell acts as card subtitle on mobile */
+@media(max-width:640px){
+  .table-wrap td:nth-child(2){font-weight:700;color:var(--ink);border-bottom:1px solid var(--border);}
+}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -284,17 +288,16 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </script>
 </head>
 <body>
-
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
     <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
     <a href="index.html" class="nav-link">🏠 Home</a>
-    <a href="about-legacy.html" class="nav-link">📖 About Legacy</a>
+    <a href="about-legacy.html" class="nav-link active">📖 About Legacy</a>
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
     <a href="installing-mods.html" class="nav-link">📁 Install</a>
-    <a href="download-sites.html" class="nav-link active">🌐 Sites</a>
+    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
     <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
@@ -311,186 +314,213 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
-  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
   </div>
 </nav>
 <script>
 (function(){
   var nav=document.getElementById('navInner');
   var hint=document.getElementById('navHint');
-  function check(){
-    if(!nav||!hint)return;
-    var overflows=nav.scrollWidth>nav.clientWidth+4;
-    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
-    hint.style.display=(overflows&&!atEnd)?'flex':'none';
-  }
-  if(hint){
-    hint.addEventListener('click',function(){
-      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
-    });
-  }
+  function check(){if(!nav||!hint)return;var overflows=nav.scrollWidth>nav.clientWidth+4;var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(overflows&&!atEnd)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
   if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);
-  setTimeout(check,200);
+  window.addEventListener('load',check);setTimeout(check,200);
 })();
 </script>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Mod Sites</div>
-  <h1 class="page-title">Mod <span>Download</span> Sites</h1>
-  <p class="page-sub">Best active sites confirmed working with the Legacy Collection</p>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - About</div>
+  <h1 class="page-title">About the <span>Legacy Collection</span></h1>
+  <p class="page-sub">What it is, how it differs from the original, and all technical changes</p>
 </div>
 <div class="page-layout">
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#primary">Most Active (2026)</a></li><li><a href="#archive">Archive Sites</a></li><li><a href="#tools-sites">Tools & Tutorials</a></li><li><a href="#directories">Site Directories</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
+      <ul class="toc-list"><li><a href="#what-is">What Is Legacy Collection?</a></li><li><a href="#history">History of Releases</a></li><li><a href="#expansion-reference">Expansion Pack Reference</a></li><li><a href="#technical-changes">Technical Changes</a></li><li><a href="#system-requirements">System Requirements</a></li><li><a href="#patch-history">EA Patch History</a></li><li><a href="#missing-content">Missing Maxis Content</a></li><li><a href="#settings">In-Game Settings</a></li></ul>
+      <div class="toc-divider"></div>
+      <a class="toc-back" href="index.html">&#8592; Back to Home</a>
     </div>
   </aside>
   <main class="content">
-
-<section id="primary">
-  <div class="section-head">
-    <div class="section-emoji">🌟</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Most Active Sites (2026)</h2>
-      <p class="section-sub">Moderators appear to still be active and new mods occasionally get added</p>
-    </div>
-  </div>
+<section id="what-is">
+  <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">What Is the Legacy Collection?</h2></div></div>
+  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:16px;">The Sims Legacy Collection is the 2025 re-release of the original The Sims (2000) and all seven expansion packs, in a single digital purchase. Released January 31, 2025 on Steam, EA App, and Epic Games Store. It is digital only - no physical or boxed edition was released. It replaces the older Complete Collection as the standard way to buy the original game new.</p>
   <div class="grid-2">
     <div class="card">
-      <div class="card-title">Simblr.cc - Sims 1 Mods <span class="tag green">Most Active</span></div>
-      <div class="card-desc">The most active Sims 1 modding community right now. New uploads as recently as March 2026. Gameplay hacks, bug fixes, new objects and tutorials. Start here.</div>
-      <a class="pill-link" href="https://simblr.cc/ts1/mods/" target="_blank">↗ simblr.cc/ts1/mods/</a>
+      <div class="card-title"><span class="tag green">INCLUDED</span> What's included</div>
+      <div class="card-desc">Base game (2000) plus all 7 expansion packs: Livin' Large, House Party, Hot Date, Vacation, Unleashed, Superstar, and Makin' Magic. Also grants The Sims 4 with the Throwback Fit Pack on the same EA account. <strong>Digital only</strong> - available on Steam, EA App and Epic Games Store. No physical or boxed edition was released.</div>
     </div>
     <div class="card">
-      <div class="card-title">Corylea's Mods <span class="tag green">Updated Mar 2026</span></div>
-      <div class="card-desc">Actively maintained and Legacy-compatible. Corylea updates mods specifically for the Legacy Collection and includes path translation notes for every mod. Extensive personal collection of quality-of-life hacks. No Relationship Decay, Two-Hour Carpool Warning, No Forced Career Change, and dozens more.</div>
-      <a class="pill-link" href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">↗ corylea.com</a>
+      <div class="card-title"><span class="tag red">NOT INCLUDED</span> Licensed content removed</div>
+      <div class="card-desc">Branded objects (McDonald's cart, Pepsi machine, Intel computer) and licensed Simlish songs were removed when their licenses expired. These are fully archived and can be added manually - see the Missing Maxis Content section below.</div>
     </div>
+  </div>
+  <div class="callout teal" style="margin-top:16px;">&#8505;&#65039; The Legacy Collection runs on the same underlying game code as the original. Almost all mods and CC made for the original Sims 1 still work, with path adjustments and a few technical differences covered on this page.</div>
+</section>
+
+<section id="history">
+  <div class="section-head"><div class="section-emoji">📅</div><div><h2 class="section-title">History of The Sims 1 Releases</h2></div></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:12%">Year</th><th style="width:28%">Release</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>2000</td><td>The Sims (base game)</td><td>Original release. Base game only. Hard limits: 200 objects/category, 90 walls, 63 floors.</td></tr>
+        <tr><td>2000</td><td>Livin' Large (EP1)</td><td>New objects, careers, NPCs. Raises wall and floor CC caps to 65,000.</td></tr>
+        <tr><td>2001</td><td>House Party (EP2)</td><td>Party system, costume trunk, entertainment objects.</td></tr>
+        <tr><td>2001</td><td>Hot Date (EP3)</td><td>Downtown lots, clothing racks. Introduces buyable skins - L, F, S filename prefixes.</td></tr>
+        <tr><td>2002</td><td>Vacation (EP4)</td><td>Vacation islands. Winterwear (W prefix) buyable skins.</td></tr>
+        <tr><td>2002</td><td>Unleashed (EP5)</td><td>Pets, outdoor gardening, neighbourhood editing. Raises build mode object limit to 2,000.</td></tr>
+        <tr><td>2003</td><td>Superstar (EP6)</td><td>Celebrity system, Studio Town. High Fashion (H prefix) buyable skins.</td></tr>
+        <tr><td>2003</td><td>Makin' Magic (EP7)</td><td>Magic system, spells, baking. Final expansion pack.</td></tr>
+        <tr><td>2002</td><td>Complete Collection</td><td>Retail boxed set with base game + all 7 EPs. Common in old forum posts as "TCC" or "CC". Mods made for this version work in Legacy with path adjustments.</td></tr>
+        <tr><td>2025</td><td>Legacy Collection</td><td>Digital re-release for Windows 10/11. Vulkan renderer, new save location, no registry entries. All 7 EPs included.</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section id="archive">
-  <div class="section-head">
-    <div class="section-emoji">📚</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Archive Sites</h2>
-      <p class="section-sub">Large collections from the original era - mostly still working</p>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">The Sims Resource - Sims 1 <span class="tag gold">Free Account Required</span></div>
-      <div class="card-desc">Huge archive of clothing, hair and objects from the original game era. Some items need a free account to download.</div>
-      <a class="pill-link" href="https://www.thesimsresource.com/downloads/browse/category/sims1/" target="_blank">↗ thesimsresource.com</a>
-    </div>
-    
-    <div class="card">
-      <div class="card-title">Around the Sims</div>
-      <div class="card-desc">Sandy's site - one of the most respected Sims 1 CC archives. She has since moved on to newer Sims games but her entire Sims 1 archive remains up for download: objects, skins, heads and build content. High quality work with a consistent aesthetic.</div>
-      <a class="pill-link" href="https://sims1.aroundthesims3.com/" target="_blank">aroundthesims3.com &#8599;</a>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Sims File Share - YoNonna</div>
-      <div class="card-desc">Massive collection of CC shared by Creator YoNonna. Recently collated and updated to be more accessible. Tonnes of build objects, hairs, skins and more. Thousands of files.</div>
-      <a class="pill-link" href="https://simfileshare.net/folder/264361/" target="_blank">↗ simfileshare.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Andrasta's World</div>
-      <div class="card-desc">Gothic and grungy style CC and mods. Unique dark aesthetic for atmospheric builds.</div>
-      <a class="pill-link" href="https://doortomore.net/" target="_blank">↗ doortomore.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">A Little White Magic</div>
-      <div class="card-desc">Gameplay plugins, decor and mods. Home of the Domcal Weekends mod.</div>
-      <a class="pill-link" href="https://white.leadpipecollection.net/" target="_blank">↗ white.leadpipecollection.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Sims Freaks / The Real Sim</div>
-      <div class="card-desc">Objects, clothes, houses and general build mode items.</div>
-      <a class="pill-link" href="https://simfreaks.com/therealsim/index.php" target="_blank">↗ simfreaks.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Wayback Machine - Sims 1 CC Listing</div>
-      <div class="card-desc">Large list of zip files containing loads of different CC options archived from the original era.</div>
-      <a class="pill-link" href="https://archive.org/details/sims-1-cc" target="_blank">↗ archive.org</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Wayback Machine - Sims 1 CC Search</div>
-      <div class="card-desc">Search the Wayback Machine to find archived Sims 1 CC sites from the original era.</div>
-      <a class="pill-link" href="https://web.archive.org/web/20260000000000*/Sims%201" target="_blank">↗ web.archive.org</a>
-    </div>
+<section id="expansion-reference">
+  <div class="section-head"><div class="section-emoji">🗂️</div><div><h2 class="section-title">Expansion Pack Folder Reference</h2><p class="section-sub">Which folder number is which pack</p></div></div>
+  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">When mod readmes say to put files in "ExpansionPack4" or similar, here's what each number means. These folder names are identical in both Steam and EA App installs.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Folder</th><th style="width:28%">Expansion Pack</th><th>Key modding notes</th></tr></thead>
+      <tbody>
+        <tr><td>ExpansionPack1</td><td>Livin' Large</td><td>Raises wall and floor CC limits from base game caps to 65,000</td></tr>
+        <tr><td>ExpansionPack2</td><td>House Party</td><td>Costume trunk objects, party system</td></tr>
+        <tr><td>ExpansionPack3</td><td>Hot Date</td><td>Introduces buyable skins - L, F, S filename prefixes. Clothing racks on Downtown lots</td></tr>
+        <tr><td>ExpansionPack4</td><td>Vacation</td><td>Winterwear (W prefix) buyable skins. Vacation island lots</td></tr>
+        <tr><td>ExpansionPack5</td><td>Unleashed</td><td>Raises build mode object limit to 2,000. Pet skins and neighbourhood editing</td></tr>
+        <tr><td>ExpansionPack6</td><td>Superstar</td><td>High Fashion (H prefix) buyable skins. Studio Town lots</td></tr>
+        <tr><td>ExpansionPack7</td><td>Makin' Magic</td><td>Magic objects, baking items, final expansion</td></tr>
+        <tr><td>ExpansionShared</td><td>Shared assets</td><td>Contains SkinsBuy\ folder for L/F/S/W/H prefix buyable clothing</td></tr>
+        <tr><td>GameData</td><td>Base game data</td><td>Contains Skins\, Walls\, Floors\, Objects\, Roofs\ subfolders</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section id="tools-sites">
-  <div class="section-head">
-    <div class="section-emoji">🔧</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Tools &amp; Tutorials</h2>
-    </div>
+<section id="technical-changes">
+  <div class="section-head"><div class="section-emoji">⚙️</div><div><h2 class="section-title">Technical Changes vs the Original</h2><p class="section-sub">What actually changed under the hood</p></div></div>
+  <div class="status-row can">
+    <div class="status-icon">🖥️</div>
+    <div><div class="status-title">New renderer: Vulkan replaces DirectDraw</div>
+    <div class="status-body">The biggest change. The original game used DirectDraw and DirectX 6, which caused severe compatibility issues on modern Windows. Legacy Collection replaces this with Vulkan, giving full GPU acceleration and 24-bit colour. This is why Legacy requires a Vulkan-compatible GPU - most GPUs from around 2012 onwards qualify. If you get a "Vulkan Initialization Failed" error on launch, see the <a href="game-troubleshooting.html">Game Troubleshooting</a> page.</div></div>
   </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">GitHub - Sims1Tools (trolando)</div>
-      <div class="card-desc">Essential modding toolkit: IFF Pencil 2, FARx, Career Creator 3, Constant Contraption, Strings Scavenger.</div>
-      <a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">↗ github.com/trolando/Sims1Tools</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Sims 1 Tutorials - Awesome Expression</div>
-      <div class="card-desc">Advanced tutorials covering custom animations, custom food, custom sounds and object cloning with Transmogrifier.</div>
-      <a class="pill-link" href="http://www.awesomeexpression.com/sims-1-tutorials.html" target="_blank">↗ awesomeexpression.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">The Sims Depot</div>
-      <div class="card-desc">Must-have programs, adding skins and meshes. Good beginner resource for tools and setup.</div>
-      <a class="pill-link" href="https://www.thesimsdepot.com/sims-1/" target="_blank">↗ thesimsdepot.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Parsimonious - Adding Downloads To Your Game</div>
-      <div class="card-desc">Step-by-step instructions for installing all different file types for Sims 1 custom content, plus troubleshooting common reasons downloads don't show up.</div>
-      <a class="pill-link" href="http://www.parsimonious.org/support/sims1-adding-downloads-to-your-game.html" target="_blank">↗ parsimonious.org</a>
-    </div>
+  <div class="status-row can">
+    <div class="status-icon">💾</div>
+    <div><div class="status-title">Save files moved to a dedicated folder</div>
+    <div class="status-body">In the original game, UserData folders sat inside the game's install directory. Legacy Collection moves them to <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code>. On first launch the game copies the default neighbourhood templates there. Steam Cloud saves are not supported - back up this folder manually if you play on multiple machines.</div></div>
+  </div>
+  <div class="status-row can">
+    <div class="status-icon">📐</div>
+    <div><div class="status-title">Resolution scaling overhauled (March 2025 patch)</div>
+    <div class="status-body">The game now renders onto an internal canvas at the next clean integer scale up from your chosen resolution. The window is freely resizable, but the effective in-game resolution only updates on restart. For the sharpest image, choose a resolution that divides cleanly into your monitor's native resolution.</div></div>
+  </div>
+  <div class="status-row cannot">
+    <div class="status-icon">📋</div>
+    <div><div class="status-title">No Windows Registry entries</div>
+    <div class="status-body">The original game wrote its install path to the Windows Registry. Older CC creation tools (The Sims Creator, Home Crafter) use this to find the game automatically. Legacy Collection creates no registry entries. Old tools may fail to find your game or save output to the wrong location. See <a href="cc-troubleshooting.html#tools-registry">CC Troubleshooting</a> for the registry fix.</div></div>
+  </div>
+  <div class="status-row cannot">
+    <div class="status-icon">☁️</div>
+    <div><div class="status-title">No Steam Cloud saves</div>
+    <div class="status-body">Save files are not synced via Steam Cloud. Back up <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code> manually before reinstalling or switching machines. Some mods write data to save files permanently, so keeping a backup is especially important.</div></div>
+  </div>
+  <div class="status-row maybe">
+    <div class="status-icon">🔒</div>
+    <div><div class="status-title">Steam executable is DRM-protected</div>
+    <div class="status-body">The Steam version's Sims.exe is wrapped in Steam DRM. Mods that directly patched the original exe will not work. FaithBeam's Legacy Collection Hacks tool unlocks the <code>edit_char</code> debug cheat by patching the game in memory at runtime - it does not permanently modify any files. Run <code>Sims1LegacyHacks.exe</code> before launching the game each session and keep it open while you play. Works on both Steam and EA App versions - no Steamless required. See the <a href="mod-list.html">Must-Have Mods</a> page.</div></div>
+  </div>
+<div class="status-row can">
+    <div class="status-icon">🖱️</div>
+    <div><div class="status-title">Native mouse wheel zoom</div>
+    <div class="status-body">The original Sims 1 had no native scroll wheel support — you zoomed using keyboard shortcuts or on-screen buttons. Legacy Collection adds native mouse wheel zooming. Scroll up to zoom in, scroll down to zoom out, across all view modes.</div></div>
+  </div>
+
+  <div class="status-row can">
+    <div class="status-icon">⌨️</div>
+    <div><div class="status-title">Alt+Enter cycles resolution scale modes</div>
+    <div class="status-body">Pressing Alt+Enter while the game is running cycles through the available display modes for your monitor. On 1080p displays: fullscreen and windowed. On 1440p: 1x and 2x scale. On 4K: 1x, 2x and 3x scale. The number of modes available depends entirely on your monitor resolution.</div></div>
+  </div>
+
+  <div class="status-row cannot">
+    <div class="status-icon">🔐</div>
+    <div><div class="status-title">Configuration files are encrypted</div>
+    <div class="status-body">The original Complete Collection stored settings in editable plain text .ini files. The Legacy Collection encrypts its config files — you cannot manually edit settings outside what the in-game options menu (F5) provides. This also means some power-user tweaks possible in the original are not available in Legacy.</div></div>
+  </div>
+
+  <div class="status-row cannot">
+    <div class="status-icon">🎬</div>
+    <div><div class="status-title">EA intro video removed</div>
+    <div class="status-body">The original game opened with an EA/Maxis intro video sequence. Legacy Collection skips this entirely and goes straight to the main menu. The <code>-skip_intro</code> launch flag has no effect since there is no intro to skip. A Reddit workaround exists to manually restore the intro video for the Complete Collection version, but this does not work with Legacy Collection — EA changed something in the exe that prevents it.</div></div>
+  </div>
+
+</section>
+
+<section id="system-requirements">
+  <div class="section-head"><div class="section-emoji">💻</div><div><h2 class="section-title">System Requirements</h2></div></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">Component</th><th style="width:38%">Requirement</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>OS</td><td>Windows 10 or Windows 11 (64-bit)</td><td>Does not run on Windows 7, 8, Vista or XP</td></tr>
+        <tr><td>GPU</td><td>Vulkan-compatible GPU</td><td>NVIDIA GTX 600+, AMD GCN (7000/R series)+, Intel Iris Xe. Most GPUs from around 2012 onwards. Check your GPU's Vulkan support at vulkan.gpuinfo.org</td></tr>
+        <tr><td>GPU drivers</td><td>Up to date</td><td>Outdated drivers are the most common cause of Vulkan errors - update before troubleshooting anything else</td></tr>
+        <tr><td>RAM</td><td>4 GB</td><td>The original game used very little memory by modern standards</td></tr>
+        <tr><td>Storage</td><td>~5 GB</td><td>Plus mods and CC - keep Downloads folder under 2.5 GB</td></tr>
+        <tr><td>Platform</td><td>Steam, EA App, or Epic Games</td><td>Digital only, no disc version</td></tr>
+        <tr><td>Steam Deck</td><td>Supported</td><td>Community reports consistently positive - game runs well on Deck</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout gold"><strong>⚠️ Older Intel integrated graphics warning:</strong> Intel HD Graphics chips older than Iris Xe (pre-2020, typically 4th-8th gen Core) often do not support Vulkan. If you have only an older Intel integrated GPU, the Legacy Collection may not run. The original Complete Collection (DirectDraw) will work on these systems, but Legacy Collection requires Vulkan.</div>
+</section>
+
+<section id="patch-history">
+  <div class="section-head"><div class="section-emoji">📋</div><div><h2 class="section-title">EA Patch History</h2><p class="section-sub">Official patches released since launch</p></div></div>
+  <div class="callout green">&#10003; For the latest patch notes, see EA's official page: <a href="https://www.ea.com/games/the-sims/news" target="_blank">ea.com/games/the-sims/news</a></div>
+  <div class="table-wrap" style="margin-top:12px;">
+    <table>
+      <thead><tr><th style="width:18%">Date</th><th style="width:12%">Patch</th><th>Key changes</th></tr></thead>
+      <tbody>
+        <tr><td>4 Feb 2025</td><td>1 / 2</td><td>Emergency stability patch. Fixed game closing immediately at launch, Alt+Enter crash, travel screen garbling, crash when saving in non-default neighbourhood.</td></tr>
+        <tr><td>6 Feb 2025</td><td>3</td><td>Further stability work. Vulkan error now shows a message instead of crashing silently. More driver compatibility improvements.</td></tr>
+        <tr><td>12 Feb 2025</td><td>4</td><td>Additional crash fixes, window management improvements.</td></tr>
+        <tr><td>20 Feb 2025</td><td>5</td><td>Stability pass. GPU compatibility notes added to EA help documentation.</td></tr>
+        <tr><td>27 Feb 2025</td><td>6</td><td>Further stability fixes.</td></tr>
+        <tr><td>14 Mar 2025</td><td>7</td><td>Major update - in-game resolution options added, fractional scaling overhauled (renders at next integer scale up), window freely resizable, portrait camera fix, game-minimises-when-unfocused bug fixed.</td></tr>
+        <tr><td>3 Apr 2025</td><td>8</td><td>Stability improvements, Sim portrait camera position fix, warning added for Windows usernames with special characters that cause save path crashes.</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section id="directories">
-  <div class="section-head">
-    <div class="section-emoji">📋</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Site Directories</h2>
-      <p class="section-sub">Find even more sites from these curated lists</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-title">Pleasant Sims - 70+ Active Sites <span class="tag green">Master List</span></div>
-    <div class="card-desc">A curated directory of live Sims 1 CC sites. Covers clothing, objects, tools and more.</div>
-    <a class="pill-link" href="https://pleasantsims.com/active-sims-1-sites/" target="_blank">↗ pleasantsims.com/active-sims-1-sites/</a>
-  </div>
-  <div class="card" style="margin-top:14px;">
-    <div class="card-title">Steam Community - Ultimate Sims 1 Guide</div>
-    <div class="card-desc">Community-maintained guide with mod links, cheats and QoL tips. Updated by players since the Legacy launch.</div>
-    <a class="pill-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3418368145" target="_blank">↗ Steam Community Guide</a>
-  </div>
-
+<section id="missing-content">
+  <div class="section-head"><div class="section-emoji">🎁</div><div><h2 class="section-title">Missing Official Maxis Content</h2><p class="section-sub">The "Get Cool Stuff" downloads not included in Legacy</p></div></div>
+  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">Between 2000 and 2003, Maxis ran a "Get Cool Stuff" section on the official Sims website with free downloadable objects, skins, tools and houses. Most of this was not included in Legacy Collection - either because licenses expired (branded objects) or it was simply not bundled. The community has archived all of it and made it Legacy-compatible.</p>
+  <div class="callout red"><strong>⚠️ Do not run the original .exe installers.</strong> The original Maxis downloads were distributed as Windows installers that look for the game in the old Complete Collection registry path. They will fail silently on Legacy. Use the GitHub archive below instead - files are pre-extracted and ready to copy.</div>
+  <div class="grid-2" style="margin-top:12px;">
     <div class="card">
-      <div class="card-title">ModTheSims - Sims 1 Forum Only <span class="tag gold">No Downloads</span></div>
-      <div class="card-desc">ModTheSims does not have a Sims 1 downloads section — it was never added. There is an active Sims 1 forum where players discuss modding and troubleshooting, and some individual posts link to external downloads, but there is no browseable mod library for Sims 1 on the site.</div>
-      <a class="pill-link" href="https://modthesims.info/f/562/" target="_blank">MTS Sims 1 Forum &#8599;</a>
+      <div class="card-title"><span class="tag green">RECOMMENDED</span> Legacy-ready archive</div>
+      <div class="card-desc">alon-abadi on GitHub has packaged all known Maxis "Get Cool Stuff" content specifically for Legacy Collection. Files are extracted and organised by destination folder. Includes objects (McDonald's cart, Pepsi machine, Intel computer etc.), promotional skins, NPC templates and official houses.</div>
+      <a class="pill-link" href="https://github.com/alon-abadi/the-sims-1-legacy-collection-get-cool-stuff" target="_blank">GitHub Archive &#8599;</a>
     </div>
+    <div class="card">
+      <div class="card-title"><span class="tag teal">ARCHIVE</span> Full original collection</div>
+      <div class="card-desc">Complete archive of the original Maxis site content on Internet Archive - all objects, tools, skins, homes and graphics packs. Contains original .exe files. Open them with 7-Zip as archives rather than running them - extract and copy files manually.</div>
+      <a class="pill-link" href="https://archive.org/details/thesims.ea.com-the-sims-get-cool-stuff.-7z" target="_blank">Archive.org &#8599;</a>
+    </div>
+  </div>
+  <div class="callout teal" style="margin-top:12px;">&#8505;&#65039; <strong>How to install from the GitHub archive:</strong> Download the ZIP, extract it, and copy files to the folders shown in the folder names. Objects to <code>Downloads\</code>, skins to <code>GameData\Skins\</code> etc. No installer needed.</div>
 </section>
 
   </main>
 </div>
-
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
-    </div>
-        <div class="footer-links">
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection &mdash; Modding Guide</div>
+    <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>

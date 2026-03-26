@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Sites - Sims Legacy Collection Guide</title>
-
+<title>Game Troubleshooting - Sims Legacy Collection Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -284,7 +283,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </script>
 </head>
 <body>
-
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
@@ -294,7 +292,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
     <a href="installing-mods.html" class="nav-link">📁 Install</a>
-    <a href="download-sites.html" class="nav-link active">🌐 Sites</a>
+    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
     <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
@@ -303,7 +301,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="tools.html" class="nav-link">🧰 Tools</a>
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
-    <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
+    <a href="game-troubleshooting.html" class="nav-link active">🖥️ Game Issues</a>
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="terminology.html" class="nav-link">📖 Terminology</a>
     <a href="updates.html" class="nav-link">📋 Site Updates</a>
@@ -311,186 +309,182 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
-  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
   </div>
 </nav>
 <script>
 (function(){
   var nav=document.getElementById('navInner');
   var hint=document.getElementById('navHint');
-  function check(){
-    if(!nav||!hint)return;
-    var overflows=nav.scrollWidth>nav.clientWidth+4;
-    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
-    hint.style.display=(overflows&&!atEnd)?'flex':'none';
-  }
-  if(hint){
-    hint.addEventListener('click',function(){
-      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
-    });
-  }
+  function check(){if(!nav||!hint)return;var overflows=nav.scrollWidth>nav.clientWidth+4;var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(overflows&&!atEnd)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
   if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);
-  setTimeout(check,200);
+  window.addEventListener('load',check);setTimeout(check,200);
 })();
 </script>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Mod Sites</div>
-  <h1 class="page-title">Mod <span>Download</span> Sites</h1>
-  <p class="page-sub">Best active sites confirmed working with the Legacy Collection</p>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Game Troubleshooting</div>
+  <h1 class="page-title">Game <span>Troubleshooting</span></h1>
+  <p class="page-sub">Vulkan errors, launch crashes, and known game issues with community fixes</p>
 </div>
 <div class="page-layout">
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#primary">Most Active (2026)</a></li><li><a href="#archive">Archive Sites</a></li><li><a href="#tools-sites">Tools & Tutorials</a></li><li><a href="#directories">Site Directories</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
+      <ul class="toc-list"><li><a href="#vulkan">Vulkan Initialization Failed</a></li><li><a href="#nvidia-glitch">NVIDIA Pixel Glitch</a></li><li><a href="#wont-launch">Game Won't Launch</a></li><li><a href="#multi-monitor">Multi-Monitor Crash</a></li><li><a href="#empty-neighbourhood">Empty Neighbourhood</a></li><li><a href="#minimising">Game Keeps Minimising</a></li><li><a href="#special-characters">Username Crashes</a></li><li><a href="#launch-options">Launch Options Reference</a></li><li><a href="#community">Community Help</a></li></ul>
+      <div class="toc-divider"></div>
+      <a class="toc-back" href="index.html">&#8592; Back to Home</a>
     </div>
   </aside>
   <main class="content">
+<div class="callout red"><strong>Always update your GPU drivers first</strong> before troubleshooting any launch or graphics issue. Outdated drivers are responsible for the majority of reported Vulkan errors and launch crashes.</div>
 
-<section id="primary">
-  <div class="section-head">
-    <div class="section-emoji">🌟</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Most Active Sites (2026)</h2>
-      <p class="section-sub">Moderators appear to still be active and new mods occasionally get added</p>
-    </div>
+<section id="vulkan">
+  <div class="section-head"><div class="section-emoji">🖥️</div><div><h2 class="section-title">Vulkan Initialization Failed</h2><p class="section-sub">The most common launch error in Legacy Collection</p></div></div>
+  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">The Legacy Collection uses the Vulkan graphics API. If your GPU or drivers don't support Vulkan, the game refuses to launch. Try these in order:</p>
+  <div class="status-row can">
+    <div class="status-icon">1️⃣</div>
+    <div><div class="status-title">Update your GPU drivers</div>
+    <div class="status-body">Visit your GPU manufacturer's site directly - NVIDIA (<a href="https://www.nvidia.com/drivers" target="_blank">nvidia.com/drivers</a>), AMD (<a href="https://www.amd.com/support" target="_blank">amd.com/support</a>), or Intel (<a href="https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html" target="_blank">intel.com</a>). Do not rely on Windows Update for GPU drivers. Restart your PC after updating, then try launching again.</div></div>
   </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">Simblr.cc - Sims 1 Mods <span class="tag green">Most Active</span></div>
-      <div class="card-desc">The most active Sims 1 modding community right now. New uploads as recently as March 2026. Gameplay hacks, bug fixes, new objects and tutorials. Start here.</div>
-      <a class="pill-link" href="https://simblr.cc/ts1/mods/" target="_blank">↗ simblr.cc/ts1/mods/</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Corylea's Mods <span class="tag green">Updated Mar 2026</span></div>
-      <div class="card-desc">Actively maintained and Legacy-compatible. Corylea updates mods specifically for the Legacy Collection and includes path translation notes for every mod. Extensive personal collection of quality-of-life hacks. No Relationship Decay, Two-Hour Carpool Warning, No Forced Career Change, and dozens more.</div>
-      <a class="pill-link" href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">↗ corylea.com</a>
-    </div>
+  <div class="status-row can">
+    <div class="status-icon">2️⃣</div>
+    <div><div class="status-title">Remove the Vulkan/OpenGL Compatibility Pack</div>
+    <div class="status-body">A Windows component called "OpenCL, OpenGL, and Vulkan Compatibility Pack" can conflict with the game's Vulkan implementation. Open Settings &#8594; Apps &#8594; search for "Vulkan" or "OpenCL" &#8594; Uninstall it. This alone fixes the error for many users, especially on systems with Intel integrated graphics.</div></div>
+  </div>
+  <div class="status-row can">
+    <div class="status-icon">3️⃣</div>
+    <div><div class="status-title">NVIDIA + AMD hybrid systems: disable graphics switching</div>
+    <div class="status-body">If your PC has both a dedicated GPU and Intel/AMD integrated graphics, Vulkan may be initialising on the wrong one. In NVIDIA Control Panel or AMD settings, force Sims.exe to use your dedicated GPU. On laptops this is often under Power Management or Switchable Graphics settings.</div></div>
+  </div>
+  <div class="status-row maybe">
+    <div class="status-icon">4️⃣</div>
+    <div><div class="status-title">Older Intel integrated graphics may not be compatible</div>
+    <div class="status-body">Intel HD Graphics older than Iris Xe (pre-2020, typically 4th-8th gen Core processors) generally don't support Vulkan at all. If this is your only GPU, Legacy Collection cannot run on your hardware. The original Complete Collection (which used DirectDraw) works on these systems, but Legacy requires Vulkan.</div></div>
   </div>
 </section>
 
-<section id="archive">
-  <div class="section-head">
-    <div class="section-emoji">📚</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Archive Sites</h2>
-      <p class="section-sub">Large collections from the original era - mostly still working</p>
-    </div>
+<section id="nvidia-glitch">
+  <div class="section-head"><div class="section-emoji">📐</div><div><h2 class="section-title">NVIDIA: Scrambled Pixels / Misaligned UI</h2></div></div>
+  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">On some NVIDIA GPUs, rows of pixels appear shifted or scrambled - most visible on motive bars, UI buttons and loading screens. This is a known NVIDIA driver issue with Vulkan presentation via DXGI swapchain.</p>
+  <div class="trouble-card">
+    <div class="trouble-title">Fix via NVIDIA Control Panel:</div>
+    <ul class="trouble-list">
+      <li>Right-click desktop &#8594; NVIDIA Control Panel</li>
+      <li>Go to Manage 3D Settings &#8594; Program Settings tab</li>
+      <li>Find or add Sims.exe to the list</li>
+      <li>Find "Vulkan/OpenGL present method" and set it to <strong>Prefer native</strong></li>
+      <li>Apply and restart the game</li>
+    </ul>
   </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">The Sims Resource - Sims 1 <span class="tag gold">Free Account Required</span></div>
-      <div class="card-desc">Huge archive of clothing, hair and objects from the original game era. Some items need a free account to download.</div>
-      <a class="pill-link" href="https://www.thesimsresource.com/downloads/browse/category/sims1/" target="_blank">↗ thesimsresource.com</a>
-    </div>
-    
-    <div class="card">
-      <div class="card-title">Around the Sims</div>
-      <div class="card-desc">Sandy's site - one of the most respected Sims 1 CC archives. She has since moved on to newer Sims games but her entire Sims 1 archive remains up for download: objects, skins, heads and build content. High quality work with a consistent aesthetic.</div>
-      <a class="pill-link" href="https://sims1.aroundthesims3.com/" target="_blank">aroundthesims3.com &#8599;</a>
-    </div>
+  <div class="callout teal" style="margin-top:12px;">&#8505;&#65039; Keeping NVIDIA drivers up to date may also resolve this - NVIDIA have been releasing fixes for this class of Vulkan issue.</div>
+</section>
 
-    <div class="card">
-      <div class="card-title">Sims File Share - YoNonna</div>
-      <div class="card-desc">Massive collection of CC shared by Creator YoNonna. Recently collated and updated to be more accessible. Tonnes of build objects, hairs, skins and more. Thousands of files.</div>
-      <a class="pill-link" href="https://simfileshare.net/folder/264361/" target="_blank">↗ simfileshare.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Andrasta's World</div>
-      <div class="card-desc">Gothic and grungy style CC and mods. Unique dark aesthetic for atmospheric builds.</div>
-      <a class="pill-link" href="https://doortomore.net/" target="_blank">↗ doortomore.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">A Little White Magic</div>
-      <div class="card-desc">Gameplay plugins, decor and mods. Home of the Domcal Weekends mod.</div>
-      <a class="pill-link" href="https://white.leadpipecollection.net/" target="_blank">↗ white.leadpipecollection.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Sims Freaks / The Real Sim</div>
-      <div class="card-desc">Objects, clothes, houses and general build mode items.</div>
-      <a class="pill-link" href="https://simfreaks.com/therealsim/index.php" target="_blank">↗ simfreaks.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Wayback Machine - Sims 1 CC Listing</div>
-      <div class="card-desc">Large list of zip files containing loads of different CC options archived from the original era.</div>
-      <a class="pill-link" href="https://archive.org/details/sims-1-cc" target="_blank">↗ archive.org</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Wayback Machine - Sims 1 CC Search</div>
-      <div class="card-desc">Search the Wayback Machine to find archived Sims 1 CC sites from the original era.</div>
-      <a class="pill-link" href="https://web.archive.org/web/20260000000000*/Sims%201" target="_blank">↗ web.archive.org</a>
-    </div>
+<section id="wont-launch">
+  <div class="section-head"><div class="section-emoji">🚫</div><div><h2 class="section-title">Game Won't Launch / Closes Immediately</h2></div></div>
+  <div class="trouble-card">
+    <ul class="trouble-list">
+      <li>Update GPU drivers first (see Vulkan section above)</li>
+      <li>Verify game files in Steam: right-click game &#8594; Properties &#8594; Installed Files &#8594; Verify integrity of game files</li>
+      <li>Run Sims.exe as Administrator: right-click &#8594; Run as administrator. Some Windows 10 setups need this.</li>
+      <li>Set compatibility mode: right-click Sims.exe &#8594; Properties &#8594; Compatibility tab &#8594; tick "Run this program in compatibility mode for Windows 7"</li>
+      <li>Check your antivirus isn't blocking the game - add the game folder as an exception</li>
+      <li>Try the <code>-w</code> launch flag (windowed mode) - some GPUs can't initialise in fullscreen mode correctly</li>
+    </ul>
   </div>
 </section>
 
-<section id="tools-sites">
-  <div class="section-head">
-    <div class="section-emoji">🔧</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Tools &amp; Tutorials</h2>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">GitHub - Sims1Tools (trolando)</div>
-      <div class="card-desc">Essential modding toolkit: IFF Pencil 2, FARx, Career Creator 3, Constant Contraption, Strings Scavenger.</div>
-      <a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">↗ github.com/trolando/Sims1Tools</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Sims 1 Tutorials - Awesome Expression</div>
-      <div class="card-desc">Advanced tutorials covering custom animations, custom food, custom sounds and object cloning with Transmogrifier.</div>
-      <a class="pill-link" href="http://www.awesomeexpression.com/sims-1-tutorials.html" target="_blank">↗ awesomeexpression.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">The Sims Depot</div>
-      <div class="card-desc">Must-have programs, adding skins and meshes. Good beginner resource for tools and setup.</div>
-      <a class="pill-link" href="https://www.thesimsdepot.com/sims-1/" target="_blank">↗ thesimsdepot.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Parsimonious - Adding Downloads To Your Game</div>
-      <div class="card-desc">Step-by-step instructions for installing all different file types for Sims 1 custom content, plus troubleshooting common reasons downloads don't show up.</div>
-      <a class="pill-link" href="http://www.parsimonious.org/support/sims1-adding-downloads-to-your-game.html" target="_blank">↗ parsimonious.org</a>
-    </div>
+<section id="multi-monitor">
+  <div class="section-head"><div class="section-emoji">🖥️</div><div><h2 class="section-title">Multi-Monitor Crash or Wrong Monitor</h2></div></div>
+  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">Moving the game window between monitors while running causes a crash. The game can also launch on the wrong monitor. Use launch flags to control this.</p>
+  <div class="trouble-card">
+    <ul class="trouble-list">
+      <li>Add <code>-monitor:0</code> to launch options to force the game onto your primary monitor</li>
+      <li>Add <code>-monitor:1</code> to force it onto your secondary monitor</li>
+      <li>See the Launch Options section below for how to set these in Steam or EA App</li>
+      <li>Do not drag the game window between monitors while it's running - close and relaunch with the correct flag instead</li>
+    </ul>
   </div>
 </section>
 
-<section id="directories">
-  <div class="section-head">
-    <div class="section-emoji">📋</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Site Directories</h2>
-      <p class="section-sub">Find even more sites from these curated lists</p>
-    </div>
+<section id="empty-neighbourhood">
+  <div class="section-head"><div class="section-emoji">🏘️</div><div><h2 class="section-title">Empty Neighbourhood / Crash When Creating a Sim</h2><p class="section-sub">Common on first install</p></div></div>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Set compatibility mode to Windows 7</h4>
+      <p>Right-click <code>Sims.exe</code> in the game folder &#8594; Properties &#8594; Compatibility tab &#8594; tick "Run this program in compatibility mode for Windows 7"</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Also tick "Run as administrator"</h4>
+      <p>On the same Compatibility tab, also tick "Run this program as an administrator". Click OK.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Add resolution flags</h4>
+      <p>In Steam launch options or by editing the shortcut Target field, add <code>-w -r1024x768</code> after the closing quote. Some users find these flags stabilise first-launch behaviour.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Check the save folder exists</h4>
+      <p>Make sure <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code> exists with UserData folders inside. If the folder is empty or missing, try launching once without any mods installed - the game should recreate the defaults.</p>
+    </div></div>
   </div>
-  <div class="card">
-    <div class="card-title">Pleasant Sims - 70+ Active Sites <span class="tag green">Master List</span></div>
-    <div class="card-desc">A curated directory of live Sims 1 CC sites. Covers clothing, objects, tools and more.</div>
-    <a class="pill-link" href="https://pleasantsims.com/active-sims-1-sites/" target="_blank">↗ pleasantsims.com/active-sims-1-sites/</a>
-  </div>
-  <div class="card" style="margin-top:14px;">
-    <div class="card-title">Steam Community - Ultimate Sims 1 Guide</div>
-    <div class="card-desc">Community-maintained guide with mod links, cheats and QoL tips. Updated by players since the Legacy launch.</div>
-    <a class="pill-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3418368145" target="_blank">↗ Steam Community Guide</a>
-  </div>
+</section>
 
-    <div class="card">
-      <div class="card-title">ModTheSims - Sims 1 Forum Only <span class="tag gold">No Downloads</span></div>
-      <div class="card-desc">ModTheSims does not have a Sims 1 downloads section — it was never added. There is an active Sims 1 forum where players discuss modding and troubleshooting, and some individual posts link to external downloads, but there is no browseable mod library for Sims 1 on the site.</div>
-      <a class="pill-link" href="https://modthesims.info/f/562/" target="_blank">MTS Sims 1 Forum &#8599;</a>
-    </div>
+<section id="minimising">
+  <div class="section-head"><div class="section-emoji">📉</div><div><h2 class="section-title">Game Keeps Minimising</h2></div></div>
+  <div class="trouble-card">
+    <ul class="trouble-list">
+      <li>This was fixed in the March 14, 2025 patch (Patch 7). Make sure your game is fully up to date.</li>
+      <li>If still occurring: play in fullscreen rather than windowed mode - the issue primarily affected windowed mode when another application stole focus</li>
+      <li>Disable overlays that may trigger focus changes: Discord overlay, Steam overlay, NVIDIA GeForce Experience overlay</li>
+    </ul>
+  </div>
+</section>
+
+<section id="special-characters">
+  <div class="section-head"><div class="section-emoji">🔤</div><div><h2 class="section-title">Crashes Related to Windows Username</h2></div></div>
+  <div class="callout gold"><strong>⚠️ Windows usernames with special characters can cause crashes.</strong> The save file path includes your Windows username (<code>C:\Users\YOUR-NAME\Saved Games\...</code>). Certain characters in that username - spaces, accented letters, symbols like #, @, % - can cause the game to crash when reading or writing save data. EA added a warning for this in the April 2025 patch.</div>
+  <div class="trouble-card" style="margin-top:12px;">
+    <ul class="trouble-list">
+      <li>If your Windows username contains special characters, try creating a new Windows user account with only plain letters and numbers, and play from that account</li>
+      <li>The game will show a warning at launch if it detects a problematic username (Patch 8 onwards)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="launch-options">
+  <div class="section-head"><div class="section-emoji">⌨️</div><div><h2 class="section-title">Launch Options Reference</h2><p class="section-sub">Command line flags for Steam and EA App</p></div></div>
+  <div class="callout teal">&#8505;&#65039; <strong>Steam:</strong> Right-click the game &#8594; Properties &#8594; General tab &#8594; Launch Options box at the bottom. Type flags separated by spaces.<br><br><strong>EA App:</strong> Installed Games &#8594; three-dot menu &#8594; Manage &#8594; View Properties &#8594; Advanced Launch Options box.</div>
+  <div class="table-wrap" style="margin-top:12px;">
+    <table>
+      <thead><tr><th style="width:25%">Flag</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>-w</code></td><td>Launch in windowed mode. On displays under 1200px height the window matches fullscreen size but shows a title bar. On 1440p/4K shows a smaller window.</td></tr>
+        <tr><td><code>-r1024x768</code></td><td>Set launch resolution to 1024x768. Replace numbers with any supported resolution, e.g. <code>-r1920x1080</code>.</td></tr>
+        <tr><td><code>-monitor:0</code></td><td>Force launch on primary monitor. Use <code>-monitor:1</code> for secondary monitor. Fixes multi-monitor launch crashes.</td></tr>
+        <tr><td><code>-nosound</code></td><td>Disable all in-game audio. Useful for diagnosing crashes caused by audio driver conflicts.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout green" style="margin-top:8px;">&#10003; <strong>Example combination:</strong> <code>-w -r1024x768 -monitor:0</code> launches windowed at 1024x768 on primary monitor. A useful starting point when the game won't open normally.</div>
+</section>
+
+<section id="community">
+  <div class="section-head"><div class="section-emoji">💬</div><div><h2 class="section-title">Still Stuck? Community Help</h2></div></div>
+  <div class="community-grid">
+    <a class="community-card" href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener"><div class="community-icon">💬</div><div><div class="community-name">Simscord</div><div class="community-url">Live help from the community</div></div></a>
+    <a class="community-card" href="https://forums.ea.com/discussions/the-sims-1-en/" target="_blank" rel="noopener"><div class="community-icon">🏛️</div><div><div class="community-name">EA Forums - Sims 1</div><div class="community-url">Best for launch issues</div></div></a>
+    <a class="community-card" href="https://steamcommunity.com/app/3314060/discussions/" target="_blank" rel="noopener"><div class="community-icon">🎮</div><div><div class="community-name">Steam Discussions</div><div class="community-url">Community crash fixes</div></div></a>
+    <a class="community-card" href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener"><div class="community-icon">🔴</div><div><div class="community-name">r/thesims1</div><div class="community-url">Active Reddit community</div></div></a>
+    <a class="community-card" href="https://www.pcgamingwiki.com/wiki/The_Sims_Legacy_Collection" target="_blank" rel="noopener"><div class="community-icon">📖</div><div><div class="community-name">PCGamingWiki</div><div class="community-url">Technical reference</div></div></a>
+  </div>
 </section>
 
   </main>
 </div>
-
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
-    </div>
-        <div class="footer-links">
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection &mdash; Modding Guide</div>
+    <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>

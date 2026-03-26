@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Sites - Sims Legacy Collection Guide</title>
-
+<title>CC & Mod Troubleshooting - Sims Legacy Collection Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -284,7 +283,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </script>
 </head>
 <body>
-
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
@@ -294,7 +292,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
     <a href="installing-mods.html" class="nav-link">📁 Install</a>
-    <a href="download-sites.html" class="nav-link active">🌐 Sites</a>
+    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
     <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
@@ -302,7 +300,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
     <a href="tools.html" class="nav-link">🧰 Tools</a>
     <span class="nav-sep" aria-hidden="true"></span>
-    <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
+    <a href="cc-troubleshooting.html" class="nav-link active">🛠️ CC Issues</a>
     <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="terminology.html" class="nav-link">📖 Terminology</a>
@@ -311,186 +309,194 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
-  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
   </div>
 </nav>
 <script>
 (function(){
   var nav=document.getElementById('navInner');
   var hint=document.getElementById('navHint');
-  function check(){
-    if(!nav||!hint)return;
-    var overflows=nav.scrollWidth>nav.clientWidth+4;
-    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
-    hint.style.display=(overflows&&!atEnd)?'flex':'none';
-  }
-  if(hint){
-    hint.addEventListener('click',function(){
-      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
-    });
-  }
+  function check(){if(!nav||!hint)return;var overflows=nav.scrollWidth>nav.clientWidth+4;var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(overflows&&!atEnd)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
   if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);
-  setTimeout(check,200);
+  window.addEventListener('load',check);setTimeout(check,200);
 })();
 </script>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Mod Sites</div>
-  <h1 class="page-title">Mod <span>Download</span> Sites</h1>
-  <p class="page-sub">Best active sites confirmed working with the Legacy Collection</p>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - CC Troubleshooting</div>
+  <h1 class="page-title">CC & Mod <span>Troubleshooting</span></h1>
+  <p class="page-sub">Fixing problems with custom content, mods, skins and file installation</p>
 </div>
 <div class="page-layout">
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#primary">Most Active (2026)</a></li><li><a href="#archive">Archive Sites</a></li><li><a href="#tools-sites">Tools & Tutorials</a></li><li><a href="#directories">Site Directories</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
+      <ul class="toc-list"><li><a href="#mods-not-showing">Mods Not Showing</a></li><li><a href="#mod-crashes">Crashes After Mods</a></li><li><a href="#white-skins">White/Blank Skins</a></li><li><a href="#cc-limits">CC Limits & Engine Caps</a></li><li><a href="#old-mods">Old Mods Not Working</a></li><li><a href="#far-files">FAR Files</a></li><li><a href="#exe-installers">Old .exe Installers</a></li><li><a href="#tools-registry">CC Tools Registry Fix</a></li><li><a href="#community">Community Help</a></li></ul>
+      <div class="toc-divider"></div>
+      <a class="toc-back" href="index.html">&#8592; Back to Home</a>
     </div>
   </aside>
   <main class="content">
+<div class="callout green">Start by removing all new mods and adding them back <strong>one at a time</strong> - this is the fastest way to find the one causing problems.</div>
 
-<section id="primary">
-  <div class="section-head">
-    <div class="section-emoji">🌟</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Most Active Sites (2026)</h2>
-      <p class="section-sub">Moderators appear to still be active and new mods occasionally get added</p>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">Simblr.cc - Sims 1 Mods <span class="tag green">Most Active</span></div>
-      <div class="card-desc">The most active Sims 1 modding community right now. New uploads as recently as March 2026. Gameplay hacks, bug fixes, new objects and tutorials. Start here.</div>
-      <a class="pill-link" href="https://simblr.cc/ts1/mods/" target="_blank">↗ simblr.cc/ts1/mods/</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Corylea's Mods <span class="tag green">Updated Mar 2026</span></div>
-      <div class="card-desc">Actively maintained and Legacy-compatible. Corylea updates mods specifically for the Legacy Collection and includes path translation notes for every mod. Extensive personal collection of quality-of-life hacks. No Relationship Decay, Two-Hour Carpool Warning, No Forced Career Change, and dozens more.</div>
-      <a class="pill-link" href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">↗ corylea.com</a>
-    </div>
+<section id="mods-not-showing">
+  <div class="section-head"><div class="section-emoji">📁</div><div><h2 class="section-title">Mods Not Showing in Game</h2></div></div>
+  <div class="trouble-card">
+    <div class="trouble-title">Check these things in order:</div>
+    <ul class="trouble-list">
+      <li>Unzip files first - the game cannot read .zip or .rar files directly. Extract all contents before copying to the game folder</li>
+      <li>Skin files (.BMP/.CMX/.SKN) must be <strong>directly in GameData\Skins\</strong> - no subfolders at all. Same applies to SkinsBuy\</li>
+      <li>Check the file extension is correct (.iff not .iff.zip, .bmp not .bmp.txt)</li>
+      <li>Some mods need GameData\Objects\ or an ExpansionPack\ subfolder rather than Downloads\ - always read the included readme first</li>
+      <li>Check your game install path - Steam and EA App have different root folders. See <a href="installing-mods.html">Installing Mods</a></li>
+      <li>Buyable skins (L, F, S, W, H prefix) only appear at clothing racks on Downtown/community lots - they will never show in the home dresser or Create-A-Sim</li>
+    </ul>
   </div>
 </section>
 
-<section id="archive">
-  <div class="section-head">
-    <div class="section-emoji">📚</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Archive Sites</h2>
-      <p class="section-sub">Large collections from the original era - mostly still working</p>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">The Sims Resource - Sims 1 <span class="tag gold">Free Account Required</span></div>
-      <div class="card-desc">Huge archive of clothing, hair and objects from the original game era. Some items need a free account to download.</div>
-      <a class="pill-link" href="https://www.thesimsresource.com/downloads/browse/category/sims1/" target="_blank">↗ thesimsresource.com</a>
-    </div>
-    
-    <div class="card">
-      <div class="card-title">Around the Sims</div>
-      <div class="card-desc">Sandy's site - one of the most respected Sims 1 CC archives. She has since moved on to newer Sims games but her entire Sims 1 archive remains up for download: objects, skins, heads and build content. High quality work with a consistent aesthetic.</div>
-      <a class="pill-link" href="https://sims1.aroundthesims3.com/" target="_blank">aroundthesims3.com &#8599;</a>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Sims File Share - YoNonna</div>
-      <div class="card-desc">Massive collection of CC shared by Creator YoNonna. Recently collated and updated to be more accessible. Tonnes of build objects, hairs, skins and more. Thousands of files.</div>
-      <a class="pill-link" href="https://simfileshare.net/folder/264361/" target="_blank">↗ simfileshare.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Andrasta's World</div>
-      <div class="card-desc">Gothic and grungy style CC and mods. Unique dark aesthetic for atmospheric builds.</div>
-      <a class="pill-link" href="https://doortomore.net/" target="_blank">↗ doortomore.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">A Little White Magic</div>
-      <div class="card-desc">Gameplay plugins, decor and mods. Home of the Domcal Weekends mod.</div>
-      <a class="pill-link" href="https://white.leadpipecollection.net/" target="_blank">↗ white.leadpipecollection.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Sims Freaks / The Real Sim</div>
-      <div class="card-desc">Objects, clothes, houses and general build mode items.</div>
-      <a class="pill-link" href="https://simfreaks.com/therealsim/index.php" target="_blank">↗ simfreaks.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Wayback Machine - Sims 1 CC Listing</div>
-      <div class="card-desc">Large list of zip files containing loads of different CC options archived from the original era.</div>
-      <a class="pill-link" href="https://archive.org/details/sims-1-cc" target="_blank">↗ archive.org</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Wayback Machine - Sims 1 CC Search</div>
-      <div class="card-desc">Search the Wayback Machine to find archived Sims 1 CC sites from the original era.</div>
-      <a class="pill-link" href="https://web.archive.org/web/20260000000000*/Sims%201" target="_blank">↗ web.archive.org</a>
-    </div>
+<section id="mod-crashes">
+  <div class="section-head"><div class="section-emoji">💥</div><div><h2 class="section-title">Game Crashes After Installing a Mod</h2></div></div>
+  <div class="trouble-card">
+    <ul class="trouble-list">
+      <li>Remove all new mods and add them back one at a time until the crash reappears. Binary search works well - remove half, test, keep halving until you find the culprit</li>
+      <li>Check Simblr.cc and EA Forums for known compatibility issues with that specific mod</li>
+      <li>Check the mod creator's page - they may have released a Legacy-compatible update since the original was made</li>
+      <li>Try the mod in a fresh test neighbourhood before using it in your main save</li>
+      <li>Mods that directly patched the original sims.exe will not work in Legacy at all - the exe is DRM-protected. Check Simblr.cc for an updated version</li>
+      <li>See <a href="installing-mods.html">Installing Mods</a> for how to translate Complete Collection paths to Legacy paths for older mods</li>
+    </ul>
   </div>
 </section>
 
-<section id="tools-sites">
-  <div class="section-head">
-    <div class="section-emoji">🔧</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Tools &amp; Tutorials</h2>
-    </div>
+<section id="white-skins">
+  <div class="section-head"><div class="section-emoji">🧍</div><div><h2 class="section-title">Skins Show as a White Blank Body</h2></div></div>
+  <div class="callout red"><strong>This is almost always a BMP colour depth issue.</strong> Sims 1 requires Indexed (256-colour) BMP files. Regular 24-bit BMPs, PNGs or JPGs will always show as a white silhouette in-game.</div>
+  <div class="trouble-card" style="margin-top:16px;">
+    <div class="trouble-title">How to convert to 8-bit indexed BMP:</div>
+    <ul class="trouble-list">
+      <li><strong>Photoshop:</strong> Image &#8594; Mode &#8594; Indexed Color &#8594; set Colours to 256 &#8594; OK. Then File &#8594; Save As &#8594; BMP (it will default to 8-bit after conversion)</li>
+      <li><strong>GIMP:</strong> Image &#8594; Mode &#8594; Indexed &#8594; Maximum colors: 255 &#8594; Convert. Then File &#8594; Export As &#8594; save as .BMP</li>
+      <li><strong>IrfanView (free):</strong> Image &#8594; Decrease Color Depth &#8594; 256 Colors. Then File &#8594; Save As &#8594; BMP</li>
+      <li><strong>Paint.NET:</strong> Install the IndirectBitmap plugin, then save as Indexed BMP</li>
+      <li>Do not use PNG, JPG, WebP or 24-bit BMP - none of these work in Sims 1</li>
+    </ul>
   </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">GitHub - Sims1Tools (trolando)</div>
-      <div class="card-desc">Essential modding toolkit: IFF Pencil 2, FARx, Career Creator 3, Constant Contraption, Strings Scavenger.</div>
-      <a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">↗ github.com/trolando/Sims1Tools</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Sims 1 Tutorials - Awesome Expression</div>
-      <div class="card-desc">Advanced tutorials covering custom animations, custom food, custom sounds and object cloning with Transmogrifier.</div>
-      <a class="pill-link" href="http://www.awesomeexpression.com/sims-1-tutorials.html" target="_blank">↗ awesomeexpression.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">The Sims Depot</div>
-      <div class="card-desc">Must-have programs, adding skins and meshes. Good beginner resource for tools and setup.</div>
-      <a class="pill-link" href="https://www.thesimsdepot.com/sims-1/" target="_blank">↗ thesimsdepot.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Parsimonious - Adding Downloads To Your Game</div>
-      <div class="card-desc">Step-by-step instructions for installing all different file types for Sims 1 custom content, plus troubleshooting common reasons downloads don't show up.</div>
-      <a class="pill-link" href="http://www.parsimonious.org/support/sims1-adding-downloads-to-your-game.html" target="_blank">↗ parsimonious.org</a>
-    </div>
+  <div class="callout teal" style="margin-top:0;">&#8505;&#65039; If you downloaded the skin rather than made it yourself, try re-downloading from the original source - some archived sites incorrectly serve 24-bit BMPs even when the original file was correct.</div>
+</section>
+
+<section id="cc-limits">
+  <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">CC Limits and Engine Caps</h2><p class="section-sub">Glitches caused by exceeding built-in limits</p></div></div>
+  <div class="callout gold"><strong>The Sims 1 engine has hard caps on CC.</strong> These existed in the original game and have not been raised in Legacy Collection. If you have a lot of CC and the game behaves strangely, these limits are often the cause.</div>
+  <div class="trouble-card" style="margin-top:16px;">
+    <div class="trouble-title">Known limits and their symptoms:</div>
+    <ul class="trouble-list">
+      <li><strong>Build mode objects per category (base game):</strong> 200. With Unleashed: 2,000. Symptom: fences replacing pool ladders, plants replacing fireplaces, objects showing as the wrong item. The CC is still there, categories are just overflowing.</li>
+      <li><strong>Wall coverings (base game):</strong> 90. With Livin' Large or later: 65,000.</li>
+      <li><strong>Floor tiles (base game):</strong> 63. With Livin' Large or later: 65,000.</li>
+      <li><strong>Downloads folder size:</strong> Keep under 2.5-3 GB. Random crashes with no obvious cause often trace back to folder size.</li>
+      <li><strong>Skin files:</strong> No confirmed hard cap, but crashes reported above ~3,000 files. Binary-search your Skins folder if you suspect this.</li>
+    </ul>
+  </div>
+  <div class="trouble-card" style="margin-top:12px;">
+    <div class="trouble-title">Managing large CC collections:</div>
+    <ul class="trouble-list">
+      <li>Create a folder outside the game install (e.g. on your Desktop) and move excess CC there temporarily. The game only reads the folders it knows to look for.</li>
+      <li>Rotate CC in themed batches - install only what you plan to use in a particular session.</li>
+    </ul>
   </div>
 </section>
 
-<section id="directories">
-  <div class="section-head">
-    <div class="section-emoji">📋</div>
-    <div class="section-title-wrap">
-      <h2 class="section-title">Site Directories</h2>
-      <p class="section-sub">Find even more sites from these curated lists</p>
-    </div>
+<section id="old-mods">
+  <div class="section-head"><div class="section-emoji">⏮️</div><div><h2 class="section-title">Old Complete Collection Mods Not Working</h2></div></div>
+  <div class="trouble-card">
+    <ul class="trouble-list">
+      <li>Most old mods work in Legacy - the game code is the same. The main issue is file paths. See <a href="installing-mods.html">Installing Mods</a> for full path translation</li>
+      <li>Old paths referencing <code>C:\Program Files (x86)\Maxis\The Sims\</code> need updating to your Legacy install location</li>
+      <li>Mods that patched sims.exe directly will not work - the exe is DRM-protected. Check Simblr.cc for an updated version</li>
+      <li>Check the mod creator's page or Simblr.cc for a Legacy-updated version before assuming it's permanently broken</li>
+    </ul>
   </div>
-  <div class="card">
-    <div class="card-title">Pleasant Sims - 70+ Active Sites <span class="tag green">Master List</span></div>
-    <div class="card-desc">A curated directory of live Sims 1 CC sites. Covers clothing, objects, tools and more.</div>
-    <a class="pill-link" href="https://pleasantsims.com/active-sims-1-sites/" target="_blank">↗ pleasantsims.com/active-sims-1-sites/</a>
-  </div>
-  <div class="card" style="margin-top:14px;">
-    <div class="card-title">Steam Community - Ultimate Sims 1 Guide</div>
-    <div class="card-desc">Community-maintained guide with mod links, cheats and QoL tips. Updated by players since the Legacy launch.</div>
-    <a class="pill-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3418368145" target="_blank">↗ Steam Community Guide</a>
-  </div>
+</section>
 
-    <div class="card">
-      <div class="card-title">ModTheSims - Sims 1 Forum Only <span class="tag gold">No Downloads</span></div>
-      <div class="card-desc">ModTheSims does not have a Sims 1 downloads section — it was never added. There is an active Sims 1 forum where players discuss modding and troubleshooting, and some individual posts link to external downloads, but there is no browseable mod library for Sims 1 on the site.</div>
-      <a class="pill-link" href="https://modthesims.info/f/562/" target="_blank">MTS Sims 1 Forum &#8599;</a>
-    </div>
+<section id="far-files">
+  <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">FAR Files Not Loading</h2></div></div>
+  <div class="trouble-card">
+    <ul class="trouble-list">
+      <li>.FAR files go in <code>Downloads\</code> alongside .iff files</li>
+      <li>If the FAR was designed for a specific expansion, it may need to go in that expansion's subfolder (ExpansionPack1-7). The readme will specify this.</li>
+      <li>Use FARx (from the <a href="download-sites.html">Sims1Tools GitHub repo</a>) to extract the FAR contents and inspect what's inside - files may need to go in different folders</li>
+    </ul>
+  </div>
+</section>
+
+<section id="exe-installers">
+  <div class="section-head"><div class="section-emoji">⚙️</div><div><h2 class="section-title">Old Maxis .exe Installers Won't Work</h2><p class="section-sub">Get Cool Stuff downloads from the original Maxis website</p></div></div>
+  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">The original "Get Cool Stuff" content from the Maxis website (2000-2003) was distributed as Windows .exe installers. These look for the game at the old Complete Collection registry location, which Legacy Collection doesn't create. The installer will either fail silently or say it can't find the game.</p>
+  <div class="callout gold"><strong>⚠️ Do not run the .exe files.</strong> Open them with 7-Zip as archives and extract the content manually instead.</div>
+  <div class="steps" style="margin-top:12px;">
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Get 7-Zip (free)</h4>
+      <p>Download from 7-zip.org if you don't have it. It handles almost every archive format including old Windows .exe installers.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Right-click the .exe and choose "7-Zip &#8594; Open archive"</h4>
+      <p>The .exe opens like a zip file showing the folders inside - Objects, Skins, or similar.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Extract to a temporary folder</h4>
+      <p>Click Extract and choose somewhere easy to find, like your Desktop.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Copy files to the correct game folders</h4>
+      <p>Objects go in <code>Downloads\</code>, skins in <code>GameData\Skins\</code> etc. The folder names inside the archive usually indicate the destination.</p>
+    </div></div>
+  </div>
+  <div class="callout green" style="margin-top:8px;">&#10003; Alternatively, use the pre-extracted Legacy-compatible archive: <a href="https://github.com/alon-abadi/the-sims-1-legacy-collection-get-cool-stuff" target="_blank">github.com/alon-abadi/the-sims-1-legacy-collection-get-cool-stuff</a></div>
+</section>
+
+<section id="tools-registry">
+  <div class="section-head"><div class="section-emoji">🔑</div><div><h2 class="section-title">CC Creation Tools Can't Find the Game</h2><p class="section-sub">The Sims Creator, Home Crafter and similar old tools</p></div></div>
+  <p style="color:var(--ink-mid);font-size:15px;margin-bottom:14px;">Old CC tools locate the game by reading a Windows Registry entry at <code>HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Maxis\The Sims</code>. The Legacy Collection creates no registry entries, so these tools either fail to launch or save output to the wrong location.</p>
+  <div class="callout red"><strong>⚠️ Edit the registry carefully.</strong> Only add the specific key described below. Registry errors can cause system problems - if you're not comfortable with this, ask for help.</div>
+  <div class="steps" style="margin-top:12px;">
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Open Registry Editor</h4>
+      <p>Press Windows + R, type <code>regedit</code>, press Enter. Click Yes if prompted.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Navigate to the Maxis key</h4>
+      <p>In the left panel, drill down to: <code>HKEY_LOCAL_MACHINE &#8594; SOFTWARE &#8594; WOW6432Node &#8594; Maxis</code>. If a "The Sims" key doesn't exist inside Maxis, right-click Maxis &#8594; New &#8594; Key and name it <strong>The Sims</strong>.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Add the InstallPath value</h4>
+      <p>Click the "The Sims" key. In the right panel, right-click &#8594; New &#8594; String Value. Name it <strong>InstallPath</strong>. Double-click and set the value to your full game path:</p>
+      <div class="code-block">C:\Program Files (x86)\Steam\steamapps\common\The Sims Legacy Collection\</div>
+      <p style="margin-top:8px;">Or for EA App: <code>C:\Program Files\EA Games\The Sims Legacy\</code></p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body">
+      <h4>Test the tool</h4>
+      <p>Close and reopen the CC tool. It should now find the game. Note: some tools may still only load meshes bundled with the tool itself rather than all game meshes, but output should save to the correct Skins folder.</p>
+    </div></div>
+  </div>
+</section>
+
+<section id="community">
+  <div class="section-head"><div class="section-emoji">💬</div><div><h2 class="section-title">Still Stuck? Community Help</h2></div></div>
+  <div class="community-grid">
+    <a class="community-card" href="https://simblr.cc/" target="_blank" rel="noopener"><div class="community-icon">🌱</div><div><div class="community-name">Simblr.cc</div><div class="community-url">Best for mod-specific help</div></div></a>
+    <a class="community-card" href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener"><div class="community-icon">💬</div><div><div class="community-name">Simscord</div><div class="community-url">Live help from the community</div></div></a>
+    <a class="community-card" href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener"><div class="community-icon">🔴</div><div><div class="community-name">r/thesims1</div><div class="community-url">Active Reddit community</div></div></a>
+    <a class="community-card" href="https://forums.ea.com/discussions/the-sims-1-en/" target="_blank" rel="noopener"><div class="community-icon">🏛️</div><div><div class="community-name">EA Forums - Sims 1</div><div class="community-url">Official EA support</div></div></a>
+    <a class="community-card" href="https://steamcommunity.com/app/3314060/discussions/" target="_blank" rel="noopener"><div class="community-icon">🎮</div><div><div class="community-name">Steam Discussions</div><div class="community-url">Community troubleshooting</div></div></a>
+  </div>
 </section>
 
   </main>
 </div>
-
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
-    </div>
-        <div class="footer-links">
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection &mdash; Modding Guide</div>
+    <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>

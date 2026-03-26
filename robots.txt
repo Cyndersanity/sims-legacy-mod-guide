@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cyndersanity.github.io/sims-legacy-mod-guide/sitemap.xml
