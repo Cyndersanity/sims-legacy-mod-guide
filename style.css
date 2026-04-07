@@ -161,7 +161,7 @@ td:first-child{font-family:var(--font-mono);font-size:13px;font-weight:600;color
 .ok{color:#1A5229;font-weight:700;} .warn{color:#9A6F10;font-weight:700;} .no{color:#7a1a1a;font-weight:700;}
 
 /* STEPS */
-.steps{counter-reset:step;}
+.steps{counter-reset:step;margin-top:20px;}
 .step{display:flex;gap:14px;margin-bottom:10px;counter-increment:step;}
 .step-num{flex-shrink:0;width:30px;height:30px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:13px;color:#fff;margin-top:2px;}
 .step-num::after{content:counter(step);}

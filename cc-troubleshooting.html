@@ -59,10 +59,9 @@
   <main class="content">
 <details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#mods-not-showing">Mods Not Showing</a><a href="#mod-crashes">Crashes After Mods</a><a href="#white-skins">White/Blank Skins</a><a href="#cc-limits">CC Limits & Engine Caps</a><a href="#old-mods">Old Mods Not Working</a><a href="#far-files">FAR Files</a><a href="#exe-installers">Old .exe Installers</a><a href="#tools-registry">CC Tools Registry Fix</a><a href="#community">Community Help</a></div></details>
 
-<div class="callout green">✅ Start by removing all new mods and adding them back <strong>one at a time</strong> - this is the fastest way to find the one causing problems.</div>
-
 <section id="mods-not-showing">
   <div class="section-head"><div class="section-emoji">📁</div><div><h2 class="section-title">Mods Not Showing in Game</h2></div></div>
+  <div class="callout green">✅ Start by removing all new mods and adding them back <strong>one at a time</strong> – this is the fastest way to find the one causing problems.</div>
   <div class="trouble-card">
     <div class="trouble-title">Check these things in order:</div>
     <ul class="trouble-list">
@@ -92,7 +91,7 @@
 
 <section id="white-skins">
   <div class="section-head"><div class="section-emoji">🧍</div><div><h2 class="section-title">Skins Show as a White Blank Body</h2></div></div>
-  <div class="callout red">🚨 <strong>🚨 This is almost always a BMP colour depth issue.</strong> Sims 1 requires Indexed (256-colour) BMP files. Regular 24-bit BMPs, PNGs or JPGs will always show as a white silhouette in-game.</div>
+  <div class="callout red"> <strong>🚨 This is almost always a BMP colour depth issue.</strong> Sims 1 requires Indexed (256-colour) BMP files. Regular 24-bit BMPs, PNGs or JPGs will always show as a white silhouette in-game.</div>
   <div class="trouble-card" style="margin-top:16px;">
     <div class="trouble-title">How to convert to 8-bit indexed BMP:</div>
     <ul class="trouble-list">
@@ -103,12 +102,12 @@
       <li>Do not use PNG, JPG, WebP or 24-bit BMP – none of these work in Sims 1</li>
     </ul>
   </div>
-  <div class="callout teal" style="margin-top:0;">ℹ️ If you downloaded the skin rather than made it yourself, try re-downloading from the original source – some archived sites incorrectly serve 24-bit BMPs even when the original file was correct.</div>
+  <div class="callout teal">ℹ️ If you downloaded the skin rather than made it yourself, try re-downloading from the original source – some archived sites incorrectly serve 24-bit BMPs even when the original file was correct.</div>
 </section>
 
 <section id="cc-limits">
   <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">CC Limits and Engine Caps</h2><p class="section-sub">Glitches caused by exceeding built-in limits</p></div></div>
-  <div class="callout gold">⚠️ <strong>⚠️ The Sims 1 engine has hard caps on CC.</strong> These existed in the original game and have not been raised in Legacy Collection. If you have a lot of CC and the game behaves strangely, these limits are often the cause.</div>
+  <div class="callout gold"> <strong>⚠️ The Sims 1 engine has hard caps on CC.</strong> These existed in the original game and have not been raised in Legacy Collection. If you have a lot of CC and the game behaves strangely, these limits are often the cause.</div>
   <div class="table-wrap" style="margin-top:12px;">
     <table>
       <thead><tr><th style="width:22%">CC Type</th><th style="width:18%">Base Game Cap</th><th style="width:22%">With Expansion</th><th>Symptom when exceeded</th></tr></thead>
@@ -150,8 +149,8 @@
 <section id="exe-installers">
   <div class="section-head"><div class="section-emoji">⚙️</div><div><h2 class="section-title">Old Maxis .exe Installers Won't Work</h2><p class="section-sub">Get Cool Stuff downloads from the original Maxis website</p></div></div>
   <p>The original "Get Cool Stuff" content from the Maxis website (2000-2003) was distributed as Windows .exe installers. These look for the game at the old Complete Collection registry location, which Legacy Collection doesn't create. The installer will either fail silently or say it can't find the game.</p>
-  <div class="callout gold">⚠️ <strong>⚠️ Do not run the .exe files.</strong> Open them with 7-Zip as archives and extract the content manually instead.</div>
-  <div class="steps" style="margin-top:12px;">
+  <div class="callout gold"> <strong>⚠️ Do not run the .exe files.</strong> Open them with 7-Zip as archives and extract the content manually instead.</div>
+  <div class="steps">
     <div class="step"><div class="step-num"></div><div class="step-body">
       <h4>Get 7-Zip (free)</h4>
       <p>Download from 7-zip.org if you don't have it. It handles almost every archive format including old Windows .exe installers.</p>
@@ -177,8 +176,10 @@
   <p>Old CC tools locate the game by reading a Windows Registry entry at:</p>
   <div class="code-block">HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Maxis\The Sims</div>
   <p>The Legacy Collection creates no registry entries, so these tools either fail to launch or save output to the wrong location.</p>
+  <div class="callout green">✅ <strong>Easiest fix:</strong> Use the <a href="https://github.com/secondhand-feraligatr/sims-1-programs-for-legacy-collection" target="_blank" rel="noopener">Feraligatr installer ↗</a> – it bundles all original Maxis CC tools and handles the registry key and compatibility settings automatically. See the <a href="making-clothing.html#tools-setup">Making Clothing</a> page for full setup instructions.</div>
+  <p>If you prefer to fix it manually, or already have the tools installed from another source:</p>
   <div class="callout red"><strong>🚨 Edit the registry carefully.</strong> Only add the specific key described below. Registry errors can cause system problems – if you're not comfortable with this, ask for help.</div>
-  <div class="steps" style="margin-top:12px;">
+  <div class="steps">
     <div class="step"><div class="step-num"></div><div class="step-body">
       <h4>Open Registry Editor</h4>
       <p>Press Windows + R, type <code>regedit</code>, press Enter. Click Yes if prompted.</p>
@@ -217,11 +218,11 @@
   <div class="footer-inner">
     <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection – Modding Guide</div>
     <div class="footer-links">
-      <a href="https://simblr.cc/ts1/mods/" target="_blank" rel="noopener">Simblr.cc</a>
-      <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank" rel="noopener">Corylea's Mods</a>
-      <a href="https://www.simlogical.com/" target="_blank" rel="noopener">Simlogical</a>
       <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a>
       <a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a>
+      <a href="search.html">Search</a>
+      <a href="terminology.html">Terminology</a>
+      <a href="cheats.html">Cheats</a>
       <a href="updates.html">Site Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
