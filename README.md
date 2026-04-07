@@ -144,6 +144,14 @@ The site uses a consistent set of CSS custom properties defined in every page's 
 </div>
 ```
 
+**Install path cells** use a two-part format – bold instruction on line 1, gold-highlighted path on line 2:
+```html
+<td style="white-space:normal;">
+  <strong>Extract the file.iff to:</strong><br>
+  <mark>\The Sims Legacy Collection\GameData\Objects</mark>
+</td>
+```
+
 ---
 
 ## Adding or editing pages
@@ -167,7 +175,9 @@ Each page is self-contained HTML. Open the file in any text editor and edit the 
 
 ### Updating the nav
 
-The `nav_builder.py` script regenerates the nav block across all pages from a single source of truth. Run it any time you change the nav order, add a page, or rename a link:
+The nav uses JS-driven dropdown panels built inline in each HTML file. To update nav links or add a page, you'll need to edit the nav block in every HTML file manually, or use find-and-replace in VS Code across the project.
+
+`nav_builder.py` handles the **footer only** – run it to sync footer links and the "Last updated" date across all pages:
 
 ```bash
 python nav_builder.py --all
@@ -178,9 +188,6 @@ If you only need to update specific pages:
 python nav_builder.py --pages about-legacy.html tools.html
 ```
 
----
-
-## Contributing
 ---
 
 ## Contributing
