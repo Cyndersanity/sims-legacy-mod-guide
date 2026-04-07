@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - Sims Legacy Collection Guide</title>
+<title>Object Retextures — Sims Legacy Collection Guide</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +35,10 @@ a{color:var(--green-dark);}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:0.5;}
 .plumbob{display:inline-block;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);flex-shrink:0;}
 .plumbob.sm{width:16px;height:16px;background:var(--green);}
+.plumbob.md{width:28px;height:28px;background:var(--green);}
+.plumbob.lg{width:52px;height:52px;background:var(--green);animation:pb-float 3s ease-in-out infinite;}
+.plumbob.gold{background:var(--gold)!important;}
+@keyframes pb-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
@@ -105,55 +109,111 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .page-title span{color:var(--green);}
 .page-sub{font-size:16px;color:var(--ink-mid);font-weight:600;max-width:560px;margin:0 auto;}
 
-/* LAYOUT - single column centred for contact page */
-.page-wrap{max-width:780px;margin:0 auto;padding:56px 48px 80px;position:relative;z-index:1;}
+/* LAYOUT */
+.page-layout{max-width:1200px;margin:0 auto;padding:48px 48px 80px;display:grid;grid-template-columns:200px 1fr;gap:52px;position:relative;z-index:1;align-items:start;}
 
-/* SECTION */
+/* TABLE OF CONTENTS */
+.toc{position:sticky;top:72px;max-height:calc(100vh - 100px);overflow-y:auto;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);}
+.toc-title{font-family:var(--font-head);font-size:13px;color:var(--green-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.toc-list{list-style:none;}
+.toc-list li{margin-bottom:2px;}
+.toc-list a{font-size:13px;font-weight:600;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:6px;display:block;border-left:2px solid transparent;transition:all 0.15s;}
+.toc-list a:hover{color:var(--green-dark);background:var(--green-pale);border-left-color:var(--green);}
+.toc-list .toc-sub a{font-size:12px;padding-left:20px;font-weight:600;}
+.toc-divider{height:1px;background:var(--border);margin:10px 0;}
+.toc-back{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;margin-top:12px;transition:all 0.15s;}
+.toc-back:hover{background:var(--green-pale);color:var(--green-dark);}
+.page-layout aside{align-self:stretch;}
+
+/* CONTENT */
+.content section{margin-bottom:56px;}
 .section-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border);}
 .section-emoji{font-size:32px;flex-shrink:0;}
 .section-title{font-family:var(--font-head);font-size:clamp(20px,3vw,28px);color:var(--ink);}
 .section-sub{font-size:14px;color:var(--ink-muted);font-weight:600;margin-top:4px;}
-section{margin-bottom:56px;}
+
+/* CARDS */
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:24px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.card:hover{border-color:var(--green);box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.card-title{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.card-desc{font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:12px;}
+.tag{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:10px;font-weight:600;padding:3px 9px;border-radius:999px;border:1.5px solid;}
+.tag.green{border-color:var(--green);color:var(--green-dark);background:var(--green-pale);}
+.tag.gold{border-color:var(--gold);color:var(--gold-dark);background:var(--gold-pale);}
+.tag.teal{border-color:var(--teal);color:#0d6e6a;background:var(--teal-pale);}
+.tag.red{border-color:var(--red);color:#7a1a1a;background:var(--red-pale);}
+.pill-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--green-dark);text-decoration:none;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.2);padding:5px 13px;border-radius:999px;transition:all 0.18s;margin-top:8px;}
+.pill-link:hover{background:var(--green);color:#fff;border-color:var(--green);}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
 
 /* CALLOUTS */
 .callout{border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;border-left:4px solid;font-size:15px;line-height:1.7;}
 .callout.green{background:var(--green-pale);border-color:var(--green);}
 .callout.gold{background:var(--gold-pale);border-color:var(--gold);}
+.callout.red{background:var(--red-pale);border-color:var(--red);}
 .callout.teal{background:var(--teal-pale);border-color:var(--teal);}
 .callout strong{font-weight:800;}
+
+/* CODE */
+.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;word-break:break-all;}
 code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;word-break:break-all;}
 
-/* WHAT I WELCOME CARDS */
-.welcome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:24px 0;}
-.welcome-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:18px 20px;box-shadow:var(--shadow-sm);}
-.welcome-icon{font-size:26px;margin-bottom:8px;}
-.welcome-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:4px;}
-.welcome-desc{font-size:13px;color:var(--ink-mid);line-height:1.6;}
+/* TABLE */
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);}
+th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.3px;text-transform:uppercase;padding:13px 16px;text-align:left;border-bottom:2px solid var(--border);}
+td{padding:12px 16px;border-bottom:1px solid rgba(27,82,41,0.06);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(59,174,92,0.04);}
+td:first-child{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--green-dark);}
+.ok{color:#1A5229;font-weight:700;} .warn{color:#9A6F10;font-weight:700;} .no{color:#7a1a1a;font-weight:700;}
 
-/* SETUP INSTRUCTIONS */
-.setup-steps{counter-reset:setup;margin:20px 0;}
-.setup-step{display:flex;gap:14px;margin-bottom:12px;counter-increment:setup;}
-.setup-num{flex-shrink:0;width:28px;height:28px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:12px;color:#fff;margin-top:2px;}
-.setup-num::after{content:counter(setup);}
-.setup-body{font-size:14px;color:var(--ink-mid);line-height:1.7;padding-top:4px;}
-.setup-body strong{color:var(--ink);}
+/* STEPS */
+.steps{counter-reset:step;}
+.step{display:flex;gap:14px;margin-bottom:10px;counter-increment:step;}
+.step-num{flex-shrink:0;width:30px;height:30px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:13px;color:#fff;margin-top:2px;}
+.step-num::after{content:counter(step);}
+.step-body{border-left:4px solid var(--green);background:var(--white);padding:13px 16px;border-radius:0 8px 8px 0;flex:1;}
+.step-body h4{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.step-body p{font-size:14px;color:var(--ink-mid);line-height:1.7;margin:0;}
+.step-body p+p{margin-top:6px;}
 
-/* FORM CONTAINER */
-.form-container{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);}
-.form-container iframe{width:100%;border:none;display:block;}
-.form-mobile-link{display:block;text-align:center;padding:16px 20px;background:var(--green-pale);border:2px solid var(--border);border-radius:var(--radius-md);margin-top:12px;}
-.form-mobile-link p{color:var(--ink-mid);margin-bottom:16px;font-size:15px;}
-.form-mobile-link a{display:inline-block;background:var(--green);color:#fff;font-family:var(--font-head);font-size:15px;padding:12px 28px;border-radius:999px;text-decoration:none;}
-@media(max-width:768px){
-  .form-container{display:none;}
-  .form-mobile-link{display:block;}
-}
+/* STATUS ROWS */
+.status-row{display:flex;gap:16px;padding:20px 22px;border-radius:var(--radius-md);background:var(--white);border:2px solid var(--border);margin-bottom:14px;box-shadow:var(--shadow-sm);}
+.status-row.can{border-left:4px solid var(--green);}
+.status-row.maybe{border-left:4px solid var(--gold);}
+.status-row.cannot{border-left:4px solid var(--red);}
+.status-icon{font-size:26px;flex-shrink:0;margin-top:2px;}
+.status-title{font-weight:800;font-size:16px;margin-bottom:6px;}
+.status-body{font-size:14px;color:var(--ink-mid);line-height:1.7;}
 
-/* PLACEHOLDER - shown before iframe is added */
-.form-placeholder{background:var(--white);border:2px dashed var(--green);border-radius:var(--radius-md);padding:48px 32px;text-align:center;}
-.form-placeholder-icon{font-size:48px;margin-bottom:16px;}
-.form-placeholder-title{font-family:var(--font-head);font-size:20px;color:var(--green-dark);margin-bottom:8px;}
-.form-placeholder-body{font-size:14px;color:var(--ink-mid);line-height:1.7;max-width:480px;margin:0 auto;}
+/* TROUBLE CARDS */
+.trouble-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);}
+.trouble-title{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:12px;}
+.trouble-list{list-style:none;padding:0;}
+.trouble-list li{font-size:14px;color:var(--ink-mid);padding:5px 0 5px 20px;position:relative;border-bottom:1px solid var(--border);}
+.trouble-list li:last-child{border-bottom:none;}
+.trouble-list li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700;}
+
+/* MOD CARDS */
+.mod-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.mod-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.mod-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.mod-by{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);margin-bottom:8px;}
+.mod-desc{font-size:13px;color:var(--ink-mid);margin-bottom:10px;line-height:1.6;}
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+.cat-label{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--green-dark);text-transform:uppercase;letter-spacing:1px;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);display:inline-block;padding:4px 12px;border-radius:999px;margin:28px 0 14px;}
+
+/* COMMUNITY CARDS */
+.community-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px;}
+.community-card{display:flex;align-items:center;gap:14px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:16px 18px;text-decoration:none;color:var(--ink);transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.community-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.community-icon{font-size:24px;flex-shrink:0;}
+.community-name{font-weight:800;font-size:14px;}
+.community-url{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);}
 
 /* FOOTER */
 footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,255,255,0.8);padding:40px 24px;}
@@ -163,9 +223,6 @@ footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,2
 .footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;transition:all 0.15s;}
 .footer-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
 footer p{font-size:12px;color:rgba(255,255,255,0.5);}
-
-@media(max-width:640px){.page-wrap{padding:32px 24px 60px;}}
-
 
 /* Mobile table - stack as cards */
 @media(max-width:640px){
@@ -223,7 +280,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
 .nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
 .nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
-.nav-drawer-sublink{padding-left:32px!important;font-size:13px!important;}
 
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
@@ -255,13 +311,13 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
-    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
+    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
   <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
   <div class="nav-dropdown-divider"></div>
   <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
   <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
   <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
-  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
+  <a href="making-objects.html" class="nav-dropdown-item active">🪑 Object Retextures</a>
 </div></div>
     <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
     <a href="tools.html" class="nav-link">🧰 Tools</a>
@@ -271,7 +327,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="terminology.html" class="nav-link">📖 Terminology</a>
     <a href="updates.html" class="nav-link">📋 Site Updates</a>
-    <a href="contact.html" class="nav-link active">✉️ Contact</a>
+    <a href="contact.html" class="nav-link">✉️ Contact</a>
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
@@ -299,72 +355,94 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   setTimeout(check,200);
 })();
 </script>
-
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection Guide</div>
-  <h1 class="page-title">Get in <span>Touch</span></h1>
-  <p class="page-sub">Corrections, suggestions, missing mods, broken links - all welcome</p>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Creating CC</div>
+  <h1 class="page-title">Object <span>Retextures</span></h1>
+  <p class="page-sub">Change how in-game objects look without touching any behaviour scripts</p>
 </div>
-
-<div class="page-wrap">
-
-  <section id="welcome">
-    <div class="section-head">
-      <div class="section-emoji">💬</div>
-      <div>
-        <h2 class="section-title">What I'd Love to Hear About</h2>
-      </div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#what-is">What Is a Retexture?</a></li><li><a href="#tools">Tools You Need</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#sprite-types">Understanding Sprites</a></li><li><a href="#further">Going Further</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
     </div>
-    <p>This guide is a community resource and it gets better with community input. If you've spotted something wrong, found a mod that should be on the list, or have a suggestion for a new section, the form below goes straight to a spreadsheet I check regularly.</p>
-    <div class="welcome-grid">
-      <div class="welcome-card">
-        <div class="welcome-icon">🐛</div>
-        <div class="welcome-title">Corrections</div>
-        <div class="welcome-desc">Something on the guide is wrong or out of date - a folder path, a mod description, a broken link.</div>
-      </div>
-      <div class="welcome-card">
-        <div class="welcome-icon">🧩</div>
-        <div class="welcome-title">Missing Mods</div>
-        <div class="welcome-desc">A mod that should be on the must-have list but isn't. Include the mod name and where to find it.</div>
-      </div>
-      <div class="welcome-card">
-        <div class="welcome-icon">💡</div>
-        <div class="welcome-title">Suggestions</div>
-        <div class="welcome-desc">A new page, section, or topic you'd like to see covered on the guide.</div>
-      </div>
-      <div class="welcome-card">
-        <div class="welcome-icon">🔗</div>
-        <div class="welcome-title">Broken Links</div>
-        <div class="welcome-desc">A download link or external site link that's no longer working.</div>
-      </div>
-    </div>
-    <div class="callout teal">Responses go into a Google Sheet that I review when I update the guide. I may not reply directly, but I do read everything and useful suggestions will make it into future updates - credited if you'd like.</div>
-  </section>
+  </aside>
+  <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#what-is">What Is It?</a><a href="#tools">Tools</a><a href="#steps">Step-by-Step</a><a href="#sprite-types">Sprite Types</a><a href="#further">Going Further</a></div></details>
 
-  <section id="form">
-    <div class="section-head">
-      <div class="section-emoji">📝</div>
-      <div>
-        <h2 class="section-title">Contact Form</h2>
-      </div>
-    </div>
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> — screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank">r/thesims1</a>.</div>
 
-    <div class="form-container">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmlD0p1kW2QHEWVh30qNv1g_AOFESePBJxnA04pS4S1pDaJA/viewform?embedded=true" width="100%" height="2584" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-    <div class="form-mobile-link">
-      <p>Embedded forms don't scroll well on phones. Tap below to open the form directly - it works exactly the same and your response still goes to the same place.</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmlD0p1kW2QHEWVh30qNv1g_AOFESePBJxnA04pS4S1pDaJA/viewform" target="_blank">Open Contact Form ↗</a>
-    </div>
-  </section>
+<section id="what-is">
+  <div class="section-head"><div class="section-emoji">💡</div><div><h2 class="section-title">What Is an Object Retexture?</h2></div></div>
+  <p>An object retexture replaces the visual sprites inside an existing game object with your own artwork — without touching any of the behaviour scripts (BHAV). You're only changing how it looks, not how it works. This makes it the simplest object modification possible and a good bridge between pure CC creation and full IFF hacking.</p>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">✅ What you can change</div><div class="card-desc">The game-view sprites (what the object looks like on the lot), the catalogue thumbnail image (what appears in Buy mode), and the speech balloon image (what Sims show when they want to use it).</div></div>
+    <div class="card"><div class="card-title">❌ What you are not changing</div><div class="card-desc">Interactions, price, motive effects, skill gains, animations, or any other gameplay behaviour. If you want to change those, see the <a href="iff-hacking.html">IFF Hacking</a> page.</div></div>
+    <div class="card"><div class="card-title">🔧 Tools needed</div><div class="card-desc">Transmogrifier (to clone the object safely) and IFF Pencil 2 (to open the clone and replace sprites). Both are free from the Sims1Tools GitHub repository and work standalone — no registry fix needed.</div></div>
+    <div class="card"><div class="card-title">🎨 Image editing</div><div class="card-desc">GIMP or Photoshop to paint your retexture. Object sprites use Indexed 256-colour BMP, same as body skins. The colour palette in the original sprite file matters — your replacement should match it.</div></div>
+  </div>
+</section>
 
+<section id="tools">
+  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Tools You Need</h2><p class="section-sub">No registry fix required — all tools work standalone</p></div></div>
+  <div class="grid-2">
+    <div class="card"><div class="card-title"><span class="tag green">FIRST STEP</span> Transmogrifier (TMog)</div><div class="card-desc">Always clone the original object before editing it. Transmogrifier creates a safe copy of any game object as a new .iff file. Never modify original game files directly — corrupting them can break the game.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Download from Sims Depot ↗</a></div>
+    <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> IFF Pencil 2</div><div class="card-desc">The full .iff editor. Opens the cloned object and lets you replace BMP sprites inside it. Handles BMP_, SPR2 and other resource types. Everything you need for a visual-only retexture is in here.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Download from GitHub ↗</a></div>
+    <div class="card"><div class="card-title">GIMP or Photoshop</div><div class="card-desc">For painting your retexture artwork. You'll export individual sprites from IFF Pencil 2, repaint them, then import them back. Save as Indexed BMP.</div><a class="pill-link" href="https://www.gimp.org/" target="_blank">↗ gimp.org</a></div>
+    <div class="card"><div class="card-title">SimShow or FAR RCF Explorer</div><div class="card-desc">Optional but useful — lets you preview what objects look like before committing to editing them. Good for identifying which IFF file contains which in-game object.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Sims Depot ↗</a></div>
+  </div>
+</section>
+
+<section id="steps">
+  <div class="section-head"><div class="section-emoji">🚶</div><div><h2 class="section-title">Step-by-Step: Retexturing an Object</h2></div></div>
+  <div class="callout red"><strong>🚨 Always clone first.</strong> Never open and edit an original game .iff file directly. If you corrupt it, you break the object for everyone in your game with no easy way to restore it. Always use Transmogrifier to make a copy first.</div>
+  <div class="steps" style="margin-top:16px;">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find the object's .iff file</h4><p>Game objects are in <code>GameData\Objects\</code>. Expansion pack objects are in <code>ExpansionPack1\</code> through <code>ExpansionPack7\</code>. The filename usually matches the object's name — for example, the standard couch is <code>sofabasic.iff</code>. If you're unsure, use SimShow to browse objects visually.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Clone it with Transmogrifier</h4><p>Open Transmogrifier, browse to the original .iff file, and click <strong>Clone</strong>. Give the clone a descriptive name — this becomes the object's filename and internal ID. Save the clone somewhere easy to find, like your Desktop. The clone is completely independent of the original.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the clone in IFF Pencil 2</h4><p>Open IFF Pencil 2 and load your cloned .iff file. In the left panel you'll see all the resources inside the object. Look for <strong>BMP_</strong> resources — these are the bitmap sprites. There may also be <strong>SPR2</strong> resources for some objects.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export the sprites you want to replace</h4><p>Click a BMP_ resource to preview it. Right-click → Export → save as BMP. Do this for each view angle you want to repaint. Objects typically have multiple BMP_ resources — one per zoom level and viewing angle. Common ones are IDs 2000 (catalogue image), 4000 and 6000 (speech bubbles), and higher IDs for the game-view sprites.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Repaint in GIMP</h4><p>Open the exported BMP in GIMP. The sprite uses Indexed colour — you'll see the colour palette in GIMP's Palettes panel. Paint your retexture using colours from the existing palette for best results. Avoid adding colours not in the palette as this can cause colour-shifting in game. Export as Indexed BMP when done.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your new sprites back into IFF Pencil 2</h4><p>In IFF Pencil 2, right-click the BMP_ resource you exported → Import → select your repainted BMP. Repeat for each sprite you repainted. Save the .iff file.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place the .iff in Downloads\</h4><p>Copy your finished .iff into the <code>Downloads\</code> folder in your Legacy Collection install. Launch the game — the retextured object appears in Buy mode alongside the original.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test thoroughly</h4><p>Check the object at all zoom levels (near, medium, far) and from different angles. Object sprites look different depending on how close the camera is — you may need to repaint sprites at different zoom levels if the results look wrong at any distance.</p></div></div>
+  </div>
+</section>
+
+<section id="sprite-types">
+  <div class="section-head"><div class="section-emoji">🖼️</div><div><h2 class="section-title">Understanding Object Sprites</h2><p class="section-sub">What each BMP_ resource does</p></div></div>
+  <p>Objects contain multiple sprite resources. You don't need to replace all of them — just the ones you want to change. Here's what the common ones are:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">Resource ID</th><th style="width:25%">Label in IFF Pencil 2</th><th>What it is</th></tr></thead>
+      <tbody>
+        <tr><td>BMP_ 2000</td><td>Catalog</td><td>The thumbnail shown in the Buy mode catalogue. Small image, usually 60×60px or similar.</td></tr>
+        <tr><td>BMP_ 4000</td><td>Speech (small)</td><td>The small speech balloon icon shown when a Sim wants to use the object.</td></tr>
+        <tr><td>BMP_ 6000</td><td>Speech (large)</td><td>The large speech balloon icon.</td></tr>
+        <tr><td>SPR2 100+</td><td>Sprite group</td><td>The actual game-view sprites at different zoom levels and angles. Multiple resources for near/medium/far views.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout teal">ℹ️ Start by replacing just the BMP_ 2000 catalogue image — it's the easiest sprite and a good way to confirm your workflow before tackling the full set of game-view sprites.</div>
+</section>
+
+<section id="further">
+  <div class="section-head"><div class="section-emoji">📚</div><div><h2 class="section-title">Going Further</h2></div></div>
+  <p>Once you're comfortable with visual retextures, the next step is changing the object's behaviour — its price, motive effects, interactions, and so on. That's covered on the IFF Hacking page.</p>
+  <div class="grid-2">
+    <div class="card"><div class="card-title">IFF Hacking Guide</div><div class="card-desc">Learn to change object prices, skill gain rates, motive impacts and add custom interactions. Uses the same tools you've already set up — just goes deeper into the BHAV scripts.</div><a class="pill-link" href="iff-hacking.html">Read IFF Hacking Guide ↗</a></div>
+    <div class="card"><div class="card-title">Sims College Archive — Entry Level</div><div class="card-desc">Structured course covering motives, moods and BCON modification. The right next step after visual retextures if you want to understand how object behaviour actually works.</div><a class="pill-link" href="http://www.woobsha.com/SimsCollegeArchive/" target="_blank">Open Course Archive ↗</a></div>
+    <div class="card"><div class="card-title">Woobsha's DIY Workshop</div><div class="card-desc">Written tutorials on a wide range of IFF object modifications — from changing prices to creating new light sources and custom interactions.</div><a class="pill-link" href="http://www.woobsha.com/diyworkshop.html" target="_blank">View Tutorials ↗</a></div>
+  </div>
+</section>
+
+</main>
 </div>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection - Modding Guide
+      The Sims Legacy Collection — Modding Guide
     </div>
         <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
@@ -405,7 +483,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
       <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
       <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
-      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
+      <a href="making-objects.html" class="nav-drawer-link active nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
       <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
       <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
     </div>
@@ -418,7 +496,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
       <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
-      <a href="contact.html" class="nav-drawer-link active"><span class="nav-drawer-icon">✉️</span>Contact</a>
+      <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>

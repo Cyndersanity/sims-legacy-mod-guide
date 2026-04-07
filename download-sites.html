@@ -158,8 +158,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .callout strong{font-weight:800;}
 
 /* CODE */
-.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;}
-code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;}
+.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;word-break:break-all;}
+code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;word-break:break-all;}
 
 /* TABLE */
 .table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
@@ -266,6 +266,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 }
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
+
+/* CREATE CC NAV DROPDOWN */
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
+.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
+.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-drawer-sublink{padding-left:32px!important;font-size:13px!important;}
+
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
+
+/* MODS/CC NAV DROPDOWN */
+.nav-dropdown-mods{position:relative;display:inline-flex;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -291,7 +312,14 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
-    <a href="making-cc.html" class="nav-link">🎨 Create CC</a>
+    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
+  <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
+  <div class="nav-dropdown-divider"></div>
+  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
+  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
+  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
+  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
+</div></div>
     <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
     <a href="tools.html" class="nav-link">🧰 Tools</a>
     <span class="nav-sep" aria-hidden="true"></span>
@@ -304,6 +332,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
   </div>
 </nav>
@@ -336,19 +365,19 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#primary">Most Active (2026)</a></li><li><a href="#archive">Archive Sites</a></li><li><a href="#tools-sites">Tools & Tutorials</a></li><li><a href="#directories">Site Directories</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
+      <ul class="toc-list"><li><a href="#active">Most Active (2026)</a></li><li><a href="#archive">Archive Sites</a></li><li><a href="#tools-sites">Tools & Tutorials</a></li><li><a href="#directories">Site Directories</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
     </div>
   </aside>
   <main class="content">
 <details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#active">Most Active Sites</a><a href="#archive">Archive Sites</a><a href="#tools-tutorials">Tools & Tutorials</a><a href="#directories">Site Directories</a></div></details>
 
 
-<section id="primary">
+<section id="active">
   <div class="section-head">
     <div class="section-emoji">🌟</div>
     <div>
-      <h2 class="section-title">Most Active Sites (2026)</h2>
-      <p class="section-sub">Moderators appear to still be active and new mods occasionally get added</p>
+      <h2 class="section-title">Active Mod/CC Sites</h2>
+      <p class="section-sub">Websites are still active as of 2026. Periodically checked. Please use the <a href="contact.html">contact page</a> to let me know if any links are not working.</p>
     </div>
   </div>
   <div class="grid-2">
@@ -370,53 +399,21 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="section-emoji">📚</div>
     <div>
       <h2 class="section-title">Archive Sites</h2>
-      <p class="section-sub">Large collections from the original era - mostly still working</p>
+      <p class="section-sub">Large collections from the original era and community-compiled archives</p>
     </div>
   </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">The Sims Resource - Sims 1 <span class="tag gold">Free Account Required</span></div>
-      <div class="card-desc">Huge archive of clothing, hair and objects from the original game era. Some items need a free account to download.</div>
-      <a class="pill-link" href="https://www.thesimsresource.com/downloads/browse/category/sims1/" target="_blank">↗ thesimsresource.com</a>
-    </div>
-    
-    <div class="card">
-      <div class="card-title">Around the Sims</div>
-      <div class="card-desc">Sandy's site - one of the most respected Sims 1 CC archives. She has since moved on to newer Sims games but her entire Sims 1 archive remains up for download: objects, skins, heads and build content. High quality work with a consistent aesthetic.</div>
-      <a class="pill-link" href="https://sims1.aroundthesims3.com/" target="_blank">aroundthesims3.com &#8599;</a>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Sims File Share - YoNonna</div>
-      <div class="card-desc">Massive collection of CC shared by Creator YoNonna. Recently collated and updated to be more accessible. Tonnes of build objects, hairs, skins and more. Thousands of files.</div>
-      <a class="pill-link" href="https://simfileshare.net/folder/264361/" target="_blank">↗ simfileshare.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Andrasta's World</div>
-      <div class="card-desc">Gothic and grungy style CC and mods. Unique dark aesthetic for atmospheric builds.</div>
-      <a class="pill-link" href="https://doortomore.net/" target="_blank">↗ doortomore.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">A Little White Magic</div>
-      <div class="card-desc">Gameplay plugins, decor and mods. Home of the Domcal Weekends mod.</div>
-      <a class="pill-link" href="https://white.leadpipecollection.net/" target="_blank">↗ white.leadpipecollection.net</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Sims Freaks / The Real Sim</div>
-      <div class="card-desc">Objects, clothes, houses and general build mode items.</div>
-      <a class="pill-link" href="https://simfreaks.com/therealsim/index.php" target="_blank">↗ simfreaks.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Wayback Machine - Sims 1 CC Listing</div>
-      <div class="card-desc">Large list of zip files containing loads of different CC options archived from the original era.</div>
-      <a class="pill-link" href="https://archive.org/details/sims-1-cc" target="_blank">↗ archive.org</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Wayback Machine - Sims 1 CC Search</div>
-      <div class="card-desc">Search the Wayback Machine to find archived Sims 1 CC sites from the original era.</div>
-      <a class="pill-link" href="https://web.archive.org/web/20260000000000*/Sims%201" target="_blank">↗ web.archive.org</a>
-    </div>
-  </div>
+<div class="table-wrap" style="margin-top:16px;">
+  <table>
+    <thead><tr><th style="width:35%">Site</th><th>Description</th></tr></thead>
+    <tbody>
+<tr><td style="width:35%;white-space:normal;"><a href="https://simfileshare.net/folder/264361/" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">YoNonna - Sims File Share Directory ↗</a></td><td style="white-space:normal;">Directory containing a boat load of zipped together content that YoNonna has collated and saved on Sims File Share. Broken down into Creators/Website names with subfolders of all of the content YoNonna managed to track down and archive.  Recently updated to be more accessible. Tonnes of build objects, hairs, skins and more - thousands of files, so you might want to check through the zips and choose what you want to keep. There are limitations to how many CC files can be used in the Sims game. If you go over the limit, the game may crash or not load.</td></tr>
+<tr><td style="width:35%;white-space:normal;"><a href="https://archive.org/details/sims-1-cc" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">Wayback Machine - Sims 1 CC Listing ↗</a></td><td style="white-space:normal;">Large list of zip files containing loads of different CC options archived from the original Sims era.</td></tr>
+<tr><td style="width:35%;white-space:normal;"><a href="https://modthesims.info/t/480970" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">Mod The Sims - WCIF Sims 1 Mods/CC? ↗</a></td><td style="white-space:normal;">A large forum post containing lists of previously active Sims 1 CC sites, I haven't had time to go through it completely yet. But you may find other active sites that I haven't listed anywhere yet.</td></tr>
+<tr><td style="width:35%;white-space:normal;"><a href="https://modthesims.info/showthread.php?s=05d8b2034ff210ad29cab2a80b1cddc5&amp;t=686236" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">Mod The Sims - TS1 - Maxis Beta Ports [1998] ↗</a></td><td style="white-space:normal;">Forum containing some of the beta objects that were shown in orignal Sims 1 Trailers, but never made it into the game.</td></tr>
+<tr><td style="width:35%;white-space:normal;"><a href="http://simscave.mustbedestroyed.org/index.php?board=233.0" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">Saving the Sims Archive (s1) ↗</a></td><td style="white-space:normal;">Massive collection of content created between 2000 and now, put together by moderator Ginnie. Broken down into the website/creator with links to Sims File Share to download each set/zip file.</td></tr>
+    </tbody>
+  </table>
+</div>
 </section>
 
 <section id="tools-sites">
@@ -451,19 +448,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </section>
 
 <section id="directories">
-  <div class="section-head">
-    <div class="section-emoji">📋</div>
-    <div>
-      <h2 class="section-title">Site Directories</h2>
-      <p class="section-sub">Find even more sites from these curated lists</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-title">Pleasant Sims - 70+ Active Sites <span class="tag green">Master List</span></div>
-    <div class="card-desc">A curated directory of live Sims 1 CC sites. Covers clothing, objects, tools and more.</div>
-    <a class="pill-link" href="https://pleasantsims.com/active-sims-1-sites/" target="_blank">↗ pleasantsims.com/active-sims-1-sites/</a>
-  </div>
-  <div class="card" style="margin-top:14px;">
+<div class="card" style="margin-top:14px;">
     <div class="card-title">Steam Community - Ultimate Sims 1 Guide</div>
     <div class="card-desc">Community-maintained guide with mod links, cheats and QoL tips. Updated by players since the Legacy launch.</div>
     <a class="pill-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3418368145" target="_blank">↗ Steam Community Guide</a>
@@ -502,20 +487,29 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="nav-drawer-group">
       <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
       <a href="about-legacy.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Playing</div>
-      <a href="whats-possible.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
-      <a href="installing-mods.html" class="nav-drawer-link"><span class="nav-drawer-icon">📁</span>Install</a>
-      <a href="download-sites.html" class="nav-drawer-link active"><span class="nav-drawer-icon">🌐</span>Sites</a>
-      <a href="mod-list.html" class="nav-drawer-link"><span class="nav-drawer-icon">⚙️</span>Mods</a>
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link active nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
       <a href="cheats.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎮</span>Cheats</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Creating</div>
-      <a href="making-cc.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎨</span>Create CC</a>
+      <a href="making-cc.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
+      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
       <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
       <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
     </div>
@@ -527,11 +521,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Reference</div>
-      <a href="terminology.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>Terminology</a>
       <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
       <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
-      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
@@ -541,8 +532,11 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   var hint=document.getElementById('navHint');
   function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
   if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);setTimeout(check,200);
+  var hintL=document.getElementById('navHintLeft');
+  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
+  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
+  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
   var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
   var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
@@ -554,6 +548,20 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   if(btt){
     window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
     btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+  var ccBtn=document.getElementById('ccDropdownBtn');
+  var ccPanel=document.getElementById('ccDropdownPanel');
+  if(ccBtn&&ccPanel){
+    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
+    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
+    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  var mdBtn=document.getElementById('modsDropdownBtn');
+  var mdPanel=document.getElementById('modsDropdownPanel');
+  if(mdBtn&&mdPanel){
+    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
+    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
+    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
   }
 })();
 </script>

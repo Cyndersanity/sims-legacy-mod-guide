@@ -158,8 +158,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .callout strong{font-weight:800;}
 
 /* CODE */
-.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;}
-code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;}
+.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;word-break:break-all;}
+code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;word-break:break-all;}
 
 /* TABLE */
 .table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
@@ -266,6 +266,26 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 }
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
+
+/* CREATE CC NAV DROPDOWN */
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
+.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
+.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
+
+/* MODS/CC NAV DROPDOWN */
+.nav-dropdown-mods{position:relative;display:inline-flex;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -291,7 +311,14 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
-    <a href="making-cc.html" class="nav-link active">🎨 Create CC</a>
+    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
+  <a href="making-cc.html" class="nav-dropdown-item active">🎨 Overview & Tools</a>
+  <div class="nav-dropdown-divider"></div>
+  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
+  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
+  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
+  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
+</div></div>
     <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
     <a href="tools.html" class="nav-link">🧰 Tools</a>
     <span class="nav-sep" aria-hidden="true"></span>
@@ -304,6 +331,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
   </div>
 </nav>
@@ -330,102 +358,95 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <div class="page-hero">
   <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Creating CC</div>
   <h1 class="page-title">Creating <span>Custom Content</span></h1>
-  <p class="page-sub">Skins, clothing, hairstyles, walls and floors - made by you</p>
+  <p class="page-sub">Everything you need to create custom content for Sims 1 Legacy Collection</p>
 </div>
 <div class="page-layout">
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#how-it-works">How Skins Work in Sims 1</a></li><li><a href="#tools">Tools You Need</a></li><li><a href="#install-tools">Installing the Tools</a></li><li><a href="#clothing">Making Clothing</a></li><li><a href="#hair">Making Hair & Heads</a></li><li><a href="#walls-floors">Walls & Floors</a></li><li><a href="#tutorials">Tutorials</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
+      <ul class="toc-list">
+        <li><a href="#subpages">What You Can Make</a></li>
+        <li><a href="#how-skins-work">How Skins Work</a></li>
+        <li><a href="#tools">Tools Overview</a></li>
+        <li><a href="#tutorials">Tutorials</a></li>
+      </ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
     </div>
   </aside>
   <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#how-it-works">How Skins Work</a><a href="#tools">Tools Needed</a><a href="#install-tools">Installing Tools</a><a href="#clothing">Making Clothing</a><a href="#hair">Hair & Heads</a><a href="#walls-floors">Walls & Floors</a><a href="#tutorials">Tutorials</a></div></details>
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#subpages">What You Can Make</a><a href="#how-skins-work">How Skins Work</a><a href="#tools">Tools Overview</a><a href="#tutorials">Tutorials</a></div></details>
 
-    
-<section id="how-it-works">
-  <div class="section-head"><div class="section-emoji">💡</div><div><h2 class="section-title">How Skins Work in Sims 1</h2><p class="section-sub">Very different from later games</p></div></div>
-  <div class="callout gold"><strong>Important:</strong> Sims 1 CC works completely differently from Sims 4. The differences trip up a lot of people coming from later games.</div>
-  <div class="grid-2" style="margin-top:20px;">
-    <div class="card"><div class="card-title">👕 Clothing = Body Skin</div><div class="card-desc">A Sim's body and clothing are <strong>one combined texture file</strong>. There's no separate top or bottom layer - each outfit is a complete body image.</div></div>
-    <div class="card"><div class="card-title">💇 Hair = Head Skin</div><div class="card-desc">Hair is <strong>painted directly onto the head texture</strong>. It's not a separate item - you change hairstyle by changing the whole head file.</div></div>
-    <div class="card"><div class="card-title">🎨 3 Skin Tones</div><div class="card-desc">Sims 1 has light, medium and dark skin tones. If your outfit covers the body, you need <strong>three separate versions</strong> — one per tone. Each is a separate .BMP file with the matching base skin colour underneath.</div></div>
-    <div class="card"><div class="card-title">👥 Body Types</div><div class="card-desc">Sims 1 has <strong>three adult body types</strong>: <strong>skinny</strong> (the default standard build), <strong>fit</strong> (athletic), and <strong>fat</strong> (plus-size). Each comes in male and female variants — six meshes total. A skin made for a fit female mesh will look wrong on a standard female body because the proportions differ. For widest compatibility, make at least skinny male and skinny female versions. Children have their own separate mesh. Note: Sims 1 has no pregnancy mechanic — babies appear without any visible pregnancy, so there is no pregnant body mesh.</div></div>
-    <div class="card"><div class="card-title">⚠️ 256-Colour BMP Only</div><div class="card-desc">All textures must be saved as <strong>Indexed (256-colour) BMP</strong> files. Regular BMPs, PNGs or JPGs show as a white blank body in-game.</div></div>
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This section is a work in progress</strong> — screenshots and additional tool instructions will be added. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank">r/thesims1</a>.</div>
+
+<section id="subpages">
+  <div class="section-head"><div class="section-emoji">🗺️</div><div><h2 class="section-title">What You Can Make</h2><p class="section-sub">Choose a content type to get started</p></div></div>
+  <div class="grid-2">
+    <a href="making-clothing.html" class="card" style="text-decoration:none;">
+      <div class="card-title">👗 Making Clothing</div>
+      <div class="card-desc">Custom body skins and outfits. Covers how outfit textures work, body types, skin tones, filename conventions, step-by-step painting in GIMP, and placing files in game.</div>
+      <span class="pill-link" style="display:inline-flex;margin-top:8px;">Go to Clothing Guide ↗</span>
+    </a>
+    <a href="making-heads.html" class="card" style="text-decoration:none;">
+      <div class="card-title">💇 Making Hair & Heads</div>
+      <div class="card-desc">Custom hair and face textures. Explains how hair is part of the head skin (not a separate item), how to use the Face Photo Wizard in The Sims Creator, and how to make multiple skin tone versions.</div>
+      <span class="pill-link" style="display:inline-flex;margin-top:8px;">Go to Hair & Heads Guide ↗</span>
+    </a>
+    <a href="making-walls-floors.html" class="card" style="text-decoration:none;">
+      <div class="card-title">🏠 Making Walls & Floors</div>
+      <div class="card-desc">The easiest type of CC to make. Covers wall coverings (.WLL), floor tiles (.FLR) via Home Crafter, and roof textures (.BMP) directly in GIMP — no mesh editing required.</div>
+      <span class="pill-link" style="display:inline-flex;margin-top:8px;">Go to Walls & Floors Guide ↗</span>
+    </a>
+    <a href="making-objects.html" class="card" style="text-decoration:none;">
+      <div class="card-title">🪑 Object Retextures</div>
+      <div class="card-desc">Change how existing in-game objects look without touching any behaviour scripts. Uses Transmogrifier and IFF Pencil 2. Good bridge between visual CC and full IFF hacking.</div>
+      <span class="pill-link" style="display:inline-flex;margin-top:8px;">Go to Object Retextures Guide ↗</span>
+    </a>
+  </div>
+  <div class="callout teal" style="margin-top:20px;">ℹ️ <strong>Custom animations</strong> require advanced knowledge of BHAV scripting and the Simpose tool. They're covered on the <a href="iff-hacking.html">IFF Hacking</a> page.</div>
+</section>
+
+<section id="how-skins-work">
+  <div class="section-head"><div class="section-emoji">💡</div><div><h2 class="section-title">How Skins Work in Sims 1</h2><p class="section-sub">Key concepts before you start — very different from later games</p></div></div>
+  <div class="callout gold">⚠️ Sims 1 CC works completely differently from Sims 4. There are no separate tops, bottoms or hair items. Each outfit is a single flat texture painted onto the body mesh. Understanding this first saves a lot of confusion.</div>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">👕 Clothing = body skin</div><div class="card-desc">A Sim's body and clothing are one combined texture file. There's no separate top or bottom layer — each outfit is a complete body image painted onto the 3D mesh.</div></div>
+    <div class="card"><div class="card-title">💇 Hair = head skin</div><div class="card-desc">Hair is painted directly onto the head texture. It's not a separate item — you change hairstyle by changing the whole head file. The face and hair are one image.</div></div>
+    <div class="card"><div class="card-title">🎨 Three skin tones</div><div class="card-desc">Sims 1 has light, medium and dark skin tones. If your outfit exposes skin, you need three separate files — one per tone — with the matching base skin colour underneath.</div></div>
+    <div class="card"><div class="card-title">👥 Three body types + child</div><div class="card-desc">Skinny (default), fit (athletic), fat (plus-size) — each in male and female. Children have their own mesh. A skin made for a fit body looks wrong on a skinny body.</div></div>
+    <div class="card"><div class="card-title">⚠️ 256-colour BMP only</div><div class="card-desc">All body and head textures must be saved as Indexed (256-colour) BMP files. Regular 24-bit BMPs, PNGs or JPGs show as a white blank body in game. This step is critical.</div></div>
   </div>
 </section>
 
 <section id="tools">
-  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Tools You Need</h2></div></div>
-  <div class="grid-2">
-    <div class="card"><div class="card-title">The Sims Creator (TSC) <span class="tag green">Start Here</span></div><div class="card-desc">Official Maxis CC creation tool. Provides a 3D Sim body to paint onto and exports game-ready .BMP/.CMX/.SKN files. Download free from the Internet Archive.</div><a class="pill-link" href="https://archive.org/details/TheSimsCreator" target="_blank">↗ Download from Archive.org</a></div>
-    <div class="card"><div class="card-title">Home Crafter <span class="tag green">Walls &amp; Floors</span></div><div class="card-desc">Official Maxis tool for creating custom walls and floors. Import any image and it generates the correct game file automatically. Download free from the Internet Archive.</div><a class="pill-link" href="https://archive.org/details/SimsArtStudio" target="_blank">↗ Download from Archive.org</a></div>
-    <div class="card"><div class="card-title">GIMP <span class="tag teal">Free</span></div><div class="card-desc">Free image editor for detailed texture painting. Critical: before exporting, go Image → Mode → Indexed (256 colours), then export as BMP.</div><a class="pill-link" href="https://www.gimp.org/" target="_blank">↗ gimp.org</a></div>
-    <div class="card"><div class="card-title">Paint.NET <span class="tag teal">Free</span></div><div class="card-desc">Simpler free alternative to GIMP. Also supports indexed BMP export with the right plugin.</div><a class="pill-link" href="https://getpaint.net/" target="_blank">↗ getpaint.net</a></div>
-  </div>
-</section>
-
-<section id="install-tools">
-  <div class="section-head"><div class="section-emoji">⚙️</div><div><h2 class="section-title">Installing The Sims Creator &amp; Home Crafter</h2><p class="section-sub">How to get these tools running</p></div></div>
-  <div class="callout gold">
-    <strong>Note:</strong> These are old Maxis tools from the early 2000s. They run fine on Windows 10/11 but may need to be run as Administrator. If you get a compatibility warning, click "Run anyway" - they are safe official Maxis programs.
-  </div>
-  <div class="steps" style="margin-top:20px;">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download from the Internet Archive</h4><p>Click the Archive.org download links above. On the Archive.org page, click the <strong>Download</strong> button and save the ZIP or EXE file to your computer.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Extract if zipped</h4><p>If the download is a .zip file, right-click it and choose <strong>Extract All</strong>. Open the extracted folder to find the installer (.exe) inside.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Run the installer</h4><p>Double-click the .exe to install. If Windows shows a security warning, click <strong>More info</strong> then <strong>Run anyway</strong>. You may also need to right-click and choose <strong>Run as administrator</strong>.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Launch the tool</h4><p>Once installed, open The Sims Creator or Home Crafter from your Start menu or desktop shortcut. They do not need to be inside your Sims game folder to work - they run independently and export files that you then copy into your game.</p></div></div>
-  </div>
-</section>
-
-<section id="clothing">
-  <div class="section-head"><div class="section-emoji">👗</div><div><h2 class="section-title">Making Custom Clothing</h2><p class="section-sub">How it works</p></div></div>
-  <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open The Sims Creator and choose a body mesh</h4><p>Pick the body type: fit/fat/skinny, male/female, adult/child. An outfit made for a fit female won't work on a fat female body - each needs a separate file.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export the base texture</h4><p>Export the base skin from TSC to GIMP or Photoshop. You'll see the UV layout - how the flat image wraps around the 3D body. Front torso is in the centre; arms are strips to the sides.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint your outfit</h4><p>Work in layers - keep the base skin on one layer, paint clothing on top. Use the Warp transform tool to fit patterns around the body shape. Pay attention to seam edges where body parts join - misaligned seams are very visible in game.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Make all three skin tone versions</h4><p>Swap the base skin layer for each of the three skin tones (light, medium, dark), re-flatten and save separately.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save as Indexed BMP - critical!</h4><p><strong>GIMP:</strong> Image → Mode → Indexed → Export As .BMP<br><strong>Photoshop:</strong> Image → Mode → Indexed Colour → Save As .BMP<br>Do <em>not</em> save as 24-bit BMP, PNG or JPG.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import back into TSC and export</h4><p>TSC generates the .BMP, .CMX and .SKN files. Place all three directly in <code>GameData\Skins\</code> with no subfolders.</p></div></div>
-  </div>
-</section>
-
-<section id="hair">
-  <div class="section-head"><div class="section-emoji">💇</div><div><h2 class="section-title">Making Hair & Heads</h2></div></div>
-  <div class="callout teal">The process for hair and faces is the same as clothing - you're editing the head skin file rather than the body skin file. Hair is painted directly onto the head texture, so to add a new hairstyle you paint it onto the head file, and to change colour you edit and re-save it. There is no separate hair item in Sims 1.</div>
-  <div class="steps" style="margin-top:20px;">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export a head template from TSC</h4><p>Or find an existing head skin in GameData\Skins\ to use as a starting point.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Edit in GIMP/Photoshop</h4><p>Paint the new hairstyle, adjust facial features. The head texture includes the face, ears, neck and hair all in one image.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save as Indexed BMP and place in Skins</h4><p>Same rules as clothing - Indexed BMP only, directly in GameData\Skins\ with no subfolders.</p></div></div>
-  </div>
-</section>
-
-<section id="walls-floors">
-  <div class="section-head"><div class="section-emoji">🏠</div><div><h2 class="section-title">Custom Walls & Floors</h2><p class="section-sub">The easiest type of CC to make</p></div></div>
-  <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create your design</h4><p>Make any image in GIMP, Photoshop or even MS Paint. Square images work best. Aim for at least 128×128px for a decent quality result.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open Home Crafter</h4><p>Launch Home Crafter (download it from the Internet Archive link in the Tools section above if you don't have it yet).</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your image and export</h4><p>Home Crafter generates the .WLL or .FLR file automatically. Place it in <code>GameData\Walls\</code> or <code>GameData\Floors\</code>.</p></div></div>
+  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Tools Overview</h2><p class="section-sub">What each tool does and where to get it</p></div></div>
+  <p>A note on Legacy Collection compatibility: the original Maxis tools (The Sims Creator, Home Crafter) need a registry key that Legacy Collection doesn't create. Each subpage has detailed setup instructions. The Secondhand-Feraligatr installer handles this automatically.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:25%">Tool</th><th style="width:25%">Used for</th><th style="width:20%">Legacy fix needed</th><th>Get it</th></tr></thead>
+      <tbody>
+        <tr><td>The Sims Creator</td><td>Clothing & head CC — provides body templates, exports .CMX/.SKN files</td><td class="warn">Registry key only</td><td><a href="https://github.com/Secondhand-Feraligatr/Sims-1-Programs-for-Legacy-Collection" target="_blank" style="color:var(--green-dark);font-weight:700;">Feraligatr installer ↗</a></td></tr>
+        <tr><td>Home Crafter</td><td>Wall coverings and floor tiles</td><td class="warn">Registry key + 16-bit + XP SP2</td><td><a href="https://github.com/Secondhand-Feraligatr/Sims-1-Programs-for-Legacy-Collection" target="_blank" style="color:var(--green-dark);font-weight:700;">Feraligatr installer ↗</a></td></tr>
+        <tr><td>GIMP</td><td>All image editing and painting</td><td class="ok">None — works standalone</td><td><a href="https://www.gimp.org/" target="_blank" style="color:var(--green-dark);font-weight:700;">gimp.org ↗</a></td></tr>
+        <tr><td>Transmogrifier</td><td>Cloning objects before retexturing</td><td class="ok">None — works standalone</td><td><a href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank" style="color:var(--green-dark);font-weight:700;">Sims Depot ↗</a></td></tr>
+        <tr><td>IFF Pencil 2</td><td>Object sprite replacement</td><td class="ok">None — works standalone</td><td><a href="https://github.com/trolando/Sims1Tools" target="_blank" style="color:var(--green-dark);font-weight:700;">GitHub ↗</a></td></tr>
+        <tr><td>Skin Doctor</td><td>Validates skin files — catches colour depth errors</td><td class="ok">None — works standalone</td><td>BeyondSims / Internet Archive</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
 <section id="tutorials">
   <div class="section-head"><div class="section-emoji">📚</div><div><h2 class="section-title">Tutorials & Further Reading</h2></div></div>
   <div class="grid-2">
-    <div class="card"><div class="card-title">Simblr.cc - Retexture Tutorial</div><div class="card-desc">Detailed walkthrough using Sims 2 Body Shop textures as a source for Sims 1 clothing. Highly recommended for beginners.</div><a class="pill-link" href="https://simblr.cc/ts1/tutorial/1890-making-skins-for-the-sims-1-a-retexture-tutorial.html" target="_blank">Read Tutorial ↗</a></div>
-    <div class="card"><div class="card-title">The Sims Depot - Adding Skins</div><div class="card-desc">Guide to adding skins and meshes in Simpose. Good for understanding how skins and meshes relate.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/" target="_blank">View Guide ↗</a></div>
-    <div class="card">
-      <div class="card-title">The Sims Online (TSO) Skin Conversions</div>
-      <div class="card-desc">The Sims Online used the same skin mesh format as Sims 1. A large archive of TSO outfit textures is available and works directly in Sims 1 - you already have the meshes. Be selective rather than bulk-importing everything, and check each skin works correctly before adding to your main save. The Simblr retexture tutorial above covers how to work with these conversions.</div>
-      <a class="pill-link" href="https://simblr.cc/ts1/tutorials/" target="_blank">See retexture tutorial &#8599;</a>
-    </div>
-
-    <div class="card"><div class="card-title">Sims 1 Tutorials - Awesome Expression</div><div class="card-desc">Advanced: creating custom Sim animations and poses using Simpose. For experienced modders.</div><a class="pill-link" href="http://www.awesomeexpression.com/sims-1-tutorials.html" target="_blank">View Tutorial ↗</a></div>
-    <div class="card"><div class="card-title">r/thesims1 - The Sims 1</div><div class="card-desc">Reddit community dedicated to The Sims 1. Good place to ask questions, share finds and connect with other players and modders.</div><a class="pill-link" href="https://www.reddit.com/r/thesims1/" target="_blank">Visit Subreddit ↗</a></div>
+    <div class="card" style="border-color:var(--green);"><div class="card-title"><span class="tag green">RECOMMENDED</span> Simblr.cc Retexture Tutorial</div><div class="card-desc">Step-by-step walkthrough using Sims 2 Body Shop textures as a source for Sims 1 clothing. The most up-to-date beginner guide available for skin creation.</div><a class="pill-link" href="https://simblr.cc/ts1/tutorial/1890-making-skins-for-the-sims-1-a-retexture-tutorial.html" target="_blank">Read Tutorial ↗</a></div>
+    <div class="card" style="border-color:var(--green);"><div class="card-title"><span class="tag green">COURSE</span> Sims College Archive — Hacking Lessons</div><div class="card-desc">Archived lessons from the original SimsCollege.com covering BHAV scripting and object behaviour — useful context even if you're focused on visual CC.</div><a class="pill-link" href="http://www.woobsha.com/SimsCollegeArchive/" target="_blank">Open Course Archive ↗</a></div>
+    <div class="card"><div class="card-title">The Sims Depot — Adding Skins & Meshes</div><div class="card-desc">Classic guide covering how skins and meshes relate in Sims 1, with tool setup notes.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/" target="_blank">View Guide ↗</a></div>
+    <div class="card"><div class="card-title">Sims 1 Tutorials — Awesome Expression</div><div class="card-desc">Advanced: custom animations and poses using Simpose. For experienced modders.</div><a class="pill-link" href="http://www.awesomeexpression.com/sims-1-tutorials.html" target="_blank">View Tutorial ↗</a></div>
+    <div class="card"><div class="card-title">The Sims Online Skin Conversions</div><div class="card-desc">TSO used the same skin mesh as Sims 1. A large archive of outfit textures is available and works directly — you already have the meshes.</div><a class="pill-link" href="https://simblr.cc/ts1/tutorials/" target="_blank">See Retexture Tutorial ↗</a></div>
+    <div class="card"><div class="card-title">r/thesims1</div><div class="card-desc">Reddit community for Sims 1 players and modders. Good place to ask CC creation questions and share work.</div><a class="pill-link" href="https://www.reddit.com/r/thesims1/" target="_blank">Visit Subreddit ↗</a></div>
   </div>
 </section>
 
-  </main>
+</main>
 </div>
 
 <footer>
@@ -451,20 +472,29 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="nav-drawer-group">
       <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
       <a href="about-legacy.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Playing</div>
-      <a href="whats-possible.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
-      <a href="installing-mods.html" class="nav-drawer-link"><span class="nav-drawer-icon">📁</span>Install</a>
-      <a href="download-sites.html" class="nav-drawer-link"><span class="nav-drawer-icon">🌐</span>Sites</a>
-      <a href="mod-list.html" class="nav-drawer-link"><span class="nav-drawer-icon">⚙️</span>Mods</a>
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
       <a href="cheats.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎮</span>Cheats</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Creating</div>
-      <a href="making-cc.html" class="nav-drawer-link active"><span class="nav-drawer-icon">🎨</span>Create CC</a>
+      <a href="making-cc.html" class="nav-drawer-link active"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
+      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
       <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
       <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
     </div>
@@ -476,11 +506,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Reference</div>
-      <a href="terminology.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>Terminology</a>
       <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
       <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
-      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
@@ -490,8 +517,11 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   var hint=document.getElementById('navHint');
   function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
   if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);setTimeout(check,200);
+  var hintL=document.getElementById('navHintLeft');
+  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
+  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
+  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
   var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
   var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
@@ -503,6 +533,20 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   if(btt){
     window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
     btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+  var ccBtn=document.getElementById('ccDropdownBtn');
+  var ccPanel=document.getElementById('ccDropdownPanel');
+  if(ccBtn&&ccPanel){
+    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
+    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
+    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  var mdBtn=document.getElementById('modsDropdownBtn');
+  var mdPanel=document.getElementById('modsDropdownPanel');
+  if(mdBtn&&mdPanel){
+    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
+    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
+    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
   }
 })();
 </script>

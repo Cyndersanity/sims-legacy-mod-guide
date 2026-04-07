@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - Sims Legacy Collection Guide</title>
+<title>Making Hair & Heads — Sims Legacy Collection Guide</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +35,10 @@ a{color:var(--green-dark);}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:0.5;}
 .plumbob{display:inline-block;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);flex-shrink:0;}
 .plumbob.sm{width:16px;height:16px;background:var(--green);}
+.plumbob.md{width:28px;height:28px;background:var(--green);}
+.plumbob.lg{width:52px;height:52px;background:var(--green);animation:pb-float 3s ease-in-out infinite;}
+.plumbob.gold{background:var(--gold)!important;}
+@keyframes pb-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop-filter:blur(16px);border-bottom:2px solid var(--border);padding:0 24px;}
@@ -105,55 +109,111 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .page-title span{color:var(--green);}
 .page-sub{font-size:16px;color:var(--ink-mid);font-weight:600;max-width:560px;margin:0 auto;}
 
-/* LAYOUT - single column centred for contact page */
-.page-wrap{max-width:780px;margin:0 auto;padding:56px 48px 80px;position:relative;z-index:1;}
+/* LAYOUT */
+.page-layout{max-width:1200px;margin:0 auto;padding:48px 48px 80px;display:grid;grid-template-columns:200px 1fr;gap:52px;position:relative;z-index:1;align-items:start;}
 
-/* SECTION */
+/* TABLE OF CONTENTS */
+.toc{position:sticky;top:72px;max-height:calc(100vh - 100px);overflow-y:auto;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);}
+.toc-title{font-family:var(--font-head);font-size:13px;color:var(--green-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.toc-list{list-style:none;}
+.toc-list li{margin-bottom:2px;}
+.toc-list a{font-size:13px;font-weight:600;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:6px;display:block;border-left:2px solid transparent;transition:all 0.15s;}
+.toc-list a:hover{color:var(--green-dark);background:var(--green-pale);border-left-color:var(--green);}
+.toc-list .toc-sub a{font-size:12px;padding-left:20px;font-weight:600;}
+.toc-divider{height:1px;background:var(--border);margin:10px 0;}
+.toc-back{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;margin-top:12px;transition:all 0.15s;}
+.toc-back:hover{background:var(--green-pale);color:var(--green-dark);}
+.page-layout aside{align-self:stretch;}
+
+/* CONTENT */
+.content section{margin-bottom:56px;}
 .section-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border);}
 .section-emoji{font-size:32px;flex-shrink:0;}
 .section-title{font-family:var(--font-head);font-size:clamp(20px,3vw,28px);color:var(--ink);}
 .section-sub{font-size:14px;color:var(--ink-muted);font-weight:600;margin-top:4px;}
-section{margin-bottom:56px;}
+
+/* CARDS */
+.card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:24px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.card:hover{border-color:var(--green);box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.card-title{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.card-desc{font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:12px;}
+.tag{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:10px;font-weight:600;padding:3px 9px;border-radius:999px;border:1.5px solid;}
+.tag.green{border-color:var(--green);color:var(--green-dark);background:var(--green-pale);}
+.tag.gold{border-color:var(--gold);color:var(--gold-dark);background:var(--gold-pale);}
+.tag.teal{border-color:var(--teal);color:#0d6e6a;background:var(--teal-pale);}
+.tag.red{border-color:var(--red);color:#7a1a1a;background:var(--red-pale);}
+.pill-link{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--green-dark);text-decoration:none;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.2);padding:5px 13px;border-radius:999px;transition:all 0.18s;margin-top:8px;}
+.pill-link:hover{background:var(--green);color:#fff;border-color:var(--green);}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
 
 /* CALLOUTS */
 .callout{border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;border-left:4px solid;font-size:15px;line-height:1.7;}
 .callout.green{background:var(--green-pale);border-color:var(--green);}
 .callout.gold{background:var(--gold-pale);border-color:var(--gold);}
+.callout.red{background:var(--red-pale);border-color:var(--red);}
 .callout.teal{background:var(--teal-pale);border-color:var(--teal);}
 .callout strong{font-weight:800;}
+
+/* CODE */
+.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;word-break:break-all;}
 code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;word-break:break-all;}
 
-/* WHAT I WELCOME CARDS */
-.welcome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:24px 0;}
-.welcome-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:18px 20px;box-shadow:var(--shadow-sm);}
-.welcome-icon{font-size:26px;margin-bottom:8px;}
-.welcome-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:4px;}
-.welcome-desc{font-size:13px;color:var(--ink-mid);line-height:1.6;}
+/* TABLE */
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);}
+th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.3px;text-transform:uppercase;padding:13px 16px;text-align:left;border-bottom:2px solid var(--border);}
+td{padding:12px 16px;border-bottom:1px solid rgba(27,82,41,0.06);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(59,174,92,0.04);}
+td:first-child{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--green-dark);}
+.ok{color:#1A5229;font-weight:700;} .warn{color:#9A6F10;font-weight:700;} .no{color:#7a1a1a;font-weight:700;}
 
-/* SETUP INSTRUCTIONS */
-.setup-steps{counter-reset:setup;margin:20px 0;}
-.setup-step{display:flex;gap:14px;margin-bottom:12px;counter-increment:setup;}
-.setup-num{flex-shrink:0;width:28px;height:28px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:12px;color:#fff;margin-top:2px;}
-.setup-num::after{content:counter(setup);}
-.setup-body{font-size:14px;color:var(--ink-mid);line-height:1.7;padding-top:4px;}
-.setup-body strong{color:var(--ink);}
+/* STEPS */
+.steps{counter-reset:step;}
+.step{display:flex;gap:14px;margin-bottom:10px;counter-increment:step;}
+.step-num{flex-shrink:0;width:30px;height:30px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:13px;color:#fff;margin-top:2px;}
+.step-num::after{content:counter(step);}
+.step-body{border-left:4px solid var(--green);background:var(--white);padding:13px 16px;border-radius:0 8px 8px 0;flex:1;}
+.step-body h4{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.step-body p{font-size:14px;color:var(--ink-mid);line-height:1.7;margin:0;}
+.step-body p+p{margin-top:6px;}
 
-/* FORM CONTAINER */
-.form-container{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);}
-.form-container iframe{width:100%;border:none;display:block;}
-.form-mobile-link{display:block;text-align:center;padding:16px 20px;background:var(--green-pale);border:2px solid var(--border);border-radius:var(--radius-md);margin-top:12px;}
-.form-mobile-link p{color:var(--ink-mid);margin-bottom:16px;font-size:15px;}
-.form-mobile-link a{display:inline-block;background:var(--green);color:#fff;font-family:var(--font-head);font-size:15px;padding:12px 28px;border-radius:999px;text-decoration:none;}
-@media(max-width:768px){
-  .form-container{display:none;}
-  .form-mobile-link{display:block;}
-}
+/* STATUS ROWS */
+.status-row{display:flex;gap:16px;padding:20px 22px;border-radius:var(--radius-md);background:var(--white);border:2px solid var(--border);margin-bottom:14px;box-shadow:var(--shadow-sm);}
+.status-row.can{border-left:4px solid var(--green);}
+.status-row.maybe{border-left:4px solid var(--gold);}
+.status-row.cannot{border-left:4px solid var(--red);}
+.status-icon{font-size:26px;flex-shrink:0;margin-top:2px;}
+.status-title{font-weight:800;font-size:16px;margin-bottom:6px;}
+.status-body{font-size:14px;color:var(--ink-mid);line-height:1.7;}
 
-/* PLACEHOLDER - shown before iframe is added */
-.form-placeholder{background:var(--white);border:2px dashed var(--green);border-radius:var(--radius-md);padding:48px 32px;text-align:center;}
-.form-placeholder-icon{font-size:48px;margin-bottom:16px;}
-.form-placeholder-title{font-family:var(--font-head);font-size:20px;color:var(--green-dark);margin-bottom:8px;}
-.form-placeholder-body{font-size:14px;color:var(--ink-mid);line-height:1.7;max-width:480px;margin:0 auto;}
+/* TROUBLE CARDS */
+.trouble-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm);}
+.trouble-title{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:12px;}
+.trouble-list{list-style:none;padding:0;}
+.trouble-list li{font-size:14px;color:var(--ink-mid);padding:5px 0 5px 20px;position:relative;border-bottom:1px solid var(--border);}
+.trouble-list li:last-child{border-bottom:none;}
+.trouble-list li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700;}
+
+/* MOD CARDS */
+.mod-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.mod-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.mod-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.mod-by{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);margin-bottom:8px;}
+.mod-desc{font-size:13px;color:var(--ink-mid);margin-bottom:10px;line-height:1.6;}
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+.cat-label{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--green-dark);text-transform:uppercase;letter-spacing:1px;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);display:inline-block;padding:4px 12px;border-radius:999px;margin:28px 0 14px;}
+
+/* COMMUNITY CARDS */
+.community-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px;}
+.community-card{display:flex;align-items:center;gap:14px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:16px 18px;text-decoration:none;color:var(--ink);transition:all 0.2s;box-shadow:var(--shadow-sm);}
+.community-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.community-icon{font-size:24px;flex-shrink:0;}
+.community-name{font-weight:800;font-size:14px;}
+.community-url{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);}
 
 /* FOOTER */
 footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,255,255,0.8);padding:40px 24px;}
@@ -163,9 +223,6 @@ footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,2
 .footer-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;transition:all 0.15s;}
 .footer-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
 footer p{font-size:12px;color:rgba(255,255,255,0.5);}
-
-@media(max-width:640px){.page-wrap{padding:32px 24px 60px;}}
-
 
 /* Mobile table - stack as cards */
 @media(max-width:640px){
@@ -223,7 +280,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
 .nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
 .nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
-.nav-drawer-sublink{padding-left:32px!important;font-size:13px!important;}
 
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
@@ -255,11 +311,11 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
-    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
+    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
   <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
   <div class="nav-dropdown-divider"></div>
   <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
-  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
+  <a href="making-heads.html" class="nav-dropdown-item active">💇 Making Hair & Heads</a>
   <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
   <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
 </div></div>
@@ -271,7 +327,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="terminology.html" class="nav-link">📖 Terminology</a>
     <a href="updates.html" class="nav-link">📋 Site Updates</a>
-    <a href="contact.html" class="nav-link active">✉️ Contact</a>
+    <a href="contact.html" class="nav-link">✉️ Contact</a>
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
@@ -299,72 +355,95 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   setTimeout(check,200);
 })();
 </script>
-
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection Guide</div>
-  <h1 class="page-title">Get in <span>Touch</span></h1>
-  <p class="page-sub">Corrections, suggestions, missing mods, broken links - all welcome</p>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Creating CC</div>
+  <h1 class="page-title">Making Hair <span>&amp; Heads</span></h1>
+  <p class="page-sub">Custom hair and face textures for Sims 1 Legacy Collection</p>
 </div>
-
-<div class="page-wrap">
-
-  <section id="welcome">
-    <div class="section-head">
-      <div class="section-emoji">💬</div>
-      <div>
-        <h2 class="section-title">What I'd Love to Hear About</h2>
-      </div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#how-it-works">How It Works</a></li><li><a href="#tools">Getting Tools Working</a></li><li><a href="#what-you-need">What You Need</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#face-photo-wizard">Face Photo Wizard</a></li><li><a href="#common-mistakes">Common Mistakes</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
     </div>
-    <p>This guide is a community resource and it gets better with community input. If you've spotted something wrong, found a mod that should be on the list, or have a suggestion for a new section, the form below goes straight to a spreadsheet I check regularly.</p>
-    <div class="welcome-grid">
-      <div class="welcome-card">
-        <div class="welcome-icon">🐛</div>
-        <div class="welcome-title">Corrections</div>
-        <div class="welcome-desc">Something on the guide is wrong or out of date - a folder path, a mod description, a broken link.</div>
-      </div>
-      <div class="welcome-card">
-        <div class="welcome-icon">🧩</div>
-        <div class="welcome-title">Missing Mods</div>
-        <div class="welcome-desc">A mod that should be on the must-have list but isn't. Include the mod name and where to find it.</div>
-      </div>
-      <div class="welcome-card">
-        <div class="welcome-icon">💡</div>
-        <div class="welcome-title">Suggestions</div>
-        <div class="welcome-desc">A new page, section, or topic you'd like to see covered on the guide.</div>
-      </div>
-      <div class="welcome-card">
-        <div class="welcome-icon">🔗</div>
-        <div class="welcome-title">Broken Links</div>
-        <div class="welcome-desc">A download link or external site link that's no longer working.</div>
-      </div>
-    </div>
-    <div class="callout teal">Responses go into a Google Sheet that I review when I update the guide. I may not reply directly, but I do read everything and useful suggestions will make it into future updates - credited if you'd like.</div>
-  </section>
+  </aside>
+  <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#how-it-works">How It Works</a><a href="#tools">Tools</a><a href="#steps">Step-by-Step</a><a href="#face-photo-wizard">Photo Wizard</a><a href="#common-mistakes">Mistakes</a></div></details>
 
-  <section id="form">
-    <div class="section-head">
-      <div class="section-emoji">📝</div>
-      <div>
-        <h2 class="section-title">Contact Form</h2>
-      </div>
-    </div>
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> — screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank">r/thesims1</a>.</div>
 
-    <div class="form-container">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmlD0p1kW2QHEWVh30qNv1g_AOFESePBJxnA04pS4S1pDaJA/viewform?embedded=true" width="100%" height="2584" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-    <div class="form-mobile-link">
-      <p>Embedded forms don't scroll well on phones. Tap below to open the form directly - it works exactly the same and your response still goes to the same place.</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmlD0p1kW2QHEWVh30qNv1g_AOFESePBJxnA04pS4S1pDaJA/viewform" target="_blank">Open Contact Form ↗</a>
-    </div>
-  </section>
+<section id="how-it-works">
+  <div class="section-head"><div class="section-emoji">💡</div><div><h2 class="section-title">How Hair & Heads Work</h2></div></div>
+  <div class="callout gold">⚠️ Sims 1 has no separate hair item. Hair is painted directly onto the head texture — to add a new hairstyle, you paint it onto the head file. To add a new hair colour, you make a separate file with the colour repainted.</div>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">💇 One file = face + hair + neck</div><div class="card-desc">The head texture contains the Sim's entire head appearance — face, ears, neck, and hair all in one flat bitmap. The hair is part of the image, not a mesh on top of it.</div></div>
+    <div class="card"><div class="card-title">🎨 Three skin tone versions</div><div class="card-desc">Head files need a light, medium and dark version, just like body skins. The skin tone affects the face and neck areas — the hair colour portion stays the same across all three.</div></div>
+    <div class="card"><div class="card-title">👤 The C prefix</div><div class="card-desc">Head files use the <code>C</code> prefix (Cranium). The filename format mirrors body skins: <code>Cfa skn lgt_HairName.bmp</code> = female adult, skinny body type, light skin. They go in the same <code>GameData\Skins\</code> folder as body skins.</div></div>
+    <div class="card"><div class="card-title">📸 Face Photo Wizard</div><div class="card-desc">The Sims Creator includes a Face Photo Wizard that maps a real photo onto the head mesh template, letting you create a custom face texture. Good for character-specific heads.</div></div>
+  </div>
+</section>
 
+<section id="tools">
+  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Getting the Tools Working</h2><p class="section-sub">Same setup as clothing — registry fix required</p></div></div>
+  <p>The same registry fix described on the <a href="making-clothing.html#tools">Making Clothing — Getting Tools Working</a> section applies here. The Sims Creator is the main tool for head CC; GIMP handles the texture painting.</p>
+  <div class="callout teal">ℹ️ If you already set up the Feraligatr installer for clothing, everything you need is already installed. No additional setup needed for heads.</div>
+</section>
+
+<section id="what-you-need">
+  <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">What You Need</h2></div></div>
+  <div class="grid-2">
+    <div class="card"><div class="card-title">The Sims Creator <span class="tag green">For CMX/SKN files</span></div><div class="card-desc">Select a head mesh in TSC and export the head template BMP to paint over. Import your finished texture back in and TSC exports the <code>.CMX</code> and <code>.SKN</code> companion files.</div></div>
+    <div class="card"><div class="card-title">GIMP or Photoshop <span class="tag teal">Image editing</span></div><div class="card-desc">For painting the hairstyle and face. Same Indexed 256-colour BMP requirement as body skins. In GIMP: Image → Mode → Indexed (255 colours) → Export as .BMP.</div><a class="pill-link" href="https://www.gimp.org/" target="_blank">↗ gimp.org</a></div>
+    <div class="card"><div class="card-title">Existing head files <span class="tag teal">As a base</span></div><div class="card-desc">Extract a head BMP from <code>GameData\Skins\</code> (any file starting with <code>C</code>) to use as a painting base. This ensures correct proportions and UV layout from the start.</div></div>
+  </div>
+</section>
+
+<section id="steps">
+  <div class="section-head"><div class="section-emoji">🚶</div><div><h2 class="section-title">Step-by-Step: Making a Head / Hair Skin</h2></div></div>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Get a head template</h4><p>Either export a head template from The Sims Creator, or copy an existing <code>C</code>-prefix file from <code>GameData\Skins\</code> to use as a starting point. Open it in GIMP.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint your hairstyle and face</h4><p>Work in layers. The head template shows you where the face, ears, scalp and neck sit. Paint the hair over the scalp and around the face as appropriate for your style. Face details (eyes, nose, mouth) are also part of this same image.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Make the medium and dark skin tone versions</h4><p>The hair colour area stays the same. Only the face and neck skin colour changes between tones. Adjust the exposed skin areas for medium and dark, keeping the hair layer identical.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Convert to Indexed 256-colour BMP</h4><p><strong>GIMP:</strong> Image → Mode → Indexed (max 255 colours) → Export As .BMP.<br><strong>Photoshop:</strong> Image → Mode → Indexed Colour (256 colours) → Save As BMP.<br>This step is not optional — 24-bit BMP will show as white in game.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import into TSC and export</h4><p>Import your finished head BMP into The Sims Creator. TSC generates the <code>.CMX</code> and <code>.SKN</code> mesh companion files. Export all three.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Name and place in GameData\Skins\</h4><p>Use the correct C-prefix filename format: <code>Cfa skn lgt_HairName.bmp</code>. Place all three file types directly in <code>GameData\Skins\</code> — no subfolders. The head appears in the Create-A-Sim face selection.</p></div></div>
+  </div>
+</section>
+
+<section id="face-photo-wizard">
+  <div class="section-head"><div class="section-emoji">📸</div><div><h2 class="section-title">Face Photo Wizard</h2><p class="section-sub">Using TSC to map a photo onto the head mesh</p></div></div>
+  <p>The Sims Creator includes a Face Photo Wizard that takes a frontal photo of a face and maps it onto the game's head mesh template. It handles the UV warping automatically.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the Face Photo Wizard in TSC</h4><p>In The Sims Creator, select the Face Photo Wizard option from the main menu.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import a clear frontal photo</h4><p>Use a well-lit, straight-on portrait with minimal shadows. The wizard works best when eyes, nose and mouth are clearly visible and centred.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Align the feature markers</h4><p>TSC will ask you to place markers on the eyes, nose and mouth in the photo. Accurate placement gives better results.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export and refine in GIMP</h4><p>The wizard produces a head BMP you can then open in GIMP to clean up the edges, paint in the neck, and add hair.</p></div></div>
+  </div>
+</section>
+
+<section id="common-mistakes">
+  <div class="section-head"><div class="section-emoji">⚠️</div><div><h2 class="section-title">Common Mistakes</h2></div></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">Problem</th><th>Cause</th><th style="width:25%">Fix</th></tr></thead>
+      <tbody>
+        <tr><td>White blank head in game</td><td>BMP not saved as Indexed 256-colour</td><td>Convert to Indexed mode in GIMP before exporting</td></tr>
+        <tr><td>Head not appearing in CAS</td><td>Files in a subfolder, or missing .CMX/.SKN files</td><td>Place all three directly in GameData\Skins\ root</td></tr>
+        <tr><td>Upside-down hair in game</td><td>UV layout was flipped during editing</td><td>Use an existing C-prefix file as your base rather than starting from a blank canvas</td></tr>
+        <tr><td>Skin tone mismatch</td><td>lgt/med/drk suffix doesn't match the face skin colour in the BMP</td><td>Check the filename suffix matches the actual skin tone used</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
 </div>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection - Modding Guide
+      The Sims Legacy Collection — Modding Guide
     </div>
         <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
@@ -403,7 +482,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <div class="nav-drawer-group-label">Creating</div>
       <a href="making-cc.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
       <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
-      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
+      <a href="making-heads.html" class="nav-drawer-link active nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
       <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
       <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
       <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
@@ -418,7 +497,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
       <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
-      <a href="contact.html" class="nav-drawer-link active"><span class="nav-drawer-icon">✉️</span>Contact</a>
+      <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>

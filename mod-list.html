@@ -158,8 +158,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .callout strong{font-weight:800;}
 
 /* CODE */
-.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;}
-code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;}
+.code-block{background:#1A2B1C;border-radius:var(--radius-sm);padding:14px 18px;font-family:var(--font-mono);font-size:13px;color:#7EE896;overflow-x:auto;margin:12px 0;line-height:1.8;word-break:break-all;}
+code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;word-break:break-all;}
 
 /* TABLE */
 .table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
@@ -266,6 +266,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 }
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
+
+/* CREATE CC NAV DROPDOWN */
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
+.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
+.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-drawer-sublink{padding-left:32px!important;font-size:13px!important;}
+
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
+
+/* MODS/CC NAV DROPDOWN */
+.nav-dropdown-mods{position:relative;display:inline-flex;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -291,7 +312,14 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="mod-list.html" class="nav-link active">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
-    <a href="making-cc.html" class="nav-link">🎨 Create CC</a>
+    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
+  <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
+  <div class="nav-dropdown-divider"></div>
+  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
+  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
+  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
+  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
+</div></div>
     <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
     <a href="tools.html" class="nav-link">🧰 Tools</a>
     <span class="nav-sep" aria-hidden="true"></span>
@@ -304,6 +332,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
   </div>
 </nav>
@@ -311,213 +340,13 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 (function(){
   var nav=document.getElementById('navInner');
   var hint=document.getElementById('navHint');
-  function check(){
-    if(!nav||!hint)return;
-    var overflows=nav.scrollWidth>nav.clientWidth+4;
-    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
-    hint.style.display=(overflows&&!atEnd)?'flex':'none';
-  }
-  if(hint){
-    hint.addEventListener('click',function(){
-      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
-    });
-  }
-  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);
-  setTimeout(check,200);
-})();
-</script>
-<div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Mod List</div>
-  <h1 class="page-title">Must-Have <span>Mods</span></h1>
-  <p class="page-sub">Quality of life, bug fixes, objects and gameplay improvements</p>
-</div>
-<div class="page-layout">
-  <aside>
-    <div class="toc">
-      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#qol">Quality of Life</a></li><li><a href="#objects">Objects & Furniture</a></li><li><a href="#exe-patches">Exe Patches & Debug Tools</a></li><li><a href="#bugfixes">Bug Fixes</a></li><li><a href="#careers">Careers</a></li><li><a href="#magic">Magic & Superstar</a></li><li><a href="#pets">Pets</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
-    </div>
-  </aside>
-  <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#qol">Quality of Life</a><a href="#objects">Objects</a><a href="#debug-tools">Debug Tools</a><a href="#bugfixes">Bug Fixes</a><a href="#careers">Careers</a><a href="#magic">Magic & Superstar</a><a href="#pets">Pets</a></div></details>
-
-    
-<div class="callout green">All mods go in your <code>Downloads\</code> folder unless noted. Please make sure to read each download page's instructions completely before putting any CC/Mod files into folders. Some CC do state they need to be in specifc folders to work.</div>
-
-<section id="qol">
-  <div class="section-head"><div class="section-emoji">⚙️</div><div><h2 class="section-title">Quality of Life</h2><p class="section-sub">The mods every player should have</p></div></div>
-  <div class="mod-grid">
-    <div class="mod-card"><div class="mod-name">Eliminate Relationship Decay</div><div class="mod-by">by Corylea</div><div class="mod-desc">Friends stay friends indefinitely. Relationships still drop if you're mean, but not just from not calling or interacting for long periods of time.</div><div><span class="tag gold">Requires Makin' Magic</span></div><a class="pill-link" href="http://corylea.com/EliminateRelationshipDecayModForTheSims1ByCorylea.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Domcal Weekends Mod</div><div class="mod-by">A Little White Magic</div><div class="mod-desc">Adds actual weekends! Sims won't be fired for missing work on Saturday and Sunday.</div><a class="pill-link" href="https://white.leadpipecollection.net/sims1.php?g=m#dd_domcal" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Two-Hour Carpool Warning</div><div class="mod-by">by Corylea</div><div class="mod-desc">Get a proper 2-hour warning before the carpool arrives instead of last-minute panic.</div><a class="pill-link" href="http://corylea.com/TWOHourCarpoolNotice.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">No Forced Career Change at Level 10</div><div class="mod-by">by Corylea</div><div class="mod-desc">Stops the game from randomly reassigning careers when a Sim reaches the top level.</div><a class="pill-link" href="http://corylea.com/NoForcedCareerChangeSims1.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Need-Freezing - Community Lots</div><div class="mod-by">by Corylea</div><div class="mod-desc">Freezes motive bars while on Old Town community lots. No more Sims fainting at restaurants.</div><a class="pill-link" href="http://corylea.com/NeedAdjustingModForTheSims1.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Food Stays Fresh for a Week</div><div class="mod-by">by Corylea</div><div class="mod-desc">Drastically slows how quickly prepared food spoils in the fridge.</div><a class="pill-link" href="http://corylea.com/Sims%201%20Food%20Lasts%20a%20Week%20Mod.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">More Walk-Bys</div><div class="mod-by">by Corylea</div><div class="mod-desc">Increases frequency of random Sims walking past your lot - makes socialising much easier.</div><a class="pill-link" href="http://corylea.com/MoreWalkBysForTheSims1.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Eliminate Need Decay</div><div class="mod-by">by Corylea</div><div class="mod-desc">Stops all motive bars from decaying. Useful for build mode or photography play.</div><a class="pill-link" href="http://corylea.com/EliminateNeedDecayMod.html" target="_blank">Download ↗</a></div>
-  </div>
-  <div class="callout gold" style="margin-top:24px;">
-    <strong>⭐ Notable Mention - No Pets Allowed Sign</strong><br><br>
-    This isn't a mod or CC - it's a built-in base game object that many players don't know about, but it's incredibly useful if you have the Unleashed expansion. Strays wandering onto your lot can dig up your garden, pee on things, and generally make a mess. The <strong>No Pets Allowed</strong> sign fixes this completely - when a stray approaches your lot boundary, it reads the sign and walks away without setting foot on your property.<br><br>
-    <strong>How to find it:</strong> In Buy Mode, click the <strong>Decorative</strong> (paintings) category, then the <strong>Misc Decorative</strong> subcategory. The sign appears early in that list. Place it anywhere on your lot, ideally near the entrance or front fence. No configuration needed - it works automatically.<br><br>
-    <span style="font-size:12px;opacity:0.8;">Requires The Sims: Unleashed expansion pack.</span>
-  </div>
-</section>
-
-<section id="objects">
-  <div class="section-head"><div class="section-emoji">🏠</div><div><h2 class="section-title">Objects & Furniture</h2></div></div>
-  <div class="mod-grid">
-    <div class="mod-card"><div class="mod-name">Smart Curtains</div><div class="mod-by">Simlogical</div><div class="mod-desc">Curtains that auto-open at dawn and close at dusk. Multiple styles, recolouring instructions included.</div><a class="pill-link" href="https://www.simlogical.com/simlogical-classic-sims-1-curtains/" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Power-Nap Recliners</div><div class="mod-by">Simlogical</div><div class="mod-desc">Recliners for short energy-restoring naps. Toggle autonomous use on/off. 4 recliner styles.</div><a class="pill-link" href="https://www.simlogical.com/simological-classic-sims-1-motive-and-skill-enhancers/" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">ppxlSimBook Hacked Computer</div><div class="mod-by">ppxl on Simblr.cc</div><div class="mod-desc">All-in-one: social need, all skills faster, video chat, shop/work from home, pay bills. One object!</div><a class="pill-link" href="https://simblr.cc/ts1/mod/5546-ppxlsimbook.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Simazon Delivery Services</div><div class="mod-by">Damondamore</div><div class="mod-desc">Phone interaction to order objects delivered to your door. Fun QoL addition.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/239-simazon-core-plus.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Hidden Objects Unlocked</div><div class="mod-by">Lenna on Simblr.cc</div><div class="mod-desc">Unlocks hidden and debug objects in the Buy Mode catalogue.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/4848-hidden-objects-unlocked.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Invisible Chairs</div><div class="mod-by">Damondamore</div><div class="mod-desc">Lets Sims sit on beds, bathtubs and other non-chair objects autonomously.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/238-invisible-rug-chairs.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">SimCity Adoption Services</div><div class="mod-by">Kakengo</div><div class="mod-desc">Phone interaction to adopt a baby without pregnancy. Child can still be taken by social worker if neglected.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/2544-child-adoption-phone-plugin.html" target="_blank">Download ↗</a></div>
-      <div class="mod-card"><div class="mod-name">Bunk Beds / Loft Beds</div><div class="mod-by">Community - Simblr.cc</div><div class="mod-desc">Adds bunk beds and loft beds to the game. Sims can sleep on the top bunk and you can place objects underneath loft beds to save floor space. One of the most-requested Sims 1 additions.</div><a class="pill-link" href="https://simblr.cc/ts1/mods/" target="_blank">Search Simblr.cc &#8599;</a></div>
-    <div class="mod-card"><div class="mod-name">Elixir of Eternity (Vampires)</div><div class="mod-by">Community - Simblr.cc</div><div class="mod-desc">Adds a vampire life state to Sims 1. Sims can drink the elixir to become vampires - they sleep in coffins, can bite other Sims, and have unique behaviours. The supernatural content that was missing from the base game.</div><a class="pill-link" href="https://simblr.cc/ts1/mods/" target="_blank">Search Simblr.cc &#8599;</a></div>
-    <div class="mod-card"><div class="mod-name">Improved Genie Lamp</div><div class="mod-by">Community - Simblr.cc</div><div class="mod-desc">Improves the base game Genie Lamp: raises success odds from 40% to 50% and removes the usage limit so you can wish as many times as you want. Reduces the frustration of the lamp burning your house down.</div><a class="pill-link" href="https://simblr.cc/ts1/mods/" target="_blank">Search Simblr.cc &#8599;</a></div>
-</div>
-</section>
-
-<section id="debug-tools">
-  <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">Debug &amp; Runtime Tools</h2><p class="section-sub">Run before launching the game to unlock features not available by default</p></div></div>
-  <p>These tools run <strong>alongside</strong> the game rather than adding files to your Downloads folder. They patch the game in memory at runtime — nothing is permanently modified. Run them before launching the game each session, keep open while you play, and close when done.</p>
-
-  <h3 style="font-family:var(--font-head);font-size:18px;color:var(--ink);margin:28px 0 8px;">Sims 1 Legacy Collection Hacks</h3>
-  <p style="margin-bottom:12px;">by <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);">FaithBeam</span> — A runtime memory patcher that unlocks the hidden <strong>edit_char</strong> debug cheat. Run <code>Sims1LegacyHacks.exe</code> before launching the game and keep it open while you play. Sims.exe is never permanently modified. Works on Steam and EA App — no Steamless required.</p>
-  <div class="callout green">✅ <strong>Unlocks:</strong> Change Sim appearance (face, hair, skintone) in live mode &amp; full Create-A-Sim access for any playable Sim while in-game.</div>
-  <div class="steps" style="margin-top:16px;">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download &amp; run</h4><p>Download from GitHub, extract the zip, run <code>Sims1LegacyHacks.exe</code> <strong>before</strong> you launch the game. Keep it open while you play.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the cheat console</h4><p>In-game press <strong>Ctrl+Shift+C</strong> to open the cheat console.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Type edit_char</h4><p>Type <code>edit_char</code> and press Enter, then click any Sim on the lot to open Create-A-Sim for that Sim.</p></div></div>
-  </div>
-  <a class="pill-link" href="https://github.com/FaithBeam/Sims1LegacyCollectionHacks" target="_blank" style="margin-bottom:32px;display:inline-flex;">View on GitHub ↗</a>
-
-  <h3 style="font-family:var(--font-head);font-size:18px;color:var(--ink);margin:32px 0 8px;">Children Ageing Up (with Birthday Cake mod)</h3>
-  <p style="margin-bottom:12px;">Requires <span style="font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);">FaithBeam tool above + a birthday cake mod</span> — Combined, children can be aged up to adults without needing Makin's Magic. Using <code>edit_char</code> after ageing gives you full control over the adult appearance.</p>
-  <div class="callout teal">ℹ️ Two birthday cake mods are known to work. If neither link is live, ask on Simblr.cc or r/thesims1 — the community tracks the current best source.</div>
-  <div class="table-wrap" style="margin-top:14px;">
-    <table>
-      <thead><tr><th style="width:30%">Mod</th><th>Where to find it</th></tr></thead>
-      <tbody>
-        <tr><td>Puberty Blows</td><td>Posted by user <strong>ed95</strong> on ModTheSims. Search the forum for "WCIF: Puberty Blows Birthday Cake?" to find the download in the replies.</td></tr>
-        <tr><td>SimLifeCycle birthday cake mod</td><td>Original site defunct. Try the <a href="https://web.archive.org/web/20031207102900/http://www.simlifecycle.com:80/download.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Wayback Machine archive ↗</a> for the download.</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <a class="pill-link" href="https://simblr.cc/ts1/mods/" target="_blank" style="margin-top:12px;display:inline-flex;">Browse Simblr.cc ↗</a>
-</section>
-
-<section id="bugfixes">
-  <div class="section-head"><div class="section-emoji">🐛</div><div><h2 class="section-title">Bug Fixes</h2><p class="section-sub">Community patches - all by Lenna on Simblr.cc</p></div></div>
-  <div class="callout teal">All bug fix mods are available from <a href="https://simblr.cc/ts1/mods/" target="_blank" style="font-weight:700;">Simblr.cc ↗</a>. Place in your <code>Downloads\</code> folder.</div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Mod Name</th><th>What It Fixes</th><th>Requires</th><th style="width:100px">Last Verified</th></tr></thead>
-    <tbody>
-      <tr><td><a href="https://simblr.cc/ts1/mod/4844-pet-eating-fix.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Pets Eat Fix ↗</a></td><td>Pets refusing to eat from their food bowl</td><td>Unleashed</td><td style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);">Mar 2026</td></tr>
-      <tr><td><a href="https://simblr.cc/ts1/mod/4843-cats-dont-eat-fish-birds.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Cats Don't Eat Fish &amp; Birds ↗</a></td><td>Cats killing aquarium fish and pet birds</td><td>Unleashed</td><td style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);">Mar 2026</td></tr>
-      <tr><td><a href="https://simblr.cc/ts1/mod/4845-gophers-dont-destroy-crops.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Gophers Don't Destroy Crops ↗</a></td><td>Gophers destroying your garden</td><td>Base game</td><td style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);">Mar 2026</td></tr>
-      <tr><td><a href="https://simblr.cc/ts1/mod/4847-obsessed-fan-fix.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Obsessed Fan Fix ↗</a></td><td>Broken Obsessed Fan NPC in Makin' Magic</td><td>Makin' Magic</td><td style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);">Mar 2026</td></tr>
-      <tr><td><a href="https://simblr.cc/ts1/mod/4846-celebrity-awards-fix.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Celebrity Award Bug Fix ↗</a></td><td>Celebrities not receiving The Simmy / Sim Choice awards</td><td>Superstar</td><td style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);">Mar 2026</td></tr>
-    </tbody>
-  </table></div>
-</section>
-
-<section id="careers">
-  <div class="section-head"><div class="section-emoji">💼</div><div><h2 class="section-title">Careers</h2></div></div>
-  <div class="mod-grid">
-    <div class="mod-card"><div class="mod-name">Career Creator 3 (Tool)</div><div class="mod-by">trolando</div><div class="mod-desc">Want to make your own career? Career Creator 3 handles most of the heavy lifting.</div><div><span class="tag teal">Modding Tool</span></div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Download ↗</a></div>
-  </div>
-</section>
-
-<section id="magic">
-  <div class="section-head"><div class="section-emoji">🪄</div><div><h2 class="section-title">Magic & Superstar</h2></div></div>
-  <div class="mod-grid">
-    <div class="mod-card"><div class="mod-name">Obsessed Fan Alarm</div><div class="mod-by">Community</div><div class="mod-desc">Stops the obsessed fan from appearing on your home lot in the Superstar expansion.</div><div><span class="tag gold">Superstar Required</span></div><a class="pill-link" href="https://www.somesimthings.com/Elec/02El.htm" target="_blank">More info ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Eliminate Fame Decay</div><div class="mod-by">by Corylea</div><div class="mod-desc">Stops Fame from decreasing passively in the Superstar expansion.</div><div><span class="tag gold">Superstar Required</span></div><a class="pill-link" href="http://corylea.com/EliminateFameDecayForTheSims1.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Better Mystery Box</div><div class="mod-by">by Corylea</div><div class="mod-desc">Improves the rewards from the Magic Town Mystery Box.</div><div><span class="tag gold">Makin' Magic Required</span></div><a class="pill-link" href="http://corylea.com/BetterMysteryBox.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Faster Magical Growths</div><div class="mod-by">by Corylea</div><div class="mod-desc">Magic plants and crops grow faster in Makin' Magic.</div><div><span class="tag gold">Makin' Magic Required</span></div><a class="pill-link" href="http://corylea.com/FasterMagicalGrowthsSims1.html" target="_blank">Download ↗</a></div>
-  </div>
-</section>
-
-<section id="pets">
-  <div class="section-head"><div class="section-emoji">🐾</div><div><h2 class="section-title">Pets</h2><p class="section-sub">Unleashed expansion required for all</p></div></div>
-  <div class="mod-grid">
-    <div class="mod-card"><div class="mod-name">Smarter Pets</div><div class="mod-by">by Corylea</div><div class="mod-desc">Makes pets learn tricks more easily and behave more intelligently.</div><a class="pill-link" href="http://corylea.com/Sims%201%20Hacked%20Pet%20Objects.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Pets Eat Fix</div><div class="mod-by">Lenna - Simblr.cc</div><div class="mod-desc">Fixes pets refusing to eat from their food bowl.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/4844-pet-eating-fix.html" target="_blank">Download ↗</a></div>
-    <div class="mod-card"><div class="mod-name">Cats Don't Eat Fish & Birds</div><div class="mod-by">Lenna - Simblr.cc</div><div class="mod-desc">Stops cats from killing aquarium fish and pet birds.</div><a class="pill-link" href="https://simblr.cc/ts1/mod/4843-cats-dont-eat-fish-birds.html/" target="_blank">Download ↗</a></div>
-  </div>
-</section>
-
-  </main>
-</div>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
-    </div>
-        <div class="footer-links">
-      <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
-      <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
-      <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
-      <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
-      <a href="https://www.ea.com/games/the-sims/news" target="_blank">EA Patch Notes</a>
-      <a href="updates.html">Site Updates &amp; Roadmap</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
-    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
-  </div>
-</footer>
-<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
-    <div class="nav-drawer-group">
-      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
-      <a href="about-legacy.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>About Legacy</a>
-    </div>
-    <div class="nav-drawer-divider"></div>
-    <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Playing</div>
-      <a href="whats-possible.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
-      <a href="installing-mods.html" class="nav-drawer-link"><span class="nav-drawer-icon">📁</span>Install</a>
-      <a href="download-sites.html" class="nav-drawer-link"><span class="nav-drawer-icon">🌐</span>Sites</a>
-      <a href="mod-list.html" class="nav-drawer-link active"><span class="nav-drawer-icon">⚙️</span>Mods</a>
-      <a href="cheats.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎮</span>Cheats</a>
-    </div>
-    <div class="nav-drawer-divider"></div>
-    <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Creating</div>
-      <a href="making-cc.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎨</span>Create CC</a>
-      <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
-      <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
-    </div>
-    <div class="nav-drawer-divider"></div>
-    <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Help</div>
-      <a href="cc-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
-      <a href="game-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
-    </div>
-    <div class="nav-drawer-divider"></div>
-    <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Reference</div>
-      <a href="terminology.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>Terminology</a>
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
-      <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
-      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
-    </div>
-  </div></div>
-<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
-<script>
-(function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
   function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
   if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);setTimeout(check,200);
+  var hintL=document.getElementById('navHintLeft');
+  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
+  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
+  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
   var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
   var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
@@ -529,6 +358,20 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   if(btt){
     window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
     btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+  var ccBtn=document.getElementById('ccDropdownBtn');
+  var ccPanel=document.getElementById('ccDropdownPanel');
+  if(ccBtn&&ccPanel){
+    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
+    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
+    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  var mdBtn=document.getElementById('modsDropdownBtn');
+  var mdPanel=document.getElementById('modsDropdownPanel');
+  if(mdBtn&&mdPanel){
+    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
+    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
+    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
   }
 })();
 </script>

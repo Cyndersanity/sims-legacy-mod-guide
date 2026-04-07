@@ -133,7 +133,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .callout.gold{background:var(--gold-pale);border-color:var(--gold);}
 .callout.teal{background:var(--teal-pale);border-color:var(--teal);}
 .callout strong{font-weight:800;}
-code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;}
+code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;padding:2px 7px;border-radius:4px;word-break:break-all;}
 
 /* TABLE */
 .table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
@@ -223,6 +223,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 }
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
+
+/* CREATE CC NAV DROPDOWN */
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
+.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
+.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-drawer-sublink{padding-left:32px!important;font-size:13px!important;}
+
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
+
+/* MODS/CC NAV DROPDOWN */
+.nav-dropdown-mods{position:relative;display:inline-flex;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -248,7 +269,14 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
-    <a href="making-cc.html" class="nav-link">🎨 Create CC</a>
+    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
+  <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
+  <div class="nav-dropdown-divider"></div>
+  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
+  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
+  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
+  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
+</div></div>
     <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
     <a href="tools.html" class="nav-link">🧰 Tools</a>
     <span class="nav-sep" aria-hidden="true"></span>
@@ -261,6 +289,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
   </div>
 </nav>
@@ -330,19 +359,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       </thead>
       <tbody>
         <tr>
-          <td>Mar 14, 2026</td>
-          <td><span class="page-badge mods">Site-wide</span></td>
-          <td>Major restructure: added About Legacy Collection page (history, EP reference, technical changes, Vulkan info, patch history, missing Maxis content). Split troubleshooting into CC &amp; Mod Troubleshooting and Game Troubleshooting — game page covers Vulkan errors, NVIDIA pixel fix, multi-monitor crash, launch options reference, username crash, empty neighbourhood fix. Added EA patch notes link to footer. Crash log monitor tool added to roadmap (in progress).</td>
-        </tr>
-
-        <!-- ═══════════════════════════════════════════════════════
-             HOW TO UPDATE THIS TABLE:
-             Copy one of the rows below and paste it at the TOP
-             of the tbody (above all existing rows) to keep newest
-             changes first. Update the date, page badge and description.
-             ═══════════════════════════════════════════════════════ -->
-
-        <tr>
           <td>Mar 26, 2026</td>
           <td><span class="page-badge mods">Site-wide</span></td>
           <td>
@@ -365,14 +381,14 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
         </tr>
 
         <tr>
-          <td>Mar 18, 2026</td>
+          <td>Mar 23, 2026</td>
           <td><span class="page-badge new">New pages</span></td>
           <td>
             Added four new pages: <strong>Cheats</strong> (all working codes, tips and FaithBeam debug unlock), <strong>Terminology</strong> (what CC, mods, hacking and IFF actually mean - including the Complete Collection vs custom content CC confusion), <strong>Updates & Roadmap</strong> (this page), and <strong>Contact</strong> with an embedded Google Form for feedback and suggestions.
           </td>
         </tr>
         <tr>
-          <td>Mar 14, 2026</td>
+          <td>Mar 22, 2026</td>
           <td><span class="page-badge mods">Site-wide</span></td>
           <td>
             <strong>Ageing up children & edit_char:</strong> Reddit user InsightsIE flagged that children ageing up and live-mode appearance changes are now possible in the Legacy Collection. The underlying tool was created by FaithBeam - their Sims1LegacyCollectionHacks patches the game in memory at runtime to unlock the hidden <code>edit_char</code> debug cheat (no permanent exe modification). Combined with a birthday cake mod (creator/s still to be confirmed - Puberty Blows by ed95 on MTS is one option), children can now be aged up without Makin' Magic. Updated across What's Possible, Mods, and Cheats pages.<br><br>
@@ -381,6 +397,25 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
             <strong>Sites:</strong> Removed dead links, added Sims File Share (YoNonna), Sims Freaks and Wayback Machine CC resources.<br><br>
             <strong>Creating CC:</strong> Archive.org download links added for The Sims Creator and Home Crafter. Tool installation steps added.
           </td>
+        </tr>
+
+        <tr>
+          <td>Mar 22, 2026</td>
+          <td><span class="page-badge mods">Site-wide</span></td>
+          <td>Major restructure: added About Legacy Collection page (history, EP reference, technical changes, Vulkan info, patch history, missing Maxis content). Split troubleshooting into CC &amp; Mod Troubleshooting and Game Troubleshooting — game page covers Vulkan errors, NVIDIA pixel fix, multi-monitor crash, launch options reference, username crash, empty neighbourhood fix. Added EA patch notes link to footer. Crash log monitor tool added to roadmap (in progress).</td>
+        </tr>
+
+        <!-- ═══════════════════════════════════════════════════════
+             HOW TO UPDATE THIS TABLE:
+             Copy one of the rows below and paste it at the TOP
+             of the tbody (above all existing rows) to keep newest
+             changes first. Update the date, page badge and description.
+             ═══════════════════════════════════════════════════════ -->
+
+        <tr>
+          <td>Mar 20, 2026</td>
+          <td><span class="page-badge new">Launch</span></td>
+          <td>Site first published. Initial pages: Home, Installing Mods, Download Sites, Must-Have Mods, Creating CC, IFF Hacking, Tools, CC &amp; Mod Troubleshooting, Game Troubleshooting, What's Possible, and 404.</td>
         </tr>
 
       </tbody>
@@ -498,20 +533,29 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="nav-drawer-group">
       <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
       <a href="about-legacy.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Playing</div>
-      <a href="whats-possible.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
-      <a href="installing-mods.html" class="nav-drawer-link"><span class="nav-drawer-icon">📁</span>Install</a>
-      <a href="download-sites.html" class="nav-drawer-link"><span class="nav-drawer-icon">🌐</span>Sites</a>
-      <a href="mod-list.html" class="nav-drawer-link"><span class="nav-drawer-icon">⚙️</span>Mods</a>
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
       <a href="cheats.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎮</span>Cheats</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Creating</div>
-      <a href="making-cc.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎨</span>Create CC</a>
+      <a href="making-cc.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
+      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
       <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
       <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
     </div>
@@ -523,11 +567,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Reference</div>
-      <a href="terminology.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>Terminology</a>
       <a href="updates.html" class="nav-drawer-link active"><span class="nav-drawer-icon">📋</span>Site Updates</a>
       <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
-      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
@@ -537,8 +578,11 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   var hint=document.getElementById('navHint');
   function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
   if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);setTimeout(check,200);
+  var hintL=document.getElementById('navHintLeft');
+  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
+  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
+  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
   var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
   var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
@@ -550,6 +594,20 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   if(btt){
     window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
     btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  }
+  var ccBtn=document.getElementById('ccDropdownBtn');
+  var ccPanel=document.getElementById('ccDropdownPanel');
+  if(ccBtn&&ccPanel){
+    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
+    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
+    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  var mdBtn=document.getElementById('modsDropdownBtn');
+  var mdPanel=document.getElementById('modsDropdownPanel');
+  if(mdBtn&&mdPanel){
+    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
+    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
+    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
   }
 })();
 </script>

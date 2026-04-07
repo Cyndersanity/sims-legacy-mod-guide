@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Troubleshooting - Sims Legacy Collection Guide</title>
+<title>Making Clothing — Sims Legacy Collection Guide</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -279,7 +280,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
 .nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
 .nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
-.nav-drawer-sublink{padding-left:32px!important;font-size:13px!important;}
 
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
@@ -297,6 +297,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </script>
 </head>
 <body>
+
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
@@ -310,10 +311,10 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
     <a href="cheats.html" class="nav-link">🎮 Cheats</a>
     <span class="nav-sep" aria-hidden="true"></span>
-    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
+    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
   <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
   <div class="nav-dropdown-divider"></div>
-  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
+  <a href="making-clothing.html" class="nav-dropdown-item active">👗 Making Clothing</a>
   <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
   <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
   <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
@@ -322,7 +323,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="tools.html" class="nav-link">🧰 Tools</a>
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
-    <a href="game-troubleshooting.html" class="nav-link active">🖥️ Game Issues</a>
+    <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="terminology.html" class="nav-link">📖 Terminology</a>
     <a href="updates.html" class="nav-link">📋 Site Updates</a>
@@ -331,166 +332,151 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
-  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
   </div>
 </nav>
 <script>
 (function(){
   var nav=document.getElementById('navInner');
   var hint=document.getElementById('navHint');
-  function check(){if(!nav||!hint)return;var overflows=nav.scrollWidth>nav.clientWidth+4;var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(overflows&&!atEnd)?'flex':'none';}
-  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
+  function check(){
+    if(!nav||!hint)return;
+    var overflows=nav.scrollWidth>nav.clientWidth+4;
+    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
+    hint.style.display=(overflows&&!atEnd)?'flex':'none';
+  }
+  if(hint){
+    hint.addEventListener('click',function(){
+      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
+    });
+  }
   if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);setTimeout(check,200);
+  window.addEventListener('load',check);
+  setTimeout(check,200);
 })();
 </script>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Game Troubleshooting</div>
-  <h1 class="page-title">Game <span>Troubleshooting</span></h1>
-  <p class="page-sub">Vulkan errors, launch crashes, and known game issues with community fixes</p>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Creating CC</div>
+  <h1 class="page-title">Making <span>Clothing</span></h1>
+  <p class="page-sub">Custom body skins and outfits for Sims 1 Legacy Collection</p>
 </div>
 <div class="page-layout">
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#vulkan">Vulkan Initialization Failed</a></li><li><a href="#nvidia-glitch">NVIDIA Pixel Glitch</a></li><li><a href="#wont-launch">Game Won't Launch</a></li><li><a href="#multi-monitor">Multi-Monitor Crash</a></li><li><a href="#empty-neighbourhood">Empty Neighbourhood</a></li><li><a href="#minimising">Game Keeps Minimising</a></li><li><a href="#special-characters">Username Crashes</a></li><li><a href="#launch-options">Launch Options Reference</a></li><li><a href="#community">Community Help</a></li></ul>
-      <div class="toc-divider"></div>
-      <a class="toc-back" href="index.html">&#8592; Back to Home</a>
+      <ul class="toc-list"><li><a href="#tools">Getting Tools Working</a></li><li><a href="#how-it-works">How Clothing Works</a></li><li><a href="#filename-format">Filename Format</a></li><li><a href="#what-you-need">What You Need</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#common-mistakes">Common Mistakes</a></li><li><a href="#tutorials">Tutorials</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
     </div>
   </aside>
   <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#vulkan">Vulkan Failed</a><a href="#nvidia-glitch">NVIDIA Pixels</a><a href="#wont-launch">Won't Launch</a><a href="#multi-monitor">Multi-Monitor</a><a href="#empty-neighbourhood">Empty Neighbourhood</a><a href="#minimising">Keeps Minimising</a><a href="#special-characters">Username Crashes</a><a href="#launch-options">Launch Options</a><a href="#community">Community Help</a></div></details>
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#tools">Tools</a><a href="#how-it-works">How It Works</a><a href="#filename-format">Filenames</a><a href="#steps">Step-by-Step</a><a href="#common-mistakes">Mistakes</a><a href="#tutorials">Tutorials</a></div></details>
 
-<section id="vulkan">
-  <div class="section-head"><div class="section-emoji">🖥️</div><div><h2 class="section-title">Vulkan Initialization Failed</h2><p class="section-sub">The most common launch error in Legacy Collection</p></div></div>
-  <p>The Legacy Collection uses the Vulkan graphics API. If your GPU or drivers don't support Vulkan, the game refuses to launch. Try these in order:</p>
-  <div class="callout red" style="margin-bottom:16px;"><strong>Always update your GPU drivers first.</strong> Outdated drivers are responsible for the majority of Vulkan errors and launch crashes.</div>
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> — screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank">r/thesims1</a>.</div>
+<section id="tools">
+  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Getting the Tools Working</h2><p class="section-sub">Legacy Collection needs a registry fix before old Maxis tools will run</p></div></div>
+  <p>The Sims Creator, Home Crafter and Art Studio all locate your game via a Windows registry entry that Legacy Collection does not create. You need to add it — either via an installer that does it automatically, or by hand.</p>
+  <div class="callout gold">⚠️ <strong>Home Crafter and Art Studio also need two compatibility settings</strong> applied to their .exe files: <strong>16-bit colour mode</strong> and <strong>Windows XP SP2</strong> compatibility mode. The Sims Creator needs neither. If the installer doesn't apply these automatically, set them manually in each tool's Properties → Compatibility tab.</div>
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Route A — Feraligatr Installer <span class="tag green">Recommended</span></h3>
+  <p>A community installer that bundles all original Maxis CC tools and handles the registry key and compatibility settings for you.</p>
   <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body">
-      <h4>Update your GPU drivers</h4>
-      <p>Visit your GPU manufacturer's site directly — NVIDIA (<a href="https://www.nvidia.com/drivers" target="_blank">nvidia.com/drivers</a>), AMD (<a href="https://www.amd.com/support" target="_blank">amd.com/support</a>), or Intel (<a href="https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html" target="_blank">intel.com</a>). Do not rely on Windows Update for GPU drivers. Restart your PC after updating, then try launching again.</p>
-    </div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body">
-      <h4>Remove the Vulkan/OpenGL Compatibility Pack</h4>
-      <p>A Windows component called "OpenCL, OpenGL, and Vulkan Compatibility Pack" can conflict with the game's Vulkan implementation. Open Settings &#8594; Apps &#8594; search for "Vulkan" or "OpenCL" &#8594; Uninstall it. This alone fixes the error for many users, especially on systems with Intel integrated graphics.</p>
-    </div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body">
-      <h4>NVIDIA + AMD hybrid systems: disable graphics switching</h4>
-      <p>If your PC has both a dedicated GPU and Intel/AMD integrated graphics, Vulkan may be initialising on the wrong one. In NVIDIA Control Panel or AMD settings, force Sims.exe to use your dedicated GPU. On laptops this is often under Power Management or Switchable Graphics settings.</p>
-    </div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body">
-      <h4>Older Intel integrated graphics may not be compatible</h4>
-      <p>Intel HD Graphics older than Iris Xe (pre-2020, typically 4th-8th gen Core processors) generally don't support Vulkan at all. If this is your only GPU, Legacy Collection cannot run on your hardware. The original Complete Collection (which used DirectDraw) works on these systems, but Legacy requires Vulkan.</p>
-    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download the installer</h4><p>Go to <a href="https://github.com/Secondhand-Feraligatr/Sims-1-Programs-for-Legacy-Collection" target="_blank">github.com/Secondhand-Feraligatr/Sims-1-Programs-for-Legacy-Collection</a> and download the latest release.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Run and choose Custom Install</h4><p>Select <strong>Custom Install → Select manually</strong> to choose which tools to install. They will be placed in a <code>Programs</code> folder inside your Legacy Collection install directory.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>If you see a "16-bit colour" error</h4><p>The installer may not have applied compatibility settings. Right-click the tool's <code>.exe</code> → Properties → Compatibility tab → tick <strong>16-bit colour</strong> and set compatibility to <strong>Windows XP (Service Pack 2)</strong>. Applies to Home Crafter and Art Studio — The Sims Creator does not need this.</p></div></div>
+  </div>
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Route B — Manual Registry Fix</h3>
+  <p>If you prefer to install tools from the Internet Archive and fix the registry yourself, see the <a href="cc-troubleshooting.html#registry">CC Troubleshooting — Registry Fix</a> for exact steps. Then apply the compatibility settings above manually.</p>
+  <div class="callout teal">ℹ️ <strong>GIMP and Paint.NET never need a registry fix</strong> — they are standalone image editors with no dependency on the game's install location. You can use them to create CC without running any other tool.</div>
+</section>
+
+<section id="how-it-works">
+  <div class="section-head"><div class="section-emoji">👗</div><div><h2 class="section-title">How Clothing Works in Sims 1</h2><p class="section-sub">Very different from later Sims games</p></div></div>
+  <div class="callout gold">⚠️ Sims 1 clothing is nothing like Sims 4. There are no separate tops, bottoms, or hair items — each outfit is a single flat texture painted onto the body mesh. Hair is painted directly onto the head texture. Understanding this first saves a lot of confusion.</div>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">👕 One file = the whole outfit</div><div class="card-desc">A body skin file contains the Sim's entire appearance — top, bottom, shoes and hands all in one flat bitmap. To change any part of an outfit you repaint the entire body texture.</div></div>
+    <div class="card"><div class="card-title">🎨 Three skin tones</div><div class="card-desc">Sims 1 has light, medium and dark skin tones. If your clothing covers visible skin you need <strong>three separate files</strong> — one per skin tone — with the matching base skin colour underneath the clothing.</div></div>
+    <div class="card"><div class="card-title">👥 Three adult body types</div><div class="card-desc">Skinny (default), fit (athletic), and fat (plus-size). Each comes in male and female — six meshes total for adults. A skin painted for a fit female mesh will look distorted on a skinny female body. For widest compatibility, make at least skinny male and skinny female versions.</div></div>
+    <div class="card"><div class="card-title">🧒 Children have their own mesh</div><div class="card-desc">Children use a completely separate body mesh. Child clothing files use the prefix <code>Bc</code> rather than <code>Bfa</code> / <code>Bma</code>. There is no pregnancy mesh — Sims 1 has no visible pregnancy state.</div></div>
   </div>
 </section>
 
-<section id="nvidia-glitch">
-  <div class="section-head"><div class="section-emoji">📐</div><div><h2 class="section-title">NVIDIA: Scrambled Pixels / Misaligned UI</h2></div></div>
-  <p>On some NVIDIA GPUs, rows of pixels appear shifted or scrambled - most visible on motive bars, UI buttons and loading screens. This is a known NVIDIA driver issue with Vulkan presentation via DXGI swapchain.</p>
-  <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open NVIDIA Control Panel</h4><p>Right-click your desktop and select <strong>NVIDIA Control Panel</strong>.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find Sims.exe in Program Settings</h4><p>Go to Manage 3D Settings &#8594; Program Settings tab. Find or add <code>Sims.exe</code> to the list.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Change Vulkan present method</h4><p>Find "Vulkan/OpenGL present method" and set it to <strong>Prefer native</strong>. Apply and restart the game.</p></div></div>
-  </div>
-  <div class="callout teal">ℹ️ Keeping NVIDIA drivers up to date may also resolve this — NVIDIA have been releasing fixes for this class of Vulkan issue.</div>
-</section>
-
-<section id="wont-launch">
-  <div class="section-head"><div class="section-emoji">🚫</div><div><h2 class="section-title">Game Won't Launch / Closes Immediately</h2></div></div>
-  <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Update GPU drivers first</h4><p>See the Vulkan section above — outdated drivers are the most common cause.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Verify game files (Steam)</h4><p>Right-click the game in Steam &#8594; Properties &#8594; Installed Files &#8594; Verify integrity of game files.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Run as Administrator</h4><p>Right-click <code>Sims.exe</code> in the game folder &#8594; Run as administrator. Some Windows 10/11 setups require this.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set Windows 7 compatibility mode</h4><p>Right-click <code>Sims.exe</code> &#8594; Properties &#8594; Compatibility tab &#8594; tick "Run this program in compatibility mode for Windows 7".</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Check antivirus exceptions</h4><p>Antivirus software may block the game. Add the entire game folder as an exception in your antivirus settings.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Try windowed mode</h4><p>Add the <code>-w</code> launch flag — some GPUs can't initialise Vulkan in fullscreen mode correctly.</p></div></div>
-  </div>
-</section>
-
-<section id="multi-monitor">
-  <div class="section-head"><div class="section-emoji">🖥️</div><div><h2 class="section-title">Multi-Monitor Crash or Wrong Monitor</h2></div></div>
-  <p>Moving the game window between monitors while running causes a crash. The game can also launch on the wrong monitor. Use launch flags to control this.</p>
-  <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Force the game to the correct monitor</h4><p>Add <code>-monitor:0</code> to launch options for your primary monitor, or <code>-monitor:1</code> for your secondary. See the Launch Options section below for where to enter this in Steam or the EA App.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Never drag the window between monitors while running</h4><p>Moving the game window between monitors during play causes a crash. Close the game and relaunch with the correct <code>-monitor</code> flag instead.</p></div></div>
-  </div>
-</section>
-
-<section id="empty-neighbourhood">
-  <div class="section-head"><div class="section-emoji">🏘️</div><div><h2 class="section-title">Empty Neighbourhood / Crash When Creating a Sim</h2><p class="section-sub">Common on first install</p></div></div>
-  <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body">
-      <h4>Set compatibility mode to Windows 7</h4>
-      <p>Right-click <code>Sims.exe</code> in the game folder &#8594; Properties &#8594; Compatibility tab &#8594; tick "Run this program in compatibility mode for Windows 7"</p>
-    </div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body">
-      <h4>Also tick "Run as administrator"</h4>
-      <p>On the same Compatibility tab, also tick "Run this program as an administrator". Click OK.</p>
-    </div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body">
-      <h4>Add resolution flags</h4>
-      <p>In Steam launch options or by editing the shortcut Target field, add <code>-w -r1024x768</code> after the closing quote. Some users find these flags stabilise first-launch behaviour.</p>
-    </div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body">
-      <h4>Check the save folder exists</h4>
-      <p>Make sure <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code> exists with UserData folders inside. If the folder is empty or missing, try launching once without any mods installed - the game should recreate the defaults.</p>
-    </div></div>
-  </div>
-</section>
-
-<section id="minimising">
-  <div class="section-head"><div class="section-emoji">📉</div><div><h2 class="section-title">Game Keeps Minimising</h2></div></div>
-  <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Update the game</h4><p>This was fixed in the March 14, 2025 patch (Patch 7). Ensure your game is fully up to date via Steam or the EA App.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Switch to fullscreen mode</h4><p>The issue primarily affected windowed mode when another application stole focus. Press F5 in-game &#8594; Graphics &#8594; set display to Fullscreen.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Disable overlays</h4><p>Disable overlays that can trigger focus changes: Discord overlay, Steam overlay, and NVIDIA GeForce Experience overlay.</p></div></div>
-  </div>
-</section>
-
-<section id="special-characters">
-  <div class="section-head"><div class="section-emoji">🔤</div><div><h2 class="section-title">Crashes Related to Windows Username</h2></div></div>
-  <div class="callout gold"><strong>⚠️ Windows usernames with special characters can cause crashes.</strong> The save path includes your Windows username. Certain characters — spaces, accented letters, symbols like #, @, % — can cause crashes when the game reads or writes save data. EA added a launch warning for this in the April 2025 patch.</div>
-  <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a new Windows user account</h4><p>If your username contains special characters, create a new Windows user account with only plain letters and numbers, and launch the game from that account.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Watch for the in-game warning</h4><p>From Patch 8 onwards, the game shows a warning at launch if it detects a problematic username.</p></div></div>
-  </div>
-</section>
-
-<section id="launch-options">
-  <div class="section-head"><div class="section-emoji">⌨️</div><div><h2 class="section-title">Launch Options Reference</h2><p class="section-sub">Command line flags for Steam and EA App</p></div></div>
-  <div class="callout teal">ℹ️ <strong>Steam:</strong> Right-click the game &#8594; Properties &#8594; General tab &#8594; Launch Options box at the bottom. Type flags separated by spaces.<br><br><strong>EA App:</strong> Installed Games &#8594; three-dot menu &#8594; Manage &#8594; View Properties &#8594; Advanced Launch Options box.</div>
-  <div class="table-wrap" style="margin-top:12px;">
+<section id="filename-format">
+  <div class="section-head"><div class="section-emoji">📝</div><div><h2 class="section-title">Filename Format</h2><p class="section-sub">The filename tells the game everything it needs to know</p></div></div>
+  <p>Everyday clothing uses the prefix <code>B</code> (body). The rest of the filename encodes body type, gender, age, skin tone, and a unique outfit name. The format is:</p>
+  <div class="code-block">B[body][gender][age] [skin tone]_[outfit name].bmp
+Example: Bfa fit lgt_RedDress.bmp</div>
+  <div class="table-wrap" style="margin-top:16px;">
     <table>
-      <thead><tr><th style="width:25%">Flag</th><th>What it does</th></tr></thead>
+      <thead><tr><th style="width:15%">Segment</th><th style="width:25%">Values</th><th>Meaning</th></tr></thead>
       <tbody>
-        <tr><td><code>-w</code></td><td>Launch in windowed mode. On displays under 1200px height the window matches fullscreen size but shows a title bar. On 1440p/4K shows a smaller window.</td></tr>
-        <tr><td><code>-r1024x768</code></td><td>Set launch resolution to 1024x768. Replace numbers with any supported resolution, e.g. <code>-r1920x1080</code>.</td></tr>
-        <tr><td><code>-monitor:0</code></td><td>Force launch on primary monitor. Use <code>-monitor:1</code> for secondary monitor. Fixes multi-monitor launch crashes.</td></tr>
-        <tr><td><code>-nosound</code></td><td>Disable all in-game audio. Useful for diagnosing crashes caused by audio driver conflicts.</td></tr>
+        <tr><td>First letter</td><td><code>B</code></td><td>Body — marks this as an everyday clothing skin (goes in the home dresser). See the <a href="terminology.html#skins">Terminology page</a> for other prefixes.</td></tr>
+        <tr><td>Body type</td><td><code>fa</code> / <code>ma</code> / <code>ca</code></td><td>Female adult / Male adult / Child (age group)</td></tr>
+        <tr><td>Build</td><td><code>fat</code> / <code>fit</code> / <code>skn</code></td><td>Fat, fit or skinny body type. Skinny is the default.</td></tr>
+        <tr><td>Skin tone</td><td><code>lgt</code> / <code>med</code> / <code>drk</code></td><td>Light, medium or dark base skin. Make one file per tone.</td></tr>
+        <tr><td>_Outfit name</td><td>Any text</td><td>Underscore then your outfit name. No spaces — use CamelCase or hyphens.</td></tr>
       </tbody>
     </table>
   </div>
-  <div class="callout green" style="margin-top:8px;">✅ <strong>Example combination:</strong> <code>-w -r1024x768 -monitor:0</code> launches windowed at 1024x768 on primary monitor. A useful starting point when the game won't open normally.</div>
+  <div class="callout green">✅ <strong>Minimum viable release:</strong> <code>Bfa skn lgt_</code>, <code>Bfa skn med_</code>, <code>Bfa skn drk_</code> gives a female skinny outfit across all three skin tones. That's 3 files plus their .CMX and .SKN companions (generated by The Sims Creator).</div>
 </section>
 
-<section id="community">
-  <div class="section-head"><div class="section-emoji">💬</div><div><h2 class="section-title">Still Stuck? Community Help</h2></div></div>
-  <div class="community-grid">
-    <a class="community-card" href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener"><div class="community-icon">💬</div><div><div class="community-name">Simscord</div><div class="community-url">Live help from the community</div></div></a>
-    <a class="community-card" href="https://forums.ea.com/discussions/the-sims-1-en/" target="_blank" rel="noopener"><div class="community-icon">🏛️</div><div><div class="community-name">EA Forums - Sims 1</div><div class="community-url">Best for launch issues</div></div></a>
-    <a class="community-card" href="https://steamcommunity.com/app/3314060/discussions/" target="_blank" rel="noopener"><div class="community-icon">🎮</div><div><div class="community-name">Steam Discussions</div><div class="community-url">Community crash fixes</div></div></a>
-    <a class="community-card" href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener"><div class="community-icon">🔴</div><div><div class="community-name">r/thesims1</div><div class="community-url">Active Reddit community</div></div></a>
-    <a class="community-card" href="https://www.pcgamingwiki.com/wiki/The_Sims_Legacy_Collection" target="_blank" rel="noopener"><div class="community-icon">📖</div><div><div class="community-name">PCGamingWiki</div><div class="community-url">Technical reference</div></div></a>
+<section id="what-you-need">
+  <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">What You Need</h2></div></div>
+  <div class="grid-2">
+    <div class="card"><div class="card-title">The Sims Creator <span class="tag green">For CMX/SKN files</span></div><div class="card-desc">The official Maxis tool. Provides the 3D body preview, lets you paint on the body template, and exports the <code>.BMP</code>, <code>.CMX</code> and <code>.SKN</code> files the game needs. Install via the Feraligatr installer — see the Getting the Tools Working section above.</div></div>
+    <div class="card"><div class="card-title">GIMP or Photoshop <span class="tag teal">Image editing</span></div><div class="card-desc">For painting your outfit textures. GIMP is free. <strong>Critical:</strong> you must export as Indexed (256-colour) BMP — the game will show a white blank body otherwise. In GIMP: Image → Mode → Indexed (max 255 colours) → export as .BMP.</div><a class="pill-link" href="https://www.gimp.org/" target="_blank">↗ gimp.org</a></div>
+    <div class="card"><div class="card-title">Body templates <span class="tag teal">Starting point</span></div><div class="card-desc">Export a body template from The Sims Creator, or extract an existing skin from <code>GameData\Skins\</code> to paint over. Using an existing skin as a base ensures the UV layout is correct.</div></div>
+    <div class="card"><div class="card-title">Skin Doctor <span class="tag gold">Optional but useful</span></div><div class="card-desc">Validates your skin files before adding to the game. Catches colour depth errors and malformed files. Available from BeyondSims and the Internet Archive.</div></div>
   </div>
 </section>
 
-  </main>
+<section id="steps">
+  <div class="section-head"><div class="section-emoji">🚶</div><div><h2 class="section-title">Step-by-Step: Making a Clothing Skin</h2></div></div>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open The Sims Creator and select a body type</h4><p>Choose the body type: fat/fit/skinny, female/male, adult/child. Each combination needs its own file. Start with female adult skinny if you're making your first skin.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export the body template</h4><p>In TSC, export the current body texture as a BMP. This gives you the UV layout — the flat image that wraps around the 3D body. Open it in GIMP.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint your outfit on top</h4><p>Work in layers. Keep the base skin on one layer and paint the clothing on top. The front torso sits in the centre of the image; arms are strips to the sides. Pay close attention to seam edges where body parts join — visible seams are one of the most common beginner mistakes.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create the medium and dark skin tone versions</h4><p>Swap the base skin layer for the medium skin tone, re-flatten and save. Repeat for dark. All three must have the same outfit painted on top — only the exposed skin area changes colour.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Convert to Indexed 256-colour BMP — this step is critical</h4><p><strong>GIMP:</strong> Image → Mode → Indexed → set Maximum colours to 255 → Convert. Then File → Export As → save as .BMP.<br><strong>Photoshop:</strong> Image → Mode → Indexed Colour → set Colours to 256 → OK. File → Save As → BMP.<br>Do not save as 24-bit BMP, PNG, JPG or any other format — the game will not read it.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import back into TSC and export</h4><p>In The Sims Creator, import your painted BMP. TSC generates the companion <code>.CMX</code> and <code>.SKN</code> files that define the mesh mapping. Export all three files.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place files in GameData\Skins\</h4><p>Copy all three file types (<code>.BMP</code>, <code>.CMX</code>, <code>.SKN</code>) directly into <code>GameData\Skins\</code> in your Legacy Collection install folder. <strong>No subfolders</strong> — any subfolder and the game won't read them.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test in game</h4><p>Launch the game and check the outfit appears in the dresser. If you see a white blank Sim, the BMP wasn't saved as Indexed 256-colour. Go back to step 5.</p></div></div>
+  </div>
+</section>
+
+<section id="common-mistakes">
+  <div class="section-head"><div class="section-emoji">⚠️</div><div><h2 class="section-title">Common Mistakes</h2></div></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">Problem</th><th>Cause</th><th style="width:25%">Fix</th></tr></thead>
+      <tbody>
+        <tr><td>White blank body in game</td><td>BMP saved as 24-bit instead of Indexed 256-colour</td><td>Redo step 5 — convert to Indexed mode before exporting</td></tr>
+        <tr><td>Skin not appearing in dresser</td><td>Files in a subfolder, or missing .CMX/.SKN companions</td><td>Move files directly to GameData\Skins\ root, ensure all three file types are present</td></tr>
+        <tr><td>Seams visible on body</td><td>Painting crossed the UV seam edges</td><td>Zoom in on the template edges and match colours carefully where parts meet</td></tr>
+        <tr><td>Wrong body shape</td><td>Painted for fit mesh, placed for skinny Sim</td><td>Each body type needs its own file — make a skinny version</td></tr>
+        <tr><td>Skin shows for wrong tone</td><td>lgt/med/drk suffix doesn't match the base skin in the BMP</td><td>Check the filename suffix matches the base skin colour used underneath</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="tutorials">
+  <div class="section-head"><div class="section-emoji">📚</div><div><h2 class="section-title">Tutorials & References</h2></div></div>
+  <div class="grid-2">
+    <div class="card" style="border-color:var(--green);"><div class="card-title"><span class="tag green">RECOMMENDED</span> Simblr.cc Retexture Tutorial</div><div class="card-desc">Step-by-step walkthrough using Sims 2 Body Shop textures as a source for Sims 1 clothing. The most up-to-date beginner guide available.</div><a class="pill-link" href="https://simblr.cc/ts1/tutorial/1890-making-skins-for-the-sims-1-a-retexture-tutorial.html" target="_blank">Read Tutorial ↗</a></div>
+    <div class="card"><div class="card-title">The Sims Depot — Adding Skins & Meshes</div><div class="card-desc">Classic guide covering how skins and meshes relate in Sims 1, with tool setup instructions.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/" target="_blank">View Guide ↗</a></div>
+    <div class="card"><div class="card-title">Terminology — Skin Filename Prefixes</div><div class="card-desc">Full reference for all skin filename prefixes including buyable clothing (L, F, S, W, H) — useful once you move beyond basic everyday clothing.</div><a class="pill-link" href="terminology.html#skins" target="_blank">View Reference ↗</a></div>
+  </div>
+</section>
+
+</main>
 </div>
+
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection &mdash; Modding Guide</div>
-    <div class="footer-links">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection — Modding Guide
+    </div>
+        <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
@@ -526,7 +512,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Creating</div>
       <a href="making-cc.html" class="nav-drawer-link"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
-      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
+      <a href="making-clothing.html" class="nav-drawer-link active nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
       <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
       <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
       <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
@@ -537,7 +523,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Help</div>
       <a href="cc-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
-      <a href="game-troubleshooting.html" class="nav-drawer-link active"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
