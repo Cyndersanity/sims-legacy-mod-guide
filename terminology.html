@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terminology — Sims Legacy Collection Guide</title>
+<title>Terminology – Sims Legacy Collection Guide</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -231,6 +231,72 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
 html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
 
+
+/* Desktop hamburger button */
+.nav-ham-desktop{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:15px;padding:5px 10px;cursor:pointer;transition:all 0.18s;white-space:nowrap;flex-shrink:0;}
+.nav-ham-desktop:hover{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+/* Mobile nav overhaul: brand left, search middle, menu button right */
+@media(max-width:767px){
+  nav{padding:0 16px;}
+  .nav-inner{display:none!important;}
+  .nav-scroll-hint,.nav-scroll-hint-left{display:none!important;}
+  .nav-mobile-bar{display:flex!important;align-items:center;justify-content:space-between;padding:10px 0;gap:8px;}
+}
+@media(min-width:768px){
+  .nav-mobile-bar{display:none;}
+}
+.nav-mobile-bar{display:none;width:100%;}
+.nav-mobile-brand{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--green-dark);text-decoration:none;display:flex;align-items:center;gap:6px;flex:1;min-width:0;}
+.nav-mobile-brand .plumbob{flex-shrink:0;}
+.nav-mobile-brand-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.nav-mobile-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.nav-mobile-search{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:14px;padding:6px 10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;}
+.nav-mobile-search:hover{background:var(--green-pale);}
+.nav-mobile-menu{background:var(--green);color:#fff;border:none;border-radius:var(--radius-sm);font-size:12px;font-weight:700;padding:7px 10px;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.nav-mobile-menu:hover{background:var(--green-dark);}
+/* Dropdowns for new help/info dropdowns */
+html body>.nav-dropdown-panel{z-index:10000!important;position:fixed!important;}
+
+
+/* MOBILE NAV – sync with mobile-bar */
+@media(max-width:767px){
+  .nav-inner{display:none!important;}
+  .nav-scroll-hint,.nav-scroll-hint-left{display:none!important;}
+  .nav-mobile-bar{display:flex!important;}
+  .nav-ham{display:none!important;}
+}
+@media(min-width:768px){
+  .nav-mobile-bar{display:none!important;}
+}
+
+
+/* ─── MOBILE IMPROVEMENTS ─────────────────────────────── */
+@media(max-width:640px){
+  /* Tables: allow cells to wrap, reduce font */
+  td,th{font-size:12px;padding:8px 10px;}
+  .table-wrap{border-radius:8px;font-size:12px;}
+  /* Code blocks: allow wrapping on small screens */
+  .code-block{font-size:11px;padding:12px 14px;white-space:pre-wrap;word-break:break-word;}
+  code{font-size:11px;}
+  /* Steps: tighten on mobile */
+  .step{gap:10px;padding:14px 0;}
+  .step-num{width:28px;height:28px;min-width:28px;font-size:12px;}
+  .step-body h4{font-size:14px;}
+  /* Section heads */
+  .section-head{gap:10px;}
+  .section-emoji{font-size:22px;}
+  .section-title{font-size:18px;}
+  /* Cards in grids collapse to single column on very small screens */
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  /* Roadmap grid */
+  .roadmap-grid{grid-template-columns:1fr;}
+  /* Page hero */
+  .page-hero{padding:32px 16px 28px;}
+  .page-title{font-size:clamp(24px,7vw,38px);}
+  /* Callouts */
+  .callout{font-size:13px;padding:12px 14px;}
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -247,12 +313,14 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
       <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link active">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link">📋 Roadmap</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      <a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link active">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="updates.html" class="nav-dropdown-item">📋 Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><button class="nav-ham-desktop" id="navHam" aria-label="Open menu" title="Open full menu">☰</button>
       </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
-  </div>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
 </nav>
 <script>
 (function(){
@@ -275,7 +343,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 </script>
 
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Terminology</div>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – Terminology</div>
   <h1 class="page-title">Sims 1 <span>Terminology</span></h1>
   <p class="page-sub">What people mean when they say CC, mods, hacking and everything else</p>
 </div>
@@ -291,7 +359,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
         <li><a href="#hacking">Hacking</a></li>
         <li><a href="#iff">IFF & FAR</a></li>
         <li><a href="#skins">Skins & Filename Prefixes</a></li>
-        <li><a href="#complete-collection">Complete Collection</a><a href="#maxis-match">Maxis Match</a></li>
+        <li><a href="#complete-collection">Complete Collection</a></li>
         <li><a href="#maxis-match">Maxis Match</a></li>
         <li><a href="#other">Other Terms</a></li>
         <li class="toc-sub"><a href="#other">FAR File, Vulkan, Get Cool Stuff</a></li>
@@ -302,7 +370,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   </aside>
 
   <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#cc">CC</a><a href="#mod">Mod</a><a href="#hacking">Hacking</a><a href="#iff">IFF & FAR</a><a href="#skins">Skins</a><a href="#complete-collection">Complete Collection</a><a href="#maxis-match">Maxis Match</a><a href="#other">Other Terms</a></div></details>
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#intro">Why This Matters</a><a href="#cc">CC</a><a href="#mod">Mod</a><a href="#hacking">Hacking</a><a href="#iff">IFF & FAR</a><a href="#skins">Skins & Filename Prefixes</a><a href="#complete-collection">Complete Collection</a><a href="#maxis-match">Maxis Match</a><a href="#other">Other Terms</a><a href="#other">FAR File, Vulkan, Get Cool Stuff</a></div></details>
 
 
 <section id="intro">
@@ -320,13 +388,13 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="section-head">
     <div class="section-emoji">👗</div>
     <div>
-      <h2 class="section-title">CC — Custom Content</h2>
+      <h2 class="section-title">CC – Custom Content</h2>
     </div>
   </div>
   <div class="term-card">
     <div class="term-title">CC <span class="term-also">Custom Content</span></div>
     <div class="term-body">
-      <p>In the Sims community, CC means <strong>Custom Content</strong> — any file made by a player (not Maxis/EA) that adds something visual to the game. This includes custom clothing, hairstyles, skin tones, furniture, wall coverings, floors and objects.</p>
+      <p>In the Sims community, CC means <strong>Custom Content</strong> – any file made by a player (not Maxis/EA) that adds something visual to the game. This includes custom clothing, hairstyles, skin tones, furniture, wall coverings, floors and objects.</p>
       <p>CC is the catch-all term for things that change how the game <em>looks</em> without changing how it plays. A new outfit is CC. A custom sofa is CC. A wall pattern is CC.</p>
       <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
       <p style="font-weight:800;color:var(--gold-dark);">⚠️ Sims 1 CC vs The Sims Complete Collection (also abbreviated CC)</p>
@@ -362,11 +430,11 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="term-card">
     <div class="term-title">Hacking <span class="term-also">Object Hacking / IFF Hacking</span></div>
     <div class="term-body">
-      <p>In the Sims community, "hacking" has nothing to do with breaking into systems or doing anything illegal. It refers to <strong>opening and editing the game's object files</strong> - specifically .iff files — to change how objects work.</p>
+      <p>In the Sims community, "hacking" has nothing to do with breaking into systems or doing anything illegal. It refers to <strong>opening and editing the game's object files</strong> - specifically .iff files – to change how objects work.</p>
       <p>When someone says they've "hacked" an object, it means they've opened it in a tool like IFF Pencil 2, modified the values or scripts inside, and saved a new version. A "hack" is the resulting modified file.</p>
       <p>The term comes from the earliest days of Sims modding when this kind of editing was novel and required genuine technical knowledge. It stuck even as the tools became much easier to use. Today "hacking" and "modding" are used interchangeably when people talk about editing game objects, even if no coding is involved.</p>
       <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
-      <p>So when you see "object hack", "gameplay hack" or a site calling itself a hacking resource — this is normal Sims community language for creating or editing gameplay mods. Nobody is doing anything untoward.</p>
+      <p>So when you see "object hack", "gameplay hack" or a site calling itself a hacking resource – this is normal Sims community language for creating or editing gameplay mods. Nobody is doing anything untoward.</p>
     </div>
   </div>
 </section>
@@ -381,7 +449,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="term-card">
     <div class="term-title">IFF <span class="term-also">Interchange File Format</span></div>
     <div class="term-body">
-      <p>An .iff file is the core file format for Sims 1 objects. Every buyable item, piece of furniture, interactive object and most gameplay modifications exist as .iff files. The format is actually quite old — it was developed by EA and used across many of their games in the 1980s and 90s before The Sims adopted it.</p>
+      <p>An .iff file is the core file format for Sims 1 objects. Every buyable item, piece of furniture, interactive object and most gameplay modifications exist as .iff files. The format is actually quite old – it was developed by EA and used across many of their games in the 1980s and 90s before The Sims adopted it.</p>
       <p>An .iff file is essentially a container that holds multiple different resources together: the object's 3D sprites (the images that make it look right), its BHAV scripts (the code that tells the game what the object does), its price and category information, its name, and more. When modders talk about editing an object, they mean editing the contents of its .iff file.</p>
     </div>
   </div>
@@ -405,8 +473,8 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <div class="term-title">Skins <span class="term-also">Body textures / Head textures</span></div>
     <div class="term-body">
       <p>In Sims 1, "skins" refers specifically to the <strong>image files that make a Sim look the way they do</strong> - their clothing, body shape appearance, facial features and hair. These are bitmap (.BMP) files that get painted onto the 3D Sim body and head models.</p>
-      <p>Unlike later Sims games where clothing and hair are separate items with meshes, in Sims 1 the entire Sim is essentially one texture. A "skin" for an outfit means a complete body image — top, bottom and shoes all in one file. Hair is painted directly onto the head texture rather than being a separate item. This is why skin files must go in <code>GameData\Skins\</code> with no subfolders — the game scans that one directory directly at load time.</p>
-      <p>When you see "skin download" on an old Sims 1 site, it means a new outfit, hairstyle or character appearance — not a separate mesh or item.</p>
+      <p>Unlike later Sims games where clothing and hair are separate items with meshes, in Sims 1 the entire Sim is essentially one texture. A "skin" for an outfit means a complete body image – top, bottom and shoes all in one file. Hair is painted directly onto the head texture rather than being a separate item. This is why skin files must go in <code>GameData\Skins\</code> with no subfolders – the game scans that one directory directly at load time.</p>
+      <p>When you see "skin download" on an old Sims 1 site, it means a new outfit, hairstyle or character appearance – not a separate mesh or item.</p>
     </div>
   </div>
 
@@ -420,18 +488,18 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
           </tr></thead>
           <tbody>
             <tr><td>C</td><td>Cranium (Head)</td><td>Create-A-Sim head selection</td><td>Base game</td></tr>
-            <tr><td>B</td><td>Body (Everyday)</td><td>Dresser — everyday clothing drawer</td><td>Base game</td></tr>
-            <tr><td>L</td><td>Lingerie (Pajamas / Sleepwear)</td><td>Buyable at clothing rack — sleepwear section</td><td>Hot Date</td></tr>
-            <tr><td>F</td><td>Formal</td><td>Buyable at clothing rack — formal section</td><td>Hot Date</td></tr>
-            <tr><td>S</td><td>Swimwear</td><td>Buyable at clothing rack — swimwear section</td><td>Hot Date</td></tr>
-            <tr><td>W</td><td>Winterwear</td><td>Buyable at clothing rack — winterwear section</td><td>Vacation</td></tr>
-            <tr><td>H</td><td>High Fashion</td><td>Buyable at clothing rack — high fashion section</td><td>Superstar</td></tr>
+            <tr><td>B</td><td>Body (Everyday)</td><td>Dresser – everyday clothing drawer</td><td>Base game</td></tr>
+            <tr><td>L</td><td>Lingerie (Pajamas / Sleepwear)</td><td>Buyable at clothing rack – sleepwear section</td><td>Hot Date</td></tr>
+            <tr><td>F</td><td>Formal</td><td>Buyable at clothing rack – formal section</td><td>Hot Date</td></tr>
+            <tr><td>S</td><td>Swimwear</td><td>Buyable at clothing rack – swimwear section</td><td>Hot Date</td></tr>
+            <tr><td>W</td><td>Winterwear</td><td>Buyable at clothing rack – winterwear section</td><td>Vacation</td></tr>
+            <tr><td>H</td><td>High Fashion</td><td>Buyable at clothing rack – high fashion section</td><td>Superstar</td></tr>
             <tr><td>H</td><td>Hand files</td><td>Sim's hand texture (separate from body)</td><td>Base game</td></tr>
-            <tr><td>xskin-</td><td>Mesh file (.skn)</td><td>Defines the 3D shape — paired with BMP textures</td><td>Base game</td></tr>
+            <tr><td>xskin-</td><td>Mesh file (.skn)</td><td>Defines the 3D shape – paired with BMP textures</td><td>Base game</td></tr>
           </tbody>
         </table></div>
       <p>After the type prefix, the rest of the filename encodes: <strong>gender</strong> (f = female, m = male), <strong>age</strong> (a = adult, c = child), <strong>body type</strong> (3 letters), <strong>skin tone</strong> (lgt / med / drk), then an underscore and the outfit name. For example: <code>Lfa fit lgt_MySleepwear.bmp</code> = Lingerie, female adult, fit body type, light skin tone.</p>
-      <p><strong>Note on H:</strong> Both High Fashion and hand files start with H. The game distinguishes them by context — hand files are referenced directly in character files, while High Fashion skins appear in the clothing rack like other buyable types.</p>
+      <p><strong>Note on H:</strong> Both High Fashion and hand files start with H. The game distinguishes them by context – hand files are referenced directly in character files, while High Fashion skins appear in the clothing rack like other buyable types.</p>
     </div>
   </div>
 
@@ -441,7 +509,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <p>The <strong>L, F, S, W and H prefixed skins</strong> are "buyable" - they don't appear in your Sim's home dresser but are instead purchased from a clothing rack on a community lot (introduced in Hot Date). This means your Sims have to visit a shopping lot to buy them, just like in real life.</p>
       <p>In the original game and older installation guides, buyable skins were told to go in a separate <code>SkinsBuy\</code> folder rather than the main Skins folder. In the Legacy Collection, this folder exists at <code>ExpansionShared\SkinsBuy\</code>.</p>
       <div class="callout gold" style="margin-top:12px;"><strong>Which folder should buyable skins go in for the Legacy Collection?</strong> Community testing confirms that the <code>ExpansionShared\SkinsBuy\</code> folder is the correct location for buyable skins (L, F, S, W, H prefix) in the Legacy Collection. Dropping them in the regular <code>GameData\Skins\</code> folder may work for some, but using the dedicated SkinsBuy folder is the more reliable approach. The no-subfolders rule applies to both locations.</div>
-      <div class="callout teal" style="margin-top:0;"><strong>Buyable skins do not appear in Create-A-Sim.</strong> This is intentional — the L, F, S, W and H categories are shopping-only outfits by design. Your Sim needs to visit a clothing rack on a community lot to purchase them. They will never show up in the dresser at home or in the initial character creator, regardless of which folder they're installed in. If you want a skin to be available in Create-A-Sim, it needs to have a <strong>B prefix</strong> (everyday). You can rename a buyable skin's files to use a B prefix to make it appear in CAS, but doing so removes it from the clothing racks entirely — it's one or the other.</div>
+      <div class="callout teal" style="margin-top:0;"><strong>Buyable skins do not appear in Create-A-Sim.</strong> This is intentional – the L, F, S, W and H categories are shopping-only outfits by design. Your Sim needs to visit a clothing rack on a community lot to purchase them. They will never show up in the dresser at home or in the initial character creator, regardless of which folder they're installed in. If you want a skin to be available in Create-A-Sim, it needs to have a <strong>B prefix</strong> (everyday). You can rename a buyable skin's files to use a B prefix to make it appear in CAS, but doing so removes it from the clothing racks entirely – it's one or the other.</div>
     </div>
   </div>
 </section>
@@ -464,7 +532,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <div class="term-title">Legacy Collection <span class="term-also">The Sims 25 / LC</span></div>
     <div class="term-body">
       <p>The Legacy Collection is the 2025 re-release of The Sims 1, available on Steam and the EA App. It includes the base game and all seven expansion packs, updated to run on Windows 10 and 11. This is the version this guide is written for.</p>
-      <p>The internal save file folder is named "The Sims 25" (referencing the 25th anniversary), which is why some paths on this guide reference that name. The Legacy Collection is functionally identical to the Complete Collection for modding purposes — the same folders, the same file types, just different root paths.</p>
+      <p>The internal save file folder is named "The Sims 25" (referencing the 25th anniversary), which is why some paths on this guide reference that name. The Legacy Collection is functionally identical to the Complete Collection for modding purposes – the same folders, the same file types, just different root paths.</p>
     </div>
   </div>
 </section>
@@ -480,10 +548,10 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="term-card">
     <div class="term-title">Maxis Match <span class="term-also">MM</span></div>
     <div class="term-body">
-      <p>Maxis Match is a style of custom content that deliberately matches the visual style of the original game assets — same colour palette, similar texture quality, comparable level of detail. CC described as "Maxis Match" looks like it could have shipped with the base game or an expansion pack. It fits naturally into the game world without standing out as obviously custom-made.</p>
-      <p>The opposite of Maxis Match is sometimes called "Alpha CC" or "high-res CC" — content made with much higher texture quality and detail than the original game. In Sims 1, because the base game uses 256-colour indexed bitmaps, most CC is inherently Maxis Match by necessity. The term becomes more relevant when looking at content that's been converted from later Sims games, which may look sharper or more detailed than the originals.</p>
+      <p>Maxis Match is a style of custom content that deliberately matches the visual style of the original game assets – same colour palette, similar texture quality, comparable level of detail. CC described as "Maxis Match" looks like it could have shipped with the base game or an expansion pack. It fits naturally into the game world without standing out as obviously custom-made.</p>
+      <p>The opposite of Maxis Match is sometimes called "Alpha CC" or "high-res CC" – content made with much higher texture quality and detail than the original game. In Sims 1, because the base game uses 256-colour indexed bitmaps, most CC is inherently Maxis Match by necessity. The term becomes more relevant when looking at content that's been converted from later Sims games, which may look sharper or more detailed than the originals.</p>
       <hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
-      <p>When browsing Sims 1 CC sites, "Maxis Match" or "MM" in a description or tag means the creator aimed to keep their work visually consistent with what Maxis produced — a useful shorthand for knowing whether a download will blend into your existing game.</p>
+      <p>When browsing Sims 1 CC sites, "Maxis Match" or "MM" in a description or tag means the creator aimed to keep their work visually consistent with what Maxis produced – a useful shorthand for knowing whether a download will blend into your existing game.</p>
     </div>
   </div>
 </section>
@@ -498,7 +566,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 
   <div class="term-card">
     <div class="term-title">BHAV <span class="term-also">Behaviour</span></div>
-    <div class="term-body">A BHAV is a behaviour script inside an .iff file that tells the game what an object does and how Sims interact with it. When modders talk about BHAV editing or BHAV scripting, they mean changing the logic that drives object interactions — the most advanced type of Sims 1 modding. You don't need to touch BHAVs to use most mods, but you do if you want to create new interactions from scratch.</div>
+    <div class="term-body">A BHAV is a behaviour script inside an .iff file that tells the game what an object does and how Sims interact with it. When modders talk about BHAV editing or BHAV scripting, they mean changing the logic that drives object interactions – the most advanced type of Sims 1 modding. You don't need to touch BHAVs to use most mods, but you do if you want to create new interactions from scratch.</div>
   </div>
 
 
@@ -513,7 +581,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="term-card">
     <div class="term-title">Vulkan</div>
     <div class="term-body">
-      <p>Vulkan is a modern graphics API (Application Programming Interface) — the layer that sits between software and your GPU. The Legacy Collection replaced the original game's DirectDraw renderer with Vulkan, which is why Legacy requires a Vulkan-compatible GPU when the original could run on ancient hardware.</p>
+      <p>Vulkan is a modern graphics API (Application Programming Interface) – the layer that sits between software and your GPU. The Legacy Collection replaced the original game's DirectDraw renderer with Vulkan, which is why Legacy requires a Vulkan-compatible GPU when the original could run on ancient hardware.</p>
       <p>Most players never need to think about this unless the game refuses to launch with a "Vulkan Initialization Failed" error. This means either your GPU doesn't support Vulkan (older Intel integrated graphics) or your drivers need updating. See the <a href="game-troubleshooting.html#vulkan">Game Troubleshooting</a> page for fixes.</p>
     </div>
   </div>
@@ -521,7 +589,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="term-card">
     <div class="term-title">Get Cool Stuff <span class="term-also">Official Maxis downloads</span></div>
     <div class="term-body">
-      <p>"Get Cool Stuff" was a section on the official Maxis/EA Sims website from 2000 to around 2003. It offered free official downloadable content — objects, skins, tools and pre-made houses — created by the Maxis team. These were never bundled with the game disc and had to be downloaded separately.</p>
+      <p>"Get Cool Stuff" was a section on the official Maxis/EA Sims website from 2000 to around 2003. It offered free official downloadable content – objects, skins, tools and pre-made houses – created by the Maxis team. These were never bundled with the game disc and had to be downloaded separately.</p>
       <p>The Legacy Collection does not include this content, and the original .exe installers won't work because they look for the game at the old registry path. The community has archived all of it. See the <a href="about-legacy.html#missing-content">About Legacy</a> page for working download links.</p>
     </div>
   </div>
@@ -538,12 +606,12 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 
   <div class="term-card">
     <div class="term-title">Cloning</div>
-    <div class="term-body">Cloning means taking an existing game object and making a copy of it to modify. This is the standard starting point for creating new objects — you clone a Maxis original in Transmogrifier, then edit the copy rather than the original. This keeps the base game intact and means your mod doesn't break anything if it's removed.</div>
+    <div class="term-body">Cloning means taking an existing game object and making a copy of it to modify. This is the standard starting point for creating new objects – you clone a Maxis original in Transmogrifier, then edit the copy rather than the original. This keeps the base game intact and means your mod doesn't break anything if it's removed.</div>
   </div>
 
   <div class="term-card">
     <div class="term-title">Meshing</div>
-    <div class="term-body">Creating or editing the 3D geometry of an object rather than just its texture. Meshing in Sims 1 is much more limited than in later games — the engine renders objects as 2D sprites from fixed angles rather than true 3D, so "meshing" usually means editing those sprite images rather than a proper 3D mesh. Full 3D mesh editing in Sims 1 is rarely done.</div>
+    <div class="term-body">Creating or editing the 3D geometry of an object rather than just its texture. Meshing in Sims 1 is much more limited than in later games – the engine renders objects as 2D sprites from fixed angles rather than true 3D, so "meshing" usually means editing those sprite images rather than a proper 3D mesh. Full 3D mesh editing in Sims 1 is rarely done.</div>
   </div>
 
   <div class="term-card">
@@ -565,7 +633,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
+      The Sims Legacy Collection – Modding Guide
     </div>
         <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
@@ -576,7 +644,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
-    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
     <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
@@ -590,10 +658,10 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Mods &amp; CC</div>
-      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
-      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
-      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
       <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
@@ -607,49 +675,64 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
       <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
       <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
-      <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
-      <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Help</div>
-      <a href="cc-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
-      <a href="game-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
-      <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
+      <div class="nav-drawer-group-label">Site Info</div>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
+  /* Nav scroll arrows */
   var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
   function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
   if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
   if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
   if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
   window.addEventListener('load',check);setTimeout(check,200);
-  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+
+  /* Drawer – both hamburger buttons open it */
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
-  if(ham)ham.addEventListener('click',openD);
+  document.querySelectorAll('#navHam,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  /* Back to top */
   var btt=document.getElementById('backTop');
   if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  /* Dropdown panels – fixed position via JS */
   function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
   function setupDD(bid,pid){
     var btn=document.getElementById(bid),panel=document.getElementById(pid);
     if(!btn||!panel)return;
     document.body.appendChild(panel);
-    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
     panel.addEventListener('click',function(e){e.stopPropagation();});
   }
   setupDD('modsDropdownBtn','modsDropdownPanel');
   setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('infoDropdownBtn','infoDropdownPanel');
   document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>

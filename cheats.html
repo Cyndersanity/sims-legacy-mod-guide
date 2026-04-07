@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cheats — Sims Legacy Collection Guide</title>
+<title>Cheats – Sims Legacy Collection Guide</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -251,6 +251,72 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
 html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
 
+
+/* Desktop hamburger button */
+.nav-ham-desktop{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:15px;padding:5px 10px;cursor:pointer;transition:all 0.18s;white-space:nowrap;flex-shrink:0;}
+.nav-ham-desktop:hover{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+/* Mobile nav overhaul: brand left, search middle, menu button right */
+@media(max-width:767px){
+  nav{padding:0 16px;}
+  .nav-inner{display:none!important;}
+  .nav-scroll-hint,.nav-scroll-hint-left{display:none!important;}
+  .nav-mobile-bar{display:flex!important;align-items:center;justify-content:space-between;padding:10px 0;gap:8px;}
+}
+@media(min-width:768px){
+  .nav-mobile-bar{display:none;}
+}
+.nav-mobile-bar{display:none;width:100%;}
+.nav-mobile-brand{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--green-dark);text-decoration:none;display:flex;align-items:center;gap:6px;flex:1;min-width:0;}
+.nav-mobile-brand .plumbob{flex-shrink:0;}
+.nav-mobile-brand-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.nav-mobile-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.nav-mobile-search{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:14px;padding:6px 10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;}
+.nav-mobile-search:hover{background:var(--green-pale);}
+.nav-mobile-menu{background:var(--green);color:#fff;border:none;border-radius:var(--radius-sm);font-size:12px;font-weight:700;padding:7px 10px;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.nav-mobile-menu:hover{background:var(--green-dark);}
+/* Dropdowns for new help/info dropdowns */
+html body>.nav-dropdown-panel{z-index:10000!important;position:fixed!important;}
+
+
+/* MOBILE NAV – sync with mobile-bar */
+@media(max-width:767px){
+  .nav-inner{display:none!important;}
+  .nav-scroll-hint,.nav-scroll-hint-left{display:none!important;}
+  .nav-mobile-bar{display:flex!important;}
+  .nav-ham{display:none!important;}
+}
+@media(min-width:768px){
+  .nav-mobile-bar{display:none!important;}
+}
+
+
+/* ─── MOBILE IMPROVEMENTS ─────────────────────────────── */
+@media(max-width:640px){
+  /* Tables: allow cells to wrap, reduce font */
+  td,th{font-size:12px;padding:8px 10px;}
+  .table-wrap{border-radius:8px;font-size:12px;}
+  /* Code blocks: allow wrapping on small screens */
+  .code-block{font-size:11px;padding:12px 14px;white-space:pre-wrap;word-break:break-word;}
+  code{font-size:11px;}
+  /* Steps: tighten on mobile */
+  .step{gap:10px;padding:14px 0;}
+  .step-num{width:28px;height:28px;min-width:28px;font-size:12px;}
+  .step-body h4{font-size:14px;}
+  /* Section heads */
+  .section-head{gap:10px;}
+  .section-emoji{font-size:22px;}
+  .section-title{font-size:18px;}
+  /* Cards in grids collapse to single column on very small screens */
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  /* Roadmap grid */
+  .roadmap-grid{grid-template-columns:1fr;}
+  /* Page hero */
+  .page-hero{padding:32px 16px 28px;}
+  .page-title{font-size:clamp(24px,7vw,38px);}
+  /* Callouts */
+  .callout{font-size:13px;padding:12px 14px;}
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -267,12 +333,14 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
       <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link active">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link">📋 Roadmap</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      <a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><a href="cheats.html" class="nav-link active">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="updates.html" class="nav-dropdown-item">📋 Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><button class="nav-ham-desktop" id="navHam" aria-label="Open menu" title="Open full menu">☰</button>
       </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
-  </div>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
 </nav>
 <script>
 (function(){
@@ -296,7 +364,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 </script>
 
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Cheats</div>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – Cheats</div>
   <h1 class="page-title">Cheat <span>Codes</span></h1>
   <p class="page-sub">How to enable cheats and every working code for the Legacy Collection</p>
 </div>
@@ -320,7 +388,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   </aside>
 
   <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#how-to">How to Enable</a><a href="#tips">Tips & Tricks</a><a href="#money">Money</a><a href="#gameplay">Gameplay</a><a href="#build">Build & Buy</a><a href="#debug">Debug Cheats</a></div></details>
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#how-to">How to Enable Cheats</a><a href="#tips">Cheat Tips & Tricks</a><a href="#money">Money</a><a href="#gameplay">Gameplay</a><a href="#build">Build & Buy Mode</a><a href="#debug">Debug & Display</a><a href="#debug-unlock">Unlocking Debug Cheats</a></div></details>
 
 
 <section id="how-to">
@@ -331,7 +399,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <p class="section-sub">Same shortcut as every other Sims game</p>
     </div>
   </div>
-  <div class="callout teal">Cheats in The Sims 1 don't require any setup or a separate "enable cheats" command — you just open the console and type. No <code>testingcheats true</code> needed.</div>
+  <div class="callout teal">Cheats in The Sims 1 don't require any setup or a separate "enable cheats" command – you just open the console and type. No <code>testingcheats true</code> needed.</div>
   <div class="steps" style="margin-top:20px;">
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the cheat console</h4><p>Press <strong>Ctrl + Shift + C</strong> while in game. A text box will appear in the top-left corner of the screen.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Type your cheat</h4><p>Type the cheat code exactly as shown in the tables below. Cheats are not case-sensitive - <code>rosebud</code> and <code>ROSEBUD</code> both work.</p></div></div>
@@ -365,7 +433,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 
   <div class="tip-card">
     <div class="tip-title">Resetting a Sim's mood (the move_objects trick)</div>
-    <div class="tip-body">Enable <code>move_objects on</code>, then in Buy Mode delete the Sim while they're sitting on a chair or lying in bed. The Sim disappears. Click their portrait to bring them back — they'll return with fully maxed motive bars. This is the fastest way to get your Sim promoted. Delete the chair, not the Sim directly.</div>
+    <div class="tip-body">Enable <code>move_objects on</code>, then in Buy Mode delete the Sim while they're sitting on a chair or lying in bed. The Sim disappears. Click their portrait to bring them back – they'll return with fully maxed motive bars. This is the fastest way to get your Sim promoted. Delete the chair, not the Sim directly.</div>
   </div>
 
   <div class="tip-card">
@@ -380,7 +448,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 
   <div class="tip-card">
     <div class="tip-title">Getting rid of a Sim's unwanted command queue</div>
-    <div class="tip-body">If a Sim is stuck doing something or has a queue of actions you can't cancel, enable <code>move_objects on</code>, switch to Buy Mode and delete the Sim, then go back to Live Mode and click their portrait. They return fresh with a clear queue and full mood bars. Make sure the Sim isn't mid-animation when you delete them or the game may crash — wait for them to be idle or seated first.</div>
+    <div class="tip-body">If a Sim is stuck doing something or has a queue of actions you can't cancel, enable <code>move_objects on</code>, switch to Buy Mode and delete the Sim, then go back to Live Mode and click their portrait. They return fresh with a clear queue and full mood bars. Make sure the Sim isn't mid-animation when you delete them or the game may crash – wait for them to be idle or seated first.</div>
   </div>
 
   <div class="tip-card">
@@ -407,7 +475,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       </thead>
       <tbody>
         <tr><td>rosebud</td><td>Adds 1,000 Simoleons</td><td>Add <code>;!</code> to repeat. <code>rosebud;!;!;!;!;!</code> = 6,000§</td></tr>
-        <tr><td>klapaucius</td><td>Adds 1,000 Simoleons</td><td>Original cheat from unpatched versions. May not work on all Legacy Collection installs — use <code>rosebud</code> instead</td></tr>
+        <tr><td>klapaucius</td><td>Adds 1,000 Simoleons</td><td>Original cheat from unpatched versions. May not work on all Legacy Collection installs – use <code>rosebud</code> instead</td></tr>
       </tbody>
     </table>
   </div>
@@ -435,16 +503,16 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
         <tr><td>autonomy [1-100]</td><td>Sets how much Sims act on their own without your input. Higher = more independent</td><td><code>autonomy 0</code> makes Sims completely passive. <code>autonomy 100</code> = maximum free will</td></tr>
         <tr><td>set_hour [1-24]</td><td>Jumps the in-game clock to a specific hour</td><td>Useful for skipping to carpool time or preventing a Sim from sleeping all day</td></tr>
         <tr><td>sim_speed [-1000 to 1000]</td><td>Changes how fast Sims move and act</td><td><code>sim_speed 1000</code> is very fast. <code>sim_speed -1000</code> is very slow. Good for screenshots or waiting out slow tasks</td></tr>
-        <tr><td>visitor_control</td><td>Allows you to control visiting Sims with the keyboard</td><td>Normally visitors act fully autonomously — this lets you direct them</td></tr>
+        <tr><td>visitor_control</td><td>Allows you to control visiting Sims with the keyboard</td><td>Normally visitors act fully autonomously – this lets you direct them</td></tr>
         <tr><td>interests</td><td>Randomises all Sims' interests on the current lot</td><td>Useful if you want to shake up conversation topics</td></tr>
         <tr><td>hist_add</td><td>Adds a family history stat entry to the current family</td><td>Mainly for completionists tracking family milestones</td></tr>
         <tr><td>grow_grass [1-150]</td><td>Sets the grass growth level on the lot</td><td><code>grow_grass 150</code> = full lush lawn. <code>grow_grass 0</code> = dead grass</td></tr>
-        <tr><td>water_tool</td><td>Enables a tool to place natural water (ponds/streams) on the lot</td><td>Sims 1 only — in later games this became a standard Build Mode tool. Click and drag on your lot to create ponds or streams</td></tr>
+        <tr><td>water_tool</td><td>Enables a tool to place natural water (ponds/streams) on the lot</td><td>Sims 1 only – in later games this became a standard Build Mode tool. Click and drag on your lot to create ponds or streams</td></tr>
         <tr><td>map_edit on/off</td><td>Opens the neighbourhood map editor</td><td>Lets you modify the terrain on the neighbourhood map. Use carefully</td></tr>
-        <tr><td>sweep on/off</td><td>Toggles the tick display counter on screen</td><td>Shows a performance tick counter — useful for diagnosing slowdowns</td></tr>
+        <tr><td>sweep on/off</td><td>Toggles the tick display counter on screen</td><td>Shows a performance tick counter – useful for diagnosing slowdowns</td></tr>
         <tr><td>prepare_lot</td><td>Scans your lot for required objects (mailbox, bin etc.) and attempts to repair any that are missing</td><td>Useful if objects have gone missing after using move_objects. Does not replace objects you deliberately deleted</td></tr>
-        <tr><td>nessie</td><td>Easter egg — makes the Loch Ness Monster appear in the water on the neighbourhood screen</td><td>Only works in the Downtown, Old Town, or Vacation neighbourhood view, not on a standard residential lot</td></tr>
-        <tr><td>bubble_tweak [number]</td><td>Adjusts how high thought bubbles appear above Sims' heads in pixels</td><td>Mostly useful for screenshots — a larger number moves bubbles higher</td></tr>
+        <tr><td>nessie</td><td>Easter egg – makes the Loch Ness Monster appear in the water on the neighbourhood screen</td><td>Only works in the Downtown, Old Town, or Vacation neighbourhood view, not on a standard residential lot</td></tr>
+        <tr><td>bubble_tweak [number]</td><td>Adjusts how high thought bubbles appear above Sims' heads in pixels</td><td>Mostly useful for screenshots – a larger number moves bubbles higher</td></tr>
       </tbody>
     </table>
   </div>
@@ -503,7 +571,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
         <tr><td>sim_log begin/end</td><td>Starts or stops logging all Sim activity to a text file</td><td>Creates a log file in your game folder. Useful for diagnosing why a Sim isn't doing what you expect</td></tr>
         <tr><td>history</td><td>Saves the current family history to a FamilyHistory.txt file</td><td>File is written to your game directory</td></tr>
         <tr><td>write_destlist</td><td>Appends the current route destination list to AllRoutes.txt</td><td>Debug tool for routing behaviour</td></tr>
-        <tr><td>core_dump</td><td>Dumps memory contents to a file</td><td>For technical debugging only — creates a core_dump file in your game folder</td></tr>
+        <tr><td>core_dump</td><td>Dumps memory contents to a file</td><td>For technical debugging only – creates a core_dump file in your game folder</td></tr>
         <tr><td>flush</td><td>Flushes to the VM file</td><td>Original Windows NT-era debug tool, rarely useful today</td></tr>
       </tbody>
     </table>
@@ -518,7 +586,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <p class="section-sub">Cheats unlocked by FaithBeam's runtime memory patcher</p>
     </div>
   </div>
-  <div class="callout gold"><strong>These cheats are locked in the Legacy Collection by default.</strong> FaithBeam's Sims1LegacyHacks tool unlocks them by patching the game in memory at runtime — Sims.exe is never permanently modified. Run the tool before launching the game each session, keep it open while you play. See the <a href="mod-list.html#debug-tools" style="font-weight:700;">Debug Tools section on the Mods page</a> for setup details.</div>
+  <div class="callout gold"><strong>These cheats are locked in the Legacy Collection by default.</strong> FaithBeam's Sims1LegacyHacks tool unlocks them by patching the game in memory at runtime – Sims.exe is never permanently modified. Run the tool before launching the game each session, keep it open while you play. See the <a href="mod-list.html#debug-tools" style="font-weight:700;">Debug Tools section on the Mods page</a> for setup details.</div>
   <div class="table-wrap" style="margin-top:20px;">
     <table>
       <thead>
@@ -542,7 +610,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       </tbody>
     </table>
   </div>
-  <div class="callout teal" style="margin-top:8px;"><strong>edit_char in practice:</strong> With the patch installed, open the cheat console, type <code>edit_char</code> and press Enter, then click any Sim on the lot. Create-A-Sim opens for that Sim. This is also the key to ageing children up with full control over their adult appearance — see the <a href="mod-list.html#exe-patches" style="font-weight:700;">Debug Tools section</a> for the full method.</div>
+  <div class="callout teal" style="margin-top:8px;"><strong>edit_char in practice:</strong> With the patch installed, open the cheat console, type <code>edit_char</code> and press Enter, then click any Sim on the lot. Create-A-Sim opens for that Sim. This is also the key to ageing children up with full control over their adult appearance – see the <a href="mod-list.html#exe-patches" style="font-weight:700;">Debug Tools section</a> for the full method.</div>
 </section>
 
   </main>
@@ -552,7 +620,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
+      The Sims Legacy Collection – Modding Guide
     </div>
         <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
@@ -563,7 +631,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
-    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
     <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
@@ -577,10 +645,10 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Mods &amp; CC</div>
-      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
-      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
-      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
       <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
@@ -594,49 +662,64 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
       <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
       <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
-      <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
-      <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Help</div>
-      <a href="cc-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
-      <a href="game-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
-      <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
+      <div class="nav-drawer-group-label">Site Info</div>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
+  /* Nav scroll arrows */
   var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
   function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
   if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
   if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
   if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
   window.addEventListener('load',check);setTimeout(check,200);
-  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+
+  /* Drawer – both hamburger buttons open it */
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
-  if(ham)ham.addEventListener('click',openD);
+  document.querySelectorAll('#navHam,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  /* Back to top */
   var btt=document.getElementById('backTop');
   if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  /* Dropdown panels – fixed position via JS */
   function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
   function setupDD(bid,pid){
     var btn=document.getElementById(bid),panel=document.getElementById(pid);
     if(!btn||!panel)return;
     document.body.appendChild(panel);
-    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
     panel.addEventListener('click',function(e){e.stopPropagation();});
   }
   setupDD('modsDropdownBtn','modsDropdownPanel');
   setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('infoDropdownBtn','infoDropdownPanel');
   document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>

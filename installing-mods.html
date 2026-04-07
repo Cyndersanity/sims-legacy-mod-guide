@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Installing Mods — Sims Legacy Collection Guide</title>
+<title>Installing Mods – Sims Legacy Collection Guide</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -300,6 +300,72 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
 html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
 
+
+/* Desktop hamburger button */
+.nav-ham-desktop{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:15px;padding:5px 10px;cursor:pointer;transition:all 0.18s;white-space:nowrap;flex-shrink:0;}
+.nav-ham-desktop:hover{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+/* Mobile nav overhaul: brand left, search middle, menu button right */
+@media(max-width:767px){
+  nav{padding:0 16px;}
+  .nav-inner{display:none!important;}
+  .nav-scroll-hint,.nav-scroll-hint-left{display:none!important;}
+  .nav-mobile-bar{display:flex!important;align-items:center;justify-content:space-between;padding:10px 0;gap:8px;}
+}
+@media(min-width:768px){
+  .nav-mobile-bar{display:none;}
+}
+.nav-mobile-bar{display:none;width:100%;}
+.nav-mobile-brand{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--green-dark);text-decoration:none;display:flex;align-items:center;gap:6px;flex:1;min-width:0;}
+.nav-mobile-brand .plumbob{flex-shrink:0;}
+.nav-mobile-brand-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.nav-mobile-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.nav-mobile-search{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:14px;padding:6px 10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;}
+.nav-mobile-search:hover{background:var(--green-pale);}
+.nav-mobile-menu{background:var(--green);color:#fff;border:none;border-radius:var(--radius-sm);font-size:12px;font-weight:700;padding:7px 10px;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.nav-mobile-menu:hover{background:var(--green-dark);}
+/* Dropdowns for new help/info dropdowns */
+html body>.nav-dropdown-panel{z-index:10000!important;position:fixed!important;}
+
+
+/* MOBILE NAV – sync with mobile-bar */
+@media(max-width:767px){
+  .nav-inner{display:none!important;}
+  .nav-scroll-hint,.nav-scroll-hint-left{display:none!important;}
+  .nav-mobile-bar{display:flex!important;}
+  .nav-ham{display:none!important;}
+}
+@media(min-width:768px){
+  .nav-mobile-bar{display:none!important;}
+}
+
+
+/* ─── MOBILE IMPROVEMENTS ─────────────────────────────── */
+@media(max-width:640px){
+  /* Tables: allow cells to wrap, reduce font */
+  td,th{font-size:12px;padding:8px 10px;}
+  .table-wrap{border-radius:8px;font-size:12px;}
+  /* Code blocks: allow wrapping on small screens */
+  .code-block{font-size:11px;padding:12px 14px;white-space:pre-wrap;word-break:break-word;}
+  code{font-size:11px;}
+  /* Steps: tighten on mobile */
+  .step{gap:10px;padding:14px 0;}
+  .step-num{width:28px;height:28px;min-width:28px;font-size:12px;}
+  .step-body h4{font-size:14px;}
+  /* Section heads */
+  .section-head{gap:10px;}
+  .section-emoji{font-size:22px;}
+  .section-title{font-size:18px;}
+  /* Cards in grids collapse to single column on very small screens */
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  /* Roadmap grid */
+  .roadmap-grid{grid-template-columns:1fr;}
+  /* Page hero */
+  .page-hero{padding:32px 16px 28px;}
+  .page-title{font-size:clamp(24px,7vw,38px);}
+  /* Callouts */
+  .callout{font-size:13px;padding:12px 14px;}
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -316,12 +382,14 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
       <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item active">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link">📋 Roadmap</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      <a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item active">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="updates.html" class="nav-dropdown-item">📋 Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><button class="nav-ham-desktop" id="navHam" aria-label="Open menu" title="Open full menu">☰</button>
       </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
-  </div>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
 </nav>
 <script>
 (function(){
@@ -344,7 +412,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 })();
 </script>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Install Guide</div>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – Install Guide</div>
   <h1 class="page-title">Installing <span>Mods</span></h1>
   <p class="page-sub">Folder paths, file types and step-by-step installation</p>
 </div>
@@ -368,7 +436,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     </div>
   </div>
   <div class="callout green">
-    <strong>The Sims Legacy Collection handles mods differently to every other game in the series.</strong> Rather than dropping files into a Documents folder like you might expect, all custom content and mods live inside the game's actual install directory. This applies whether you're on Steam or the EA App — the subfolder names are identical between both versions, only the root path changes.
+    <strong>The Sims Legacy Collection handles mods differently to every other game in the series.</strong> Rather than dropping files into a Documents folder like you might expect, all custom content and mods live inside the game's actual install directory. This applies whether you're on Steam or the EA App – the subfolder names are identical between both versions, only the root path changes.
   </div>
 </section>
 
@@ -418,7 +486,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <div class="card"><div class="card-title"><span class="tag green">.FAR</span> Container File</div><div class="card-desc">Bundles multiple .iff or .xa files together. Also goes in <code>Downloads\</code>.</div></div>
     <div class="card"><div class="card-title"><span class="tag gold">.BMP .CMX .SKN</span> Skin Files</div><div class="card-desc">Custom clothing, hair and head textures. <strong>Everyday skins (prefix B or C)</strong> go directly in <code>GameData\Skins\</code> - no subfolders. <strong>Buyable skins (prefix L, F, S, W, H)</strong> go in <code>ExpansionShared\SkinsBuy\</code> - also no subfolders.</div></div>
     <div class="card"><div class="card-title"><span class="tag teal">.WLL / .FLR</span> Decor Files</div><div class="card-desc">Custom wall and floor textures. Goes in <code>GameData\Walls\</code> or <code>GameData\Floors\</code>. Subfolders are supported in both.</div></div>
-    <div class="card"><div class="card-title"><span class="tag teal">.BMP</span> Roof Textures</div><div class="card-desc">Custom roof textures are 32×32 .BMP files. Goes in <code>GameData\Roofs\</code> directly — no subfolders. Distinguished from skin BMPs by their small file size and location.</div></div>
+    <div class="card"><div class="card-title"><span class="tag teal">.BMP</span> Roof Textures</div><div class="card-desc">Custom roof textures are 32×32 .BMP files. Goes in <code>GameData\Roofs\</code> directly – no subfolders. Distinguished from skin BMPs by their small file size and location.</div></div>
     <div class="card"><div class="card-title"><span class="tag red">.iff</span> Game File Override</div><div class="card-desc">Mods that replace an existing base game file go in <code>GameData\Objects\</code>, not <code>Downloads\</code>. The readme will specify this.</div></div>
     <div class="card"><div class="card-title"><span class="tag red">.iff</span> Expansion Override</div><div class="card-desc">Mods targeting a specific expansion's files go in <code>ExpansionPack#\</code> where # is the expansion number 1-7. Check the readme.</div></div>
     <div class="card"><div class="card-title"><span class="tag gold">.iff</span> Downloaded Lots</div><div class="card-desc">Lot files go in <code>UserData\Houses\</code> for your default neighbourhood, or <code>UserData1\Houses\</code>, <code>UserData2\Houses\</code> etc. for others.</div></div>
@@ -441,7 +509,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <div class="section-emoji">📦</div>
     <div>
       <h2 class="section-title">Installing Old Mods (2000-2003)</h2>
-      <p class="section-sub">Most old mods still work — just translate the path</p>
+      <p class="section-sub">Most old mods still work – just translate the path</p>
     </div>
   </div>
   <div class="callout gold">
@@ -477,9 +545,9 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <table>
       <thead><tr><th style="width:22%">CC Type</th><th style="width:20%">Base Game Cap</th><th style="width:22%">With Expansion</th><th>Notes / Symptoms</th></tr></thead>
       <tbody>
-        <tr><td>Build mode objects</td><td>200 per category</td><td>2,000 (Unleashed)</td><td>Fences replacing pool ladders, plants replacing fireplaces — objects are still there, categories are overflowing</td></tr>
+        <tr><td>Build mode objects</td><td>200 per category</td><td>2,000 (Unleashed)</td><td>Fences replacing pool ladders, plants replacing fireplaces – objects are still there, categories are overflowing</td></tr>
         <tr><td>Wall coverings</td><td>90</td><td>65,000 (Livin' Large+)</td><td>Extra walls simply won't appear in-game</td></tr>
-        <tr><td>Floor tiles</td><td>63</td><td>65,000 (Livin' Large+)</td><td>Same as walls — excess floors invisible</td></tr>
+        <tr><td>Floor tiles</td><td>63</td><td>65,000 (Livin' Large+)</td><td>Same as walls – excess floors invisible</td></tr>
         <tr><td>Downloads folder</td><td colspan="2">Keep under 2.5–3 GB</td><td>Random crashes with no obvious cause often trace back to folder size. FAR file capacity estimated ~2 GB.</td></tr>
         <tr><td>Skin files</td><td colspan="2">No confirmed hard cap</td><td>Crashes reported above ~3,000 files. Binary-search the Skins folder if suspected.</td></tr>
       </tbody>
@@ -498,10 +566,10 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <strong>Back up your save files before installing any mods.</strong> Your neighbourhood saves are stored at <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code> - copy that folder somewhere safe before you start. Some mods can make permanent changes to save data that persist even after the mod is removed.
   </div>
   <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download the mod</h4><p>Download from a trusted site (see the <a href="download-sites.html">Download Sites</a> page).</p><p>You'll usually get a .zip file — if so, continue to step 2. If the download gives you the mod files directly (e.g. a .iff, .FAR or .BMP file), skip straight to steps 3 and 4 to place them in the right folders.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download the mod</h4><p>Download from a trusted site (see the <a href="download-sites.html">Download Sites</a> page).</p><p>You'll usually get a .zip file – if so, continue to step 2. If the download gives you the mod files directly (e.g. a .iff, .FAR or .BMP file), skip straight to steps 3 and 4 to place them in the right folders.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Extract the zip</h4><p>Right-click the .zip file and choose your extraction method. The options you see will depend on whether you're using Windows built-in extraction, 7-Zip or WinRAR:</p><p><strong>Extract To "zip folder name":</strong> Creates a new folder with the same name as the zip file and places all the contents inside it. This is the tidiest option as everything stays contained in one place. Open that folder to find your mod files.</p><p><strong>Extract Files:</strong> Opens a dialogue letting you choose exactly where the extracted files are placed. Use this if you want to send them straight to a specific folder you've already set up. Navigate to your destination and confirm the files have extracted properly.</p><p><strong>Extract Here:</strong> Extracts everything directly into the same folder where the zip file currently sits, following the same folder structure that's inside the zip. If the zip contained a subfolder, that subfolder will appear in the current location. Best used when the zip contains only the mod files with no extra wrapper folder.</p><p>Whichever method you use, make sure you can find the actual .iff, .FAR, .BMP or similar mod files before moving on.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find your game folder</h4><p><strong>Steam:</strong> right-click game → Manage → Browse local files.</p><p><strong>EA App:</strong> right-click → Manage → Open install folder.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place the files</h4><p><strong>Always check for a readme first.</strong> Many mods include a readme (.txt) file that tells you exactly where to put things. If one is included, follow those instructions over anything else — some mods need to go into a specific folder to work correctly, and the readme will tell you which one.</p><p>If there is no readme, use the file type and mod description as your guide. The most common locations are:</p><p><strong>Most mods (.iff/.FAR)</strong> → <code>Downloads\</code><br>Custom objects, furniture, buyable items and most gameplay tweaks go here. This is the default destination for the majority of mods.</p><p><strong>Everyday skin files (.BMP/.CMX/.SKN) with prefix B or C</strong> → <code>GameData\Skins\</code><br>Everyday body outfits (prefix B) and head textures (prefix C) go here. Must go directly in this folder — no subfolders or the game won't read them. These appear in your Sim's home dresser.</p><p><strong>Buyable skin files with prefix L, F, S, W or H</strong> → <code>ExpansionShared\SkinsBuy\</code><br>Hot Date introduced buyable clothing purchased from a clothing rack on a community lot — not found in the home dresser. These skins use specific first-letter prefixes: <strong>L</strong> = Lingerie/Sleepwear, <strong>F</strong> = Formal, <strong>S</strong> = Swimwear, <strong>W</strong> = Winterwear (Vacation), <strong>H</strong> = High Fashion (Superstar). These go in <code>ExpansionShared\SkinsBuy\</code> rather than the regular Skins folder — no subfolders. See the <a href="terminology.html#skins">Terminology page</a> for the full prefix reference.</p><p><strong>Wall coverings (.WLL)</strong> → <code>GameData\Walls\</code><br>Subfolders are supported here if you want to organise by style or creator.</p><p><strong>Floor tiles (.FLR)</strong> → <code>GameData\Floors\</code><br>Subfolders are supported here too.</p><p><strong>Roof textures</strong> → <code>GameData\Roofs\</code><br>Must go directly in the folder — no subfolders.</p><p><strong>Game file overrides (.iff)</strong> → <code>GameData\Objects\</code><br>Mods that replace or modify an existing base game file rather than adding something new. For example, Corylea's Two Hour Carpool replaces the original carpool object to change when it arrives — because it's overriding a base game file rather than adding a new object, it needs to go in <code>GameData\Objects\</code> rather than <code>Downloads\</code>. The readme will always specify this.</p><p><strong>Expansion-specific overrides</strong> → <code>ExpansionPack#\</code> (where # is 1-7)<br>Some mods target a specific expansion pack's files rather than the base game. These go in the relevant expansion folder. Again, the readme will tell you which number corresponds to which expansion.</p><p><strong>Downloaded lots (.iff)</strong> → <code>UserData\Houses\</code> (or <code>UserData1\Houses\</code> etc. depending on which neighbourhood)<br>Lots are placed into the Houses folder for the neighbourhood you want them to appear in.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place the files</h4><p><strong>Always check for a readme first.</strong> Many mods include a readme (.txt) file that tells you exactly where to put things. If one is included, follow those instructions over anything else – some mods need to go into a specific folder to work correctly, and the readme will tell you which one.</p><p>If there is no readme, use the file type and mod description as your guide. The most common locations are:</p><p><strong>Most mods (.iff/.FAR)</strong> → <code>Downloads\</code><br>Custom objects, furniture, buyable items and most gameplay tweaks go here. This is the default destination for the majority of mods.</p><p><strong>Everyday skin files (.BMP/.CMX/.SKN) with prefix B or C</strong> → <code>GameData\Skins\</code><br>Everyday body outfits (prefix B) and head textures (prefix C) go here. Must go directly in this folder – no subfolders or the game won't read them. These appear in your Sim's home dresser.</p><p><strong>Buyable skin files with prefix L, F, S, W or H</strong> → <code>ExpansionShared\SkinsBuy\</code><br>Hot Date introduced buyable clothing purchased from a clothing rack on a community lot – not found in the home dresser. These skins use specific first-letter prefixes: <strong>L</strong> = Lingerie/Sleepwear, <strong>F</strong> = Formal, <strong>S</strong> = Swimwear, <strong>W</strong> = Winterwear (Vacation), <strong>H</strong> = High Fashion (Superstar). These go in <code>ExpansionShared\SkinsBuy\</code> rather than the regular Skins folder – no subfolders. See the <a href="terminology.html#skins">Terminology page</a> for the full prefix reference.</p><p><strong>Wall coverings (.WLL)</strong> → <code>GameData\Walls\</code><br>Subfolders are supported here if you want to organise by style or creator.</p><p><strong>Floor tiles (.FLR)</strong> → <code>GameData\Floors\</code><br>Subfolders are supported here too.</p><p><strong>Roof textures</strong> → <code>GameData\Roofs\</code><br>Must go directly in the folder – no subfolders.</p><p><strong>Game file overrides (.iff)</strong> → <code>GameData\Objects\</code><br>Mods that replace or modify an existing base game file rather than adding something new. For example, Corylea's Two Hour Carpool replaces the original carpool object to change when it arrives – because it's overriding a base game file rather than adding a new object, it needs to go in <code>GameData\Objects\</code> rather than <code>Downloads\</code>. The readme will always specify this.</p><p><strong>Expansion-specific overrides</strong> → <code>ExpansionPack#\</code> (where # is 1-7)<br>Some mods target a specific expansion pack's files rather than the base game. These go in the relevant expansion folder. Again, the readme will tell you which number corresponds to which expansion.</p><p><strong>Downloaded lots (.iff)</strong> → <code>UserData\Houses\</code> (or <code>UserData1\Houses\</code> etc. depending on which neighbourhood)<br>Lots are placed into the Houses folder for the neighbourhood you want them to appear in.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Launch the game and test</h4><p>Start the game and check the mod is working. If something's wrong, see the <a href="cc-troubleshooting.html">CC Troubleshooting</a> or <a href="game-troubleshooting.html">Game Troubleshooting</a> pages.</p></div></div>
   </div>
 </section>
@@ -541,7 +609,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import in-game</h4><p>On the neighbourhood screen, click the Import button (arrow pointing into a house). Select your family from the list and confirm. They will appear ready to move into a lot.</p></div></div>
   </div>
 
-  <div class="callout teal" style="margin-top:4px;">ℹ️ <strong>Sharing your own lots:</strong> When you save the game, the neighbourhood automatically exports shareable versions of your lots to <code>UserData\Export\</code>. Share the .iff files from there — other players drop them in their own <code>UserData\Houses\</code> folder.</div>
+  <div class="callout teal" style="margin-top:4px;">ℹ️ <strong>Sharing your own lots:</strong> When you save the game, the neighbourhood automatically exports shareable versions of your lots to <code>UserData\Export\</code>. Share the .iff files from there – other players drop them in their own <code>UserData\Houses\</code> folder.</div>
 </section>
 
   </main>
@@ -551,7 +619,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
+      The Sims Legacy Collection – Modding Guide
     </div>
         <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
@@ -562,7 +630,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
-    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
     <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
@@ -576,10 +644,10 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Mods &amp; CC</div>
-      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
-      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
-      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink active"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
       <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink active"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
@@ -593,49 +661,64 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
       <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
       <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
-      <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
-      <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Help</div>
-      <a href="cc-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
-      <a href="game-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
-      <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
+      <div class="nav-drawer-group-label">Site Info</div>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
+  /* Nav scroll arrows */
   var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
   function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
   if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
   if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
   if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
   window.addEventListener('load',check);setTimeout(check,200);
-  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+
+  /* Drawer – both hamburger buttons open it */
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
-  if(ham)ham.addEventListener('click',openD);
+  document.querySelectorAll('#navHam,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  /* Back to top */
   var btt=document.getElementById('backTop');
   if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  /* Dropdown panels – fixed position via JS */
   function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
   function setupDD(bid,pid){
     var btn=document.getElementById(bid),panel=document.getElementById(pid);
     if(!btn||!panel)return;
     document.body.appendChild(panel);
-    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
     panel.addEventListener('click',function(e){e.stopPropagation();});
   }
   setupDD('modsDropdownBtn','modsDropdownPanel');
   setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('infoDropdownBtn','infoDropdownPanel');
   document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Object Retextures — Sims Legacy Collection Guide</title>
+<title>Object Retextures – Sims Legacy Collection Guide</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -299,6 +299,72 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
 html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
 
+
+/* Desktop hamburger button */
+.nav-ham-desktop{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:15px;padding:5px 10px;cursor:pointer;transition:all 0.18s;white-space:nowrap;flex-shrink:0;}
+.nav-ham-desktop:hover{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+/* Mobile nav overhaul: brand left, search middle, menu button right */
+@media(max-width:767px){
+  nav{padding:0 16px;}
+  .nav-inner{display:none!important;}
+  .nav-scroll-hint,.nav-scroll-hint-left{display:none!important;}
+  .nav-mobile-bar{display:flex!important;align-items:center;justify-content:space-between;padding:10px 0;gap:8px;}
+}
+@media(min-width:768px){
+  .nav-mobile-bar{display:none;}
+}
+.nav-mobile-bar{display:none;width:100%;}
+.nav-mobile-brand{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--green-dark);text-decoration:none;display:flex;align-items:center;gap:6px;flex:1;min-width:0;}
+.nav-mobile-brand .plumbob{flex-shrink:0;}
+.nav-mobile-brand-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.nav-mobile-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.nav-mobile-search{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:14px;padding:6px 10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;}
+.nav-mobile-search:hover{background:var(--green-pale);}
+.nav-mobile-menu{background:var(--green);color:#fff;border:none;border-radius:var(--radius-sm);font-size:12px;font-weight:700;padding:7px 10px;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.nav-mobile-menu:hover{background:var(--green-dark);}
+/* Dropdowns for new help/info dropdowns */
+html body>.nav-dropdown-panel{z-index:10000!important;position:fixed!important;}
+
+
+/* MOBILE NAV – sync with mobile-bar */
+@media(max-width:767px){
+  .nav-inner{display:none!important;}
+  .nav-scroll-hint,.nav-scroll-hint-left{display:none!important;}
+  .nav-mobile-bar{display:flex!important;}
+  .nav-ham{display:none!important;}
+}
+@media(min-width:768px){
+  .nav-mobile-bar{display:none!important;}
+}
+
+
+/* ─── MOBILE IMPROVEMENTS ─────────────────────────────── */
+@media(max-width:640px){
+  /* Tables: allow cells to wrap, reduce font */
+  td,th{font-size:12px;padding:8px 10px;}
+  .table-wrap{border-radius:8px;font-size:12px;}
+  /* Code blocks: allow wrapping on small screens */
+  .code-block{font-size:11px;padding:12px 14px;white-space:pre-wrap;word-break:break-word;}
+  code{font-size:11px;}
+  /* Steps: tighten on mobile */
+  .step{gap:10px;padding:14px 0;}
+  .step-num{width:28px;height:28px;min-width:28px;font-size:12px;}
+  .step-body h4{font-size:14px;}
+  /* Section heads */
+  .section-head{gap:10px;}
+  .section-emoji{font-size:22px;}
+  .section-title{font-size:18px;}
+  /* Cards in grids collapse to single column on very small screens */
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  /* Roadmap grid */
+  .roadmap-grid{grid-template-columns:1fr;}
+  /* Page hero */
+  .page-hero{padding:32px 16px 28px;}
+  .page-title{font-size:clamp(24px,7vw,38px);}
+  /* Callouts */
+  .callout{font-size:13px;padding:12px 14px;}
+}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -315,12 +381,14 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
       <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item active">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link">📋 Roadmap</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      <a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item active">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="updates.html" class="nav-dropdown-item">📋 Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><button class="nav-ham-desktop" id="navHam" aria-label="Open menu" title="Open full menu">☰</button>
       </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
-  </div>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
 </nav>
 <script>
 (function(){
@@ -343,7 +411,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 })();
 </script>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Creating CC</div>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – Creating CC</div>
   <h1 class="page-title">Object <span>Retextures</span></h1>
   <p class="page-sub">Change how in-game objects look without touching any behaviour scripts</p>
 </div>
@@ -357,26 +425,26 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <main class="content">
 <details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#what-is">What Is It?</a><a href="#tools">Tools</a><a href="#steps">Step-by-Step</a><a href="#sprite-types">Sprite Types</a><a href="#further">Going Further</a></div></details>
 
-<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> — screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank">r/thesims1</a>.</div>
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> – screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank">r/thesims1</a>.</div>
 
 <section id="what-is">
   <div class="section-head"><div class="section-emoji">💡</div><div><h2 class="section-title">What Is an Object Retexture?</h2></div></div>
-  <p>An object retexture replaces the visual sprites inside an existing game object with your own artwork — without touching any of the behaviour scripts (BHAV). You're only changing how it looks, not how it works. This makes it the simplest object modification possible and a good bridge between pure CC creation and full IFF hacking.</p>
+  <p>An object retexture replaces the visual sprites inside an existing game object with your own artwork – without touching any of the behaviour scripts (BHAV). You're only changing how it looks, not how it works. This makes it the simplest object modification possible and a good bridge between pure CC creation and full IFF hacking.</p>
   <div class="grid-2" style="margin-top:16px;">
     <div class="card"><div class="card-title">✅ What you can change</div><div class="card-desc">The game-view sprites (what the object looks like on the lot), the catalogue thumbnail image (what appears in Buy mode), and the speech balloon image (what Sims show when they want to use it).</div></div>
     <div class="card"><div class="card-title">❌ What you are not changing</div><div class="card-desc">Interactions, price, motive effects, skill gains, animations, or any other gameplay behaviour. If you want to change those, see the <a href="iff-hacking.html">IFF Hacking</a> page.</div></div>
-    <div class="card"><div class="card-title">🔧 Tools needed</div><div class="card-desc">Transmogrifier (to clone the object safely) and IFF Pencil 2 (to open the clone and replace sprites). Both are free from the Sims1Tools GitHub repository and work standalone — no registry fix needed.</div></div>
-    <div class="card"><div class="card-title">🎨 Image editing</div><div class="card-desc">GIMP or Photoshop to paint your retexture. Object sprites use Indexed 256-colour BMP, same as body skins. The colour palette in the original sprite file matters — your replacement should match it.</div></div>
+    <div class="card"><div class="card-title">🔧 Tools needed</div><div class="card-desc">Transmogrifier (to clone the object safely) and IFF Pencil 2 (to open the clone and replace sprites). Both are free from the Sims1Tools GitHub repository and work standalone – no registry fix needed.</div></div>
+    <div class="card"><div class="card-title">🎨 Image editing</div><div class="card-desc">GIMP or Photoshop to paint your retexture. Object sprites use Indexed 256-colour BMP, same as body skins. The colour palette in the original sprite file matters – your replacement should match it.</div></div>
   </div>
 </section>
 
 <section id="tools">
-  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Tools You Need</h2><p class="section-sub">No registry fix required — all tools work standalone</p></div></div>
+  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Tools You Need</h2><p class="section-sub">No registry fix required – all tools work standalone</p></div></div>
   <div class="grid-2">
-    <div class="card"><div class="card-title"><span class="tag green">FIRST STEP</span> Transmogrifier (TMog)</div><div class="card-desc">Always clone the original object before editing it. Transmogrifier creates a safe copy of any game object as a new .iff file. Never modify original game files directly — corrupting them can break the game.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Download from Sims Depot ↗</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">FIRST STEP</span> Transmogrifier (TMog)</div><div class="card-desc">Always clone the original object before editing it. Transmogrifier creates a safe copy of any game object as a new .iff file. Never modify original game files directly – corrupting them can break the game.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Download from Sims Depot ↗</a></div>
     <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> IFF Pencil 2</div><div class="card-desc">The full .iff editor. Opens the cloned object and lets you replace BMP sprites inside it. Handles BMP_, SPR2 and other resource types. Everything you need for a visual-only retexture is in here.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Download from GitHub ↗</a></div>
     <div class="card"><div class="card-title">GIMP or Photoshop</div><div class="card-desc">For painting your retexture artwork. You'll export individual sprites from IFF Pencil 2, repaint them, then import them back. Save as Indexed BMP.</div><a class="pill-link" href="https://www.gimp.org/" target="_blank">↗ gimp.org</a></div>
-    <div class="card"><div class="card-title">SimShow or FAR RCF Explorer</div><div class="card-desc">Optional but useful — lets you preview what objects look like before committing to editing them. Good for identifying which IFF file contains which in-game object.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Sims Depot ↗</a></div>
+    <div class="card"><div class="card-title">SimShow or FAR RCF Explorer</div><div class="card-desc">Optional but useful – lets you preview what objects look like before committing to editing them. Good for identifying which IFF file contains which in-game object.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Sims Depot ↗</a></div>
   </div>
 </section>
 
@@ -384,20 +452,20 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="section-head"><div class="section-emoji">🚶</div><div><h2 class="section-title">Step-by-Step: Retexturing an Object</h2></div></div>
   <div class="callout red"><strong>🚨 Always clone first.</strong> Never open and edit an original game .iff file directly. If you corrupt it, you break the object for everyone in your game with no easy way to restore it. Always use Transmogrifier to make a copy first.</div>
   <div class="steps" style="margin-top:16px;">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find the object's .iff file</h4><p>Game objects are in <code>GameData\Objects\</code>. Expansion pack objects are in <code>ExpansionPack1\</code> through <code>ExpansionPack7\</code>. The filename usually matches the object's name — for example, the standard couch is <code>sofabasic.iff</code>. If you're unsure, use SimShow to browse objects visually.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Clone it with Transmogrifier</h4><p>Open Transmogrifier, browse to the original .iff file, and click <strong>Clone</strong>. Give the clone a descriptive name — this becomes the object's filename and internal ID. Save the clone somewhere easy to find, like your Desktop. The clone is completely independent of the original.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the clone in IFF Pencil 2</h4><p>Open IFF Pencil 2 and load your cloned .iff file. In the left panel you'll see all the resources inside the object. Look for <strong>BMP_</strong> resources — these are the bitmap sprites. There may also be <strong>SPR2</strong> resources for some objects.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export the sprites you want to replace</h4><p>Click a BMP_ resource to preview it. Right-click → Export → save as BMP. Do this for each view angle you want to repaint. Objects typically have multiple BMP_ resources — one per zoom level and viewing angle. Common ones are IDs 2000 (catalogue image), 4000 and 6000 (speech bubbles), and higher IDs for the game-view sprites.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Repaint in GIMP</h4><p>Open the exported BMP in GIMP. The sprite uses Indexed colour — you'll see the colour palette in GIMP's Palettes panel. Paint your retexture using colours from the existing palette for best results. Avoid adding colours not in the palette as this can cause colour-shifting in game. Export as Indexed BMP when done.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find the object's .iff file</h4><p>Game objects are in <code>GameData\Objects\</code>. Expansion pack objects are in <code>ExpansionPack1\</code> through <code>ExpansionPack7\</code>. The filename usually matches the object's name – for example, the standard couch is <code>sofabasic.iff</code>. If you're unsure, use SimShow to browse objects visually.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Clone it with Transmogrifier</h4><p>Open Transmogrifier, browse to the original .iff file, and click <strong>Clone</strong>. Give the clone a descriptive name – this becomes the object's filename and internal ID. Save the clone somewhere easy to find, like your Desktop. The clone is completely independent of the original.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the clone in IFF Pencil 2</h4><p>Open IFF Pencil 2 and load your cloned .iff file. In the left panel you'll see all the resources inside the object. Look for <strong>BMP_</strong> resources – these are the bitmap sprites. There may also be <strong>SPR2</strong> resources for some objects.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export the sprites you want to replace</h4><p>Click a BMP_ resource to preview it. Right-click → Export → save as BMP. Do this for each view angle you want to repaint. Objects typically have multiple BMP_ resources – one per zoom level and viewing angle. Common ones are IDs 2000 (catalogue image), 4000 and 6000 (speech bubbles), and higher IDs for the game-view sprites.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Repaint in GIMP</h4><p>Open the exported BMP in GIMP. The sprite uses Indexed colour – you'll see the colour palette in GIMP's Palettes panel. Paint your retexture using colours from the existing palette for best results. Avoid adding colours not in the palette as this can cause colour-shifting in game. Export as Indexed BMP when done.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your new sprites back into IFF Pencil 2</h4><p>In IFF Pencil 2, right-click the BMP_ resource you exported → Import → select your repainted BMP. Repeat for each sprite you repainted. Save the .iff file.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place the .iff in Downloads\</h4><p>Copy your finished .iff into the <code>Downloads\</code> folder in your Legacy Collection install. Launch the game — the retextured object appears in Buy mode alongside the original.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test thoroughly</h4><p>Check the object at all zoom levels (near, medium, far) and from different angles. Object sprites look different depending on how close the camera is — you may need to repaint sprites at different zoom levels if the results look wrong at any distance.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place the .iff in Downloads\</h4><p>Copy your finished .iff into the <code>Downloads\</code> folder in your Legacy Collection install. Launch the game – the retextured object appears in Buy mode alongside the original.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test thoroughly</h4><p>Check the object at all zoom levels (near, medium, far) and from different angles. Object sprites look different depending on how close the camera is – you may need to repaint sprites at different zoom levels if the results look wrong at any distance.</p></div></div>
   </div>
 </section>
 
 <section id="sprite-types">
   <div class="section-head"><div class="section-emoji">🖼️</div><div><h2 class="section-title">Understanding Object Sprites</h2><p class="section-sub">What each BMP_ resource does</p></div></div>
-  <p>Objects contain multiple sprite resources. You don't need to replace all of them — just the ones you want to change. Here's what the common ones are:</p>
+  <p>Objects contain multiple sprite resources. You don't need to replace all of them – just the ones you want to change. Here's what the common ones are:</p>
   <div class="table-wrap">
     <table>
       <thead><tr><th style="width:20%">Resource ID</th><th style="width:25%">Label in IFF Pencil 2</th><th>What it is</th></tr></thead>
@@ -409,16 +477,16 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       </tbody>
     </table>
   </div>
-  <div class="callout teal">ℹ️ Start by replacing just the BMP_ 2000 catalogue image — it's the easiest sprite and a good way to confirm your workflow before tackling the full set of game-view sprites.</div>
+  <div class="callout teal">ℹ️ Start by replacing just the BMP_ 2000 catalogue image – it's the easiest sprite and a good way to confirm your workflow before tackling the full set of game-view sprites.</div>
 </section>
 
 <section id="further">
   <div class="section-head"><div class="section-emoji">📚</div><div><h2 class="section-title">Going Further</h2></div></div>
-  <p>Once you're comfortable with visual retextures, the next step is changing the object's behaviour — its price, motive effects, interactions, and so on. That's covered on the IFF Hacking page.</p>
+  <p>Once you're comfortable with visual retextures, the next step is changing the object's behaviour – its price, motive effects, interactions, and so on. That's covered on the IFF Hacking page.</p>
   <div class="grid-2">
-    <div class="card"><div class="card-title">IFF Hacking Guide</div><div class="card-desc">Learn to change object prices, skill gain rates, motive impacts and add custom interactions. Uses the same tools you've already set up — just goes deeper into the BHAV scripts.</div><a class="pill-link" href="iff-hacking.html">Read IFF Hacking Guide ↗</a></div>
-    <div class="card"><div class="card-title">Sims College Archive — Entry Level</div><div class="card-desc">Structured course covering motives, moods and BCON modification. The right next step after visual retextures if you want to understand how object behaviour actually works.</div><a class="pill-link" href="http://www.woobsha.com/SimsCollegeArchive/" target="_blank">Open Course Archive ↗</a></div>
-    <div class="card"><div class="card-title">Woobsha's DIY Workshop</div><div class="card-desc">Written tutorials on a wide range of IFF object modifications — from changing prices to creating new light sources and custom interactions.</div><a class="pill-link" href="http://www.woobsha.com/diyworkshop.html" target="_blank">View Tutorials ↗</a></div>
+    <div class="card"><div class="card-title">IFF Hacking Guide</div><div class="card-desc">Learn to change object prices, skill gain rates, motive impacts and add custom interactions. Uses the same tools you've already set up – just goes deeper into the BHAV scripts.</div><a class="pill-link" href="iff-hacking.html">Read IFF Hacking Guide ↗</a></div>
+    <div class="card"><div class="card-title">Sims College Archive – Entry Level</div><div class="card-desc">Structured course covering motives, moods and BCON modification. The right next step after visual retextures if you want to understand how object behaviour actually works.</div><a class="pill-link" href="http://www.woobsha.com/SimsCollegeArchive/" target="_blank">Open Course Archive ↗</a></div>
+    <div class="card"><div class="card-title">Woobsha's DIY Workshop</div><div class="card-desc">Written tutorials on a wide range of IFF object modifications – from changing prices to creating new light sources and custom interactions.</div><a class="pill-link" href="http://www.woobsha.com/diyworkshop.html" target="_blank">View Tutorials ↗</a></div>
   </div>
 </section>
 
@@ -429,7 +497,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
+      The Sims Legacy Collection – Modding Guide
     </div>
         <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
@@ -440,7 +508,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
-    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
     <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
   </div>
 </footer>
@@ -454,10 +522,10 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Mods &amp; CC</div>
-      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
-      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
-      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
       <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
@@ -471,49 +539,64 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
       <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
       <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
       <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink active"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
-      <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
-      <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-label">Help</div>
-      <a href="cc-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
-      <a href="game-troubleshooting.html" class="nav-drawer-link"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
-      <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
+      <div class="nav-drawer-group-label">Site Info</div>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
+  /* Nav scroll arrows */
   var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
   function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
   if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
   if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
   if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
   window.addEventListener('load',check);setTimeout(check,200);
-  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+
+  /* Drawer – both hamburger buttons open it */
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
-  if(ham)ham.addEventListener('click',openD);
+  document.querySelectorAll('#navHam,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  /* Back to top */
   var btt=document.getElementById('backTop');
   if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  /* Dropdown panels – fixed position via JS */
   function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
   function setupDD(bid,pid){
     var btn=document.getElementById(bid),panel=document.getElementById(pid);
     if(!btn||!panel)return;
     document.body.appendChild(panel);
-    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
     panel.addEventListener('click',function(e){e.stopPropagation();});
   }
   setupDD('modsDropdownBtn','modsDropdownPanel');
   setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('infoDropdownBtn','infoDropdownPanel');
   document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>
