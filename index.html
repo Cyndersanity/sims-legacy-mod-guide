@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Sims Legacy Collection - Modding Guide</title>
-
+<title>Home — Sims Legacy Collection Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -123,6 +122,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .toc-divider{height:1px;background:var(--border);margin:10px 0;}
 .toc-back{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;margin-top:12px;transition:all 0.15s;}
 .toc-back:hover{background:var(--green-pale);color:var(--green-dark);}
+.page-layout aside{align-self:stretch;}
 
 /* CONTENT */
 .content section{margin-bottom:56px;}
@@ -163,7 +163,7 @@ code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--fo
 /* TABLE */
 .table-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);border:2px solid var(--border);}
 table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);}
-th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:11px;letter-spacing:0.5px;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:2px solid var(--border);}
+th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:0.3px;text-transform:uppercase;padding:13px 16px;text-align:left;border-bottom:2px solid var(--border);}
 td{padding:12px 16px;border-bottom:1px solid rgba(27,82,41,0.06);vertical-align:top;}
 tr:last-child td{border-bottom:none;}
 tr:hover td{background:rgba(59,174,92,0.04);}
@@ -175,7 +175,7 @@ td:first-child{font-family:var(--font-mono);font-size:13px;font-weight:600;color
 .step{display:flex;gap:14px;margin-bottom:10px;counter-increment:step;}
 .step-num{flex-shrink:0;width:30px;height:30px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:13px;color:#fff;margin-top:2px;}
 .step-num::after{content:counter(step);}
-.step-body{border-left:4px solid var(--green);background:var(--green-pale);padding:13px 16px;border-radius:0 8px 8px 0;flex:1;}
+.step-body{border-left:4px solid var(--green);background:var(--white);padding:13px 16px;border-radius:0 8px 8px 0;flex:1;}
 .step-body h4{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
 .step-body p{font-size:14px;color:var(--ink-mid);line-height:1.7;margin:0;}
 .step-body p+p{margin-top:6px;}
@@ -223,63 +223,6 @@ footer{position:relative;z-index:1;background:var(--green-dark);color:rgba(255,2
 .footer-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
 footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
-@media(max-width:640px){
-  .page-layout{padding:32px 24px 60px;}
-  .step{flex-direction:column;}
-}
-
-/* ── GROUPED HOMEPAGE GRID ─────────────────────────── */
-.section-group-label{max-width:1200px;margin:32px auto 12px;padding:0 48px;font-family:var(--font-head);font-size:13px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:1.5px;position:relative;z-index:1;display:flex;align-items:center;gap:10px;}
-.section-group-label::after{content:'';flex:1;height:1px;background:var(--border);}
-.quick-grid-2{grid-template-columns:repeat(2,1fr);}
-.quick-grid-3{grid-template-columns:repeat(3,1fr);}
-.quick-grid-4{grid-template-columns:repeat(4,1fr);}
-@media(max-width:900px){.quick-grid-2,.quick-grid-3,.quick-grid-4{grid-template-columns:1fr 1fr;}.section-group-label{padding:0 24px;}}
-@media(max-width:640px){.quick-grid-2,.quick-grid-3,.quick-grid-4{grid-template-columns:1fr 1fr;}.section-group-label{padding:0 16px;font-size:11px;}}
-
-/* CREATE CC NAV DROPDOWN */
-.nav-dropdown{position:relative;display:inline-flex;}
-.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
-.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
-.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
-.nav-dropdown-panel.open{display:block;}
-.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
-.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
-.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
-.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
-.nav-drawer-sublink{padding-left:32px!important;font-size:13px!important;}
-
-.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
-.nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
-
-/* MODS/CC NAV DROPDOWN */
-.nav-dropdown-mods{position:relative;display:inline-flex;}
-</style>
-<style>
-.hero{position:relative;z-index:1;background:linear-gradient(160deg,#D6EFD8 0%,#EAF6E0 40%,var(--cream) 100%);border-bottom:3px solid var(--border);overflow:hidden;padding:80px 24px 72px;text-align:center;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--green-dark);background:var(--white);border:2px solid rgba(27,82,41,0.18);padding:6px 16px;border-radius:999px;margin-bottom:24px;letter-spacing:0.5px;}
-.hero-title{font-family:var(--font-head);font-size:clamp(32px,6vw,64px);color:var(--green-dark);line-height:1.1;margin-bottom:20px;}
-.hero-title span{color:var(--green);}
-.hero-sub{font-size:clamp(16px,2.5vw,20px);color:var(--ink-mid);font-weight:600;max-width:600px;margin:0 auto 36px;}
-.hero-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
-.badge{font-family:var(--font-mono);font-size:11px;font-weight:600;padding:6px 14px;border-radius:999px;border:2px solid;}
-.badge.green{border-color:var(--green);color:var(--green-dark);background:var(--green-pale);}
-.badge.gold{border-color:var(--gold);color:var(--gold-dark);background:var(--gold-pale);}
-.badge.teal{border-color:var(--teal);color:#0d6e6a;background:var(--teal-pale);}
-.badge.plain{border-color:var(--border);color:var(--ink-muted);background:var(--white);}
-.quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:1200px;margin:0 auto 64px;padding:0 48px;position:relative;z-index:1;}
-.quick-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;text-decoration:none;color:var(--ink);transition:all 0.22s;box-shadow:var(--shadow-sm);display:block;}
-.quick-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);transform:translateY(-3px);}
-.quick-icon{font-size:36px;display:block;margin-bottom:12px;}
-.quick-label{font-family:var(--font-head);font-size:14px;color:var(--green-dark);display:block;margin-bottom:6px;}
-.quick-desc{font-size:13px;color:var(--ink-muted);line-height:1.5;}
-.intro-section{max-width:1200px;margin:0 auto;padding:0 48px 16px;position:relative;z-index:1;}
-.intro-section h2{font-family:var(--font-head);font-size:24px;color:var(--ink);margin-bottom:16px;}
-
-
 /* Mobile table - stack as cards */
 @media(max-width:640px){
   .table-wrap table,.table-wrap thead,.table-wrap tbody,.table-wrap th,.table-wrap td,.table-wrap tr{display:block;}
@@ -323,14 +266,13 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
 
-/* CREATE CC NAV DROPDOWN */
-.nav-dropdown{position:relative;display:inline-flex;}
-.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
-.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
-.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+/* History table - release name cell acts as card subtitle on mobile */
+@media(max-width:640px){
+  .table-wrap td:nth-child(2){font-weight:700;color:var(--ink);border-bottom:1px solid var(--border);}
+}
+
+
+
 .nav-dropdown-panel.open{display:block;}
 .nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
@@ -341,8 +283,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
 
-/* MODS/CC NAV DROPDOWN */
+
 .nav-dropdown-mods{position:relative;display:inline-flex;}
+
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;}
+.nav-dropdown-panel{display:none;position:fixed;min-width:220px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:9999;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:44px;background:linear-gradient(to left,transparent,rgba(245,242,232,0.97) 60%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:18px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-drawer-sublink{padding-left:36px!important;font-size:13px!important;}
+.nav-drawer-group-label{padding:6px 16px 2px;font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;}
+
+
+/* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
+html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -354,177 +315,46 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </script>
 </head>
 <body>
-
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
-    <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-    <a href="index.html" class="nav-link active">🏠 Home</a>
-    <a href="about-legacy.html" class="nav-link">📖 About Legacy</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
-    <a href="installing-mods.html" class="nav-link">📁 Install</a>
-    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
-    <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
-    <a href="cheats.html" class="nav-link">🎮 Cheats</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
-  <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
-  <div class="nav-dropdown-divider"></div>
-  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
-  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
-  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
-  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
-</div></div>
-    <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
-    <a href="tools.html" class="nav-link">🧰 Tools</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
-    <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="terminology.html" class="nav-link">📖 Terminology</a>
-    <a href="updates.html" class="nav-link">📋 Site Updates</a>
-    <a href="contact.html" class="nav-link">✉️ Contact</a>
-    <a href="search.html" class="nav-link">🔍 Search</a>
-  </div>
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link active">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link">📋 Roadmap</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
-  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
   </div>
 </nav>
-<script>
-(function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
-  function check(){
-    if(!nav||!hint)return;
-    var overflows=nav.scrollWidth>nav.clientWidth+4;
-    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
-    hint.style.display=(overflows&&!atEnd)?'flex':'none';
-  }
-  if(hint){
-    hint.addEventListener('click',function(){
-      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
-    });
-  }
-  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);
-  setTimeout(check,200);
-})();
-</script>
 <div class="hero">
-  <div class="hero-eyebrow"><span class="plumbob sm"></span> The Sims Legacy Collection</div>
-  <h1 class="hero-title">The <span>Modding</span> Guide</h1>
-  <p class="hero-sub">Everything you need to mod, customise, and bring new life to The Sims Legacy Collection (2025)</p>
-  <div class="hero-badges">
-    
-    <span class="badge gold">◆ Legacy Collection 2025</span>
-    <span class="badge teal">Updated March 2026</span>
-    <span class="badge plain">Windows 10 / 11</span>
-  </div>
-  <span class="plumbob lg" style="display:block;margin:0 auto;"></span>
+  <div class="hero-eyebrow"><span class="plumbob lg"></span></div>
+  <h1 class="hero-title">Sims Legacy<br><span>Collection Guide</span></h1>
+  <p class="hero-sub">Everything you need to play, mod and create custom content for The Sims 1 Legacy Collection — the 2025 25th anniversary re-release.</p>
 </div>
-
-<div class="intro-section">
-  <div class="callout green">
-    <strong>Welcome back to the neighbourhood!</strong> The Sims Legacy Collection launched in January 2025, and over a year later the modding community is well established and growing. Almost all classic Sims 1 mods (2000–2003) still work, new mods are being made specifically for Legacy, and this guide covers everything you need to get started.
-  </div>
+<div class="quick-grid">
+  <a class="quick-card" href="about-legacy.html"><span class="quick-icon">📖</span><span class="quick-label">About Legacy</span><span class="quick-desc">History, changes, settings</span></a>
+  <a class="quick-card" href="whats-possible.html"><span class="quick-icon">🔬</span><span class="quick-label">What's Possible</span><span class="quick-desc">Engine limits &amp; modding scope</span></a>
+  <a class="quick-card" href="installing-mods.html"><span class="quick-icon">📁</span><span class="quick-label">Installing Mods</span><span class="quick-desc">Folder paths &amp; file types</span></a>
+  <a class="quick-card" href="download-sites.html"><span class="quick-icon">🌐</span><span class="quick-label">Mod Download Sites</span><span class="quick-desc">52 active CC &amp; mod sites</span></a>
+  <a class="quick-card" href="mod-list.html"><span class="quick-icon">⚙️</span><span class="quick-label">Mods / CC</span><span class="quick-desc">Must-have mods &amp; objects</span></a>
+  <a class="quick-card" href="cheats.html"><span class="quick-icon">🎮</span><span class="quick-label">Cheats</span><span class="quick-desc">Every working cheat code</span></a>
+  <a class="quick-card" href="making-cc.html"><span class="quick-icon">🎨</span><span class="quick-label">Create CC</span><span class="quick-desc">Clothing, walls, objects</span></a>
+  <a class="quick-card" href="iff-hacking.html"><span class="quick-icon">🔧</span><span class="quick-label">IFF Hacking</span><span class="quick-desc">Create gameplay mods</span></a>
+  <a class="quick-card" href="cc-troubleshooting.html"><span class="quick-icon">🛠️</span><span class="quick-label">CC Issues</span><span class="quick-desc">Mod not working? Start here</span></a>
+  <a class="quick-card" href="game-troubleshooting.html"><span class="quick-icon">🖥️</span><span class="quick-label">Game Issues</span><span class="quick-desc">Vulkan errors &amp; crashes</span></a>
+  <a class="quick-card" href="terminology.html"><span class="quick-icon">📖</span><span class="quick-label">Terminology</span><span class="quick-desc">CC, IFF, FAR, BHAV &amp; more</span></a>
+  <a class="quick-card" href="search.html"><span class="quick-icon">🔍</span><span class="quick-label">Search</span><span class="quick-desc">Search the whole guide</span></a>
 </div>
-
-<div class="section-group-label">New here? Start with these</div>
-<div class="quick-grid quick-grid-3">
-  <a class="quick-card" href="about-legacy.html">
-    <span class="quick-icon">📖</span>
-    <span class="quick-label">About Legacy</span>
-    <span class="quick-desc">What the Legacy Collection is, patch history, technical changes</span>
-  </a>
-  <a class="quick-card" href="whats-possible.html">
-    <span class="quick-icon">🔬</span>
-    <span class="quick-label">What's Possible</span>
-    <span class="quick-desc">What the engine can and cannot do, and what mods are possible</span>
-  </a>
-  <a class="quick-card" href="installing-mods.html">
-    <span class="quick-icon">📁</span>
-    <span class="quick-label">Installing Mods</span>
-    <span class="quick-desc">Folder paths, file types and step-by-step installation</span>
-  </a>
-</div>
-
-<div class="section-group-label">Downloads &amp; playing</div>
-<div class="quick-grid quick-grid-4">
-  <a class="quick-card" href="download-sites.html">
-    <span class="quick-icon">🌐</span>
-    <span class="quick-label">Mod Download Sites</span>
-    <span class="quick-desc">Best active mod sites confirmed working in 2026</span>
-  </a>
-  <a class="quick-card" href="mod-list.html">
-    <span class="quick-icon">⚙️</span>
-    <span class="quick-label">Mods / CC</span>
-    <span class="quick-desc">QoL hacks, bug fixes, objects and gameplay improvements</span>
-  </a>
-  <a class="quick-card" href="cheats.html">
-    <span class="quick-icon">🎮</span>
-    <span class="quick-label">Cheat Codes</span>
-    <span class="quick-desc">Every working cheat and how to use them</span>
-  </a>
-  <a class="quick-card" href="tools.html">
-    <span class="quick-icon">🧰</span>
-    <span class="quick-label">Tools</span>
-    <span class="quick-desc">Modding tools, CC creators and community-built utilities</span>
-  </a>
-</div>
-
-<div class="section-group-label">Creating content</div>
-<div class="quick-grid quick-grid-2">
-  <a class="quick-card" href="making-cc.html">
-    <span class="quick-icon">🎨</span>
-    <span class="quick-label">Creating CC</span>
-    <span class="quick-desc">Custom skins, clothing, hairstyles, walls and floors</span>
-  </a>
-  <a class="quick-card" href="iff-hacking.html">
-    <span class="quick-icon">🔧</span>
-    <span class="quick-label">IFF Hacking</span>
-    <span class="quick-desc">Build your own gameplay mods and object hacks</span>
-  </a>
-</div>
-
-<div class="section-group-label">Help &amp; reference</div>
-<div class="quick-grid quick-grid-4">
-  <a class="quick-card" href="cc-troubleshooting.html">
-    <span class="quick-icon">🛠️</span>
-    <span class="quick-label">CC Issues</span>
-    <span class="quick-desc">Mods not showing, white skins, CC limits, registry fix</span>
-  </a>
-  <a class="quick-card" href="game-troubleshooting.html">
-    <span class="quick-icon">🖥️</span>
-    <span class="quick-label">Game Issues</span>
-    <span class="quick-desc">Vulkan errors, launch crashes, multi-monitor fixes</span>
-  </a>
-  <a class="quick-card" href="terminology.html">
-    <span class="quick-icon">📖</span>
-    <span class="quick-label">Terminology</span>
-    <span class="quick-desc">What CC, mods, IFF, FAR and other terms mean</span>
-  </a>
-  <a class="quick-card" href="updates.html">
-    <span class="quick-icon">📋</span>
-    <span class="quick-label">Site Updates</span>
-    <span class="quick-desc">Guide changelog, roadmap and what's coming next</span>
-  </a>
-</div>
-
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
-    </div>
-        <div class="footer-links">
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection — Modding Guide</div>
+    <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
       <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
       <a href="https://www.ea.com/games/the-sims/news" target="_blank">EA Patch Notes</a>
-      <a href="updates.html">Site Updates &amp; Roadmap</a>
+      <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
     <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
@@ -569,48 +399,39 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
+      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
       <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
-  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
-  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  var hintL=document.getElementById('navHintLeft');
-  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
-  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
-  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
-  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
-  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
   if(ham)ham.addEventListener('click',openD);
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
-  if(btt){
-    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
-    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    panel.addEventListener('click',function(e){e.stopPropagation();});
   }
-  var ccBtn=document.getElementById('ccDropdownBtn');
-  var ccPanel=document.getElementById('ccDropdownPanel');
-  if(ccBtn&&ccPanel){
-    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
-    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
-  var mdBtn=document.getElementById('modsDropdownBtn');
-  var mdPanel=document.getElementById('modsDropdownPanel');
-  if(mdBtn&&mdPanel){
-    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
-    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>
 </body>

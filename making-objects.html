@@ -267,14 +267,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
 
-/* CREATE CC NAV DROPDOWN */
-.nav-dropdown{position:relative;display:inline-flex;}
-.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
-.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
-.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+
+
 .nav-dropdown-panel.open{display:block;}
 .nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
@@ -284,8 +278,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
 
-/* MODS/CC NAV DROPDOWN */
+
 .nav-dropdown-mods{position:relative;display:inline-flex;}
+
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;}
+.nav-dropdown-panel{display:none;position:fixed;min-width:220px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:9999;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:44px;background:linear-gradient(to left,transparent,rgba(245,242,232,0.97) 60%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:18px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-drawer-sublink{padding-left:36px!important;font-size:13px!important;}
+.nav-drawer-group-label{padding:6px 16px 2px;font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;}
+
+
+/* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
+html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -301,35 +314,9 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
-    <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-    <a href="index.html" class="nav-link">🏠 Home</a>
-    <a href="about-legacy.html" class="nav-link">📖 About Legacy</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
-    <a href="installing-mods.html" class="nav-link">📁 Install</a>
-    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
-    <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
-    <a href="cheats.html" class="nav-link">🎮 Cheats</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
-  <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
-  <div class="nav-dropdown-divider"></div>
-  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
-  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
-  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
-  <a href="making-objects.html" class="nav-dropdown-item active">🪑 Object Retextures</a>
-</div></div>
-    <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
-    <a href="tools.html" class="nav-link">🧰 Tools</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
-    <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="terminology.html" class="nav-link">📖 Terminology</a>
-    <a href="updates.html" class="nav-link">📋 Site Updates</a>
-    <a href="contact.html" class="nav-link">✉️ Contact</a>
-    <a href="search.html" class="nav-link">🔍 Search</a>
-  </div>
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item active">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link">📋 Roadmap</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
@@ -450,7 +437,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
       <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
       <a href="https://www.ea.com/games/the-sims/news" target="_blank">EA Patch Notes</a>
-      <a href="updates.html">Site Updates &amp; Roadmap</a>
+      <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
     <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
@@ -483,7 +470,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
       <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
       <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
-      <a href="making-objects.html" class="nav-drawer-link active nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
+      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink active"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
       <a href="iff-hacking.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
       <a href="tools.html" class="nav-drawer-link"><span class="nav-drawer-icon">🧰</span>Tools</a>
     </div>
@@ -495,48 +482,39 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
+      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
       <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
-  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
-  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  var hintL=document.getElementById('navHintLeft');
-  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
-  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
-  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
-  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
-  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
   if(ham)ham.addEventListener('click',openD);
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
-  if(btt){
-    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
-    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    panel.addEventListener('click',function(e){e.stopPropagation();});
   }
-  var ccBtn=document.getElementById('ccDropdownBtn');
-  var ccPanel=document.getElementById('ccDropdownPanel');
-  if(ccBtn&&ccPanel){
-    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
-    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
-  var mdBtn=document.getElementById('modsDropdownBtn');
-  var mdPanel=document.getElementById('modsDropdownPanel');
-  if(mdBtn&&mdPanel){
-    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
-    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>
 </body>

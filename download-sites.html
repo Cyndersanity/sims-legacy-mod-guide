@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Sites - Sims Legacy Collection Guide</title>
-
+<title>Mod Download Sites — Sims Legacy Collection Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -267,14 +266,13 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
 
-/* CREATE CC NAV DROPDOWN */
-.nav-dropdown{position:relative;display:inline-flex;}
-.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
-.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
-.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+/* History table - release name cell acts as card subtitle on mobile */
+@media(max-width:640px){
+  .table-wrap td:nth-child(2){font-weight:700;color:var(--ink);border-bottom:1px solid var(--border);}
+}
+
+
+
 .nav-dropdown-panel.open{display:block;}
 .nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
@@ -285,8 +283,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
 
-/* MODS/CC NAV DROPDOWN */
+
 .nav-dropdown-mods{position:relative;display:inline-flex;}
+
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;}
+.nav-dropdown-panel{display:none;position:fixed;min-width:220px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:9999;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:44px;background:linear-gradient(to left,transparent,rgba(245,242,232,0.97) 60%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:18px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-drawer-sublink{padding-left:36px!important;font-size:13px!important;}
+.nav-drawer-group-label{padding:6px 16px 2px;font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;}
+
+
+/* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
+html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -298,185 +315,150 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </script>
 </head>
 <body>
-
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
-    <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-    <a href="index.html" class="nav-link">🏠 Home</a>
-    <a href="about-legacy.html" class="nav-link">📖 About Legacy</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
-    <a href="installing-mods.html" class="nav-link">📁 Install</a>
-    <a href="download-sites.html" class="nav-link active">🌐 Sites</a>
-    <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
-    <a href="cheats.html" class="nav-link">🎮 Cheats</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
-  <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
-  <div class="nav-dropdown-divider"></div>
-  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
-  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
-  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
-  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
-</div></div>
-    <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
-    <a href="tools.html" class="nav-link">🧰 Tools</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
-    <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="terminology.html" class="nav-link">📖 Terminology</a>
-    <a href="updates.html" class="nav-link">📋 Site Updates</a>
-    <a href="contact.html" class="nav-link">✉️ Contact</a>
-    <a href="search.html" class="nav-link">🔍 Search</a>
-  </div>
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item active">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link">📋 Roadmap</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
-  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
   </div>
 </nav>
-<script>
-(function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
-  function check(){
-    if(!nav||!hint)return;
-    var overflows=nav.scrollWidth>nav.clientWidth+4;
-    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
-    hint.style.display=(overflows&&!atEnd)?'flex':'none';
-  }
-  if(hint){
-    hint.addEventListener('click',function(){
-      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
-    });
-  }
-  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);
-  setTimeout(check,200);
-})();
-</script>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Mod Sites</div>
-  <h1 class="page-title">Mod <span>Download</span> Sites</h1>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Mods / CC</div>
+  <h1 class="page-title">Mod Download <span>Sites</span></h1>
   <p class="page-sub">Best active sites confirmed working with the Legacy Collection</p>
 </div>
 <div class="page-layout">
-  <aside>
-    <div class="toc">
-      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#active">Most Active (2026)</a></li><li><a href="#archive">Archive Sites</a></li><li><a href="#tools-sites">Tools & Tutorials</a></li><li><a href="#directories">Site Directories</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">← Back to Home</a>
-    </div>
-  </aside>
-  <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#active">Most Active Sites</a><a href="#archive">Archive Sites</a><a href="#tools-tutorials">Tools & Tutorials</a><a href="#directories">Site Directories</a></div></details>
-
+<aside>
+  <div class="toc">
+    <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#active">Active Mod/CC Sites</a></li>
+      <li><a href="#archive">Archive Sites</a></li>
+      <li><a href="#directories">Site Directories</a></li>
+    </ul>
+    <div class="toc-divider"></div>
+    <a class="toc-back" href="index.html">← Back to Home</a>
+  </div>
+</aside>
+<main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#active">Active Sites</a><a href="#archive">Archive Sites</a><a href="#directories">Directories</a></div></details>
 
 <section id="active">
-  <div class="section-head">
-    <div class="section-emoji">🌟</div>
-    <div>
-      <h2 class="section-title">Active Mod/CC Sites</h2>
-      <p class="section-sub">Websites are still active as of 2026. Periodically checked. Please use the <a href="contact.html">contact page</a> to let me know if any links are not working.</p>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">Simblr.cc - Sims 1 Mods <span class="tag green">Most Active</span></div>
-      <div class="card-desc">The most active Sims 1 modding community right now. New uploads as recently as March 2026. Gameplay hacks, bug fixes, new objects and tutorials. Start here.</div>
-      <a class="pill-link" href="https://simblr.cc/ts1/mods/" target="_blank">↗ simblr.cc/ts1/mods/</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Corylea's Mods <span class="tag green">Updated Mar 2026</span></div>
-      <div class="card-desc">Actively maintained and Legacy-compatible. Corylea updates mods specifically for the Legacy Collection and includes path translation notes for every mod. Extensive personal collection of quality-of-life hacks. No Relationship Decay, Two-Hour Carpool Warning, No Forced Career Change, and dozens more.</div>
-      <a class="pill-link" href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">↗ corylea.com</a>
-    </div>
-  </div>
+  <div class="section-head"><div class="section-emoji">🌟</div><div>
+    <h2 class="section-title">Active Mod/CC Sites</h2>
+    <p class="section-sub">Websites are still active as of 2026. Periodically checked. Please use the <a href="contact.html">contact page</a> to let me know if any links are not working.</p>
+  </div></div>
+<div class="table-wrap" style="max-height:480px;overflow-y:auto;margin-top:16px;">
+<table>
+<thead style="position:sticky;top:0;z-index:2;background:var(--cream);"><tr><th style="width:22%">Website</th><th style="width:63%">CC Types</th><th style="width:15%">Last Verified Active</th></tr></thead>
+<tbody>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://white.leadpipecollection.net/" target="_blank" style="color:var(--green-dark);font-weight:700;">A Little White Magic ↗</a></td><td style="white-space:normal;">Gameplay plugins, decor and mods. Home of the Domcal Weekends mod that enables Sims to have days off. Lots of really cool object sets and build mode items.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://allskins.stormway.ru/index_eng.html" target="_blank" style="color:var(--green-dark);font-weight:700;">AllSkins ↗</a></td><td style="white-space:normal;">CAS Skins, Heads and Meshes. There's a link to &quot;SimLifeCycle&quot; that no longer works and that mod doesn't exist anymore</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://doortomore.net/" target="_blank" style="color:var(--green-dark);font-weight:700;">AndrastasWorld ↗</a></td><td style="white-space:normal;">Gorgeous furniture and objects including plants, build mode, historical/fantasy story telling sets and new food options</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://aroundthesims.com/index.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Around The Sims ↗</a></td><td style="white-space:normal;">Huge collection of 2000's era objects, skins, walls and floors</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://www.awesomeexpression.com/sims-1.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Awesome Expression: Sims 1 ↗</a></td><td style="white-space:normal;">Objects, furniture sets, Build Mode (Including Walls and Floors) and some super handy tutroials on how to created your own custom animations and hacked objects</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://sims.blackbirdslullaby.com/bl_headindex.htm" target="_blank" style="color:var(--green-dark);font-weight:700;">~*~Blackbird's Lullaby~*~ ↗</a></td><td style="white-space:normal;">Early 2000s era CAS Skins and heads</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://bnj.ephralon.de/" target="_blank" style="color:var(--green-dark);font-weight:700;">BNJ / La Vie en Rose ↗</a></td><td style="white-space:normal;">CAS skins, heads, build mode, objects, pets</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://browniegirlsims.wordpress.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Brownie Girl Sims | TS1 Custom Content ↗</a></td><td style="white-space:normal;">Blog style website with a handful of objects and deco</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://www.boudoirblanc.com/index.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Boudoir Blanc ↗</a></td><td style="white-space:normal;">Lots of beautiful deco and furniture including conversions from TS3/TS2, downtown shop sets, garden sets and sets inspired from different cultures around the world.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://cambouisfr.free.fr/" target="_blank" style="color:var(--green-dark);font-weight:700;">C&amp;C Enterprises ↗</a></td><td style="white-space:normal;">I use quite a few mods and objects from this site, including the Jealousy No More hack. Lots of lovely kitchen objects, a hacked fridge with new food objects, gardening sets with new Service NPCs (Florist, Farmworker, Smart Butler etc), some really cool hacked pets objects — the list goes on! Note: This old site uses FlashPlayer to display a lot of the site. The Downloads menu only appears on the link I've added. To open all other download areas, open them in new tabs.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://classicsims.weebly.com/buy-mode.html" target="_blank" style="color:var(--green-dark);font-weight:700;">ClassicSims ↗</a></td><td style="white-space:normal;">Lots of Maxis Match (recoloured base game) objects, TS4/TSO conversion objets, build mode items etc.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Corylea's Mods ↗</a></td><td style="white-space:normal;">Extensive personal collection of quality-of-life hacks, build mode items, objects, careers and advice for new players.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://dramaticasdownloads.weebly.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Dramatica Sims ↗</a></td><td style="white-space:normal;">Tonnes of downloadable object sets (broken up into themed and unthemed), CAS Skins/heads/Meshes, Walls, Floors and fake Sims to use a deco/helping to make lots appear more populated.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://sims.ephralon.de/" target="_blank" style="color:var(--green-dark);font-weight:700;">Eph's Den of Many Sims ↗</a></td><td style="white-space:normal;">Huge amount of CAS Skins, Heads, Meshes, Pets, objects and build mode items (floors, walls, roofs).</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://ferndalesims.weebly.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Ferndale Sims ↗</a></td><td style="white-space:normal;">I use a lot of Fern's downloads. They've gone to great lengths to convert tonnes of objects from TS2/TS3/TS4 - and they are stunning. Massive collection of garden/plants, deco, build mode items, furniture and some beautfiul importable neighbourhood lots.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://fracturedsims.bluemooner.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Fractured Sims ↗</a></td><td style="white-space:normal;">Handful of early 2000s CAS Skins, Heads and meshes.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://gasugarplums.freewebspace.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Georgia Sugarplums Walls ↗</a></td><td style="white-space:normal;">All walls — lots of vintage and early 2000s designs.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://www.chasque.net/dana/" target="_blank" style="color:var(--green-dark);font-weight:700;">Inés' Sim Bakery ↗</a></td><td style="white-space:normal;">Hacked kitchen objects, vintage kitchen sets and some deco.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://ingridstudio.weebly.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Ingrid Studio — Home ↗</a></td><td style="white-space:normal;">Modern object sets, holiday themed sets and kids toys/deco.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://www.jendea.com/sims1.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Jendea Simitecture ↗</a></td><td style="white-space:normal;">Beautiful walls and floor sets, lots and some objects/deco.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://jademoon.org/junipersun/one/" target="_blank" style="color:var(--green-dark);font-weight:700;">Juniper ☀ Sun ↗</a></td><td style="white-space:normal;">Two large downloads that contain all of Juniper's content they made between 2001 and 2009 for The Sims 1.  The compressed archive contains 117mb of files, and includes over 1000 objects; over 1000 walls, floors, and roofs; and 20 unique housing lots, with screenshots and shopping lists included whenever possible. The current archive (mid-2009) also contains many old gift and contest items which were not previously made available on the Juniper Sun site.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://www.madoria.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Madoria's World ↗</a></td><td style="white-space:normal;">A large range of early 2000's style objects, maxis match style sets, deco and build mode items.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://www.thaliatook.com/MS/msindex.php" target="_blank" style="color:var(--green-dark);font-weight:700;">Magnolia Sims ↗</a></td><td style="white-space:normal;">Massive range of stunning era themed sets, including: Objects, build mode, skins, heads, meshes. Broken into themes like Aztec, Minoan, Retro, Viking etc. The skin sets are super detailed and gorgeous!</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://marinasims.net/sims1/sims1.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Marina's Sims ↗</a></td><td style="white-space:normal;">Large range of Objects, build mode (floors and walls), Lots and some themed sets.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://minoritycreation.weebly.com/sims-1-downloads.html" target="_blank" style="color:var(--green-dark);font-weight:700;">MINORITY CREATION ↗</a></td><td style="white-space:normal;">Big range of build mode items, older objects, handful of skins and some importable lots.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://www.mirrorway.net/Sims1/general.htm" target="_blank" style="color:var(--green-dark);font-weight:700;">Mirrored Sims ↗</a></td><td style="white-space:normal;">Objects, gorgeous deco, themed sets, build mode items and lots more.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://www.mistyred.net/sims/simsdecor.html" target="_blank" style="color:var(--green-dark);font-weight:700;">MistyRed — Sims Decor ↗</a></td><td style="white-space:normal;">Big range of themed sets, deco, objects, lots, CAS Skins/Heads etc.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://sims.monis.ch/downloads_ne.htm" target="_blank" style="color:var(--green-dark);font-weight:700;">Moni's Sims ↗</a></td><td style="white-space:normal;">Huge range of objects, build mode, importable lots, CAS Skins/Heads/Meshes. Some really lovely walls and floors here. There are some sets based on Rivendell from LOTR and some cool animated curtians. There's also an entire range of downloads for you to build and furnish &quot;The Simpsons&quot; house!</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://nocturnal-market.blogspot.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Nocturnal Market ↗</a></td><td style="white-space:normal;">Objects, gorgeous deco, themed sets and skins etc. Most recent download available is deco from Jan 2026. I personally love the &quot;Vampire the Masquerade&quot; sets, as I played the heck out of this game.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://nyxsstuff.weebly.com/sets.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Nyx's Stuff ↗</a></td><td style="white-space:normal;">Huge range of objects, build mode and some CAS Heads/skins. Note: I downloaded quite a lot of Nyx's bedroom sets, only to realise later that majority of the beds are for deco only and not functional use. Some will have &quot;Deco Bed&quot; in the title when buying them in game. I ended up removing a lot of these as I had no use for non functional beds, but they do have big room scores.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://oddsim.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">OddSim ↗</a></td><td style="white-space:normal;">Collection of cool buy mode objects, deco, build mode items and some CAS Skins. There's a range of ambient sounds that you can add into your game as well.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://clutter-factory.blogspot.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Olena's Clutter Factory ↗</a></td><td style="white-space:normal;">Huge range of gorgeous object sets and individual objects! Olena also runs the Nocturnal Market site and appears to be active in 2026.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://www.parsimonious.org/sims1.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Parsimonious: The Sims 1 ↗</a></td><td style="white-space:normal;">Massive collection of objects, sets, CAS Skins/Heads/Meshes, some really cool build mode items, hacked furniture etc. I use a good chunk of Parsimonious's downloads and love how crisp they look in game.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://persimmon.ephralon.de/index.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Persimmon Grove ↗</a></td><td style="white-space:normal;">Large range of Objects, build mode (floors and walls), Lots and some themed sets. A good chunk are wooden/vintage looking.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://www.woobsha.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Secret Society of Woobsha ↗</a></td><td style="white-space:normal;">The holy grail of hacked objects, lots, themed sets, some seriously cool build items, unique apartment hack and tonnes of tutorials on how to create your own CC! Woobsha is a site I come back to often. A great starting point if you want to learn how to make CC. I've linked the tutorial section into my pages about creating your own CC and iff hacking.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://shinythings.madoria.com/index.shtml" target="_blank" style="color:var(--green-dark);font-weight:700;">Shiny Things ↗</a></td><td style="white-space:normal;">Large range of lovely objects, heads, skins, walls, floors, and more.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://simblr.cc/ts1/mods/" target="_blank" style="color:var(--green-dark);font-weight:700;">Simblr.cc — Sims 1 Mods ↗</a></td><td style="white-space:normal;">Gameplay hacks, bug fixes, new objects and tutorials.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://modthesims.info/showthread.php?t=690180" target="_blank" style="color:var(--green-dark);font-weight:700;">Sims-Lambda — ModTheSims ↗</a></td><td style="white-space:normal;">Modern buy mode and build mode objects created in 2025. Link is to the ModTheSims forum post and has more links to the rest of Sims-Lambda's downloads on SimsFileShare.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://www.simlogical.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">Simlogical ↗</a></td><td style="white-space:normal;">Blog style site with range of hacked objects, lots, build mode objects (highight: lockable doors) and game controllers for visitor control and other mechanices</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://simcredibledesigns.com/index2.html" target="_blank" style="color:var(--green-dark);font-weight:700;">SIMcredible! Designs ↗</a></td><td style="white-space:normal;">Lots of beautiful furniture sets for all rooms, outdoor patio sets and party sets.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://simfreaks.com/index.php" target="_blank" style="color:var(--green-dark);font-weight:700;">SimFreaks ↗</a></td><td style="white-space:normal;">Massive range of objects, build mode, skins, heads, meshes. Lots of sets to choose from. There's a range of good tutorials to follow here on creating CC as well.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://www.simslice.com/index.shtml" target="_blank" style="color:var(--green-dark);font-weight:700;">Simslice ↗</a></td><td style="white-space:normal;">Some seriously cool mods here! There are lots of objects and hacks, rideable motorbikes, a huge minigame mod called &quot;Slice City&quot; which allows you to place a small city object on your lawn for your sims to use. CAS Skins/Heads/Meshes, Pets etc. I recommend a deep-dive on this site.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://www.somesimthings.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">SomeSimThings ↗</a></td><td style="white-space:normal;">Large range of build and buy mode objects, some really cool hacked items, tutorials and some helpful objects replacements for the Superstar lots to help with the difficulty of certain fame interactions (Catwalk, Acting etc). There's some really neat body skill hacked objects too like fencing and yoga.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://sims.stephanietoo.com/index.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Stephanie Too Neighbourhood ↗</a></td><td style="white-space:normal;">This site contains many beautiful Sims skins, some really useful hacks, objects, build mode (walls/floors etc) and some downloadable Lots.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://www.stoneagesims.net/" target="_blank" style="color:var(--green-dark);font-weight:700;">Stone Age Sims — The Next Evolution ↗</a></td><td style="white-space:normal;">Large range of Stone Age themed sets, objects, build mode items, skins etc.  Note: The site is active, but at the time of checking I was unable to get any of the download sections to display properly for me. Have tried to reach out to Bjorn of Stone Age Sims to see if they're still maintaining the CC.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://simfreaks.com/therealsim/index.php" target="_blank" style="color:var(--green-dark);font-weight:700;">The Real Sim ↗</a></td><td style="white-space:normal;">Huge range of buy mode objects, build mode items, lots and CAS Skins/Meshes/Heads. There are some deco cars you can download to give the illusion of owning vehicles/driving cars in the game</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://www.thesimsresource.com/downloads/browse/category/sims1/" target="_blank" style="color:var(--green-dark);font-weight:700;">The Sims Resource | Sims 1 - Downloads ↗</a></td><td style="white-space:normal;">Thousands upon thousands of downloads: Objects, sets, skins, build mode, lots and tonnes more. Note: The Sims Resource has been around for two decades. There's a massive range of stuff here, but it can be annoying getting the download links to work. There was a rumour recently that some creators had their accounts compromised and their content potentially corrupted with malware. I highly recommend you scan everything you download and use a VPN if possible. Github user Xientraa has created a neat little tool called &quot;The Sims Resource Downloader&quot; to help bypass some of the jankiness of the TSR downloading rules.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://thesimsemporium.weebly.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">The Sims Emporium ↗</a></td><td style="white-space:normal;">Nyx of Nyx's Stuff/Emporium runs this site. Massive range of build mode items, gorgeous objects/sets and lots of content created as gifts for Nyx by other creators.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://taure.unixdaemons.com/vivacious.html" target="_blank" style="color:var(--green-dark);font-weight:700;">Vivacious ↗</a></td><td style="white-space:normal;">Contemporary, steampunk, and other themed Sims 1 stuff. There are Witcher themed skin sets, and the other CAS Skins/Heads/Meshes are gorgeous and incredibly well made.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://zombiesims.com/" target="_blank" style="color:var(--green-dark);font-weight:700;">ZombieSims – Will Your Sims Survive? ↗</a></td><td style="white-space:normal;">Zombie Sims is a joint project from Simslice.com (Steve Alvey) &amp; SimFreaks.com (Heather Castillo-Alvey). ZombieSims is a game add-on for The Sims 1 full game installations with all expansion packs. Gameplay is customized for the ZombieSims expansion pack. View the gallery for a detailed explanation of each objects functionality.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://eved856.wixsite.com/thesimsrecolors" target="_blank" style="color:var(--green-dark);font-weight:700;">Eves TS1 Recolors ↗</a></td><td style="white-space:normal;">Maxis base game objects re-coloured (build and buy mode mostly)</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://drive.google.com/drive/u/0/folders/1CNoAANH-4b2QRoJch0FIVcfLsMqzM7OM" target="_blank" style="color:var(--green-dark);font-weight:700;">The Sims Online Conversions ↗</a></td><td style="white-space:normal;">Almost complete collection of every TSO object, converted to work in the Sims 1. Raindrops has provided a database sheet to show where they got the content from, as well as a changelog.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+</tbody></table></div>
 </section>
 
 <section id="archive">
-  <div class="section-head">
-    <div class="section-emoji">📚</div>
-    <div>
-      <h2 class="section-title">Archive Sites</h2>
-      <p class="section-sub">Large collections from the original era and community-compiled archives</p>
-    </div>
-  </div>
+  <div class="section-head"><div class="section-emoji">📚</div><div>
+    <h2 class="section-title">Archive Sites</h2>
+    <p class="section-sub">Large collections from the original era and community-compiled archives</p>
+  </div></div>
 <div class="table-wrap" style="margin-top:16px;">
-  <table>
-    <thead><tr><th style="width:35%">Site</th><th>Description</th></tr></thead>
-    <tbody>
-<tr><td style="width:35%;white-space:normal;"><a href="https://simfileshare.net/folder/264361/" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">YoNonna - Sims File Share Directory ↗</a></td><td style="white-space:normal;">Directory containing a boat load of zipped together content that YoNonna has collated and saved on Sims File Share. Broken down into Creators/Website names with subfolders of all of the content YoNonna managed to track down and archive.  Recently updated to be more accessible. Tonnes of build objects, hairs, skins and more - thousands of files, so you might want to check through the zips and choose what you want to keep. There are limitations to how many CC files can be used in the Sims game. If you go over the limit, the game may crash or not load.</td></tr>
-<tr><td style="width:35%;white-space:normal;"><a href="https://archive.org/details/sims-1-cc" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">Wayback Machine - Sims 1 CC Listing ↗</a></td><td style="white-space:normal;">Large list of zip files containing loads of different CC options archived from the original Sims era.</td></tr>
-<tr><td style="width:35%;white-space:normal;"><a href="https://modthesims.info/t/480970" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">Mod The Sims - WCIF Sims 1 Mods/CC? ↗</a></td><td style="white-space:normal;">A large forum post containing lists of previously active Sims 1 CC sites, I haven't had time to go through it completely yet. But you may find other active sites that I haven't listed anywhere yet.</td></tr>
-<tr><td style="width:35%;white-space:normal;"><a href="https://modthesims.info/showthread.php?s=05d8b2034ff210ad29cab2a80b1cddc5&amp;t=686236" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">Mod The Sims - TS1 - Maxis Beta Ports [1998] ↗</a></td><td style="white-space:normal;">Forum containing some of the beta objects that were shown in orignal Sims 1 Trailers, but never made it into the game.</td></tr>
-<tr><td style="width:35%;white-space:normal;"><a href="http://simscave.mustbedestroyed.org/index.php?board=233.0" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">Saving the Sims Archive (s1) ↗</a></td><td style="white-space:normal;">Massive collection of content created between 2000 and now, put together by moderator Ginnie. Broken down into the website/creator with links to Sims File Share to download each set/zip file.</td></tr>
-    </tbody>
-  </table>
-</div>
-</section>
-
-<section id="tools-sites">
-  <div class="section-head">
-    <div class="section-emoji">🔧</div>
-    <div>
-      <h2 class="section-title">Tools &amp; Tutorials</h2>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">GitHub - Sims1Tools (trolando)</div>
-      <div class="card-desc">Essential modding toolkit: IFF Pencil 2, FARx, Career Creator 3, Constant Contraption, Strings Scavenger.</div>
-      <a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">↗ github.com/trolando/Sims1Tools</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Sims 1 Tutorials - Awesome Expression</div>
-      <div class="card-desc">Advanced tutorials covering custom animations, custom food, custom sounds and object cloning with Transmogrifier.</div>
-      <a class="pill-link" href="http://www.awesomeexpression.com/sims-1-tutorials.html" target="_blank">↗ awesomeexpression.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">The Sims Depot</div>
-      <div class="card-desc">Must-have programs, adding skins and meshes. Good beginner resource for tools and setup.</div>
-      <a class="pill-link" href="https://www.thesimsdepot.com/sims-1/" target="_blank">↗ thesimsdepot.com</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Parsimonious - Adding Downloads To Your Game</div>
-      <div class="card-desc">Step-by-step instructions for installing all different file types for Sims 1 custom content, plus troubleshooting common reasons downloads don't show up.</div>
-      <a class="pill-link" href="http://www.parsimonious.org/support/sims1-adding-downloads-to-your-game.html" target="_blank">↗ parsimonious.org</a>
-    </div>
-  </div>
+<table>
+<thead><tr><th style="width:25%">Website</th><th style="width:60%">Content Type</th><th style="width:15%">Last Verified Active</th></tr></thead>
+<tbody>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://simfileshare.net/folder/264361/" target="_blank" style="color:var(--green-dark);font-weight:700;">YoNonna — Sims File Share Directory ↗</a></td><td style="white-space:normal;">Directory containing a boat load of zipped together content that YoNonna has collated and saved on Sims File Share. Broken down into Creators/Website names with subfolders of all of the content YoNonna managed to track down and archive.  Recently updated to be more accessible. Tonnes of build objects, hairs, skins and more — thousands of files, so you might want to check through the zips and choose what you want to keep. There are limitations to how many CC files can be used in the Sims game. If you go over the limit, the game may crash or not load.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://archive.org/details/sims-1-cc" target="_blank" style="color:var(--green-dark);font-weight:700;">Wayback Machine — Sims 1 CC Listing ↗</a></td><td style="white-space:normal;">Large list of zip files containing loads of different CC options archived from the original Sims era.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://modthesims.info/t/480970" target="_blank" style="color:var(--green-dark);font-weight:700;">Mod The Sims — WCIF Sims 1 Mods/CC? ↗</a></td><td style="white-space:normal;">A large forum post containing lists of previously active Sims 1 CC sites, I haven't had time to go through it completely yet. But you may find other active sites that I haven't listed anywhere yet.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="https://modthesims.info/showthread.php?s=05d8b2034ff210ad29cab2a80b1cddc5&amp;t=686236" target="_blank" style="color:var(--green-dark);font-weight:700;">Mod The Sims — TS1 - Maxis Beta Ports [1998] ↗</a></td><td style="white-space:normal;">Forum containing some of the beta objects that were shown in orignal Sims 1 Trailers, but never made it into the game.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+<tr><td style="white-space:normal;vertical-align:top;"><a href="http://simscave.mustbedestroyed.org/index.php?board=233.0" target="_blank" style="color:var(--green-dark);font-weight:700;">Saving the Sims Archive (s1) ↗</a></td><td style="white-space:normal;">Massive collection of content created between 2000 and now, put together by moderator Ginnie. Broken down into the website/creator with links to Sims File Share to download each set/zip file.</td><td style="white-space:nowrap;font-size:11px;vertical-align:top;">2026-04-07</td></tr>
+</tbody></table></div>
 </section>
 
 <section id="directories">
-<div class="card" style="margin-top:14px;">
-    <div class="card-title">Steam Community - Ultimate Sims 1 Guide</div>
-    <div class="card-desc">Community-maintained guide with mod links, cheats and QoL tips. Updated by players since the Legacy launch.</div>
-    <a class="pill-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3418368145" target="_blank">↗ Steam Community Guide</a>
-  </div>
-
+  <div class="section-head"><div class="section-emoji">🗂️</div><div>
+    <h2 class="section-title">Site Directories</h2>
+    <p class="section-sub">Lists of Sims 1 sites compiled by the community</p>
+  </div></div>
+  <div class="grid-2">
     <div class="card">
-      <div class="card-title">ModTheSims - Sims 1 Forum Only <span class="tag gold">No Downloads</span></div>
-      <div class="card-desc">ModTheSims does not have a Sims 1 downloads section — it was never added. There is an active Sims 1 forum where players discuss modding and troubleshooting, and some individual posts link to external downloads, but there is no browseable mod library for Sims 1 on the site.</div>
-      <a class="pill-link" href="https://modthesims.info/f/562/" target="_blank">MTS Sims 1 Forum &#8599;</a>
+      <div class="card-title">Steam Community — Ultimate Sims 1 Guide</div>
+      <div class="card-desc">Community-maintained guide with mod links, cheats and QoL tips. Updated by players since the Legacy launch.</div>
+      <a class="pill-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3421927002" target="_blank">↗ Steam Community Guide</a>
     </div>
+    <div class="card">
+      <div class="card-title">ModTheSims — Sims 1 Forum <span class="tag gold">No Downloads</span></div>
+      <div class="card-desc">ModTheSims has no Sims 1 downloads section. There is an active Sims 1 forum where players discuss modding and troubleshooting, and some individual posts link to external downloads.</div>
+      <a class="pill-link" href="https://modthesims.info/f/75/" target="_blank">↗ MTS Sims 1 Forum</a>
+    </div>
+  </div>
 </section>
 
-  </main>
+</main>
 </div>
-
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection — Modding Guide
-    </div>
-        <div class="footer-links">
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection — Modding Guide</div>
+    <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
       <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
       <a href="https://www.ea.com/games/the-sims/news" target="_blank">EA Patch Notes</a>
-      <a href="updates.html">Site Updates &amp; Roadmap</a>
+      <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
     <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
@@ -494,7 +476,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Mods &amp; CC</div>
       <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
-      <a href="download-sites.html" class="nav-drawer-link active nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
       <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
       <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
     </div>
@@ -521,48 +503,39 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
+      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
       <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
-  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
-  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  var hintL=document.getElementById('navHintLeft');
-  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
-  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
-  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
-  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
-  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
   if(ham)ham.addEventListener('click',openD);
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
-  if(btt){
-    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
-    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    panel.addEventListener('click',function(e){e.stopPropagation();});
   }
-  var ccBtn=document.getElementById('ccDropdownBtn');
-  var ccPanel=document.getElementById('ccDropdownPanel');
-  if(ccBtn&&ccPanel){
-    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
-    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
-  var mdBtn=document.getElementById('modsDropdownBtn');
-  var mdPanel=document.getElementById('modsDropdownPanel');
-  if(mdBtn&&mdPanel){
-    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
-    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>
 </body>

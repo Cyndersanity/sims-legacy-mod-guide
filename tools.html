@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modding Tools - Sims Legacy Collection Guide</title>
+<title>Modding Tools — Sims Legacy Collection Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -266,14 +266,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
 
-/* CREATE CC NAV DROPDOWN */
-.nav-dropdown{position:relative;display:inline-flex;}
-.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
-.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
-.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+
+
 .nav-dropdown-panel.open{display:block;}
 .nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
@@ -284,8 +278,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
 
-/* MODS/CC NAV DROPDOWN */
+
 .nav-dropdown-mods{position:relative;display:inline-flex;}
+
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;}
+.nav-dropdown-panel{display:none;position:fixed;min-width:220px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:9999;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:44px;background:linear-gradient(to left,transparent,rgba(245,242,232,0.97) 60%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:18px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-drawer-sublink{padding-left:36px!important;font-size:13px!important;}
+.nav-drawer-group-label{padding:6px 16px 2px;font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;}
+
+
+/* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
+html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -300,44 +313,18 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
-    <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-    <a href="index.html" class="nav-link">🏠 Home</a>
-    <a href="about-legacy.html" class="nav-link">📖 About Legacy</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
-    <a href="installing-mods.html" class="nav-link">📁 Install</a>
-    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
-    <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
-    <a href="cheats.html" class="nav-link">🎮 Cheats</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
-  <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
-  <div class="nav-dropdown-divider"></div>
-  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
-  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
-  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
-  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
-</div></div>
-    <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
-    <a href="tools.html" class="nav-link active">🧰 Tools</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
-    <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="terminology.html" class="nav-link">📖 Terminology</a>
-    <a href="updates.html" class="nav-link">📋 Site Updates</a>
-    <a href="contact.html" class="nav-link">✉️ Contact</a>
-    <a href="search.html" class="nav-link">🔍 Search</a>
-  </div>
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item active">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link">📋 Roadmap</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      </div>
   <button class="nav-ham" id="navHam" aria-label="Open menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll nav">&#8250;</button>
   </div>
 </nav>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Tools</div>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Tools</div>
   <h1 class="page-title">Modding <span>Tools</span></h1>
-  <p class="page-sub">Every tool you need - free download links and usage notes</p>
+  <p class="page-sub">Every tool you need — free download links and usage notes</p>
 </div>
 <div class="page-layout">
   <aside>
@@ -352,17 +339,17 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#essential">Essential Tools</a><a href="#cc-tools">CC Creation</a><a href="#community-tools">Community Tools</a></div></details>
 
 <section id="essential">
-  <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">Essential Modding Tools</h2><p class="section-sub">All free - all from the Sims1Tools GitHub repo unless noted</p></div></div>
+  <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">Essential Modding Tools</h2><p class="section-sub">All free — all from the Sims1Tools GitHub repo unless noted</p></div></div>
   <div class="callout green">✅ All Sims1Tools in one place: <a href="https://github.com/trolando/Sims1Tools" target="_blank">github.com/trolando/Sims1Tools</a></div>
   <div class="grid-2" style="margin-top:14px;">
-    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Transmogrifier (TMog)</div><div class="card-desc">Always start here. Clones any existing game object as a new .iff file so you edit the copy without touching the original. Essential first step for any object mod. Created by Don Hopkins (Maxis). Download from The Sims Depot - the original site is offline.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Sims Depot &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Transmogrifier (TMog)</div><div class="card-desc">Always start here. Clones any existing game object as a new .iff file so you edit the copy without touching the original. Essential first step for any object mod. Created by Don Hopkins (Maxis). Download from The Sims Depot — the original site is offline.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Sims Depot &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> IFF Pencil 2</div><div class="card-desc">The full .iff editor. View and edit sprites, BHAV behaviour trees, BCON constants, STR# strings, and every other resource inside an .iff file. The main tool for creating complex mods.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Constant Contraption</div><div class="card-desc">Edits numeric values in .iff files - price, skill gain rate, motive impact. The easiest way to make gameplay tweaks without touching BHAV scripts. Good first mod project.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Career Creator 3</div><div class="card-desc">Specialised editor for creating custom career tracks. Replaces existing careers - you can't add new ones. Output goes in GameData\Objects\ not Downloads\.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Strings Scavenger</div><div class="card-desc">Edits text labels - object names, interaction menu text and descriptions. Simpler than editing STR# resources directly in IFF Pencil 2.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Constant Contraption</div><div class="card-desc">Edits numeric values in .iff files — price, skill gain rate, motive impact. The easiest way to make gameplay tweaks without touching BHAV scripts. Good first mod project.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Career Creator 3</div><div class="card-desc">Specialised editor for creating custom career tracks. Replaces existing careers — you can't add new ones. Output goes in GameData\Objects\ not Downloads\.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Strings Scavenger</div><div class="card-desc">Edits text labels — object names, interaction menu text and descriptions. Simpler than editing STR# resources directly in IFF Pencil 2.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> FARx</div><div class="card-desc">Extracts individual .iff files from .FAR container bundles. Use when a mod is packaged as a FAR but specific files need to go in different folders.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag red">ADVANCED</span> Simpose / Simposium</div><div class="card-desc">Creates custom Sim poses and animation sequences. Advanced - requires understanding the animation system. Tutorials at Awesome Expression.</div><a class="pill-link" href="http://www.awesomeexpression.com/" target="_blank">Awesome Expression &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> FaithBeam Legacy Hacks</div><div class="card-desc">A runtime memory patcher that unlocks <code>edit_char</code> and other hidden debug features. Run it before launching the game each session and keep it open while you play. Works on both Steam and EA App - no Steamless required. Never permanently modifies Sims.exe.</div><a class="pill-link" href="https://github.com/FaithBeam/Sims1LegacyCollectionHacks" target="_blank">GitHub &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag red">ADVANCED</span> Simpose / Simposium</div><div class="card-desc">Creates custom Sim poses and animation sequences. Advanced — requires understanding the animation system. Tutorials at Awesome Expression.</div><a class="pill-link" href="http://www.awesomeexpression.com/" target="_blank">Awesome Expression &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> FaithBeam Legacy Hacks</div><div class="card-desc">A runtime memory patcher that unlocks <code>edit_char</code> and other hidden debug features. Run it before launching the game each session and keep it open while you play. Works on both Steam and EA App — no Steamless required. Never permanently modifies Sims.exe.</div><a class="pill-link" href="https://github.com/FaithBeam/Sims1LegacyCollectionHacks" target="_blank">GitHub &#8599;</a></div>
   </div>
 </section>
 
@@ -380,25 +367,60 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="community-tools">
   <div class="section-head"><div class="section-emoji">🌱</div><div><h2 class="section-title">Community Tools &amp; Resources</h2></div></div>
   <div class="grid-2">
-    <div class="card"><div class="card-title"><span class="tag teal">PROJECT</span> Simitone</div><div class="card-desc">An open-source 3D recreation of The Sims 1 built on the FreeSO engine, using your own Legacy Collection game files as assets. In active development. Not a mod - a separate application.</div><a class="pill-link" href="https://github.com/riperiperi/Simitone" target="_blank">GitHub &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag teal">PROJECT</span> Simitone</div><div class="card-desc">An open-source 3D recreation of The Sims 1 built on the FreeSO engine, using your own Legacy Collection game files as assets. In active development. Not a mod — a separate application.</div><a class="pill-link" href="https://github.com/riperiperi/Simitone" target="_blank">GitHub &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag teal">FREE</span> 7-Zip</div><div class="card-desc">Essential for Sims 1 modding. Old Maxis "Get Cool Stuff" downloads were distributed as Windows .exe installers - 7-Zip lets you open them as archives and extract files manually without running the installer.</div><a class="pill-link" href="https://www.7-zip.org/" target="_blank">7-zip.org &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> Steamless</div><div class="card-desc">Unpacks the Steam DRM wrapper from Sims.exe to give you a clean unencrypted copy. No longer needed for FaithBeam's debug cheats tool. May be useful for other third-party tools that still require an unencrypted exe.</div><a class="pill-link" href="https://github.com/atom0s/Steamless" target="_blank">GitHub &#8599;</a></div>
   </div>
 </section>
 
 
-  </main>
+  
+<section id="external-resources">
+  <div class="section-head"><div class="section-emoji">📚</div><div>
+    <h2 class="section-title">External Tools &amp; Tutorials</h2>
+    <p class="section-sub">Downloads and guides from the community</p>
+  </div></div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">GitHub — Sims1Tools (trolando)</div>
+      <div class="card-desc">Essential modding toolkit: IFF Pencil 2, FARx, Career Creator 3, Constant Contraption, Strings Scavenger.</div>
+      <a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">↗ github.com/trolando/Sims1Tools</a>
+    </div>
+    <div class="card">
+      <div class="card-title">Skin Doctor <span class="tag gold">Validation</span></div>
+      <div class="card-desc">Validates skin files before adding them to the game. Catches incorrect colour depth, malformed files and other issues that cause white blanks in game. Successor to Sims File Cop (which breaks on Hot Date+ saves). Available from BeyondSims and the Internet Archive.</div>
+      <a class="pill-link" href="https://web.archive.org/web/2005/https://beyondsims.com/" target="_blank">Internet Archive ↗</a>
+    </div>
+    <div class="card">
+      <div class="card-title">Sims 1 Tutorials — Awesome Expression</div>
+      <div class="card-desc">Advanced tutorials covering custom animations, custom food, custom sounds and object cloning with Transmogrifier.</div>
+      <a class="pill-link" href="http://www.awesomeexpression.com/sims-1-tutorials.html" target="_blank">↗ awesomeexpression.com</a>
+    </div>
+    <div class="card">
+      <div class="card-title">The Sims Depot</div>
+      <div class="card-desc">Must-have programs, adding skins and meshes. Good beginner resource for tools and setup.</div>
+      <a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">↗ thesimsdepot.com</a>
+    </div>
+    <div class="card">
+      <div class="card-title">Parsimonious — Adding Downloads To Your Game</div>
+      <div class="card-desc">Step-by-step instructions for installing all different file types for Sims 1 CC, plus troubleshooting tips.</div>
+      <a class="pill-link" href="http://www.parsimonious.org/info/addingnewstuff.html" target="_blank">↗ parsimonious.org</a>
+    </div>
+  </div>
+</section>
+
+</main>
 </div>
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection &mdash; Modding Guide</div>
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection — Modding Guide</div>
     <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
       <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
       <a href="https://www.ea.com/games/the-sims/news" target="_blank">EA Patch Notes</a>
-      <a href="updates.html">Site Updates &amp; Roadmap</a>
+      <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
     <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
@@ -443,7 +465,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
+      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
       <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
@@ -452,7 +474,7 @@ ml>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modding Tools - Sims Legacy Collection Guide</title>
+<title>Modding Tools — Sims Legacy Collection Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -715,14 +737,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
 
-/* CREATE CC NAV DROPDOWN */
-.nav-dropdown{position:relative;display:inline-flex;}
-.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
-.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
-.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+
+
 .nav-dropdown-panel.open{display:block;}
 .nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
@@ -733,8 +749,23 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
 
-/* MODS/CC NAV DROPDOWN */
+
 .nav-dropdown-mods{position:relative;display:inline-flex;}
+
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;}
+.nav-dropdown-panel{display:none;position:fixed;min-width:220px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:9999;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:44px;background:linear-gradient(to left,transparent,rgba(245,242,232,0.97) 60%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:18px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-drawer-sublink{padding-left:36px!important;font-size:13px!important;}
+.nav-drawer-group-label{padding:6px 16px 2px;font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;}
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -774,7 +805,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
     <span class="nav-sep" aria-hidden="true"></span>
     <a href="terminology.html" class="nav-link">📖 Terminology</a>
-    <a href="updates.html" class="nav-link">📋 Site Updates</a>
+    <a href="updates.html" class="nav-link">📋 Roadmap</a>
     <a href="contact.html" class="nav-link">✉️ Contact</a>
     <a href="search.html" class="nav-link">🔍 Search</a>
   </div>
@@ -784,9 +815,9 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   </div>
 </nav>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - Tools</div>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Tools</div>
   <h1 class="page-title">Modding <span>Tools</span></h1>
-  <p class="page-sub">Every tool you need - free download links and usage notes</p>
+  <p class="page-sub">Every tool you need — free download links and usage notes</p>
 </div>
 <div class="page-layout">
   <aside>
@@ -801,17 +832,17 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#essential">Essential Tools</a><a href="#cc-tools">CC Creation</a><a href="#community-tools">Community Tools</a></div></details>
 
 <section id="essential">
-  <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">Essential Modding Tools</h2><p class="section-sub">All free - all from the Sims1Tools GitHub repo unless noted</p></div></div>
+  <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">Essential Modding Tools</h2><p class="section-sub">All free — all from the Sims1Tools GitHub repo unless noted</p></div></div>
   <div class="callout green">✅ All Sims1Tools in one place: <a href="https://github.com/trolando/Sims1Tools" target="_blank">github.com/trolando/Sims1Tools</a></div>
   <div class="grid-2" style="margin-top:14px;">
-    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Transmogrifier (TMog)</div><div class="card-desc">Always start here. Clones any existing game object as a new .iff file so you edit the copy without touching the original. Essential first step for any object mod. Created by Don Hopkins (Maxis). Download from The Sims Depot - the original site is offline.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Sims Depot &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Transmogrifier (TMog)</div><div class="card-desc">Always start here. Clones any existing game object as a new .iff file so you edit the copy without touching the original. Essential first step for any object mod. Created by Don Hopkins (Maxis). Download from The Sims Depot — the original site is offline.</div><a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">Sims Depot &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> IFF Pencil 2</div><div class="card-desc">The full .iff editor. View and edit sprites, BHAV behaviour trees, BCON constants, STR# strings, and every other resource inside an .iff file. The main tool for creating complex mods.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Constant Contraption</div><div class="card-desc">Edits numeric values in .iff files - price, skill gain rate, motive impact. The easiest way to make gameplay tweaks without touching BHAV scripts. Good first mod project.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Career Creator 3</div><div class="card-desc">Specialised editor for creating custom career tracks. Replaces existing careers - you can't add new ones. Output goes in GameData\Objects\ not Downloads\.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Strings Scavenger</div><div class="card-desc">Edits text labels - object names, interaction menu text and descriptions. Simpler than editing STR# resources directly in IFF Pencil 2.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Constant Contraption</div><div class="card-desc">Edits numeric values in .iff files — price, skill gain rate, motive impact. The easiest way to make gameplay tweaks without touching BHAV scripts. Good first mod project.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Career Creator 3</div><div class="card-desc">Specialised editor for creating custom career tracks. Replaces existing careers — you can't add new ones. Output goes in GameData\Objects\ not Downloads\.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Strings Scavenger</div><div class="card-desc">Edits text labels — object names, interaction menu text and descriptions. Simpler than editing STR# resources directly in IFF Pencil 2.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> FARx</div><div class="card-desc">Extracts individual .iff files from .FAR container bundles. Use when a mod is packaged as a FAR but specific files need to go in different folders.</div><a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">Sims1Tools &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag red">ADVANCED</span> Simpose / Simposium</div><div class="card-desc">Creates custom Sim poses and animation sequences. Advanced - requires understanding the animation system. Tutorials at Awesome Expression.</div><a class="pill-link" href="http://www.awesomeexpression.com/" target="_blank">Awesome Expression &#8599;</a></div>
-    <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> FaithBeam Legacy Hacks</div><div class="card-desc">A runtime memory patcher that unlocks <code>edit_char</code> and other hidden debug features. Run it before launching the game each session and keep it open while you play. Works on both Steam and EA App - no Steamless required. Never permanently modifies Sims.exe.</div><a class="pill-link" href="https://github.com/FaithBeam/Sims1LegacyCollectionHacks" target="_blank">GitHub &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag red">ADVANCED</span> Simpose / Simposium</div><div class="card-desc">Creates custom Sim poses and animation sequences. Advanced — requires understanding the animation system. Tutorials at Awesome Expression.</div><a class="pill-link" href="http://www.awesomeexpression.com/" target="_blank">Awesome Expression &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> FaithBeam Legacy Hacks</div><div class="card-desc">A runtime memory patcher that unlocks <code>edit_char</code> and other hidden debug features. Run it before launching the game each session and keep it open while you play. Works on both Steam and EA App — no Steamless required. Never permanently modifies Sims.exe.</div><a class="pill-link" href="https://github.com/FaithBeam/Sims1LegacyCollectionHacks" target="_blank">GitHub &#8599;</a></div>
   </div>
 </section>
 
@@ -829,25 +860,55 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <section id="community-tools">
   <div class="section-head"><div class="section-emoji">🌱</div><div><h2 class="section-title">Community Tools &amp; Resources</h2></div></div>
   <div class="grid-2">
-    <div class="card"><div class="card-title"><span class="tag teal">PROJECT</span> Simitone</div><div class="card-desc">An open-source 3D recreation of The Sims 1 built on the FreeSO engine, using your own Legacy Collection game files as assets. In active development. Not a mod - a separate application.</div><a class="pill-link" href="https://github.com/riperiperi/Simitone" target="_blank">GitHub &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag teal">PROJECT</span> Simitone</div><div class="card-desc">An open-source 3D recreation of The Sims 1 built on the FreeSO engine, using your own Legacy Collection game files as assets. In active development. Not a mod — a separate application.</div><a class="pill-link" href="https://github.com/riperiperi/Simitone" target="_blank">GitHub &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag teal">FREE</span> 7-Zip</div><div class="card-desc">Essential for Sims 1 modding. Old Maxis "Get Cool Stuff" downloads were distributed as Windows .exe installers - 7-Zip lets you open them as archives and extract files manually without running the installer.</div><a class="pill-link" href="https://www.7-zip.org/" target="_blank">7-zip.org &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> Steamless</div><div class="card-desc">Unpacks the Steam DRM wrapper from Sims.exe to give you a clean unencrypted copy. No longer needed for FaithBeam's debug cheats tool. May be useful for other third-party tools that still require an unencrypted exe.</div><a class="pill-link" href="https://github.com/atom0s/Steamless" target="_blank">GitHub &#8599;</a></div>
   </div>
 </section>
 
 
-  </main>
+  
+<section id="external-resources">
+  <div class="section-head"><div class="section-emoji">📚</div><div>
+    <h2 class="section-title">External Tools &amp; Tutorials</h2>
+    <p class="section-sub">Downloads and guides from the community</p>
+  </div></div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">GitHub — Sims1Tools (trolando)</div>
+      <div class="card-desc">Essential modding toolkit: IFF Pencil 2, FARx, Career Creator 3, Constant Contraption, Strings Scavenger.</div>
+      <a class="pill-link" href="https://github.com/trolando/Sims1Tools" target="_blank">↗ github.com/trolando/Sims1Tools</a>
+    </div>
+    <div class="card">
+      <div class="card-title">Sims 1 Tutorials — Awesome Expression</div>
+      <div class="card-desc">Advanced tutorials covering custom animations, custom food, custom sounds and object cloning with Transmogrifier.</div>
+      <a class="pill-link" href="http://www.awesomeexpression.com/sims-1-tutorials.html" target="_blank">↗ awesomeexpression.com</a>
+    </div>
+    <div class="card">
+      <div class="card-title">The Sims Depot</div>
+      <div class="card-desc">Must-have programs, adding skins and meshes. Good beginner resource for tools and setup.</div>
+      <a class="pill-link" href="https://www.thesimsdepot.com/sims-1/must-have-programs-for-sims-1/" target="_blank">↗ thesimsdepot.com</a>
+    </div>
+    <div class="card">
+      <div class="card-title">Parsimonious — Adding Downloads To Your Game</div>
+      <div class="card-desc">Step-by-step instructions for installing all different file types for Sims 1 CC, plus troubleshooting tips.</div>
+      <a class="pill-link" href="http://www.parsimonious.org/info/addingnewstuff.html" target="_blank">↗ parsimonious.org</a>
+    </div>
+  </div>
+</section>
+
+</main>
 </div>
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection &mdash; Modding Guide</div>
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection — Modding Guide</div>
     <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
       <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
       <a href="https://www.ea.com/games/the-sims/news" target="_blank">EA Patch Notes</a>
-      <a href="updates.html">Site Updates &amp; Roadmap</a>
+      <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
     <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
@@ -889,7 +950,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Reference</div>
       <a href="terminology.html" class="nav-drawer-link"><span class="nav-drawer-icon">📖</span>Terminology</a>
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
+      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
       <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
       <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
     </div>
@@ -898,41 +959,32 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
-  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
-  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  var hintL=document.getElementById('navHintLeft');
-  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
-  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
-  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
-  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
-  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
   if(ham)ham.addEventListener('click',openD);
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
-  if(btt){
-    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
-    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    panel.addEventListener('click',function(e){e.stopPropagation();});
   }
-  var ccBtn=document.getElementById('ccDropdownBtn');
-  var ccPanel=document.getElementById('ccDropdownPanel');
-  if(ccBtn&&ccPanel){
-    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
-    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
-  var mdBtn=document.getElementById('modsDropdownBtn');
-  var mdPanel=document.getElementById('modsDropdownPanel');
-  if(mdBtn&&mdPanel){
-    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
-    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>
 </body>

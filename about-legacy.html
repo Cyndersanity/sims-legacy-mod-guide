@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About the Legacy Collection - Sims Legacy Collection Guide</title>
+<title>About the Legacy Collection — Sims Legacy Collection Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -271,14 +271,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   .table-wrap td:nth-child(2){font-weight:700;color:var(--ink);border-bottom:1px solid var(--border);}
 }
 
-/* CREATE CC NAV DROPDOWN */
-.nav-dropdown{position:relative;display:inline-flex;}
-.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
-.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
-.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+
+
 .nav-dropdown-panel.open{display:block;}
 .nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
@@ -289,8 +283,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
 
-/* MODS/CC NAV DROPDOWN */
+
 .nav-dropdown-mods{position:relative;display:inline-flex;}
+
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;}
+.nav-dropdown-panel{display:none;position:fixed;min-width:220px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:9999;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:44px;background:linear-gradient(to left,transparent,rgba(245,242,232,0.97) 60%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:18px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-drawer-sublink{padding-left:36px!important;font-size:13px!important;}
+.nav-drawer-group-label{padding:6px 16px 2px;font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;}
+
+
+/* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
+html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -305,35 +318,9 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
-    <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-    <a href="index.html" class="nav-link">🏠 Home</a>
-    <a href="about-legacy.html" class="nav-link active">📖 About Legacy</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
-    <a href="installing-mods.html" class="nav-link">📁 Install</a>
-    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
-    <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
-    <a href="cheats.html" class="nav-link">🎮 Cheats</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
-  <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
-  <div class="nav-dropdown-divider"></div>
-  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
-  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
-  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
-  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
-</div></div>
-    <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
-    <a href="tools.html" class="nav-link">🧰 Tools</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
-    <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="terminology.html" class="nav-link">📖 Terminology</a>
-    <a href="updates.html" class="nav-link">📋 Site Updates</a>
-    <a href="contact.html" class="nav-link">✉️ Contact</a>
-    <a href="search.html" class="nav-link">🔍 Search</a>
-  </div>
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link active">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link">📋 Roadmap</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
@@ -350,7 +337,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 })();
 </script>
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection - About</div>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — About</div>
   <h1 class="page-title">About the <span>Legacy Collection</span></h1>
   <p class="page-sub">What it is, how it differs from the original, and all technical changes</p>
 </div>
@@ -358,7 +345,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#what-is">What Is Legacy Collection?</a></li><li><a href="#history">History of Releases</a></li><li><a href="#expansion-reference">Expansion Pack Reference</a></li><li><a href="#technical-changes">Technical Changes</a></li><li><a href="#system-requirements">System Requirements</a></li><li><a href="#patch-history">EA Patch History</a></li><li><a href="#missing-content">Missing Maxis Content</a></li><li><a href="#settings">In-Game Settings</a></li></ul>
+      <ul class="toc-list"><li><a href="#what-is">What Is Legacy Collection?</a></li><li><a href="#history">History of Releases</a></li><li><a href="#expansion-reference">Expansion Pack Reference</a></li><li><a href="#technical-changes">Technical Changes</a></li><li><a href="#system-requirements">System Requirements</a></li><li><a href="#patch-history">EA Patch History</a></li><li><a href="#missing-content">Missing Maxis Content</a></li></ul>
       <div class="toc-divider"></div>
       <a class="toc-back" href="index.html">&#8592; Back to Home</a>
     </div>
@@ -368,7 +355,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="what-is">
   <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">What Is the Legacy Collection?</h2></div></div>
-  <p style="margin-bottom:24px;">The Sims Legacy Collection is the 2025 re-release of the original The Sims (2000) and all seven expansion packs, in a single digital purchase. Released January 31, 2025 on Steam, EA App, and Epic Games Store. It is digital only - no physical or boxed edition was released. It replaces the older Complete Collection as the standard way to buy the original game new.</p>
+  <p style="margin-bottom:24px;">The Sims Legacy Collection is the 2025 re-release of the original The Sims (2000) and all seven expansion packs, in a single digital purchase. Released January 31, 2025 on Steam, EA App, and Epic Games Store. It is digital only — no physical or boxed edition was released. It replaces the older Complete Collection as the standard way to buy the original game new.</p>
   <div class="grid-2">
     <div class="card">
       <div class="card-title"><span class="tag green">INCLUDED</span> What's included</div>
@@ -376,7 +363,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="card">
       <div class="card-title"><span class="tag red">NOT INCLUDED</span> Licensed content removed</div>
-      <div class="card-desc">Branded objects (McDonald's cart, Pepsi machine, Intel computer) and licensed Simlish songs were removed when their licenses expired. These are fully archived and can be added manually - see the Missing Maxis Content section below.</div>
+      <div class="card-desc">Branded objects (McDonald's cart, Pepsi machine, Intel computer) and licensed Simlish songs were removed when their licenses expired. These are fully archived and can be added manually — see the Missing Maxis Content section below.</div>
     </div>
   </div>
   <div class="callout teal" style="margin-top:16px;">ℹ️ The Legacy Collection runs on the same underlying game code as the original. Almost all mods and CC made for the original Sims 1 still work, with path adjustments and a few technical differences covered on this page.</div>
@@ -391,7 +378,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
         <tr><td>2000</td><td>The Sims (base game)</td><td>Original release. Base game only. Hard limits: 200 objects/category, 90 walls, 63 floors.</td></tr>
         <tr><td>2000</td><td>Livin' Large (EP1)</td><td>New objects, careers, NPCs. Raises wall and floor CC caps to 65,000.</td></tr>
         <tr><td>2001</td><td>House Party (EP2)</td><td>Party system, costume trunk, entertainment objects.</td></tr>
-        <tr><td>2001</td><td>Hot Date (EP3)</td><td>Downtown lots, clothing racks. Introduces buyable skins - L, F, S filename prefixes.</td></tr>
+        <tr><td>2001</td><td>Hot Date (EP3)</td><td>Downtown lots, clothing racks. Introduces buyable skins — L, F, S filename prefixes.</td></tr>
         <tr><td>2002</td><td>Vacation (EP4)</td><td>Vacation islands. Winterwear (W prefix) buyable skins.</td></tr>
         <tr><td>2002</td><td>Unleashed (EP5)</td><td>Pets, outdoor gardening, neighbourhood editing. Raises build mode object limit to 2,000.</td></tr>
         <tr><td>2003</td><td>Superstar (EP6)</td><td>Celebrity system, Studio Town. High Fashion (H prefix) buyable skins.</td></tr>
@@ -412,7 +399,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <tbody>
         <tr><td>ExpansionPack1</td><td>Livin' Large</td><td>Raises wall and floor CC limits from base game caps to 65,000</td></tr>
         <tr><td>ExpansionPack2</td><td>House Party</td><td>Costume trunk objects, party system</td></tr>
-        <tr><td>ExpansionPack3</td><td>Hot Date</td><td>Introduces buyable skins - L, F, S filename prefixes. Clothing racks on Downtown lots</td></tr>
+        <tr><td>ExpansionPack3</td><td>Hot Date</td><td>Introduces buyable skins — L, F, S filename prefixes. Clothing racks on Downtown lots</td></tr>
         <tr><td>ExpansionPack4</td><td>Vacation</td><td>Winterwear (W prefix) buyable skins. Vacation island lots</td></tr>
         <tr><td>ExpansionPack5</td><td>Unleashed</td><td>Raises build mode object limit to 2,000. Pet skins and neighbourhood editing</td></tr>
         <tr><td>ExpansionPack6</td><td>Superstar</td><td>High Fashion (H prefix) buyable skins. Studio Town lots</td></tr>
@@ -429,12 +416,12 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   <div class="status-row can">
     <div class="status-icon">🖥️</div>
     <div><div class="status-title">New renderer: Vulkan replaces DirectDraw</div>
-    <div class="status-body">The biggest change. The original game used DirectDraw and DirectX 6, which caused severe compatibility issues on modern Windows. Legacy Collection replaces this with Vulkan, giving full GPU acceleration and 24-bit colour. This is why Legacy requires a Vulkan-compatible GPU - most GPUs from around 2012 onwards qualify. If you get a "Vulkan Initialization Failed" error on launch, see the <a href="game-troubleshooting.html">Game Troubleshooting</a> page.</div></div>
+    <div class="status-body">The biggest change. The original game used DirectDraw and DirectX 6, which caused severe compatibility issues on modern Windows. Legacy Collection replaces this with Vulkan, giving full GPU acceleration and 24-bit colour. This is why Legacy requires a Vulkan-compatible GPU — most GPUs from around 2012 onwards qualify. If you get a "Vulkan Initialization Failed" error on launch, see the <a href="game-troubleshooting.html">Game Troubleshooting</a> page.</div></div>
   </div>
   <div class="status-row can">
     <div class="status-icon">💾</div>
     <div><div class="status-title">Save files moved to a dedicated folder</div>
-    <div class="status-body">In the original game, UserData folders sat inside the game's install directory. Legacy Collection moves them to <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code>. On first launch the game copies the default neighbourhood templates there. Steam Cloud saves are not supported - back up this folder manually if you play on multiple machines.</div></div>
+    <div class="status-body">In the original game, UserData folders sat inside the game's install directory. Legacy Collection moves them to <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code>. On first launch the game copies the default neighbourhood templates there. Steam Cloud saves are not supported — back up this folder manually if you play on multiple machines.</div></div>
   </div>
   <div class="status-row can">
     <div class="status-icon">📐</div>
@@ -454,7 +441,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   <div class="status-row maybe">
     <div class="status-icon">🔒</div>
     <div><div class="status-title">Steam executable is DRM-protected</div>
-    <div class="status-body">The Steam version's Sims.exe is wrapped in Steam DRM. Mods that directly patched the original exe will not work. FaithBeam's Legacy Collection Hacks tool unlocks the <code>edit_char</code> debug cheat by patching the game in memory at runtime - it does not permanently modify any files. Run <code>Sims1LegacyHacks.exe</code> before launching the game each session and keep it open while you play. Works on both Steam and EA App versions - no Steamless required. See the <a href="mod-list.html">Must-Have Mods</a> page.</div></div>
+    <div class="status-body">The Steam version's Sims.exe is wrapped in Steam DRM. Mods that directly patched the original exe will not work. FaithBeam's Legacy Collection Hacks tool unlocks the <code>edit_char</code> debug cheat by patching the game in memory at runtime — it does not permanently modify any files. Run <code>Sims1LegacyHacks.exe</code> before launching the game each session and keep it open while you play. Works on both Steam and EA App versions — no Steamless required. See the <a href="mod-list.html">Must-Have Mods</a> page.</div></div>
   </div>
 <div class="status-row can">
     <div class="status-icon">🖱️</div>
@@ -490,11 +477,11 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <tbody>
         <tr><td>OS</td><td>Windows 10 or Windows 11 (64-bit)</td><td>Does not run on Windows 7, 8, Vista or XP</td></tr>
         <tr><td>GPU</td><td>Vulkan-compatible GPU</td><td>NVIDIA GTX 600+, AMD GCN (7000/R series)+, Intel Iris Xe. Most GPUs from around 2012 onwards. Check your GPU's Vulkan support at vulkan.gpuinfo.org</td></tr>
-        <tr><td>GPU drivers</td><td>Up to date</td><td>Outdated drivers are the most common cause of Vulkan errors - update before troubleshooting anything else</td></tr>
+        <tr><td>GPU drivers</td><td>Up to date</td><td>Outdated drivers are the most common cause of Vulkan errors — update before troubleshooting anything else</td></tr>
         <tr><td>RAM</td><td>4 GB</td><td>The original game used very little memory by modern standards</td></tr>
-        <tr><td>Storage</td><td>~5 GB</td><td>Plus mods and CC - keep Downloads folder under 2.5 GB</td></tr>
+        <tr><td>Storage</td><td>~5 GB</td><td>Plus mods and CC — keep Downloads folder under 2.5 GB</td></tr>
         <tr><td>Platform</td><td>Steam, EA App, or Epic Games</td><td>Digital only, no disc version</td></tr>
-        <tr><td>Steam Deck</td><td>Supported</td><td>Community reports consistently positive - game runs well on Deck</td></tr>
+        <tr><td>Steam Deck</td><td>Supported</td><td>Community reports consistently positive — game runs well on Deck</td></tr>
       </tbody>
     </table>
   </div>
@@ -513,7 +500,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
         <tr><td>12 Feb 2025</td><td>4</td><td>Additional crash fixes, window management improvements.</td></tr>
         <tr><td>20 Feb 2025</td><td>5</td><td>Stability pass. GPU compatibility notes added to EA help documentation.</td></tr>
         <tr><td>27 Feb 2025</td><td>6</td><td>Further stability fixes.</td></tr>
-        <tr><td>14 Mar 2025</td><td>7</td><td>Major update - in-game resolution options added, fractional scaling overhauled (renders at next integer scale up), window freely resizable, portrait camera fix, game-minimises-when-unfocused bug fixed.</td></tr>
+        <tr><td>14 Mar 2025</td><td>7</td><td>Major update — in-game resolution options added, fractional scaling overhauled (renders at next integer scale up), window freely resizable, portrait camera fix, game-minimises-when-unfocused bug fixed.</td></tr>
         <tr><td>3 Apr 2025</td><td>8</td><td>Stability improvements, Sim portrait camera position fix, warning added for Windows usernames with special characters that cause save path crashes.</td></tr>
       </tbody>
     </table>
@@ -522,8 +509,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 
 <section id="missing-content">
   <div class="section-head"><div class="section-emoji">🎁</div><div><h2 class="section-title">Missing Official Maxis Content</h2><p class="section-sub">The "Get Cool Stuff" downloads not included in Legacy</p></div></div>
-  <p>Between 2000 and 2003, Maxis ran a "Get Cool Stuff" section on the official Sims website with free downloadable objects, skins, tools and houses. Most of this was not included in Legacy Collection - either because licenses expired (branded objects) or it was simply not bundled. The community has archived all of it and made it Legacy-compatible.</p>
-  <div class="callout red"><strong>⚠️ Do not run the original .exe installers.</strong> The original Maxis downloads were distributed as Windows installers that look for the game in the old Complete Collection registry path. They will fail silently on Legacy. Use the GitHub archive below instead - files are pre-extracted and ready to copy.</div>
+  <p>Between 2000 and 2003, Maxis ran a "Get Cool Stuff" section on the official Sims website with free downloadable objects, skins, tools and houses. Most of this was not included in Legacy Collection — either because licenses expired (branded objects) or it was simply not bundled. The community has archived all of it and made it Legacy-compatible.</p>
+  <div class="callout red"><strong>⚠️ Do not run the original .exe installers.</strong> The original Maxis downloads were distributed as Windows installers that look for the game in the old Complete Collection registry path. They will fail silently on Legacy. Use the GitHub archive below instead — files are pre-extracted and ready to copy.</div>
   <div class="grid-2" style="margin-top:12px;">
     <div class="card">
       <div class="card-title"><span class="tag green">RECOMMENDED</span> Legacy-ready archive</div>
@@ -532,7 +519,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="card">
       <div class="card-title"><span class="tag teal">ARCHIVE</span> Full original collection</div>
-      <div class="card-desc">Complete archive of the original Maxis site content on Internet Archive - all objects, tools, skins, homes and graphics packs. Contains original .exe files. Open them with 7-Zip as archives rather than running them - extract and copy files manually.</div>
+      <div class="card-desc">Complete archive of the original Maxis site content on Internet Archive — all objects, tools, skins, homes and graphics packs. Contains original .exe files. Open them with 7-Zip as archives rather than running them — extract and copy files manually.</div>
       <a class="pill-link" href="https://archive.org/details/thesims.ea.com-the-sims-get-cool-stuff.-7z" target="_blank">Archive.org &#8599;</a>
     </div>
   </div>
@@ -543,14 +530,14 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </div>
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection &mdash; Modding Guide</div>
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection — Modding Guide</div>
     <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
       <a href="http://corylea.com/Sims1ModsByCorylea.html" target="_blank">Corylea's Mods</a>
       <a href="https://www.simlogical.com/" target="_blank">Simlogical</a>
       <a href="https://www.reddit.com/r/thesims1/" target="_blank">Sims 1 Subreddit</a>
       <a href="https://www.ea.com/games/the-sims/news" target="_blank">EA Patch Notes</a>
-      <a href="updates.html">Site Updates &amp; Roadmap</a>
+      <a href="updates.html">Roadmap</a>
       <a href="contact.html">Contact</a>
     </div>
     <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated March 2026</p>
@@ -595,48 +582,39 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Site Updates</a>
+      <a href="updates.html" class="nav-drawer-link"><span class="nav-drawer-icon">📋</span>Roadmap</a>
       <a href="contact.html" class="nav-drawer-link"><span class="nav-drawer-icon">✉️</span>Contact</a>
     </div>
   </div></div>
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
-  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
-  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  var hintL=document.getElementById('navHintLeft');
-  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
-  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
-  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
-  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
-  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
   if(ham)ham.addEventListener('click',openD);
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
-  if(btt){
-    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
-    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    panel.addEventListener('click',function(e){e.stopPropagation();});
   }
-  var ccBtn=document.getElementById('ccDropdownBtn');
-  var ccPanel=document.getElementById('ccDropdownPanel');
-  if(ccBtn&&ccPanel){
-    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
-    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
-  var mdBtn=document.getElementById('modsDropdownBtn');
-  var mdPanel=document.getElementById('modsDropdownPanel');
-  if(mdBtn&&mdPanel){
-    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
-    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Site Updates & Roadmap - Sims Legacy Collection Guide</title>
+<title>Roadmap — Sims Legacy Collection Guide</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -224,14 +224,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 /* Nav touch scrolling */
 .nav-inner{-webkit-overflow-scrolling:touch;}
 
-/* CREATE CC NAV DROPDOWN */
-.nav-dropdown{position:relative;display:inline-flex;}
-.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
-.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
-.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;display:inline-block;}
-.nav-dropdown-btn[aria-expanded="true"] .nav-dropdown-arrow{transform:rotate(180deg);}
-.nav-dropdown-panel{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:210px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-md);z-index:300;padding:8px;}
+
+
 .nav-dropdown-panel.open{display:block;}
 .nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
@@ -242,8 +236,27 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:48px;background:linear-gradient(to left,transparent 0%,rgba(245,242,232,0.97) 50%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:20px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-scroll-hint-left:hover{color:var(--green);background:linear-gradient(to left,transparent 0%,rgba(230,245,235,0.98) 50%);}
 
-/* MODS/CC NAV DROPDOWN */
+
 .nav-dropdown-mods{position:relative;display:inline-flex;}
+
+.nav-dropdown{position:relative;display:inline-flex;}
+.nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
+.nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
+.nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;}
+.nav-dropdown-panel{display:none;position:fixed;min-width:220px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:9999;padding:8px;}
+.nav-dropdown-panel.open{display:block;}
+.nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
+.nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
+.nav-dropdown-item.active{background:var(--green-pale);color:var(--green-dark);border-left:2px solid var(--green);padding-left:10px;}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
+.nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:44px;background:linear-gradient(to left,transparent,rgba(245,242,232,0.97) 60%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:18px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
+.nav-drawer-sublink{padding-left:36px!important;font-size:13px!important;}
+.nav-drawer-group-label{padding:6px 16px 2px;font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;}
+
+
+/* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
+html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
+
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
@@ -259,35 +272,9 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <nav>
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
-    <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-    <a href="index.html" class="nav-link">🏠 Home</a>
-    <a href="about-legacy.html" class="nav-link">📖 About Legacy</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="whats-possible.html" class="nav-link">🔬 What's Possible</a>
-    <a href="installing-mods.html" class="nav-link">📁 Install</a>
-    <a href="download-sites.html" class="nav-link">🌐 Sites</a>
-    <a href="mod-list.html" class="nav-link">⚙️ Mods</a>
-    <a href="cheats.html" class="nav-link">🎮 Cheats</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <div class="nav-dropdown" id="ccDropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel">
-  <a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a>
-  <div class="nav-dropdown-divider"></div>
-  <a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a>
-  <a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a>
-  <a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a>
-  <a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a>
-</div></div>
-    <a href="iff-hacking.html" class="nav-link">🔧 IFF Hacking</a>
-    <a href="tools.html" class="nav-link">🧰 Tools</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a>
-    <a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a>
-    <span class="nav-sep" aria-hidden="true"></span>
-    <a href="terminology.html" class="nav-link">📖 Terminology</a>
-    <a href="updates.html" class="nav-link active">📋 Site Updates</a>
-    <a href="contact.html" class="nav-link">✉️ Contact</a>
-    <a href="search.html" class="nav-link">🔍 Search</a>
-  </div>
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="search.html" class="nav-link">🔍 Search</a><a href="index.html" class="nav-link">🏠 Home</a><a href="about-legacy.html" class="nav-link">📖 About Legacy</a><a href="terminology.html" class="nav-link">📖 Terminology</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a></div></div><a href="cheats.html" class="nav-link">🎮 Cheats</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><a href="cc-troubleshooting.html" class="nav-link">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-link">🖥️ Game Issues</a><a href="updates.html" class="nav-link active">📋 Updates</a><a href="contact.html" class="nav-link">✉️ Contact</a>
+      </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
   <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
@@ -315,9 +302,9 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 </script>
 
 <div class="page-hero">
-  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection Guide</div>
-  <h1 class="page-title">Site Updates & <span>Roadmap</span></h1>
-  <p class="page-sub">Changes to this guide, the roadmap, and what's being worked on - not EA game updates</p>
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection — Roadmap</div>
+  <h1 class="page-title">Guide <span>Roadmap</span></h1>
+  <p class="page-sub">What's being worked on, what's planned, and what's being considered for the guide</p>
 </div>
 
 <div class="page-layout">
@@ -325,134 +312,48 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
       <ul class="toc-list">
-        <li><a href="#changelog">Changelog</a></li>
-        <li><a href="#roadmap">Roadmap</a></li>
-      </ul>
+      <li><a href="#in-progress">In Progress</a></li>
+      <li><a href="#planned">Planned</a></li>
+      <li><a href="#considering">Considering</a></li>
+    </ul>
       <div class="toc-divider"></div>
       <a class="toc-back" href="index.html">← Back to Home</a>
     </div>
   </aside>
 
   <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#changelog">Changelog</a><a href="#roadmap">Roadmap</a></div></details>
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#in-progress">In Progress</a><a href="#planned">Planned</a><a href="#considering">Considering</a></div></details>
 
+<div class="callout teal">ℹ️ This is a rough public roadmap for the guide — not EA game updates. For official patch notes see <a href="https://www.ea.com/games/the-sims/news" target="_blank">ea.com/games/the-sims/news</a>. If something on this list matters to you, <a href="contact.html" style="font-weight:700;">let me know via the contact form</a>.</div>
 
-<div class="callout teal" style="margin-bottom:28px;">ℹ️ This page covers changes to this guide, not EA's game patches. For official patch notes see <a href="https://www.ea.com/games/the-sims/news" target="_blank">ea.com/games/the-sims/news</a>.</div>
-<section id="changelog">
-  <div class="section-head">
-    <div class="section-emoji">📋</div>
-    <div>
-      <h2 class="section-title">Changelog</h2>
-      <p class="section-sub">Most recent changes first</p>
-    </div>
-  </div>
-  <p>Content additions, corrections and structural changes are logged here. Typo fixes and minor tweaks aren't listed. If you flagged something via the contact form, this is where to check whether it's been picked up.</p>
-
-  <div class="table-wrap" style="margin-top:24px;">
-    <table>
-      <thead>
-        <tr>
-          <th style="width:13%">Date</th>
-          <th style="width:18%">Page</th>
-          <th style="width:69%">What Changed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Mar 26, 2026</td>
-          <td><span class="page-badge mods">Site-wide</span></td>
-          <td>
-            <strong>Major content update across the whole guide. Full list of changes:</strong>
-            <ul style="margin:8px 0 0;padding-left:18px;line-height:2.1;">
-              <li><strong>FaithBeam hacks corrected site-wide</strong> &mdash; it's a runtime memory patcher, not an exe patch. Run it before the game, keep it open while you play. Steamless not required. Works on Steam and EA App.</li>
-              <li><strong>Transmogrifier attribution fixed</strong> &mdash; created by Don Hopkins (Maxis), not Simlogical. Download link updated to The Sims Depot.</li>
-              <li><strong>SimEchoes removed</strong> &mdash; site status unconfirmed.</li>
-              <li><strong>Download Sites:</strong> SomeSimThings added to active sites; Simblr.cc Tutorials and Dead Site Repository cards added; ModTheSims noted as forum-only (no Sims 1 downloads section); Corylea tag updated to March 2026.</li>
-              <li><strong>Installing Mods:</strong> New <em>Downloading Lots &amp; Families</em> section &mdash; UserData folder structure, house import into <code>UserData\Houses\</code>, family import via <code>UserData\Import\</code>, Export folder for sharing, Steam Deck save path.</li>
-              <li><strong>About Legacy &mdash; Technical Changes:</strong> Added native mouse wheel zoom, Alt+Enter resolution cycling, encrypted config files, EA intro video removed (and why the restore workaround doesn't work in Legacy).</li>
-              <li><strong>About Legacy &mdash; new In-Game Settings section:</strong> F5 options menu reference (Graphics, Sound, Play tabs), full launch flags table, notes on what can't be configured.</li>
-              <li><strong>What's Possible:</strong> Mouse wheel zoom added as confirmed improvement; edit_char and child ageing rows promoted from "partial" to confirmed working; 1080p = identical to original now noted in resolution row.</li>
-              <li><strong>Creating CC:</strong> Body types corrected (skinny/fit/fat + child &mdash; no pregnant mesh); body types card expanded with full explanation.</li>
-              <li><strong>Community help sections:</strong> Simscord added to both troubleshooting pages; r/thesims1 confirmed in CC troubleshooting.</li>
-              <li><strong>Mod List:</strong> Bunk Beds, Elixir of Eternity (Vampires), Improved Genie Lamp added to Objects section; Obsessed Fan Alarm updated; section renamed to Debug &amp; Runtime Tools.</li>
-              <li><strong>Tools:</strong> FaithBeam card fully rewritten; Steamless card updated (no longer required for debug cheats).</li>
-            </ul>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Mar 23, 2026</td>
-          <td><span class="page-badge new">New pages</span></td>
-          <td>
-            Added four new pages: <strong>Cheats</strong> (all working codes, tips and FaithBeam debug unlock), <strong>Terminology</strong> (what CC, mods, hacking and IFF actually mean - including the Complete Collection vs custom content CC confusion), <strong>Updates & Roadmap</strong> (this page), and <strong>Contact</strong> with an embedded Google Form for feedback and suggestions.
-          </td>
-        </tr>
-        <tr>
-          <td>Mar 22, 2026</td>
-          <td><span class="page-badge mods">Site-wide</span></td>
-          <td>
-            <strong>Ageing up children & edit_char:</strong> Reddit user InsightsIE flagged that children ageing up and live-mode appearance changes are now possible in the Legacy Collection. The underlying tool was created by FaithBeam - their Sims1LegacyCollectionHacks patches the game in memory at runtime to unlock the hidden <code>edit_char</code> debug cheat (no permanent exe modification). Combined with a birthday cake mod (creator/s still to be confirmed - Puberty Blows by ed95 on MTS is one option), children can now be aged up without Makin' Magic. Updated across What's Possible, Mods, and Cheats pages.<br><br>
-            <strong>Installing Mods:</strong> Expanded to cover all possible file destination folders, added engine CC limits (caps on objects, walls, floors, downloads folder size), and better step-by-step extraction instructions.<br><br>
-            <strong>IFF Hacking:</strong> Added full step-by-step instructions to the Custom Careers section.<br><br>
-            <strong>Sites:</strong> Removed dead links, added Sims File Share (YoNonna), Sims Freaks and Wayback Machine CC resources.<br><br>
-            <strong>Creating CC:</strong> Archive.org download links added for The Sims Creator and Home Crafter. Tool installation steps added.
-          </td>
-        </tr>
-
-        <tr>
-          <td>Mar 22, 2026</td>
-          <td><span class="page-badge mods">Site-wide</span></td>
-          <td>Major restructure: added About Legacy Collection page (history, EP reference, technical changes, Vulkan info, patch history, missing Maxis content). Split troubleshooting into CC &amp; Mod Troubleshooting and Game Troubleshooting — game page covers Vulkan errors, NVIDIA pixel fix, multi-monitor crash, launch options reference, username crash, empty neighbourhood fix. Added EA patch notes link to footer. Crash log monitor tool added to roadmap (in progress).</td>
-        </tr>
-
-        <!-- ═══════════════════════════════════════════════════════
-             HOW TO UPDATE THIS TABLE:
-             Copy one of the rows below and paste it at the TOP
-             of the tbody (above all existing rows) to keep newest
-             changes first. Update the date, page badge and description.
-             ═══════════════════════════════════════════════════════ -->
-
-        <tr>
-          <td>Mar 20, 2026</td>
-          <td><span class="page-badge new">Launch</span></td>
-          <td>Site first published. Initial pages: Home, Installing Mods, Download Sites, Must-Have Mods, Creating CC, IFF Hacking, Tools, CC &amp; Mod Troubleshooting, Game Troubleshooting, What's Possible, and 404.</td>
-        </tr>
-
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section id="roadmap">
-  <div class="section-head">
-    <div class="section-emoji">🗺️</div>
-    <div>
-      <h2 class="section-title">Roadmap</h2>
-      <p class="section-sub">What's being worked on and what's planned</p>
-    </div>
-  </div>
-  <div class="callout teal">This is a rough public roadmap. Things in "planned" will happen when time allows. Things in "considering" depend on whether enough people find them useful - if something on this list matters to you, <a href="contact.html" style="font-weight:700;">let me know via the contact form</a>.</div>
-
-  <h3 style="font-family:var(--font-head);font-size:16px;color:var(--ink);margin:28px 0 12px;display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:var(--green);border-radius:50%;display:inline-block;"></span> Currently working on</h3>
+<section id="in-progress">
+  <div class="section-head"><div class="section-emoji">🔨</div><div>
+    <h2 class="section-title">Currently Working On</h2>
+  </div></div>
   <div class="roadmap-grid">
     <div class="roadmap-card doing">
       <div class="roadmap-status doing">In progress</div>
       <div class="roadmap-title">Screenshots for tool instructions</div>
-      <div class="roadmap-desc">Adding screenshots to the IFF Hacking and Creating CC pages showing what the tools look like and where to click. Waiting on captures of Transmogrifier, IFF Pencil 2, Career Creator 3, The Sims Creator and Home Crafter.</div>
+      <div class="roadmap-desc">Adding screenshots to the IFF Hacking and Creating CC pages showing what each tool looks like and where to click. Waiting on captures of Transmogrifier, IFF Pencil 2, Career Creator 3, The Sims Creator and Home Crafter.</div>
     </div>
     <div class="roadmap-card doing">
       <div class="roadmap-status doing">In progress</div>
-      <div class="roadmap-title">Subpages for tools</div>
-      <div class="roadmap-desc">Breaking the IFF Hacking page into individual guide pages per tool - one for Transmogrifier, one for IFF Pencil 2, one for Constant Contraption etc. Will include a dropdown nav menu when hovering over the IFF Hacking link.</div>
+      <div class="roadmap-title">Subpages for IFF Hacking tools</div>
+      <div class="roadmap-desc">Breaking the IFF Hacking page into individual guide pages per tool — one for Transmogrifier, one for IFF Pencil 2, one for Constant Contraption etc., each with step-by-step instructions.</div>
     </div>
     <div class="roadmap-card doing">
       <div class="roadmap-status doing">In progress</div>
-      <div class="roadmap-title">Game crash monitor and log tool</div>
-      <div class="roadmap-desc">A standalone tool/app that runs alongside the game and monitors for crashes. When a crash occurs it captures a log - what mods were loaded, what was happening in-game, system state - and saves it in a readable format. No tool like this has ever existed for Sims 1. The goal is to help players and mod creators identify exactly what caused a crash rather than guessing. No release date yet, but it's actively being built.</div>
+      <div class="roadmap-title">Verify birthday cake mod links</div>
+      <div class="roadmap-desc">The Puberty Blows mod (ed95 on ModTheSims) and the SimLifeCycle birthday cake mod both need working download links confirmed. The Wayback Machine archive and MTS thread need testing.</div>
     </div>
   </div>
+</section>
 
-  <h3 style="font-family:var(--font-head);font-size:16px;color:var(--gold-dark);margin:28px 0 12px;display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:var(--gold);border-radius:50%;display:inline-block;"></span> Planned</h3>
+<section id="planned">
+  <div class="section-head"><div class="section-emoji">📋</div><div>
+    <h2 class="section-title">Planned</h2>
+    <p class="section-sub">Will happen when time allows</p>
+  </div></div>
   <div class="roadmap-grid">
     <div class="roadmap-card planned">
       <div class="roadmap-status planned">Planned</div>
@@ -461,42 +362,37 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
     </div>
     <div class="roadmap-card planned">
       <div class="roadmap-status planned">Planned</div>
-      <div class="roadmap-title">Dropdown navigation</div>
-      <div class="roadmap-desc">Adding hover dropdown menus to nav items like IFF Hacking and Creating CC so subpages are accessible directly from the header without needing to visit the main page first.</div>
-    </div>
-    <div class="roadmap-card planned">
-      <div class="roadmap-status planned">Planned</div>
-      <div class="roadmap-title">Verify birthday cake mod links</div>
-      <div class="roadmap-desc">The Puberty Blows mod (ed95 on ModTheSims) and the SimLifeCycle birthday cake mod still need working download links confirmed. The Wayback Machine archive and MTS thread need testing.</div>
-    </div>
-    <div class="roadmap-card planned">
-      <div class="roadmap-status planned">Planned</div>
       <div class="roadmap-title">FAR file guide</div>
-      <div class="roadmap-desc">A dedicated section on working with FAR files - extracting them with FARx, why some mods bundle files this way, and when you might want to do it yourself.</div>
+      <div class="roadmap-desc">A dedicated section on working with FAR files — extracting them with FARx, why some mods bundle files this way, and when you might need to do it yourself.</div>
     </div>
     <div class="roadmap-card planned">
       <div class="roadmap-status planned">Planned</div>
       <div class="roadmap-title">BHAV scripting introduction</div>
-      <div class="roadmap-desc">A beginner introduction to reading and writing BHAV trees in IFF Pencil 2 - the basics of how object interactions are scripted and how to add simple new ones.</div>
+      <div class="roadmap-desc">A beginner introduction to reading and writing BHAV trees in IFF Pencil 2 — the basics of how object interactions are scripted in Sims 1 and how to add simple new ones.</div>
     </div>
   </div>
+</section>
 
-  <h3 style="font-family:var(--font-head);font-size:16px;color:var(--teal);margin:28px 0 12px;display:flex;align-items:center;gap:8px;"><span style="width:12px;height:12px;background:var(--teal);border-radius:50%;display:inline-block;"></span> Considering</h3>
+<section id="considering">
+  <div class="section-head"><div class="section-emoji">💭</div><div>
+    <h2 class="section-title">Considering</h2>
+    <p class="section-sub">Depends on interest — use the contact form to vote</p>
+  </div></div>
   <div class="roadmap-grid">
     <div class="roadmap-card maybe">
       <div class="roadmap-status maybe">Considering</div>
       <div class="roadmap-title">Neighbourhood editing guide</div>
-      <div class="roadmap-desc">How to edit the neighbourhood map, add terrain, and manage the UserData folder numbering system. Depends on interest - let me know via the contact form if this is something you'd use.</div>
+      <div class="roadmap-desc">How to edit the neighbourhood map, add terrain, and manage the UserData folder numbering system.</div>
     </div>
     <div class="roadmap-card maybe">
       <div class="roadmap-status maybe">Considering</div>
       <div class="roadmap-title">Lot sharing guide</div>
-      <div class="roadmap-desc">How to package and share custom lots, and how to import downloaded ones correctly using the UserData/Houses folders.</div>
+      <div class="roadmap-desc">How to package and share custom lots, and how to import downloaded ones correctly via the UserData/Houses folders.</div>
     </div>
     <div class="roadmap-card maybe">
       <div class="roadmap-status maybe">Considering</div>
       <div class="roadmap-title">Object cloning walkthrough</div>
-      <div class="roadmap-desc">A worked example going from a blank Transmogrifier clone through to a finished modified object with changed values - something to follow along with rather than just read.</div>
+      <div class="roadmap-desc">A worked example from a blank Transmogrifier clone through to a finished modified object with changed values — something to follow along with rather than just read.</div>
     </div>
     <div class="roadmap-card maybe">
       <div class="roadmap-status maybe">Considering</div>
@@ -504,17 +400,16 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
       <div class="roadmap-desc">How skin tone slots work in Sims 1 and how to match custom skins to the correct in-game categories so they appear in the right place in Create-A-Sim.</div>
     </div>
   </div>
-
 </section>
 
-  </main>
+</main>
 </div>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="plumbob sm" style="background:#fff;"></span>
-      The Sims Legacy Collection - Modding Guide
+      The Sims Legacy Collection — Modding Guide
     </div>
         <div class="footer-links">
       <a href="https://simblr.cc/ts1/mods/" target="_blank">Simblr.cc</a>
@@ -574,41 +469,32 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 <button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
 <script>
 (function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
-  function check(){if(!nav||!hint)return;var o=nav.scrollWidth>nav.clientWidth+4;var a=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(o&&!a)?'flex':'none';}
-  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  var hintL=document.getElementById('navHintLeft');
-  function checkL(){if(!nav||!hintL)return;hintL.style.display=nav.scrollLeft>8?'flex':'none';}
-  if(hintL){hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',function(){check();checkL();});window.addEventListener('resize',function(){check();checkL();});}
-  window.addEventListener('load',function(){check();checkL();});setTimeout(function(){check();checkL();},200);
-  var ham=document.getElementById('navHam');var drw=document.getElementById('navDrawer');
-  var cls=document.getElementById('navDrawerClose');var btt=document.getElementById('backTop');
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var ham=document.getElementById('navHam'),drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
   if(ham)ham.addEventListener('click',openD);
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
-  if(btt){
-    window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});
-    btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    panel.addEventListener('click',function(e){e.stopPropagation();});
   }
-  var ccBtn=document.getElementById('ccDropdownBtn');
-  var ccPanel=document.getElementById('ccDropdownPanel');
-  if(ccBtn&&ccPanel){
-    ccBtn.addEventListener('click',function(e){e.stopPropagation();var open=ccPanel.classList.toggle('open');ccBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){ccPanel.classList.remove('open');ccBtn.setAttribute('aria-expanded','false');});
-    ccPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
-  var mdBtn=document.getElementById('modsDropdownBtn');
-  var mdPanel=document.getElementById('modsDropdownPanel');
-  if(mdBtn&&mdPanel){
-    mdBtn.addEventListener('click',function(e){e.stopPropagation();var open=mdPanel.classList.toggle('open');mdBtn.setAttribute('aria-expanded',open?'true':'false');});
-    document.addEventListener('click',function(){mdPanel.classList.remove('open');mdBtn.setAttribute('aria-expanded','false');});
-    mdPanel.addEventListener('click',function(e){e.stopPropagation();});
-  }
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
 })();
 </script>
 </body>
