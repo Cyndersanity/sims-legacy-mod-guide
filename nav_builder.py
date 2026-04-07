@@ -45,7 +45,7 @@ PAGES = {
     "cc-troubleshooting.html":  ("🛠️", "CC Issues"),
     "game-troubleshooting.html":("🖥️", "Game Issues"),
     # Site Info dropdown
-    "updates.html":             ("📋", "Roadmap"),
+    "updates.html":             ("📋", "Site Roadmap"),
     "contact.html":             ("✉️", "Contact"),
 }
 
@@ -55,7 +55,7 @@ FOOTER_LINKS = [
     ("https://www.simlogical.com/",                       "Simlogical"),
     ("https://www.reddit.com/r/thesims1/",                "Sims 1 Subreddit"),
     ("https://www.ea.com/games/the-sims/news",            "EA Patch Notes"),
-    ("updates.html",                                      "Roadmap"),
+    ("updates.html",                                      "Site Roadmap"),
     ("contact.html",                                      "Contact"),
 ]
 

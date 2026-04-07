@@ -16,7 +16,7 @@ All content is based on community testing, verified tool compatibility checks, a
 
 ## What's covered
 
-The guide has 20 pages, grouped into sections:
+The guide has 21 pages, grouped into sections:
 
 ### Playing & modding
 | Page | What it covers |
@@ -49,18 +49,19 @@ The guide has 20 pages, grouped into sections:
 ### Site
 | Page | What it covers |
 |------|---------------|
-| `search.html` | Full-text keyword search across all 20 pages |
-| `updates.html` | Public roadmap – what's in progress, planned, and being considered |
+| `search.html` | Full-text keyword search across all 21 pages |
+| `updates.html` | Site Roadmap – what's in progress, planned, and being considered |
 | `contact.html` | Google Form for corrections, missing mods, broken links and suggestions |
 
 ---
 
 ## Site structure
 
-Static HTML only – no framework, no build step, no dependencies. Deployed directly via GitHub Pages from the root of the repository. All CSS is inline per-page. All JavaScript is inline and vanilla.
+Static HTML only – no framework, no build step, no dependencies. Deployed directly via GitHub Pages from the root of the repository. Shared CSS lives in `style.css`; pages with unique components (index, cheats, terminology, updates) keep only their page-specific rules inline. All JavaScript is inline and vanilla. CC creation subpages include prev/next navigation links for sequential reading.
 
 ```
 /
+├── style.css                   Shared stylesheet (all pages link to this)
 ├── index.html                  Homepage with quick-navigation grid
 ├── about-legacy.html
 ├── whats-possible.html
@@ -98,13 +99,13 @@ Nav is organised into dropdowns:
 - **Mods / CC** – What's Possible, Installing Mods, Mod Download Sites, Must-Have Mods
 - **Create CC** – Overview, Making Clothing, Making Hair & Heads, Making Walls & Floors, Object Retextures, IFF Hacking, Tools
 - **Troubleshooting** – CC Issues, Game Issues
-- **Site Info** – Roadmap, Contact
+- **Site Info** – About Legacy, Terminology, Site Roadmap, Contact
 
 ---
 
 ## Design system
 
-The site uses a consistent set of CSS custom properties defined in every page's `<style>` block:
+The site uses a consistent set of CSS custom properties defined in `style.css`:
 
 | Variable | Value | Used for |
 |----------|-------|----------|
@@ -144,11 +145,11 @@ The site uses a consistent set of CSS custom properties defined in every page's 
 </div>
 ```
 
-**Install path cells** use a two-part format – bold instruction on line 1, gold-highlighted path on line 2:
+**Install path cells** use a two-part format – bold instruction on line 1, `<code>` chip path on line 2:
 ```html
 <td style="white-space:normal;">
   <strong>Extract the file.iff to:</strong><br>
-  <mark>\The Sims Legacy Collection\GameData\Objects</mark>
+  <code>\The Sims Legacy Collection\GameData\Objects</code>
 </td>
 ```
 
@@ -158,7 +159,7 @@ The site uses a consistent set of CSS custom properties defined in every page's 
 
 ### Editing existing content
 
-Each page is self-contained HTML. Open the file in any text editor and edit the content inside `<main class="content">`. The CSS and nav are in the same file.
+Each page is self-contained HTML. Open the file in any text editor and edit the content inside `<main class="content">`. Shared CSS is in `style.css`; page-specific styles (if any) are in an inline `<style>` block. Nav is inline per page.
 
 ### Adding a new page
 
