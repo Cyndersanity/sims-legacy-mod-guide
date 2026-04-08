@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Guide – Sims Legacy Collection Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
+</head>
+<body>
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item active">📖 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item active">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHam" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){if(!nav||!hint)return;var overflows=nav.scrollWidth>nav.clientWidth+4;var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(overflows&&!atEnd)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+})();
+</script>
+<style>
+.career-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.career-head{display:flex;align-items:center;gap:10px;padding:14px 18px;cursor:pointer;transition:background 0.15s;user-select:none;}
+.career-head:hover{background:var(--green-pale);}
+.career-ep{font-family:var(--font-mono);font-size:10px;font-weight:600;padding:3px 9px;border-radius:999px;border:1.5px solid;white-space:nowrap;}
+.career-ep.base{color:var(--green-dark);border-color:var(--green);background:var(--green-pale);}
+.career-ep.ll{color:var(--gold-dark);border-color:var(--gold);background:var(--gold-pale);}
+.career-ep.ul{color:#0d6e6a;border-color:var(--teal);background:var(--teal-pale);}
+.career-ep.ss{color:#7a1a1a;border-color:var(--red);background:var(--red-pale);}
+.career-name{font-size:15px;font-weight:800;color:var(--ink);flex:1;}
+.career-pay{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);white-space:nowrap;}
+.career-arrow{font-size:12px;color:var(--ink-muted);transition:transform 0.2s;}
+.career-card.open .career-arrow{transform:rotate(90deg);}
+.career-detail{display:none;padding:0 18px 18px;font-size:14px;color:var(--ink-mid);line-height:1.7;}
+.career-card.open .career-detail{display:block;}
+.career-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;}
+.career-table th{background:var(--green-pale);color:var(--green-dark);font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;padding:10px 8px;text-align:left;border-bottom:2px solid var(--border);}
+.career-table td{padding:8px 8px;border-bottom:1px solid rgba(27,82,41,0.06);vertical-align:top;}
+.career-table tr:last-child td{border-bottom:none;}
+.career-table tr:hover td{background:rgba(59,174,92,0.04);}
+.career-table td:first-child{font-family:var(--font-mono);font-weight:600;color:var(--green-dark);text-align:center;width:36px;}
+.career-table td:nth-child(3){font-family:var(--font-mono);font-weight:600;}
+.career-transfer-note{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);margin-top:10px;padding:8px 12px;background:rgba(27,82,41,0.04);border-radius:var(--radius-sm);}
+.career-time-24{font-size:11px;color:var(--ink-muted);font-family:var(--font-mono);}
+.transfer-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;}
+.transfer-row:last-child{border-bottom:none;}
+.transfer-from{font-weight:800;color:var(--ink);min-width:140px;}
+.transfer-arrow{color:var(--ink-muted);font-family:var(--font-mono);}
+.transfer-to{color:var(--ink-mid);}
+.transfer-group-label{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--ink-muted);text-transform:uppercase;letter-spacing:1px;margin:18px 0 6px;padding-top:14px;border-top:2px solid var(--border);}
+.transfer-group-label:first-child{border-top:none;margin-top:0;}
+.expand-all{font-family:var(--font-mono);font-size:12px;color:var(--green-dark);background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);padding:6px 14px;border-radius:999px;cursor:pointer;transition:all 0.15s;}
+.expand-all:hover{background:var(--green);color:#fff;border-color:var(--green);}
+@media(max-width:640px){
+  .career-table{font-size:11px;}
+  .career-table th,.career-table td{padding:6px 5px;}
+  .career-head{padding:12px 14px;gap:8px;}
+  .career-name{font-size:14px;}
+  .career-pay{font-size:11px;}
+  .career-detail{padding:0 14px 14px;}
+}
+</style>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – Gameplay</div>
+  <h1 class="page-title">Career <span>Guide</span></h1>
+  <p class="page-sub">Every career track, promotion requirement, salary, and the level 10 career loop</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#how-careers-work">How Careers Work</a></li>
+<li><a href="#base-game">Base Game Careers</a></li>
+<li><a href="#livin-large">Livin’ Large</a></li>
+<li><a href="#unleashed">Unleashed</a></li>
+<li><a href="#fame">Fame (Superstar)</a></li>
+<li><a href="#career-transfer-loop">Career Transfer Loop</a></li>
+<li><a href="#tips">Tips &amp; Strategy</a></li>
+<li><a href="#sources">Sources &amp; Credits</a></li></ul>
+      <div class="toc-divider"></div>
+      <a class="toc-back" href="index.html">← Back to Home</a>
+    </div>
+  </aside>
+  <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#how-careers-work">How Careers Work</a><a href="#base-game">Base Game</a><a href="#livin-large">Livin’ Large</a><a href="#unleashed">Unleashed</a><a href="#fame">Fame</a><a href="#career-transfer-loop">Transfer Loop</a><a href="#tips">Tips</a><a href="#sources">Sources</a></div></details>
+
+<section id="how-careers-work">
+  <div class="section-head"><div class="section-emoji">💼</div><div><h2 class="section-title">How Careers Work</h2><p class="section-sub">The basics before you pick a track</p></div></div>
+
+  <p>Your Sim finds a job by reading the newspaper or checking the computer. One career appears each day – if it’s not the one you want, check again tomorrow. Once hired, your Sim enters at level 1 and works their way up through 10 levels by building skills and making friends.</p>
+
+  <p style="margin-top:12px;">Each promotion requires a combination of <strong>skill points</strong> (Cooking, Mechanical, Charisma, Body, Logic, Creativity) and <strong>family friends</strong> – Sims outside your household who are friends with anyone in your family. Your Sim also needs to leave for work in a decent mood, so keeping needs topped up before the carpool arrives matters just as much as raw skill.</p>
+
+  <div class="callout teal" style="margin-top:16px;">ℹ️ <strong>Family friends</strong> count across the whole household – if your Sim’s spouse befriends the neighbours, those friends count towards your Sim’s promotion too. Multi-Sim households have a real advantage here.</div>
+
+  <div class="callout gold">⚠️ <strong>Miss work two days in a row and you’re fired.</strong> If you rejoin the same career, you start back at level 1. Miss one day and you’ll get a warning – but no demotion. Schedule your skill-building days carefully around the carpool.</div>
+
+  <p style="margin-top:12px;">At level 10 of most careers, a chance card will eventually appear offering to move your Sim into a completely different career track at a mid-level position. This isn’t optional if the card fires – your Sim switches automatically. The transfer destinations form a loop connecting all careers. See the <a href="#career-transfer-loop">Career Transfer Loop</a> section below for the full map.</p>
+</section>
+<section id="base-game">
+  <div class="section-head"><div class="section-emoji">🎮</div><div><h2 class="section-title">Base Game Careers</h2><p class="section-sub">10 career tracks – available from the start</p></div></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+    <p style="font-size:14px;color:var(--ink-mid);">Click any career to expand the full promotion ladder.</p>
+    <button class="expand-all" onclick="toggleAll(this)">Expand all</button>
+  </div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">Business</span>
+    <span class="career-pay">§120 → §1,200</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Mailroom Clerk</td><td>§120</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Executive Assistant</td><td>§180</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Field Sales Representative</td><td>§250</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Mech 2</td><td>0</td></tr>
+<tr><td>4</td><td>Junior Executive</td><td>§320</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Mech 2, Char 2</td><td>1</td></tr>
+<tr><td>5</td><td>Executive</td><td>§400</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Mech 2, Char 2, Log 2</td><td>3</td></tr>
+<tr><td>6</td><td>Senior Manager</td><td>§520</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Mech 2, Char 3, Log 3, Cre 2</td><td>6</td></tr>
+<tr><td>7</td><td>Vice President</td><td>§660</td><td>9am–5pm<br><span class="career-time-24">(09:00–17:00)</span></td><td>Mech 2, Char 4, Body 2, Log 4, Cre 2</td><td>8</td></tr>
+<tr><td>8</td><td>President</td><td>§800</td><td>9am–5pm<br><span class="career-time-24">(09:00–17:00)</span></td><td>Mech 2, Char 5, Body 2, Log 6, Cre 3</td><td>10</td></tr>
+<tr><td>9</td><td>CEO</td><td>§950</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Mech 2, Char 6, Body 2, Log 7, Cre 5</td><td>12</td></tr>
+<tr><td>10</td><td>Business Tycoon</td><td>§1,200</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Mech 2, Char 8, Body 2, Log 9, Cre 6</td><td>14</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">Entertainment</span>
+    <span class="career-pay">§100 → §1,400</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Waiter/Waitress</td><td>§100</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Extra</td><td>§150</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Bit Player</td><td>§200</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Char 2</td><td>0</td></tr>
+<tr><td>4</td><td>Stunt Double</td><td>§275</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Char 2, Body 2</td><td>2</td></tr>
+<tr><td>5</td><td>B-Movie Star</td><td>§375</td><td>10am–5pm<br><span class="career-time-24">(10:00–17:00)</span></td><td>Char 3, Body 3, Cre 1</td><td>4</td></tr>
+<tr><td>6</td><td>Supporting Player</td><td>§500</td><td>10am–6pm<br><span class="career-time-24">(10:00–18:00)</span></td><td>Mech 1, Char 4, Body 4, Cre 2</td><td>6</td></tr>
+<tr><td>7</td><td>TV Star</td><td>§650</td><td>10am–6pm<br><span class="career-time-24">(10:00–18:00)</span></td><td>Mech 1, Char 6, Body 5, Cre 4</td><td>8</td></tr>
+<tr><td>8</td><td>Feature Star</td><td>§900</td><td>5pm–1am<br><span class="career-time-24">(17:00–01:00)</span></td><td>Mech 2, Char 7, Body 6, Cre 4</td><td>10</td></tr>
+<tr><td>9</td><td>Broadway Star</td><td>§1,100</td><td>10am–5pm<br><span class="career-time-24">(10:00–17:00)</span></td><td>Mech 2, Char 8, Body 7, Cre 7</td><td>12</td></tr>
+<tr><td>10</td><td>Superstar</td><td>§1,400</td><td>10am–3pm<br><span class="career-time-24">(10:00–15:00)</span></td><td>Mech 2, Char 10, Body 8, Cre 10</td><td>14</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">Law Enforcement</span>
+    <span class="career-pay">§240 → §700</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Security Guard</td><td>§240</td><td>12am–6am<br><span class="career-time-24">(00:00–06:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Cadet</td><td>§320</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Patrol Officer</td><td>§380</td><td>5pm–1am<br><span class="career-time-24">(17:00–01:00)</span></td><td>Body 2</td><td>0</td></tr>
+<tr><td>4</td><td>Desk Sergeant</td><td>§440</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Mech 2, Body 2</td><td>1</td></tr>
+<tr><td>5</td><td>Vice Squad</td><td>§490</td><td>10pm–4am<br><span class="career-time-24">(22:00–04:00)</span></td><td>Mech 3, Body 4</td><td>2</td></tr>
+<tr><td>6</td><td>Detective</td><td>§540</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 3, Char 1, Body 5, Log 1</td><td>4</td></tr>
+<tr><td>7</td><td>Lieutenant</td><td>§590</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 3, Char 2, Body 5, Log 3, Cre 1</td><td>6</td></tr>
+<tr><td>8</td><td>SWAT Team Leader</td><td>§625</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 4, Char 3, Body 6, Log 5, Cre 1</td><td>8</td></tr>
+<tr><td>9</td><td>Police Chief</td><td>§650</td><td>9am–5pm<br><span class="career-time-24">(09:00–17:00)</span></td><td>Cook 1, Mech 4, Char 4, Body 7, Log 7, Cre 3</td><td>10</td></tr>
+<tr><td>10</td><td>Captain Hero</td><td>§700</td><td>10am–5pm<br><span class="career-time-24">(10:00–17:00)</span></td><td>Cook 1, Mech 4, Char 6, Body 7, Log 10, Cre 5</td><td>12</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">Life of Crime</span>
+    <span class="career-pay">§140 → §1,100</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Pickpocket</td><td>§140</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Bagman</td><td>§200</td><td>11pm–7am<br><span class="career-time-24">(23:00–07:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Bookie</td><td>§275</td><td>12pm–7pm<br><span class="career-time-24">(12:00–19:00)</span></td><td>Body 2</td><td>0</td></tr>
+<tr><td>4</td><td>Con Artist</td><td>§350</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Char 1, Body 2, Cre 1</td><td>2</td></tr>
+<tr><td>5</td><td>Getaway Driver</td><td>§425</td><td>5pm–1am<br><span class="career-time-24">(17:00–01:00)</span></td><td>Mech 2, Char 2, Body 2, Cre 1</td><td>3</td></tr>
+<tr><td>6</td><td>Bank Robber</td><td>§530</td><td>3pm–11pm<br><span class="career-time-24">(15:00–23:00)</span></td><td>Mech 3, Char 3, Body 3, Log 1, Cre 1</td><td>4</td></tr>
+<tr><td>7</td><td>Cat Burglar</td><td>§640</td><td>9pm–3am<br><span class="career-time-24">(21:00–03:00)</span></td><td>Cook 1, Mech 3, Char 3, Body 5, Log 2, Cre 2</td><td>6</td></tr>
+<tr><td>8</td><td>Counterfeiter</td><td>§760</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 5, Char 3, Body 5, Log 3, Cre 4</td><td>8</td></tr>
+<tr><td>9</td><td>Smuggler</td><td>§900</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 5, Char 6, Body 6, Log 3, Cre 5</td><td>10</td></tr>
+<tr><td>10</td><td>Criminal Mastermind</td><td>§1,100</td><td>6pm–12am<br><span class="career-time-24">(18:00–00:00)</span></td><td>Cook 2, Mech 5, Char 7, Body 6, Log 4, Cre 8</td><td>12</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">Medicine</span>
+    <span class="career-pay">§200 → §850</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Medical Technician</td><td>§200</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Paramedic</td><td>§275</td><td>11pm–5am<br><span class="career-time-24">(23:00–05:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Nurse</td><td>§340</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Mech 2</td><td>0</td></tr>
+<tr><td>4</td><td>Intern</td><td>§410</td><td>9am–6pm<br><span class="career-time-24">(09:00–18:00)</span></td><td>Mech 2, Body 2</td><td>2</td></tr>
+<tr><td>5</td><td>Resident</td><td>§480</td><td>9pm–4am<br><span class="career-time-24">(21:00–04:00)</span></td><td>Mech 3, Body 2, Log 2</td><td>3</td></tr>
+<tr><td>6</td><td>GP</td><td>§550</td><td>10am–6pm<br><span class="career-time-24">(10:00–18:00)</span></td><td>Mech 3, Char 1, Body 2, Log 4</td><td>4</td></tr>
+<tr><td>7</td><td>Specialist</td><td>§625</td><td>10am–4pm<br><span class="career-time-24">(10:00–16:00)</span></td><td>Mech 4, Char 2, Body 4, Log 4, Cre 1</td><td>5</td></tr>
+<tr><td>8</td><td>Surgeon</td><td>§700</td><td>10am–4pm<br><span class="career-time-24">(10:00–16:00)</span></td><td>Mech 4, Char 3, Body 5, Log 6, Cre 2</td><td>7</td></tr>
+<tr><td>9</td><td>Medical Researcher</td><td>§775</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Mech 5, Char 4, Body 6, Log 8, Cre 3</td><td>9</td></tr>
+<tr><td>10</td><td>Chief of Hospital Staff</td><td>§850</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Mech 6, Char 6, Body 7, Log 9, Cre 4</td><td>11</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">Military</span>
+    <span class="career-pay">§250 → §650</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Recruit</td><td>§250</td><td>6am–12pm<br><span class="career-time-24">(06:00–12:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Elite Forces</td><td>§325</td><td>7am–1pm<br><span class="career-time-24">(07:00–13:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Drill Instructor</td><td>§400</td><td>8am–2pm<br><span class="career-time-24">(08:00–14:00)</span></td><td>Body 2</td><td>0</td></tr>
+<tr><td>4</td><td>Junior Officer</td><td>§450</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Mech 1, Char 2, Body 2</td><td>0</td></tr>
+<tr><td>5</td><td>Counter Intelligence</td><td>§500</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 1, Char 2, Body 4</td><td>0</td></tr>
+<tr><td>6</td><td>Flight Officer</td><td>§550</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 2, Char 4, Body 4, Log 1</td><td>1</td></tr>
+<tr><td>7</td><td>Senior Officer</td><td>§580</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 3, Char 5, Body 4, Log 3</td><td>3</td></tr>
+<tr><td>8</td><td>Commander</td><td>§600</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 6, Char 6, Body 4, Log 5</td><td>5</td></tr>
+<tr><td>9</td><td>Astronaut</td><td>§625</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 9, Char 6, Body 8, Log 6</td><td>6</td></tr>
+<tr><td>10</td><td>General</td><td>§650</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 10, Char 8, Body 10, Log 9</td><td>8</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">Politics</span>
+    <span class="career-pay">§220 → §750</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Campaign Worker</td><td>§220</td><td>9am–6pm<br><span class="career-time-24">(09:00–18:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Intern</td><td>§300</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Lobbyist</td><td>§360</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Char 2</td><td>0</td></tr>
+<tr><td>4</td><td>Campaign Manager</td><td>§430</td><td>9am–6pm<br><span class="career-time-24">(09:00–18:00)</span></td><td>Char 2, Log 1</td><td>2</td></tr>
+<tr><td>5</td><td>City Council Member</td><td>§485</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Char 3, Body 1, Log 1</td><td>4</td></tr>
+<tr><td>6</td><td>State Assemblyman /
+State Assemblywoman</td><td>§540</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Char 4, Body 2, Log 1, Cre 1</td><td>6</td></tr>
+<tr><td>7</td><td>Congressman /
+Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(10:00–14:00)</span></td><td>Char 4, Body 3, Log 3, Cre 2</td><td>9</td></tr>
+<tr><td>8</td><td>Judge</td><td>§650</td><td>10am–2pm<br><span class="career-time-24">(10:00–14:00)</span></td><td>Char 5, Body 4, Log 4, Cre 3</td><td>11</td></tr>
+<tr><td>9</td><td>Senator</td><td>§700</td><td>9am–6pm<br><span class="career-time-24">(09:00–18:00)</span></td><td>Char 6, Body 5, Log 6, Cre 4</td><td>14</td></tr>
+<tr><td>10</td><td>Mayor</td><td>§750</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Char 9, Body 5, Log 7, Cre 5</td><td>17</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">Pro Athlete</span>
+    <span class="career-pay">§110 → §1,300</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Team Mascot</td><td>§110</td><td>12pm–6pm<br><span class="career-time-24">(12:00–18:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Minor Leaguer</td><td>§170</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Rookie</td><td>§230</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Body 2</td><td>0</td></tr>
+<tr><td>4</td><td>Starter</td><td>§300</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Body 5</td><td>1</td></tr>
+<tr><td>5</td><td>All-Star</td><td>§385</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Mech 1, Char 1, Body 6</td><td>3</td></tr>
+<tr><td>6</td><td>MVP</td><td>§510</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Mech 2, Char 2, Body 7</td><td>5</td></tr>
+<tr><td>7</td><td>Superstar</td><td>§680</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Cook 1, Mech 2, Char 3, Body 8</td><td>7</td></tr>
+<tr><td>8</td><td>Assistant Coach</td><td>§850</td><td>9am–2pm<br><span class="career-time-24">(09:00–14:00)</span></td><td>Cook 2, Mech 2, Char 4, Body 9, Cre 1</td><td>9</td></tr>
+<tr><td>9</td><td>Coach</td><td>§1,000</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 3, Mech 2, Char 6, Body 10, Cre 2</td><td>11</td></tr>
+<tr><td>10</td><td>Hall of Famer</td><td>§1,300</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 4, Mech 2, Char 9, Body 10, Cre 3</td><td>13</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">Science</span>
+    <span class="career-pay">§155 → §1,000</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Test Subject</td><td>§155</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Lab Assistant</td><td>§230</td><td>11pm–5am<br><span class="career-time-24">(23:00–05:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Field Researcher</td><td>§320</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Log 2</td><td>0</td></tr>
+<tr><td>4</td><td>Science Teacher</td><td>§375</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>Char 1, Log 3</td><td>1</td></tr>
+<tr><td>5</td><td>Project Leader</td><td>§450</td><td>10am–5pm<br><span class="career-time-24">(10:00–17:00)</span></td><td>Char 2, Log 4, Cre 1</td><td>3</td></tr>
+<tr><td>6</td><td>Inventor</td><td>§540</td><td>10am–7pm<br><span class="career-time-24">(10:00–19:00)</span></td><td>Mech 2, Char 2, Log 4, Cre 3</td><td>4</td></tr>
+<tr><td>7</td><td>Scholar</td><td>§640</td><td>10am–3pm<br><span class="career-time-24">(10:00–15:00)</span></td><td>Mech 4, Char 2, Log 6, Cre 4</td><td>5</td></tr>
+<tr><td>8</td><td>Top Secret Researcher</td><td>§740</td><td>10am–3pm<br><span class="career-time-24">(10:00–15:00)</span></td><td>Cook 1, Mech 6, Char 4, Log 7, Cre 4</td><td>7</td></tr>
+<tr><td>9</td><td>Theorist</td><td>§870</td><td>10am–2pm<br><span class="career-time-24">(10:00–14:00)</span></td><td>Cook 1, Mech 7, Char 4, Log 9, Cre 7</td><td>8</td></tr>
+<tr><td>10</td><td>Mad Scientist</td><td>§1,000</td><td>10am–2pm<br><span class="career-time-24">(10:00–14:00)</span></td><td>Cook 2, Mech 8, Char 5, Log 10, Cre 10</td><td>10</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep base">Base Game</span>
+    <span class="career-name">X-treme Career</span>
+    <span class="career-pay">§175 → §925</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Daredevil</td><td>§175</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Bungee Jumping Instructor</td><td>§250</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Whitewater Guide</td><td>§325</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Body 2</td><td>1</td></tr>
+<tr><td>4</td><td>Xtreme Circuit Pro</td><td>§400</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Mech 1, Body 4</td><td>2</td></tr>
+<tr><td>5</td><td>Bush Pilot</td><td>§475</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 2, Body 4, Log 1</td><td>3</td></tr>
+<tr><td>6</td><td>Mountain Climber</td><td>§550</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 4, Body 6, Log 1</td><td>4</td></tr>
+<tr><td>7</td><td>Photo Journalist</td><td>§650</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Mech 5, Char 2, Body 6, Log 1, Cre 3</td><td>5</td></tr>
+<tr><td>8</td><td>Treasure Hunter</td><td>§725</td><td>10am–5pm<br><span class="career-time-24">(10:00–17:00)</span></td><td>Cook 1, Mech 6, Char 3, Body 7, Log 5, Cre 7</td><td>7</td></tr>
+<tr><td>9</td><td>Grand Prix Driver</td><td>§825</td><td>10am–4pm<br><span class="career-time-24">(10:00–16:00)</span></td><td>Cook 1, Mech 6, Char 5, Body 7, Log 5, Cre 7</td><td>9</td></tr>
+<tr><td>10</td><td>International Spy</td><td>§925</td><td>11am–5pm<br><span class="career-time-24">(11:00–17:00)</span></td><td>Cook 2, Mech 6, Char 8, Body 8, Log 6, Cre 9</td><td>11</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+</section>
+
+<section id="livin-large">
+  <div class="section-head"><div class="section-emoji">🏠</div><div><h2 class="section-title">Livin’ Large Careers</h2><p class="section-sub">5 career tracks added by the first expansion</p></div></div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ll">Livin&#x27; Large</span>
+    <span class="career-name">Hacker</span>
+    <span class="career-pay">§120 → §1,550</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Beta Tester</td><td>§120</td><td>9am–5pm<br><span class="career-time-24">(09:00–17:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Support Tech</td><td>§150</td><td>8am–4pm<br><span class="career-time-24">(08:00–16:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Web Master</td><td>§200</td><td>6pm–2am<br><span class="career-time-24">(18:00–02:00)</span></td><td>Mech 2</td><td>0</td></tr>
+<tr><td>4</td><td>Hacker</td><td>§240</td><td>12am–9am<br><span class="career-time-24">(00:00–09:00)</span></td><td>Mech 3, Log 2</td><td>0</td></tr>
+<tr><td>5</td><td>Security Consultant</td><td>§400</td><td>10am–7pm<br><span class="career-time-24">(10:00–19:00)</span></td><td>Mech 4, Log 4</td><td>2</td></tr>
+<tr><td>6</td><td>Game Designer</td><td>§610</td><td>2pm–11pm<br><span class="career-time-24">(14:00–23:00)</span></td><td>Mech 4, Log 4, Cre 4</td><td>3</td></tr>
+<tr><td>7</td><td>Internet Entrepreneur</td><td>§800</td><td>10am–8pm<br><span class="career-time-24">(10:00–20:00)</span></td><td>Mech 4, Log 5, Cre 6</td><td>5</td></tr>
+<tr><td>8</td><td>Software CEO</td><td>§1,100</td><td>10am–7pm<br><span class="career-time-24">(10:00–19:00)</span></td><td>Mech 4, Char 4, Log 6, Cre 7</td><td>6</td></tr>
+<tr><td>9</td><td>Venture Capitalist</td><td>§1,300</td><td>11am–8pm<br><span class="career-time-24">(11:00–20:00)</span></td><td>Mech 5, Char 6, Log 7, Cre 9</td><td>8</td></tr>
+<tr><td>10</td><td>Information Overlord</td><td>§1,550</td><td>11am–8pm<br><span class="career-time-24">(11:00–20:00)</span></td><td>Mech 7, Char 8, Log 10, Cre 10</td><td>8</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ll">Livin&#x27; Large</span>
+    <span class="career-name">Journalism</span>
+    <span class="career-pay">§120 → §1,200</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Typesetter</td><td>§120</td><td>4am–12pm<br><span class="career-time-24">(04:00–12:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Game Reviewer</td><td>§200</td><td>11am–6pm<br><span class="career-time-24">(11:00–18:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Tabloid Writer</td><td>§230</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cre 2</td><td>0</td></tr>
+<tr><td>4</td><td>Paparazzi</td><td>§350</td><td>5pm–1am<br><span class="career-time-24">(17:00–01:00)</span></td><td>Char 2, Cre 2</td><td>2</td></tr>
+<tr><td>5</td><td>Newspaper Reporter</td><td>§420</td><td>3am–10am<br><span class="career-time-24">(03:00–10:00)</span></td><td>Char 2, Log 2, Cre 4</td><td>2</td></tr>
+<tr><td>6</td><td>Meteorologist</td><td>§510</td><td>5am–1pm<br><span class="career-time-24">(05:00–13:00)</span></td><td>Char 3, Body 1, Log 3, Cre 5</td><td>4</td></tr>
+<tr><td>7</td><td>TV Reporter</td><td>§660</td><td>12pm–8pm<br><span class="career-time-24">(12:00–20:00)</span></td><td>Char 6, Body 2, Log 3, Cre 5</td><td>6</td></tr>
+<tr><td>8</td><td>Investigative Reporter</td><td>§850</td><td>10am–5pm<br><span class="career-time-24">(10:00–17:00)</span></td><td>Char 8, Body 3, Log 4, Cre 5</td><td>9</td></tr>
+<tr><td>9</td><td>National News Anchor</td><td>§975</td><td>11am–8pm<br><span class="career-time-24">(11:00–20:00)</span></td><td>Char 9, Body 5, Log 5, Cre 6</td><td>11</td></tr>
+<tr><td>10</td><td>Talk Show Host</td><td>§1,200</td><td>1pm–5pm<br><span class="career-time-24">(13:00–17:00)</span></td><td>Char 10, Body 5, Log 7, Cre 7</td><td>14</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ll">Livin&#x27; Large</span>
+    <span class="career-name">Musician</span>
+    <span class="career-pay">§90 → §1,400</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Subway Musician</td><td>§90</td><td>3pm–8pm<br><span class="career-time-24">(15:00–20:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Piano Tuner</td><td>§120</td><td>9am–4pm<br><span class="career-time-24">(09:00–16:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Wedding Singer</td><td>§190</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cre 2</td><td>0</td></tr>
+<tr><td>4</td><td>Lounge Singer</td><td>§250</td><td>9pm–4am<br><span class="career-time-24">(21:00–04:00)</span></td><td>Cre 5</td><td>2</td></tr>
+<tr><td>5</td><td>High School Band Teacher</td><td>§325</td><td>7am–2pm<br><span class="career-time-24">(07:00–14:00)</span></td><td>Mech 2, Cre 6</td><td>2</td></tr>
+<tr><td>6</td><td>Roadie</td><td>§400</td><td>11am–8pm<br><span class="career-time-24">(11:00–20:00)</span></td><td>Mech 5, Cre 7</td><td>5</td></tr>
+<tr><td>7</td><td>Backup Musician</td><td>§550</td><td>12pm–9pm<br><span class="career-time-24">(12:00–21:00)</span></td><td>Mech 5, Body 4, Cre 8</td><td>8</td></tr>
+<tr><td>8</td><td>Studio Musician</td><td>§700</td><td>10am–5pm<br><span class="career-time-24">(10:00–17:00)</span></td><td>Mech 5, Char 2, Body 5, Cre 10</td><td>9</td></tr>
+<tr><td>9</td><td>Rock Star</td><td>§1,100</td><td>5pm–2am<br><span class="career-time-24">(17:00–02:00)</span></td><td>Mech 5, Char 7, Body 7, Cre 10</td><td>12</td></tr>
+<tr><td>10</td><td>Celebrity Activist</td><td>§1,400</td><td>10am–3pm<br><span class="career-time-24">(10:00–15:00)</span></td><td>Mech 5, Char 10, Body 7, Log 4, Cre 10</td><td>15</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ll">Livin&#x27; Large</span>
+    <span class="career-name">Paranormal</span>
+    <span class="career-pay">§100 → §1,200</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Psychic Phone Friend</td><td>§100</td><td>6pm–12am<br><span class="career-time-24">(18:00–00:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Conspiracy Theorist</td><td>§130</td><td>11pm–5am<br><span class="career-time-24">(23:00–05:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Tarot Card Reader</td><td>§200</td><td>5pm–11pm<br><span class="career-time-24">(17:00–23:00)</span></td><td>Char 1, Cre 2</td><td>0</td></tr>
+<tr><td>4</td><td>Hypnotist</td><td>§300</td><td>10am–4pm<br><span class="career-time-24">(10:00–16:00)</span></td><td>Char 2, Log 3, Cre 2</td><td>0</td></tr>
+<tr><td>5</td><td>Medium</td><td>§375</td><td>8pm–2am<br><span class="career-time-24">(20:00–02:00)</span></td><td>Char 2, Log 4, Cre 2</td><td>3</td></tr>
+<tr><td>6</td><td>Dowser</td><td>§480</td><td>6am–3pm<br><span class="career-time-24">(06:00–15:00)</span></td><td>Char 3, Body 1, Log 5, Cre 2</td><td>5</td></tr>
+<tr><td>7</td><td>Police Psychic</td><td>§600</td><td>6pm–2am<br><span class="career-time-24">(18:00–02:00)</span></td><td>Mech 1, Char 5, Body 1, Log 5, Cre 3</td><td>6</td></tr>
+<tr><td>8</td><td>UFO Investigator</td><td>§810</td><td>11pm–6am<br><span class="career-time-24">(23:00–06:00)</span></td><td>Mech 1, Char 6, Body 1, Log 7, Cre 4</td><td>10</td></tr>
+<tr><td>9</td><td>Exorcist</td><td>§1,000</td><td>10am–3pm<br><span class="career-time-24">(10:00–15:00)</span></td><td>Mech 1, Char 8, Body 1, Log 7, Cre 5</td><td>13</td></tr>
+<tr><td>10</td><td>Cult Leader</td><td>§1,200</td><td>10am–4pm<br><span class="career-time-24">(10:00–16:00)</span></td><td>Mech 2, Char 10, Body 2, Log 9, Cre 7</td><td>17</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ll">Livin&#x27; Large</span>
+    <span class="career-name">Slacker</span>
+    <span class="career-pay">§90 → §600</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Golf Caddy</td><td>§90</td><td>5am–10am<br><span class="career-time-24">(05:00–10:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Convenience Store Clerk</td><td>§110</td><td>10pm–3am<br><span class="career-time-24">(22:00–03:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Life Guard</td><td>§150</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Body 2</td><td>1</td></tr>
+<tr><td>4</td><td>Record Store Clerk</td><td>§180</td><td>12pm–5pm<br><span class="career-time-24">(12:00–17:00)</span></td><td>Char 2, Body 2</td><td>2</td></tr>
+<tr><td>5</td><td>Party D.J.</td><td>§220</td><td>11pm–4am<br><span class="career-time-24">(23:00–04:00)</span></td><td>Char 4, Body 2</td><td>4</td></tr>
+<tr><td>6</td><td>Projectionist</td><td>§280</td><td>10am–7pm<br><span class="career-time-24">(10:00–19:00)</span></td><td>Mech 3, Char 4, Body 2</td><td>4</td></tr>
+<tr><td>7</td><td>Video Editor</td><td>§350</td><td>12pm–6pm<br><span class="career-time-24">(12:00–18:00)</span></td><td>Mech 5, Char 4, Body 2</td><td>7</td></tr>
+<tr><td>8</td><td>Freelance Photographer</td><td>§400</td><td>12pm–5pm<br><span class="career-time-24">(12:00–17:00)</span></td><td>Mech 5, Char 7, Body 3</td><td>10</td></tr>
+<tr><td>9</td><td>Personal Tour Guide</td><td>§450</td><td>2pm–7pm<br><span class="career-time-24">(14:00–19:00)</span></td><td>Mech 5, Char 8, Body 6</td><td>12</td></tr>
+<tr><td>10</td><td>Professional Party Guest</td><td>§600</td><td>10pm–2am<br><span class="career-time-24">(22:00–02:00)</span></td><td>Mech 5, Char 10, Body 9</td><td>15</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+</section>
+
+<section id="unleashed">
+  <div class="section-head"><div class="section-emoji">🐾</div><div><h2 class="section-title">Unleashed Careers</h2><p class="section-sub">5 career tracks added by the fifth expansion</p></div></div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ul">Unleashed</span>
+    <span class="career-name">Animal Care</span>
+    <span class="career-pay">§100 → §1,050</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Dog Walker</td><td>§100</td><td>1pm–3pm<br><span class="career-time-24">(13:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Pet Groomer</td><td>§160</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Sheep Custodian</td><td>§185</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Char 2</td><td>1</td></tr>
+<tr><td>4</td><td>Aquarium Technician</td><td>§250</td><td>12pm–5pm<br><span class="career-time-24">(12:00–17:00)</span></td><td>Cook 1, Mech 1, Char 2, Body 1, Cre 1</td><td>1</td></tr>
+<tr><td>5</td><td>Zoo Keeper</td><td>§345</td><td>6am–12pm<br><span class="career-time-24">(06:00–12:00)</span></td><td>Cook 2, Mech 1, Char 3, Body 1, Cre 1</td><td>2</td></tr>
+<tr><td>6</td><td>Dolphin Trainer</td><td>§435</td><td>11am–4pm<br><span class="career-time-24">(11:00–16:00)</span></td><td>Cook 2, Mech 2, Char 4, Body 2, Log 1, Cre 1</td><td>2</td></tr>
+<tr><td>7</td><td>Animal Acting Coach</td><td>§560</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 2, Mech 2, Char 5, Body 3, Log 2, Cre 2</td><td>4</td></tr>
+<tr><td>8</td><td>Alligator Relocator</td><td>§700</td><td>2pm–9pm<br><span class="career-time-24">(14:00–21:00)</span></td><td>Cook 3, Mech 3, Char 6, Body 5, Log 5, Cre 4</td><td>5</td></tr>
+<tr><td>9</td><td>Veterinarian</td><td>§780</td><td>8am–3pm<br><span class="career-time-24">(08:00–15:00)</span></td><td>Cook 4, Mech 4, Char 7, Body 5, Log 5, Cre 4</td><td>5</td></tr>
+<tr><td>10</td><td>Animal Magician</td><td>§1,050</td><td>6pm–12am<br><span class="career-time-24">(18:00–00:00)</span></td><td>Cook 4, Mech 5, Char 9, Body 6, Log 6, Cre 5</td><td>8</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ul">Unleashed</span>
+    <span class="career-name">Circus</span>
+    <span class="career-pay">§90 → §815</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Popcorn Vendor</td><td>§90</td><td>4pm–11pm<br><span class="career-time-24">(16:00–23:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Ticket Taker</td><td>§130</td><td>3pm–6pm<br><span class="career-time-24">(15:00–18:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Midway Carnie</td><td>§140</td><td>3pm–12am<br><span class="career-time-24">(15:00–00:00)</span></td><td>Mech 1, Char 1, Body 1</td><td>0</td></tr>
+<tr><td>4</td><td>Sideshow Barker</td><td>§180</td><td>3pm–10pm<br><span class="career-time-24">(15:00–22:00)</span></td><td>Mech 1, Char 1, Body 2, Cre 1</td><td>1</td></tr>
+<tr><td>5</td><td>Clown</td><td>§200</td><td>3pm–11pm<br><span class="career-time-24">(15:00–23:00)</span></td><td>Mech 1, Char 2, Body 4, Cre 1</td><td>4</td></tr>
+<tr><td>6</td><td>Human Cannonball</td><td>§240</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Mech 1, Char 4, Body 5, Log 1, Cre 1</td><td>5</td></tr>
+<tr><td>7</td><td>Acrobat</td><td>§500</td><td>4pm–11pm<br><span class="career-time-24">(16:00–23:00)</span></td><td>Mech 1, Char 5, Body 6, Log 2, Cre 4</td><td>6</td></tr>
+<tr><td>8</td><td>Trapeze Artist</td><td>§610</td><td>4pm–11pm<br><span class="career-time-24">(16:00–23:00)</span></td><td>Mech 3, Char 6, Body 7, Log 2, Cre 5</td><td>6</td></tr>
+<tr><td>9</td><td>Lion Tamer</td><td>§775</td><td>4pm–11pm<br><span class="career-time-24">(16:00–23:00)</span></td><td>Cook 1, Mech 3, Char 8, Body 8, Log 3, Cre 5</td><td>7</td></tr>
+<tr><td>10</td><td>Ringmaster</td><td>§815</td><td>5pm–11pm<br><span class="career-time-24">(17:00–23:00)</span></td><td>Cook 1, Mech 3, Char 9, Body 8, Log 5, Cre 6</td><td>8</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ul">Unleashed</span>
+    <span class="career-name">Culinary Arts</span>
+    <span class="career-pay">§90 → §930</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Dishwasher</td><td>§90</td><td>6am–12pm<br><span class="career-time-24">(06:00–12:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Drive Thru Order Taker</td><td>§120</td><td>5am–10am<br><span class="career-time-24">(05:00–10:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Fast Food Shift Manager</td><td>§130</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 2</td><td>0</td></tr>
+<tr><td>4</td><td>Sous Chef</td><td>§180</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 3, Mech 2</td><td>1</td></tr>
+<tr><td>5</td><td>Head Chef</td><td>§220</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 6, Mech 2, Char 2, Cre 2</td><td>3</td></tr>
+<tr><td>6</td><td>Restaurant Critic</td><td>§335</td><td>3pm–11pm<br><span class="career-time-24">(15:00–23:00)</span></td><td>Cook 6, Mech 3, Char 4, Cre 3</td><td>3</td></tr>
+<tr><td>7</td><td>Cookbook Author</td><td>§590</td><td>3pm–11pm<br><span class="career-time-24">(15:00–23:00)</span></td><td>Cook 8, Mech 4, Char 5, Cre 4</td><td>5</td></tr>
+<tr><td>8</td><td>Restaurateur</td><td>§690</td><td>9am–2pm<br><span class="career-time-24">(09:00–14:00)</span></td><td>Cook 8, Mech 4, Char 7, Cre 5</td><td>6</td></tr>
+<tr><td>9</td><td>Celebrity Chef</td><td>§760</td><td>3pm–11pm<br><span class="career-time-24">(15:00–23:00)</span></td><td>Cook 10, Mech 4, Char 8, Cre 5</td><td>9</td></tr>
+<tr><td>10</td><td>Candy Bar Magnate</td><td>§930</td><td>4pm–11pm<br><span class="career-time-24">(16:00–23:00)</span></td><td>Cook 10, Mech 5, Char 10, Cre 6</td><td>11</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ul">Unleashed</span>
+    <span class="career-name">Education</span>
+    <span class="career-pay">§120 → §900</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Playground Monitor</td><td>§120</td><td>7am–1pm<br><span class="career-time-24">(07:00–13:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Substitute Teacher</td><td>§180</td><td>7am–1pm<br><span class="career-time-24">(07:00–13:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Kindergarten Teacher</td><td>§190</td><td>7am–1pm<br><span class="career-time-24">(07:00–13:00)</span></td><td>Cook 1, Cre 1</td><td>1</td></tr>
+<tr><td>4</td><td>Junior High School Teacher</td><td>§210</td><td>8am–3pm<br><span class="career-time-24">(08:00–15:00)</span></td><td>Cook 1, Char 1, Log 1, Cre 1</td><td>2</td></tr>
+<tr><td>5</td><td>High School Teacher</td><td>§290</td><td>8am–3pm<br><span class="career-time-24">(08:00–15:00)</span></td><td>Cook 1, Char 2, Log 3, Cre 2</td><td>2</td></tr>
+<tr><td>6</td><td>Principal</td><td>§310</td><td>8am–3pm<br><span class="career-time-24">(08:00–15:00)</span></td><td>Cook 1, Char 3, Log 5, Cre 3</td><td>3</td></tr>
+<tr><td>7</td><td>Assistant Professor</td><td>§490</td><td>9am–6pm<br><span class="career-time-24">(09:00–18:00)</span></td><td>Cook 1, Char 4, Log 6, Cre 5</td><td>4</td></tr>
+<tr><td>8</td><td>Tenured Professor</td><td>§600</td><td>9am–5pm<br><span class="career-time-24">(09:00–17:00)</span></td><td>Cook 1, Char 6, Log 8, Cre 7</td><td>5</td></tr>
+<tr><td>9</td><td>College Dean</td><td>§700</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Cook 1, Char 6, Log 9, Cre 9</td><td>7</td></tr>
+<tr><td>10</td><td>Minister of Education</td><td>§900</td><td>10am–5pm<br><span class="career-time-24">(10:00–17:00)</span></td><td>Cook 1, Char 6, Log 10, Cre 10</td><td>9</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+<div class="career-card" onclick="this.classList.toggle('open')">
+  <div class="career-head">
+    <span class="career-ep ul">Unleashed</span>
+    <span class="career-name">Fashion</span>
+    <span class="career-pay">§130 → §1350</span>
+    <span class="career-arrow">▸</span>
+  </div>
+  <div class="career-detail">
+    <div style="overflow-x:auto;">
+    <table class="career-table">
+    <thead><tr><th>Lvl</th><th>Title</th><th>§/day</th><th>Hours</th><th>Skills needed</th><th>Friends</th></tr></thead>
+    <tbody>
+<tr><td>1</td><td>Department Store Clerk</td><td>§130</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>2</td><td>Tailor</td><td>§190</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>–</td><td>0</td></tr>
+<tr><td>3</td><td>Makeup Artist</td><td>§210</td><td>9am–3pm<br><span class="career-time-24">(09:00–15:00)</span></td><td>Char 1, Cre 1</td><td>1</td></tr>
+<tr><td>4</td><td>Painter&#x27;s Model</td><td>§235</td><td>12pm–3pm<br><span class="career-time-24">(12:00–15:00)</span></td><td>Cook 1, Char 2, Body 1, Cre 1</td><td>1</td></tr>
+<tr><td>5</td><td>Fashion Photographer</td><td>§450</td><td>11am–4pm<br><span class="career-time-24">(11:00–16:00)</span></td><td>Cook 1, Mech 1, Char 2, Body 1, Cre 2</td><td>2</td></tr>
+<tr><td>6</td><td>Tradeshow Model</td><td>§600</td><td>5pm–1am<br><span class="career-time-24">(17:00–01:00)</span></td><td>Cook 1, Mech 1, Char 4, Body 3, Cre 4</td><td>3</td></tr>
+<tr><td>7</td><td>Runway Model</td><td>§650</td><td>1pm–10pm<br><span class="career-time-24">(13:00–22:00)</span></td><td>Cook 1, Mech 1, Char 6, Body 5, Cre 5</td><td>4</td></tr>
+<tr><td>8</td><td>Supermodel</td><td>§875</td><td>11am–4pm<br><span class="career-time-24">(11:00–16:00)</span></td><td>Cook 1, Mech 1, Char 8, Body 7, Cre 6</td><td>5</td></tr>
+<tr><td>9</td><td>Fashion Columnist</td><td>§1050</td><td>5pm–11pm<br><span class="career-time-24">(17:00–23:00)</span></td><td>Cook 1, Mech 1, Char 10, Body 9, Cre 7</td><td>6</td></tr>
+<tr><td>10</td><td>Fashion Designer</td><td>§1350</td><td>4pm–11pm<br><span class="career-time-24">(16:00–23:00)</span></td><td>Cook 1, Mech 1, Char 10, Body 10, Cre 8</td><td>7</td></tr>
+    </tbody>
+    </table>
+    </div>
+    
+  </div>
+</div>
+</section>
+
+<section id="fame">
+  <div class="section-head"><div class="section-emoji">⭐</div><div><h2 class="section-title">Fame (Superstar)</h2><p class="section-sub">A completely different career system</p></div></div>
+
+  <p>The Fame career from the Superstar expansion doesn’t follow the standard 10-level structure. Instead, fame is tracked by a 5-star <strong>Star Power</strong> rating that increases or decreases in half-star increments based on your Sim’s performances in Studio Town.</p>
+
+  <p style="margin-top:12px;">To enter the Fame career, your Sim signs up at the SimCity Talent Agency via the Studio Town tabloid (delivered by Nancy the Paper Girl). There are no set work hours – your Sim travels to Studio Town and performs using fame-related objects to earn money and build their star rating.</p>
+
+  <div class="callout gold" style="margin-top:14px;">⚠️ <strong>Fame decays.</strong> The talent agency lowers your Sim’s star rating if they don’t visit Studio Town regularly, give poor performances, or have a nervous breakdown. Miss five consecutive days and your Sim gets dropped entirely.</div>
+
+  <div style="overflow-x:auto;margin-top:18px;">
+  <table class="career-table">
+  <thead><tr><th>Stars</th><th>Title</th><th>§/job</th><th>Skills needed</th><th>Star Power</th></tr></thead>
+  <tbody>
+<tr><td>0</td><td>Nobody</td><td>Tips</td><td>–</td><td>0</td></tr>
+<tr><td>0.5</td><td>Stepping Stone</td><td>§50</td><td>–</td><td>0</td></tr>
+<tr><td>1</td><td>Insider</td><td>§65</td><td>Char 1, Cre 1</td><td>0</td></tr>
+<tr><td>1.5</td><td>Name Dropper</td><td>§80</td><td>Char 2, Body 1, Cre 2</td><td>0</td></tr>
+<tr><td>2</td><td>Studio Fly</td><td>§100</td><td>Char 3, Body 2, Cre 3</td><td>0</td></tr>
+<tr><td>2.5</td><td>Sell Out</td><td>§150</td><td>Char 4, Body 3, Cre 4</td><td>2</td></tr>
+<tr><td>3</td><td>Trendsetter</td><td>§200</td><td>Char 6, Body 4, Cre 4</td><td>4</td></tr>
+<tr><td>3.5</td><td>Player</td><td>§325</td><td>Char 6, Body 5, Cre 6</td><td>7</td></tr>
+<tr><td>4</td><td>Talk of the Town</td><td>§425</td><td>Char 7, Body 6, Cre 7</td><td>11</td></tr>
+<tr><td>4.5</td><td>Celebrity</td><td>§750</td><td>Char 8, Body 7, Cre 8</td><td>14</td></tr>
+<tr><td>5</td><td>Superstar</td><td>§1000</td><td>Char 10, Body 8, Cre 9</td><td>18</td></tr>
+  </tbody>
+  </table>
+  </div>
+
+  <div class="callout teal" style="margin-top:14px;">ℹ️ The Fame career does not participate in the level 10 career transfer loop. It uses Star Power (your personal friends’ combined fame level) instead of family friends for progression. If you have Makin’ Magic installed, the “Price of Fame” charm instantly grants 4.5 fame stars.</div>
+</section>
+<section id="career-transfer-loop">
+  <div class="section-head"><div class="section-emoji">🔄</div><div><h2 class="section-title">Career Transfer Loop</h2><p class="section-sub">Where each career sends you at level 10</p></div></div>
+
+  <p>When your Sim reaches the top of their career (level 10), a chance card will eventually appear that moves them into a different career track at a mid-level position. This happens automatically – your Sim can’t decline. The skills they’ve built will often transfer well to the new track, but the friend requirements and remaining skill gaps may still need work.</p>
+
+  <div class="card" style="margin-top:18px;">
+  </div>
+</section>
+<section id="tips">
+  <div class="section-head"><div class="section-emoji">💡</div><div><h2 class="section-title">Tips &amp; Strategy</h2></div></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Best starting career for money</div>
+      <div class="card-desc">Military pays §250 on day one – the highest entry salary in the game. It’s also one of the easiest to climb (only 8 friends needed for General). Use it to fund your house early, then switch tracks later if the low ceiling bothers you.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Highest-paying career overall</div>
+      <div class="card-desc">Hacker tops out at §1,550 per day – the highest in the game. Among base game careers, Entertainment (§1,400) and Pro Athlete (§1,300) are the runners-up.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Use a second Sim for friend-farming</div>
+      <div class="card-desc">Since promotions count <em>family</em> friends, have one Sim focus on their career while the other stays home greeting walk-bys and building friendships. The socialiser’s friends count for both of them.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Mood is everything</div>
+      <div class="card-desc">Your Sim needs to be in a good mood when the carpool arrives – even if skills and friends are maxed, a bad mood blocks the promotion. Plan skill-building around meals and fun breaks, not marathon sessions.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">No career cheat exists</div>
+      <div class="card-desc">Unlike later Sims games, there is no cheat to force a promotion in The Sims 1. The only shortcut is the <code>move_objects</code> mood reset trick – see the <a href="cheats.html">Cheats</a> page for details.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Plan around the career transfer</div>
+      <div class="card-desc">At level 10, you’ll eventually be forced into a different career. Check the <a href="#career-transfer-loop">transfer loop</a> to see where you’ll end up – and whether the skills you’ve been building will still be useful in the new track.</div>
+    </div>
+  </div>
+</section>
+<section id="sources">
+  <div class="section-head"><div class="section-emoji">📖</div><div><h2 class="section-title">Sources &amp; Credits</h2></div></div>
+
+  <p>The career data on this page was compiled from multiple community sources and cross-referenced for accuracy.</p>
+
+  <div class="card" style="margin-top:14px;">
+    <div class="card-title">Primary Data Source</div>
+    <div class="card-desc"><a href="https://www.reddit.com/r/thesims/" target="_blank" rel="noopener">u/pedrulho on r/thesims ↗</a> – The Sims 1: Complete Collection Careers spreadsheet, compiled from the Sims Fandom Wiki career pages and verified against the game.</div>
+  </div>
+
+  <div class="card" style="margin-top:10px;">
+    <div class="card-title">Wiki Sources</div>
+    <div class="card-desc">Individual career data sourced from the <a href="https://sims.fandom.com/wiki/Career_tracks#The_Sims" target="_blank" rel="noopener">Sims Fandom Wiki ↗</a> career pages: <a href="https://sims.fandom.com/wiki/Business_(career)" target="_blank" rel="noopener">Business</a>, <a href="https://sims.fandom.com/wiki/Entertainment" target="_blank" rel="noopener">Entertainment</a>, <a href="https://sims.fandom.com/wiki/Law_enforcement" target="_blank" rel="noopener">Law Enforcement</a>, <a href="https://sims.fandom.com/wiki/Criminal#The_Sims" target="_blank" rel="noopener">Life of Crime</a>, <a href="https://sims.fandom.com/wiki/Medicine" target="_blank" rel="noopener">Medicine</a>, <a href="https://sims.fandom.com/wiki/Military" target="_blank" rel="noopener">Military</a>, <a href="https://sims.fandom.com/wiki/Politics" target="_blank" rel="noopener">Politics</a>, <a href="https://sims.fandom.com/wiki/Athletic_(career)#The" target="_blank" rel="noopener">Pro Athlete</a>, <a href="https://sims.fandom.com/wiki/Science_(career)" target="_blank" rel="noopener">Science</a>, <a href="https://sims.fandom.com/wiki/Xtreme" target="_blank" rel="noopener">Xtreme</a>, <a href="https://sims.fandom.com/wiki/Hacker" target="_blank" rel="noopener">Hacker</a>, <a href="https://sims.fandom.com/wiki/Journalism" target="_blank" rel="noopener">Journalism</a>, <a href="https://sims.fandom.com/wiki/Music_(career)#The_Si" target="_blank" rel="noopener">Musician</a>, <a href="https://sims.fandom.com/wiki/Paranormal" target="_blank" rel="noopener">Paranormal</a>, <a href="https://sims.fandom.com/wiki/Slacker" target="_blank" rel="noopener">Slacker</a>, <a href="https://sims.fandom.com/wiki/Animal_care" target="_blank" rel="noopener">Animal Care</a>, <a href="https://sims.fandom.com/wiki/Circus" target="_blank" rel="noopener">Circus</a>, <a href="https://sims.fandom.com/wiki/Culinary#The_Sims" target="_blank" rel="noopener">Culinary</a>, <a href="https://sims.fandom.com/wiki/Education" target="_blank" rel="noopener">Education</a>, <a href="https://sims.fandom.com/wiki/Fashion" target="_blank" rel="noopener">Fashion</a>, <a href="https://sims.fandom.com/wiki/Fame_(career)" target="_blank" rel="noopener">Fame</a>.</div>
+  </div>
+
+  <div class="callout gold" style="margin-top:14px;">⚠️ If you spot any errors, please use the <a href="contact.html">contact form</a> to let me know – include the career name, level number, and what the correct value should be.</div>
+</section>
+
+  </main>
+</div>
+
+
+<script>
+function toggleAll(btn){
+  var cards=document.querySelectorAll('.career-card');
+  var anyOpen=document.querySelector('.career-card.open');
+  cards.forEach(function(c){
+    if(anyOpen)c.classList.remove('open');
+    else c.classList.add('open');
+  });
+  btn.textContent=anyOpen?'Expand all':'Collapse all';
+}
+</script>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span>The Sims Legacy Collection – Modding Guide</div>
+    <div class="footer-links">
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a>
+      <a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a>
+      <a href="search.html">Search</a>
+      <a href="terminology.html">Terminology</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="careers.html">Career Guide</a>
+      <a href="updates.html">Site Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group">
+      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-title">Gameplay</div>
+          <a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a>
+          <a href="careers.html" class="nav-drawer-link nav-drawer-sublink active"><span class="nav-drawer-icon">💼</span>Career Guide</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
+      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Site</div>
+      <a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink active"><span class="nav-drawer-icon">📖</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
+    </div>
+  </div></div>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  /* Nav scroll arrows */
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+
+  /* Drawer – both hamburger buttons open it */
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  /* Back to top */
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  /* Dropdown panels – fixed position via JS */
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
+    panel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  setupDD('infoDropdownBtn','infoDropdownPanel');
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>

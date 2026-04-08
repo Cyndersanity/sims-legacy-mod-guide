@@ -26,7 +26,8 @@ The guide has 21 pages, grouped into sections:
 | `installing-mods.html` | Step-by-step installation for every file type, the correct folder paths for both Steam and EA App versions, CC file limits (objects, walls, skins, downloads folder size), and how to import/export lots and families |
 | `download-sites.html` | 52 active CC and mod sites verified working in 2026 (in a scrollable table), archive resources, and community directories |
 | `mod-list.html` | Quality-of-life mods, objects and furniture, debug and runtime tools (FaithBeam), and bug fixes – all with direct download links and install instructions |
-| `cheats.html` | Every working cheat code including the debug cheats unlocked by FaithBeam's runtime patcher |
+| `cheats.html
+- careers.html – Career Guide (every career track, promotions, transfer loop)` | Every working cheat code including the debug cheats unlocked by FaithBeam's runtime patcher |
 
 ### Creating CC
 | Page | What it covers |
@@ -69,6 +70,7 @@ Static HTML only – no framework, no build step, no dependencies. Deployed dire
 ├── download-sites.html
 ├── mod-list.html
 ├── cheats.html
+- careers.html – Career Guide (every career track, promotions, transfer loop)
 ├── making-cc.html              CC creation hub
 ├── making-clothing.html        CC subpage
 ├── making-heads.html           CC subpage
