@@ -51,8 +51,9 @@
 .career-ep.ll{color:var(--gold-dark);border-color:var(--gold);background:var(--gold-pale);}
 .career-ep.ul{color:#0d6e6a;border-color:var(--teal);background:var(--teal-pale);}
 .career-ep.ss{color:#7a1a1a;border-color:var(--red);background:var(--red-pale);}
-.career-name{font-size:15px;font-weight:800;color:var(--ink);flex:1;}
-.career-pay{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);white-space:nowrap;}
+.career-name{font-size:15px;font-weight:800;color:var(--ink);}
+.career-icon{width:42px;height:32px;object-fit:contain;border-radius:4px;image-rendering:pixelated;}
+.career-pay{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);white-space:nowrap;margin-left:auto;}
 .career-arrow{font-size:12px;color:var(--ink-muted);transition:transform 0.2s;}
 .career-card.open .career-arrow{transform:rotate(90deg);}
 .career-detail{display:none;padding:0 18px 18px;font-size:14px;color:var(--ink-mid);line-height:1.7;}
@@ -75,6 +76,12 @@
 .transfer-group-label:first-child{border-top:none;margin-top:0;}
 .expand-all{font-family:var(--font-mono);font-size:12px;color:var(--green-dark);background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);padding:6px 14px;border-radius:999px;cursor:pointer;transition:all 0.15s;}
 .expand-all:hover{background:var(--green);color:#fff;border-color:var(--green);}
+.section-ep-icon{width:48px;height:48px;object-fit:contain;border-radius:8px;}
+.career-loop-img{width:100%;max-width:800px;border-radius:var(--radius-md);margin:18px auto;display:block;border:2px solid var(--border);}
+.friend-icon{width:22px;height:22px;vertical-align:middle;margin-right:4px;}
+.credits-extra{margin-top:18px;padding:16px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-md);}
+.credits-extra p{margin:6px 0;font-size:13px;color:var(--ink-mid);}
+.credits-extra strong{color:var(--ink);}
 @media(max-width:640px){
   .career-table{font-size:11px;}
   .career-table th,.career-table td{padding:6px 5px;}
@@ -82,6 +89,8 @@
   .career-name{font-size:14px;}
   .career-pay{font-size:11px;}
   .career-detail{padding:0 14px 14px;}
+  .career-icon{width:32px;height:24px;}
+  .section-ep-icon{width:36px;height:36px;}
 }
 </style>
 <div class="page-hero">
@@ -115,14 +124,14 @@
 
   <p style="margin-top:12px;">Each promotion requires a combination of <strong>skill points</strong> (Cooking, Mechanical, Charisma, Body, Logic, Creativity) and <strong>family friends</strong> – Sims outside your household who are friends with anyone in your family. Your Sim also needs to leave for work in a decent mood, so keeping needs topped up before the carpool arrives matters just as much as raw skill.</p>
 
-  <div class="callout teal" style="margin-top:16px;">ℹ️ <strong>Family friends</strong> count across the whole household – if your Sim’s spouse befriends the neighbours, those friends count towards your Sim’s promotion too. Multi-Sim households have a real advantage here.</div>
+  <div class="callout teal" style="margin-top:16px;"><img class="friend-icon" src="icons/Friend.webp" alt="Friend icon"> <strong>Family friends</strong> count across the whole household – if your Sim’s spouse befriends the neighbours, those friends count towards your Sim’s promotion too. Multi-Sim households have a real advantage here.</div>
 
   <div class="callout gold">⚠️ <strong>Miss work two days in a row and you’re fired.</strong> If you rejoin the same career, you start back at level 1. Miss one day and you’ll get a warning – but no demotion. Schedule your skill-building days carefully around the carpool.</div>
 
   <p style="margin-top:12px;">At level 10 of most careers, a chance card will eventually appear offering to move your Sim into a completely different career track at a mid-level position. This isn’t optional if the card fires – your Sim switches automatically. The transfer destinations form a loop connecting all careers. See the <a href="#career-transfer-loop">Career Transfer Loop</a> section below for the full map.</p>
 </section>
 <section id="base-game">
-  <div class="section-head"><div class="section-emoji">🎮</div><div><h2 class="section-title">Base Game Careers</h2><p class="section-sub">10 career tracks – available from the start</p></div></div>
+  <div class="section-head"><div class="section-emoji"><img class="section-ep-icon" src="icons/S1_EP.png" alt="The Sims base game"></div><div><h2 class="section-title">Base Game Careers</h2><p class="section-sub">10 career tracks – available from the start</p></div></div>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
     <p style="font-size:14px;color:var(--ink-mid);">Click any career to expand the full promotion ladder.</p>
     <button class="expand-all" onclick="toggleAll(this)">Expand all</button>
@@ -131,6 +140,7 @@
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">Business</span>
+    <img class="career-icon" src="icons/Business.png" alt="Business icon">
     <span class="career-pay">§120 → §1,200</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -159,6 +169,7 @@
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">Entertainment</span>
+    <img class="career-icon" src="icons/Entertainment.png" alt="Entertainment icon">
     <span class="career-pay">§100 → §1,400</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -187,6 +198,7 @@
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">Law Enforcement</span>
+    <img class="career-icon" src="icons/Law_Enforcement.png" alt="Law Enforcement icon">
     <span class="career-pay">§240 → §700</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -215,6 +227,7 @@
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">Life of Crime</span>
+    <img class="career-icon" src="icons/Life_Of_Crime.png" alt="Life of Crime icon">
     <span class="career-pay">§140 → §1,100</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -243,6 +256,7 @@
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">Medicine</span>
+    <img class="career-icon" src="icons/Medicine.png" alt="Medicine icon">
     <span class="career-pay">§200 → §850</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -271,6 +285,7 @@
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">Military</span>
+    <img class="career-icon" src="icons/Military.png" alt="Military icon">
     <span class="career-pay">§250 → §650</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -299,6 +314,7 @@
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">Politics</span>
+    <img class="career-icon" src="icons/Politics.png" alt="Politics icon">
     <span class="career-pay">§220 → §750</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -329,6 +345,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">Pro Athlete</span>
+    <img class="career-icon" src="icons/Pro_Athlete.png" alt="Pro Athlete icon">
     <span class="career-pay">§110 → §1,300</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -357,6 +374,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">Science</span>
+    <img class="career-icon" src="icons/Science.png" alt="Science icon">
     <span class="career-pay">§155 → §1,000</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -385,6 +403,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep base">Base Game</span>
     <span class="career-name">X-treme Career</span>
+    <img class="career-icon" src="icons/X-Treme_Career.png" alt="X-treme Career icon">
     <span class="career-pay">§175 → §925</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -412,11 +431,12 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
 </section>
 
 <section id="livin-large">
-  <div class="section-head"><div class="section-emoji">🏠</div><div><h2 class="section-title">Livin’ Large Careers</h2><p class="section-sub">5 career tracks added by the first expansion</p></div></div>
+  <div class="section-head"><div class="section-emoji"><img class="section-ep-icon" src="icons/LL_EP.png" alt="Livin' Large"></div><div><h2 class="section-title">Livin’ Large Careers</h2><p class="section-sub">5 career tracks added by the first expansion</p></div></div>
 <div class="career-card" onclick="this.classList.toggle('open')">
   <div class="career-head">
     <span class="career-ep ll">Livin&#x27; Large</span>
     <span class="career-name">Hacker</span>
+    <img class="career-icon" src="icons/Hacker.png" alt="Hacker icon">
     <span class="career-pay">§120 → §1,550</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -445,6 +465,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep ll">Livin&#x27; Large</span>
     <span class="career-name">Journalism</span>
+    <img class="career-icon" src="icons/Journalism.png" alt="Journalism icon">
     <span class="career-pay">§120 → §1,200</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -473,6 +494,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep ll">Livin&#x27; Large</span>
     <span class="career-name">Musician</span>
+    <img class="career-icon" src="icons/Musician.png" alt="Musician icon">
     <span class="career-pay">§90 → §1,400</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -501,6 +523,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep ll">Livin&#x27; Large</span>
     <span class="career-name">Paranormal</span>
+    <img class="career-icon" src="icons/Paranormal.png" alt="Paranormal icon">
     <span class="career-pay">§100 → §1,200</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -529,6 +552,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep ll">Livin&#x27; Large</span>
     <span class="career-name">Slacker</span>
+    <img class="career-icon" src="icons/Slacker.png" alt="Slacker icon">
     <span class="career-pay">§90 → §600</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -556,11 +580,12 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
 </section>
 
 <section id="unleashed">
-  <div class="section-head"><div class="section-emoji">🐾</div><div><h2 class="section-title">Unleashed Careers</h2><p class="section-sub">5 career tracks added by the fifth expansion</p></div></div>
+  <div class="section-head"><div class="section-emoji"><img class="section-ep-icon" src="icons/UL_EP.png" alt="Unleashed"></div><div><h2 class="section-title">Unleashed Careers</h2><p class="section-sub">5 career tracks added by the fifth expansion</p></div></div>
 <div class="career-card" onclick="this.classList.toggle('open')">
   <div class="career-head">
     <span class="career-ep ul">Unleashed</span>
     <span class="career-name">Animal Care</span>
+    <img class="career-icon" src="icons/Animal_Care.png" alt="Animal Care icon">
     <span class="career-pay">§100 → §1,050</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -589,6 +614,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep ul">Unleashed</span>
     <span class="career-name">Circus</span>
+    <img class="career-icon" src="icons/Circus.png" alt="Circus icon">
     <span class="career-pay">§90 → §815</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -617,6 +643,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep ul">Unleashed</span>
     <span class="career-name">Culinary Arts</span>
+    <img class="career-icon" src="icons/Culinary.png" alt="Culinary Arts icon">
     <span class="career-pay">§90 → §930</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -645,6 +672,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep ul">Unleashed</span>
     <span class="career-name">Education</span>
+    <img class="career-icon" src="icons/Education.png" alt="Education icon">
     <span class="career-pay">§120 → §900</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -673,6 +701,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   <div class="career-head">
     <span class="career-ep ul">Unleashed</span>
     <span class="career-name">Fashion</span>
+    <img class="career-icon" src="icons/Fashion.png" alt="Fashion icon">
     <span class="career-pay">§130 → §1350</span>
     <span class="career-arrow">▸</span>
   </div>
@@ -700,7 +729,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
 </section>
 
 <section id="fame">
-  <div class="section-head"><div class="section-emoji">⭐</div><div><h2 class="section-title">Fame (Superstar)</h2><p class="section-sub">A completely different career system</p></div></div>
+  <div class="section-head"><div class="section-emoji"><img class="section-ep-icon" src="icons/SS_EP.png" alt="Superstar"></div><div><h2 class="section-title">Fame (Superstar)</h2><p class="section-sub">A completely different career system</p></div></div>
 
   <p>The Fame career from the Superstar expansion doesn’t follow the standard 10-level structure. Instead, fame is tracked by a 5-star <strong>Star Power</strong> rating that increases or decreases in half-star increments based on your Sim’s performances in Studio Town.</p>
 
@@ -734,6 +763,8 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
 
   <p>When your Sim reaches the top of their career (level 10), a chance card will eventually appear that moves them into a different career track at a mid-level position. This happens automatically – your Sim can’t decline. The skills they’ve built will often transfer well to the new track, but the friend requirements and remaining skill gaps may still need work.</p>
 
+  <img class="career-loop-img" src="https://static.wikia.nocookie.net/sims/images/0/09/TS1_Careers_Loop.png" alt="Career transfer loop diagram showing how all career tracks connect at level 10">
+
   <div class="card" style="margin-top:18px;">
   </div>
 </section>
@@ -766,6 +797,28 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
       <div class="card-desc">At level 10, you’ll eventually be forced into a different career. Check the <a href="#career-transfer-loop">transfer loop</a> to see where you’ll end up – and whether the skills you’ve been building will still be useful in the new track.</div>
     </div>
   </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 14px;">QoL mods that affect careers</h3>
+  <p style="margin-bottom:14px;">These mods from the <a href="mod-list.html">Must-Have Mods</a> page can make career progression easier or remove restrictions entirely.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Stop friendship decay</div>
+      <div class="card-desc">Normally relationship points decrease by 2 every day at 4pm. <strong>Corylea’s Eliminate Relationship Decay</strong> hack stops this entirely – friends stay friends, enemies stay enemies. Makes maintaining the high friend counts for top-level promotions far more manageable.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Remove friend requirements for careers</div>
+      <div class="card-desc"><strong>iamtherad’s No Friends Needed for Careers</strong> removes the family friends requirement from all career promotions. Your Sim can climb to level 10 on skills and mood alone – no socialising needed.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Change the carpool timing</div>
+      <div class="card-desc"><strong>Corylea’s Two-Hour Carpool Warning</strong> changes the carpool pop-up to appear two hours before it arrives instead of one. Gives you more time to get your Sim’s mood topped up before work.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Stop forced career change at level 10</div>
+      <div class="card-desc">The level 10 career transfer chance card fires automatically and can’t be declined. If you want your Sim to stay in their career at the top, look for a <strong>career transfer blocker</strong> mod – check <a href="https://simblr.cc" target="_blank" rel="noopener">simblr.cc</a> and <a href="download-sites.html">mod download sites</a> for the latest options.</div>
+    </div>
+  </div>
 </section>
 <section id="sources">
   <div class="section-head"><div class="section-emoji">📖</div><div><h2 class="section-title">Sources &amp; Credits</h2></div></div>
@@ -783,6 +836,13 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
   </div>
 
   <div class="callout gold" style="margin-top:14px;">⚠️ If you spot any errors, please use the <a href="contact.html">contact form</a> to let me know – include the career name, level number, and what the correct value should be.</div>
+
+  <div class="credits-extra">
+    <p><strong>Credit – icons/images:</strong></p>
+    <p><strong>Career Icons:</strong> Exported from the game using Career Creator 3</p>
+    <p><strong>EP Icons:</strong> Downloaded from DeviantArt user <a href="https://www.deviantart.com/sairitvs" target="_blank" rel="noopener">sairitvs ↗</a></p>
+    <p><strong>Career Transfer Loop diagram:</strong> From the <a href="https://sims.fandom.com/wiki/Career_tracks?file=TS1_Careers_Loop.png" target="_blank" rel="noopener">Sims Fandom Wiki ↗</a></p>
+  </div>
 </section>
 
   </main>

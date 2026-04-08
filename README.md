@@ -16,7 +16,7 @@ All content is based on community testing, verified tool compatibility checks, a
 
 ## What's covered
 
-The guide has 21 pages, grouped into sections:
+The guide has 22 pages, grouped into sections:
 
 ### Playing & modding
 | Page | What it covers |
@@ -26,8 +26,12 @@ The guide has 21 pages, grouped into sections:
 | `installing-mods.html` | Step-by-step installation for every file type, the correct folder paths for both Steam and EA App versions, CC file limits (objects, walls, skins, downloads folder size), and how to import/export lots and families |
 | `download-sites.html` | 52 active CC and mod sites verified working in 2026 (in a scrollable table), archive resources, and community directories |
 | `mod-list.html` | Quality-of-life mods, objects and furniture, debug and runtime tools (FaithBeam), and bug fixes – all with direct download links and install instructions |
-| `cheats.html
-- careers.html – Career Guide (every career track, promotions, transfer loop)` | Every working cheat code including the debug cheats unlocked by FaithBeam's runtime patcher |
+
+### Gameplay
+| Page | What it covers |
+|------|---------------|
+| `cheats.html` | Every working cheat code including the debug cheats unlocked by FaithBeam's runtime patcher |
+| `careers.html` | Every career track (20 standard + Fame), promotion requirements, salary, work hours, skill requirements, and the level 10 career transfer loop. Data sourced from the Sims Fandom Wiki via u/pedrulho's spreadsheet |
 
 ### Creating CC
 | Page | What it covers |
@@ -50,7 +54,7 @@ The guide has 21 pages, grouped into sections:
 ### Site
 | Page | What it covers |
 |------|---------------|
-| `search.html` | Full-text keyword search across all 21 pages |
+| `search.html` | Full-text keyword search across all 22 pages |
 | `updates.html` | Site Roadmap – what's in progress, planned, and being considered |
 | `contact.html` | Google Form for corrections, missing mods, broken links and suggestions |
 
@@ -58,7 +62,7 @@ The guide has 21 pages, grouped into sections:
 
 ## Site structure
 
-Static HTML only – no framework, no build step, no dependencies. Deployed directly via GitHub Pages from the root of the repository. Shared CSS lives in `style.css`; pages with unique components (index, cheats, terminology, updates) keep only their page-specific rules inline. All JavaScript is inline and vanilla. CC creation subpages include prev/next navigation links for sequential reading.
+Static HTML only – no framework, no build step, no dependencies. Deployed directly via GitHub Pages from the root of the repository. Shared CSS lives in `style.css`; pages with unique components (index, cheats, careers, terminology, updates) keep only their page-specific rules inline. All JavaScript is inline and vanilla. CC creation subpages include prev/next navigation links for sequential reading.
 
 ```
 /
@@ -69,8 +73,8 @@ Static HTML only – no framework, no build step, no dependencies. Deployed dire
 ├── installing-mods.html
 ├── download-sites.html
 ├── mod-list.html
-├── cheats.html
-- careers.html – Career Guide (every career track, promotions, transfer loop)
+├── cheats.html                 Gameplay – Cheats
+├── careers.html                Gameplay – Career Guide
 ├── making-cc.html              CC creation hub
 ├── making-clothing.html        CC subpage
 ├── making-heads.html           CC subpage
@@ -98,10 +102,11 @@ The site uses a horizontal scrolling nav bar on desktop and a slide-in drawer on
 
 Nav is organised into dropdowns:
 
+- **Site Info** – About Legacy, Terminology, Site Roadmap, Contact
 - **Mods / CC** – What's Possible, Installing Mods, Mod Download Sites, Must-Have Mods
+- **Gameplay** – Cheats, Career Guide
 - **Create CC** – Overview, Making Clothing, Making Hair & Heads, Making Walls & Floors, Object Retextures, IFF Hacking, Tools
 - **Troubleshooting** – CC Issues, Game Issues
-- **Site Info** – About Legacy, Terminology, Site Roadmap, Contact
 
 ---
 
@@ -147,14 +152,6 @@ The site uses a consistent set of CSS custom properties defined in `style.css`:
 </div>
 ```
 
-**Install path cells** use a two-part format – bold instruction on line 1, `<code>` chip path on line 2:
-```html
-<td style="white-space:normal;">
-  <strong>Extract the file.iff to:</strong><br>
-  <code>\The Sims Legacy Collection\GameData\Objects</code>
-</td>
-```
-
 ---
 
 ## Adding or editing pages
@@ -168,27 +165,18 @@ Each page is self-contained HTML. Open the file in any text editor and edit the 
 1. Copy an existing page (e.g. `about-legacy.html`) as a starting point
 2. Update the `<title>` tag, `<h1>`, `.page-eyebrow`, and `.page-sub` to match the new page
 3. Replace the content inside `<main class="content">` with your new content
-4. Update the nav across all pages – run:
-   ```bash
-   python nav_builder.py --all
-   ```
-   Or manually add the new page's link to the nav-inner and drawer blocks in every HTML file
+4. Update the nav across all pages – add the new link to every page's nav-inner and drawer blocks
 5. Add the page to `sitemap.xml`
 6. Update the search index in `search.html` (the `INDEX` const at the top of the inline `<script>`)
 
 ### Updating the nav
 
-The nav uses JS-driven dropdown panels built inline in each HTML file. To update nav links or add a page, you'll need to edit the nav block in every HTML file manually, or use find-and-replace in VS Code across the project.
+The nav uses JS-driven dropdown panels built inline in each HTML file. To update nav links or add a page, edit the nav block in every HTML file manually, or use find-and-replace in VS Code across the project.
 
 `nav_builder.py` handles the **footer only** – run it to sync footer links and the "Last updated" date across all pages:
 
 ```bash
 python nav_builder.py --all
-```
-
-If you only need to update specific pages:
-```bash
-python nav_builder.py --pages about-legacy.html tools.html
 ```
 
 ---
@@ -200,12 +188,6 @@ The easiest way to flag something is via the **contact form on the live site** �
 If you prefer GitHub:
 - **Issues** – for broken links, factual errors, missing mods, or suggestions
 - **Pull requests** – for direct corrections or additions
-
-Useful contributions:
-- Broken or dead links (especially in the 52-site active sites table)
-- Mods that should be on the must-have list (include name, creator and download link)
-- Corrections to install paths or tool instructions
-- New information about Legacy Collection compatibility with tools or mods
 
 ---
 

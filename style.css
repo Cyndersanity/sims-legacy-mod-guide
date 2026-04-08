@@ -353,3 +353,7 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 .prevnext-label{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.5px;}
 .prevnext-title{font-size:14px;font-weight:800;color:var(--ink);}
 @media(max-width:640px){.prevnext{flex-direction:column;gap:10px;}.prevnext-link.next{text-align:left;flex-direction:row;}}
+
+/* ── EP TABLE ICONS ─────────────────────────────────── */
+.ep-table-icon{width:64px;height:64px;object-fit:contain;border-radius:6px;image-rendering:auto;}
+@media(max-width:640px){.ep-table-icon{width:44px;height:44px;}}
