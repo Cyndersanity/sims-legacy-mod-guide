@@ -52,7 +52,7 @@
 .career-ep.ul{color:#0d6e6a;border-color:var(--teal);background:var(--teal-pale);}
 .career-ep.ss{color:#7a1a1a;border-color:var(--red);background:var(--red-pale);}
 .career-name{font-size:15px;font-weight:800;color:var(--ink);}
-.career-icon{width:42px;height:32px;object-fit:contain;border-radius:4px;image-rendering:pixelated;}
+.career-icon{width:42px;height:32px;object-fit:contain;border-radius:6px;overflow:hidden;}
 .career-pay{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);white-space:nowrap;margin-left:auto;}
 .career-arrow{font-size:12px;color:var(--ink-muted);transition:transform 0.2s;}
 .career-card.open .career-arrow{transform:rotate(90deg);}
@@ -77,11 +77,8 @@
 .expand-all{font-family:var(--font-mono);font-size:12px;color:var(--green-dark);background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);padding:6px 14px;border-radius:999px;cursor:pointer;transition:all 0.15s;}
 .expand-all:hover{background:var(--green);color:#fff;border-color:var(--green);}
 .section-ep-icon{width:48px;height:48px;object-fit:contain;border-radius:8px;}
-.career-loop-img{width:100%;max-width:800px;border-radius:var(--radius-md);margin:18px auto;display:block;border:2px solid var(--border);}
+.career-loop-img{width:100%;max-width:800px;border-radius:12px;margin:0 auto;display:block;}
 .friend-icon{width:22px;height:22px;vertical-align:middle;margin-right:4px;}
-.credits-extra{margin-top:18px;padding:16px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-md);}
-.credits-extra p{margin:6px 0;font-size:13px;color:var(--ink-mid);}
-.credits-extra strong{color:var(--ink);}
 @media(max-width:640px){
   .career-table{font-size:11px;}
   .career-table th,.career-table td{padding:6px 5px;}
@@ -763,7 +760,10 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
 
   <p>When your Sim reaches the top of their career (level 10), a chance card will eventually appear that moves them into a different career track at a mid-level position. This happens automatically – your Sim can’t decline. The skills they’ve built will often transfer well to the new track, but the friend requirements and remaining skill gaps may still need work.</p>
 
-  <img class="career-loop-img" src="https://static.wikia.nocookie.net/sims/images/0/09/TS1_Careers_Loop.png" alt="Career transfer loop diagram showing how all career tracks connect at level 10">
+  <div class="card" style="margin-top:18px;padding:16px;text-align:center;">
+    <img class="career-loop-img" src="icons/TS1_Careers_Loop.png" alt="Career transfer loop diagram showing how all career tracks connect at level 10">
+    <p style="font-size:11px;color:var(--ink-muted);margin-top:8px;">Image source: <a href="https://sims.fandom.com/wiki/Career_tracks?file=TS1_Careers_Loop.png" target="_blank" rel="noopener">Sims Fandom Wiki ↗</a></p>
+  </div>
 
   <div class="card" style="margin-top:18px;">
   </div>
@@ -837,12 +837,7 @@ Congresswoman</td><td>§600</td><td>10am–2pm<br><span class="career-time-24">(
 
   <div class="callout gold" style="margin-top:14px;">⚠️ If you spot any errors, please use the <a href="contact.html">contact form</a> to let me know – include the career name, level number, and what the correct value should be.</div>
 
-  <div class="credits-extra">
-    <p><strong>Credit – icons/images:</strong></p>
-    <p><strong>Career Icons:</strong> Exported from the game using Career Creator 3</p>
-    <p><strong>EP Icons:</strong> Downloaded from DeviantArt user <a href="https://www.deviantart.com/sairitvs" target="_blank" rel="noopener">sairitvs ↗</a></p>
-    <p><strong>Career Transfer Loop diagram:</strong> From the <a href="https://sims.fandom.com/wiki/Career_tracks?file=TS1_Careers_Loop.png" target="_blank" rel="noopener">Sims Fandom Wiki ↗</a></p>
-  </div>
+  <p style="margin-top:14px;font-size:11px;color:var(--ink-muted);">Career icons: Exported from the game using Career Creator 3. EP icons by <a href="https://www.deviantart.com/sairitvs" target="_blank" rel="noopener">sairitvs on DeviantArt ↗</a>. Career transfer loop diagram from the <a href="https://sims.fandom.com/wiki/Career_tracks?file=TS1_Careers_Loop.png" target="_blank" rel="noopener">Sims Fandom Wiki ↗</a>.</p>
 </section>
 
   </main>
