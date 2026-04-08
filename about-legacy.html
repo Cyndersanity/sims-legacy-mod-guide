@@ -90,7 +90,7 @@
         <tr><td>2002</td><td>Deluxe Edition</td><td style="text-align:center;"><img src="icons/DE_EP.png" alt="Deluxe Edition" class="ep-table-icon"></td><td>Base game + Livin' Large + The Sims Creator tool + exclusive Deluxe content (25+ objects, 50+ skins). Replaced standalone base game in retail.</td></tr>
         <tr><td>2003</td><td>Superstar (EP6)</td><td style="text-align:center;"><img src="icons/SS_EP.png" alt="Superstar" class="ep-table-icon"></td><td>Celebrity system, Studio Town. High Fashion (H prefix) buyable skins.</td></tr>
         <tr><td>2003</td><td>Double Deluxe</td><td style="text-align:center;"><img src="icons/DD_EP.png" alt="Double Deluxe" class="ep-table-icon"></td><td>Deluxe Edition + House Party + The Sims Creator + bonus disc with exclusive African and Asian-themed content.</td></tr>
-        <tr><td>2003</td><td>Makin' Magic (EP7)</td><td style="text-align:center;"><img src="icons/MM_EP.png" alt="Makin' Magic" class="ep-table-icon"></td><td>Magic system, spells, baking. Final expansion pack.</td></tr>
+        <tr><td>2003</td><td>Makin' Magic (EP7)</td><td style="text-align:center;"><img src="icons/MM_EP.png" alt="Makin' Magic" class="ep-table-icon"></td><td>Magic system, spells, and baking. Final expansion pack.</td></tr>
         <tr><td>2004</td><td>Mega Deluxe</td><td style="text-align:center;"><img src="icons/MD_EP.png" alt="Mega Deluxe" class="ep-table-icon"></td><td>Double Deluxe + Hot Date. North America only. Released on Mac as "The Sims: Party Pack".</td></tr>
         <tr><td>2004</td><td>Triple Deluxe</td><td style="text-align:center;"><img src="icons/TD_EP.png" alt="Triple Deluxe" class="ep-table-icon"></td><td>Double Deluxe + Vacation. UK and Ireland only.</td></tr>
         <tr><td>2004</td><td>Full House</td><td style="text-align:center;"><img src="icons/FH_EP.png" alt="Full House" class="ep-table-icon"></td><td>Base game + all 7 EPs. Australia, New Zealand and South Africa only.</td></tr>
@@ -128,17 +128,12 @@
   <div class="status-row can">
     <div class="status-icon">🖥️</div>
     <div><div class="status-title">New renderer: Vulkan replaces DirectDraw</div>
-    <div class="status-body">The biggest change. The original game used DirectDraw and DirectX 6, which caused severe compatibility issues on modern Windows. Legacy Collection replaces this with Vulkan, giving full GPU acceleration and 24-bit colour. This is why Legacy requires a Vulkan-compatible GPU – most GPUs from around 2012 onwards qualify. If you get a "Vulkan Initialization Failed" error on launch, see the <a href="game-troubleshooting.html">Game Troubleshooting</a> page.</div></div>
+    <div class="status-body">The biggest change. The original game used DirectDraw (part of DirectX), which caused severe compatibility issues on modern Windows. Legacy Collection replaces this with Vulkan, giving full GPU acceleration and full colour depth. This is why Legacy requires a Vulkan-compatible GPU – most GPUs from 2013 onwards qualify. If you get a "Vulkan Initialization Failed" error on launch, see the <a href="game-troubleshooting.html">Game Troubleshooting</a> page.</div></div>
   </div>
   <div class="status-row can">
     <div class="status-icon">💾</div>
     <div><div class="status-title">Save files moved to a dedicated folder</div>
     <div class="status-body">In the original game, UserData folders sat inside the game's install directory. Legacy Collection moves them to <code>C:\Users\%USERPROFILE%\Saved Games\Electronic Arts\The Sims 25\</code>. On first launch the game copies the default neighbourhood templates there. Steam Cloud saves are not supported – back up this folder manually if you play on multiple machines.</div></div>
-  </div>
-  <div class="status-row can">
-    <div class="status-icon">📐</div>
-    <div><div class="status-title">Resolution scaling overhauled (March 2025 patch)</div>
-    <div class="status-body">The game now renders onto an internal canvas at the next clean integer scale up from your chosen resolution. The window is freely resizable, but the effective in-game resolution only updates on restart. For the sharpest image, choose a resolution that divides cleanly into your monitor's native resolution.</div></div>
   </div>
   <div class="status-row cannot">
     <div class="status-icon">📋</div>
@@ -163,8 +158,8 @@
 
   <div class="status-row can">
     <div class="status-icon">⌨️</div>
-    <div><div class="status-title">Alt+Enter cycles resolution scale modes</div>
-    <div class="status-body">Pressing Alt+Enter while the game is running cycles through the available display modes for your monitor. On 1080p displays: fullscreen and windowed. On 1440p: 1x and 2x scale. On 4K: 1x, 2x and 3x scale. The number of modes available depends entirely on your monitor resolution.</div></div>
+    <div><div class="status-title">Alt+Enter cycles display modes</div>
+    <div class="status-body">Pressing Alt+Enter while the game is running cycles through the available display modes for your monitor, including fullscreen and windowed. The number of modes available depends on your monitor resolution.</div></div>
   </div>
 
   <div class="status-row cannot">
@@ -187,8 +182,8 @@
     <table>
       <thead><tr><th style="width:20%">Component</th><th style="width:38%">Requirement</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>OS</td><td>Windows 10 or Windows 11 (64-bit)</td><td>Does not run on Windows 7, 8, Vista or XP</td></tr>
-        <tr><td>GPU</td><td>Vulkan-compatible GPU</td><td>NVIDIA GTX 600+, AMD GCN (7000/R series)+, Intel Iris Xe. Most GPUs from around 2012 onwards. Check your GPU's Vulkan support at vulkan.gpuinfo.org</td></tr>
+        <tr><td>OS</td><td>Windows 10 or Windows 11 (64-bit)</td><td>Does not run on Windows 7, 8, Vista, or XP</td></tr>
+        <tr><td>GPU</td><td>Vulkan-compatible GPU</td><td>Most GPUs from 2013 onwards support Vulkan (NVIDIA GTX 700+, AMD GCN series, Intel Iris Xe). Check your GPU's Vulkan support at vulkan.gpuinfo.org</td></tr>
         <tr><td>GPU drivers</td><td>Up to date</td><td>Outdated drivers are the most common cause of Vulkan errors – update before troubleshooting anything else</td></tr>
         <tr><td>RAM</td><td>4 GB</td><td>The original game used very little memory by modern standards</td></tr>
         <tr><td>Storage</td><td>~5 GB</td><td>Plus mods and CC – keep Downloads folder under 2.5 GB</td></tr>
@@ -207,13 +202,14 @@
     <table>
       <thead><tr><th style="width:18%">Date</th><th style="width:12%">Patch</th><th>Key changes</th></tr></thead>
       <tbody>
-        <tr><td>4 Feb 2025</td><td>1 / 2</td><td>Emergency stability patch. Fixed game closing immediately at launch, Alt+Enter crash, travel screen garbling, crash when saving in non-default neighbourhood.</td></tr>
-        <tr><td>6 Feb 2025</td><td>3</td><td>Further stability work. Vulkan error now shows a message instead of crashing silently. More driver compatibility improvements.</td></tr>
-        <tr><td>12 Feb 2025</td><td>4</td><td>Additional crash fixes, window management improvements.</td></tr>
-        <tr><td>20 Feb 2025</td><td>5</td><td>Stability pass. GPU compatibility notes added to EA help documentation.</td></tr>
-        <tr><td>27 Feb 2025</td><td>6</td><td>Further stability fixes.</td></tr>
-        <tr><td>14 Mar 2025</td><td>7</td><td>Major update – in-game resolution options added, fractional scaling overhauled (renders at next integer scale up), window freely resizable, portrait camera fix, game-minimises-when-unfocused bug fixed.</td></tr>
-        <tr><td>3 Apr 2025</td><td>8</td><td>Stability improvements, Sim portrait camera position fix, warning added for Windows usernames with special characters that cause save path crashes.</td></tr>
+        <tr><td>4 Feb 2025</td><td>1</td><td>Launch-day hotfixes. Fixed game closing immediately at launch, Alt+Enter crash, travel screen garbling, and crash when saving in non-default neighbourhood.</td></tr>
+        <tr><td>6 Feb 2025</td><td>2</td><td>Memory leak fix, Vulkan device error improvements, mood bar visual artifacts, and mouse scroll wheel zoom sensitivity.</td></tr>
+        <tr><td>12 Feb 2025</td><td>3</td><td>Import path fix (Sims/houses now import from the correct save directory), <code>-maxaspect</code> launch flag added, roach spraying fix, and missing Work/School portrait icons restored.</td></tr>
+        <tr><td>20 Feb 2025</td><td>4</td><td>Visual artifacts on 2K monitors fixed, blue UI panel fill, pool edge tile rendering, and mouse pointer alignment in build/buy.</td></tr>
+        <tr><td>27 Feb 2025</td><td>5</td><td>Save directory recreation, Goth house crash fix, crash on wake from sleep, and snapshot text now saves correctly.</td></tr>
+        <tr><td>14 Mar 2025</td><td>6</td><td>Major update – in-game resolution and window size options added, pixel scaling overhauled, window freely resizable, game-minimises-when-unfocused bug fixed, portrait camera fix, and Tragic Clown shower crash fixed.</td></tr>
+        <tr><td>3 Apr 2025</td><td>7</td><td>Warning added for Windows usernames with special characters that cause crashes, edge-scrolling zone expanded, Sim portrait camera position fix, townie name randomisation improved, and travel loading screen scaling fixed.</td></tr>
+        <tr><td>10 Apr 2025</td><td>8</td><td>Sims 2 only – CAS layout fix on 1280×800, and text input field fix.</td></tr>
       </tbody>
     </table>
   </div>
