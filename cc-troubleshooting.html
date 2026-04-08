@@ -79,7 +79,7 @@
   <div class="section-head"><div class="section-emoji">💥</div><div><h2 class="section-title">Game Crashes After Installing a Mod</h2></div></div>
   <div class="trouble-card">
     <ul class="trouble-list">
-      <li>Remove all new mods and add them back one at a time until the crash reappears. Binary search works well – remove half, test, keep halving until you find the culprit</li>
+      <li>Remove all new mods and add them back one at a time until the crash reappears. A quick way to narrow it down: remove half your mods at once and test. If the crash stops, the problem is in the half you removed. Keep halving that group until you find the culprit</li>
       <li>Check Simblr.cc and EA Forums for known compatibility issues with that specific mod</li>
       <li>Check the mod creator's page – they may have released a Legacy-compatible update since the original was made</li>
       <li>Try the mod in a fresh test neighbourhood before using it in your main save</li>
@@ -96,7 +96,7 @@
     <div class="trouble-title">How to convert to 8-bit indexed BMP:</div>
     <ul class="trouble-list">
       <li><strong>Photoshop:</strong> Image &#8594; Mode &#8594; Indexed Color &#8594; set Colours to 256 &#8594; OK. Then File &#8594; Save As &#8594; BMP (it will default to 8-bit after conversion)</li>
-      <li><strong>GIMP:</strong> Image &#8594; Mode &#8594; Indexed &#8594; Maximum colors: 255 &#8594; Convert. Then File &#8594; Export As &#8594; save as .BMP</li>
+      <li><strong>GIMP:</strong> Image &#8594; Mode &#8594; Indexed &#8594; Maximum colors: 255 (this is correct – GIMP reserves one palette slot internally) &#8594; Convert. Then File &#8594; Export As &#8594; save as .BMP</li>
       <li><strong>IrfanView (free):</strong> Image &#8594; Decrease Color Depth &#8594; 256 Colors. Then File &#8594; Save As &#8594; BMP</li>
       <li><strong>Paint.NET:</strong> Install the IndirectBitmap plugin, then save as Indexed BMP</li>
       <li>Do not use PNG, JPG, WebP or 24-bit BMP – none of these work in Sims 1</li>
