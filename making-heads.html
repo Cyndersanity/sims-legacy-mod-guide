@@ -63,7 +63,7 @@
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#how-it-works">How It Works</a></li><li><a href="#tools">Getting Tools Working</a></li><li><a href="#what-you-need">What You Need</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#face-photo-wizard">Face Photo Wizard</a></li><li><a href="#common-mistakes">Common Mistakes</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
+      <ul class="toc-list"><li><a href="#how-it-works">How It Works</a></li><li><a href="#tools">Getting Tools Working</a></li><li><a href="#what-you-need">What You Need</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#face-photo-wizard">Face Photo Wizard</a></li><li><a href="#custom-head-meshes">Custom Head Meshes</a></li><li><a href="#common-mistakes">Common Mistakes</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
     </div>
   </aside>
   <main class="content">
@@ -118,6 +118,28 @@
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Align the feature markers</h4><p>TSC will ask you to place markers on the eyes, nose and mouth in the photo. Accurate placement gives better results.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export and refine in GIMP</h4><p>The wizard produces a head BMP you can then open in GIMP to clean up the edges, paint in the neck, and add hair.</p></div></div>
   </div>
+</section>
+
+
+<section id="custom-head-meshes">
+  <div class="section-head"><div class="section-emoji">🧊</div><div><h2 class="section-title">Custom Head Meshes</h2><p class="section-sub">Create new hairstyles and head shapes in 3D</p></div></div>
+
+  <p>The steps above cover repainting existing head textures. If you want to create entirely new hairstyles or head shapes – such as updos, braids, hats, or head accessories – you need to edit the 3D head mesh itself. The workflow is the same as <a href="making-clothing.html#custom-meshes">custom clothing meshes</a> with a few key differences.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">How head meshes differ from body meshes</h3>
+
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">C-prefix filenames</div><div class="card-desc">Head meshes use the <code>C</code> prefix (e.g. <code>xskin-c001fafit_ponytail-HEAD-HEAD.skn</code>) instead of the <code>B</code> prefix used for body meshes.</div></div>
+    <div class="card"><div class="card-title">HEAD-HEAD bone group</div><div class="card-desc">Body meshes are weighted to <code>PELVIS-BODY</code>. Head meshes are weighted to <code>HEAD-HEAD</code>. This means the entire head mesh moves as one unit when the Sim turns or nods – individual facial animation isn't supported.</div></div>
+    <div class="card"><div class="card-title">Neck seam matching</div><div class="card-desc">The bottom edge of your head mesh must line up exactly with the top of the body mesh it'll be paired with. Mismatched neck seams cause visible gaps between head and body in game.</div></div>
+    <div class="card"><div class="card-title">Smaller vertex count</div><div class="card-desc">Head meshes are typically much simpler than body meshes – the game renders them at low resolution. Keep geometry minimal, especially for complex hairstyles.</div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Workflow</h3>
+
+  <p>Use the same tools as clothing meshes – <a href="https://github.com/mixiate/ts1-blender-io" target="_blank" rel="noopener">TS1 Blender IO</a> (modern, recommended) or <a href="http://www.milkshape3d.com/" target="_blank" rel="noopener">MilkShape 3D</a> (classic). The full step-by-step is on the <a href="making-clothing.html#custom-meshes">Making Clothing – Custom Meshes</a> page; just substitute the C-prefix naming and HEAD-HEAD bone group.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Where to find base head meshes:</strong> Head SKN files are in <code>GameData\Skins\</code>, often inside FAR archives. Extract with FARx. Look for files starting with <code>xskin-c</code> to find head meshes to use as a starting point.</div>
 </section>
 
 <section id="common-mistakes">

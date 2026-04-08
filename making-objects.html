@@ -63,7 +63,7 @@
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#what-is">What Is a Retexture?</a></li><li><a href="#tools">Tools You Need</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#sprite-types">Understanding Sprites</a></li><li><a href="#further">Going Further</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
+      <ul class="toc-list"><li><a href="#what-is">What Is a Retexture?</a></li><li><a href="#tools">Tools You Need</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#sprite-types">Understanding Sprites</a></li><li><a href="#new-objects">Creating New Objects</a></li><li><a href="#further">Going Further</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
     </div>
   </aside>
   <main class="content">
@@ -122,6 +122,36 @@
     </table>
   </div>
   <div class="callout teal">ℹ️ Start by replacing just the BMP_ 2000 catalogue image – it's the easiest sprite and a good way to confirm your workflow before tackling the full set of game-view sprites.</div>
+</section>
+
+
+<section id="new-objects">
+  <div class="section-head"><div class="section-emoji">🧊</div><div><h2 class="section-title">Creating New Objects from Scratch</h2><p class="section-sub">Model in 3D, render sprites, compile into a game-ready object</p></div></div>
+
+  <p>Retexturing changes how an existing object looks. Creating a new object means modelling it in 3D, rendering it as sprites at every angle the game needs, and packaging everything into an IFF file. This used to be a nightmare – but modern tools have made it way more doable.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Why objects are sprites, not 3D models</h3>
+
+  <p>Sims 1 objects aren't rendered in real-time 3D. They're <strong>pre-rendered sprites</strong> – flat images displayed at fixed isometric angles. Each object needs sprites for 4 rotations (N/E/S/W) at 3 zoom levels (near/medium/far), plus a matching <strong>z-buffer</strong> sprite for each. The z-buffer is a depth mask that tells the game how to layer 3D Sims in front of and behind the object. Missing or incorrect z-buffers cause Sims to clip through objects.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ A single-tile object needs at minimum 24 sprites (4 rotations × 3 zooms × 2 for colour + z-buffer). Multi-tile objects need even more. This is why making objects by hand was such a pain back in the day – and why mixiate's automated rendering tools are a big deal.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Modern workflow – Blender + TS1 Renderer</h3>
+
+  <p>The <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer</a> and <a href="https://github.com/mixiate/ts1-compiler" target="_blank" rel="noopener">TS1 Compiler</a> addons by mixiate automate the hardest parts – sprite rendering and IFF assembly.</p>
+
+  <div class="steps" style="margin-top:14px;">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Model your object in Blender</h4><p>Create your 3D model in Blender. Keep the polygon count low – remember this is being rendered to small sprites, not displayed as a real-time 3D model. Simple geometry with good textures looks better than complex geometry that turns to mush at sprite resolution.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Install TS1 Renderer and set up the scene</h4><p>Install the <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer addon</a> for Blender 4.1, 4.3–4.5 (not 4.2 due to a Blender bug). Follow the <a href="https://github.com/mixiate/ts1-renderer/wiki" target="_blank" rel="noopener">wiki</a> to set up the isometric camera angles and lighting. The addon handles the correct sprite dimensions and angles automatically.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Render all sprites</h4><p>TS1 Renderer renders all required rotation angles, zoom levels, and z-buffer sprites in one batch. This replaces what used to be hours of manual screenshot-and-crop work.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Compile into an IFF file</h4><p>Use <a href="https://github.com/mixiate/ts1-compiler" target="_blank" rel="noopener">TS1 Compiler</a> to assemble the rendered sprites into a complete, game-ready IFF file. The compiler handles sprite indexing, palettisation, z-buffer packaging, and creates the basic OBJD (object definition) resource.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Add behaviour in IFF Pencil 2</h4><p>Open the compiled IFF in <a href="tools.html">IFF Pencil 2</a> to add interactions, set the price, edit catalogue descriptions, and write BHAV scripts if you want the object to do anything beyond being decorative. See the <a href="iff-hacking.html">IFF Hacking</a> guide for BHAV scripting.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place in Downloads\ and test</h4><p>Copy the finished IFF to your <code>Downloads\</code> folder. Launch the game and check the object appears in the buy mode catalogue, rotates correctly, and Sims interact with it without visual glitches.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Classic workflow (manual rendering)</h3>
+
+  <p>Before TS1 Renderer existed, creators modelled objects in any 3D editor, manually rendered sprites at each angle using specific camera settings, cropped and indexed them as 256-colour BMPs, hand-created z-buffer sprites, and imported everything piece by piece into IFF Pencil 2. This is still possible but extremely tedious. If you're creating new objects, use the modern Blender pipeline above.</p>
 </section>
 
 <section id="further">

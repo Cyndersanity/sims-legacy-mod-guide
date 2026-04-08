@@ -48,7 +48,7 @@
     </div>
   </aside>
   <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#essential">Essential Tools</a><a href="#cc-tools">CC Creation</a><a href="#community-tools">Community Tools</a><a href="#external-resources">External</a></div></details>
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#essential">Essential Tools</a><a href="#cc-tools">CC Creation</a><a href="#3d-tools">3D &amp; Mesh Tools</a><a href="#community-tools">Community Tools</a><a href="#external-resources">External</a></div></details>
 
 <section id="essential">
   <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">Essential Modding Tools</h2><p class="section-sub">All free – all from the Sims1Tools GitHub repo unless noted</p></div></div>
@@ -73,6 +73,26 @@
     <div class="card"><div class="card-title"><span class="tag green">BEGINNER</span> Home Crafter</div><div class="card-desc">Official Maxis tool for custom wall coverings and floor tiles. Import any image and it generates the correct .WLL or .FLR file automatically.</div><a class="pill-link" href="https://archive.org/details/SimsArtStudio" target="_blank" rel="noopener">Archive.org &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag teal">FREE</span> GIMP</div><div class="card-desc">Free image editor for skin texture painting. Critical: go Image &#8594; Mode &#8594; Indexed (256 colours) before exporting as BMP. Regular 24-bit BMPs show as white in-game.</div><a class="pill-link" href="https://www.gimp.org/" target="_blank" rel="noopener">gimp.org &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag teal">FREE</span> IrfanView</div><div class="card-desc">Lightweight free image viewer. Useful for quickly converting BMPs to 8-bit indexed format and batch converting multiple skins at once.</div><a class="pill-link" href="https://www.irfanview.com/" target="_blank" rel="noopener">irfanview.com &#8599;</a></div>
+  </div>
+</section>
+
+
+<section id="3d-tools">
+  <div class="section-head"><div class="section-emoji">🧊</div><div><h2 class="section-title">3D Modelling &amp; Mesh Tools</h2><p class="section-sub">For creating custom meshes – clothing, heads, and objects</p></div></div>
+
+  <p>These tools let you create or edit the actual 3D meshes that skins wrap around, and render object sprites. If you only want to repaint existing shapes, you don't need these – the CC Creation tools above are enough. These are for when you want to change how a Sim's body, hair, or an object actually looks in 3D.</p>
+
+  <div class="callout teal" style="margin-top:14px;">ℹ️ <strong>New to mesh editing?</strong> Start with Blender + TS1 Blender IO. It's free, actively maintained, and handles all the Sims 1 3D file formats. MilkShape 3D is the classic option if you're following older tutorials.</div>
+
+  <div class="grid-2" style="margin-top:14px;">
+    <div class="card"><div class="card-title"><span class="tag teal">FREE</span> Blender</div><div class="card-desc">Free, open-source 3D modelling software. With the TS1 Blender IO addon installed, it can do everything MilkShape 3D, Skn2Obj, and BodyWarp used to do – in one free tool. Versions 4.1 through 4.5 are supported.</div><a class="pill-link" href="https://www.blender.org/" target="_blank" rel="noopener">blender.org ↗</a></div>
+    <div class="card" style="border-color:var(--green);"><div class="card-title"><span class="tag green">RECOMMENDED</span> TS1 Blender IO (by mixiate)</div><div class="card-desc">Blender addon that imports and exports all Sims 1 3D file formats: <strong>SKN</strong> meshes, <strong>BCF</strong> skeletons, <strong>CMX</strong> configs, and <strong>CFP</strong> animations. Auto-loads textures from your game directory. Supports animation events and CFP compression. The modern replacement for MilkShape + Skn2Obj.</div><a class="pill-link" href="https://github.com/mixiate/ts1-blender-io" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> TS1 Renderer (by mixiate)</div><div class="card-desc">Blender addon for rendering object sprites. Automatically renders all rotation angles and zoom levels, generates z-buffer depth sprites, and handles multi-tile objects. Requires TS1 Compiler for final assembly into game-ready IFF files. Blender 4.1, 4.3–4.5 supported (not 4.2 due to a Blender bug).</div><a class="pill-link" href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div class="card"><div class="card-title"><span class="tag gold">INTERMEDIATE</span> TS1 Compiler (by mixiate)</div><div class="card-desc">Companion to TS1 Renderer. Takes rendered sprite images and assembles them into complete, game-ready IFF object files. Handles sprite indexing, z-buffers, and IFF packaging for you.</div><a class="pill-link" href="https://github.com/mixiate/ts1-compiler" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div class="card"><div class="card-title"><span class="tag gold">CLASSIC</span> MilkShape 3D</div><div class="card-desc">The standard Sims 1 mesh editor from the original modding era (2000–2010). Has native SKN import/export, skeleton/bone viewing, and weight painting. $25 shareware with 30-day trial. Most older tutorials assume this tool. Still works but no longer updated.</div><a class="pill-link" href="http://www.milkshape3d.com/" target="_blank" rel="noopener">milkshape3d.com ↗</a></div>
+    <div class="card"><div class="card-title"><span class="tag gold">CLASSIC</span> Skn2Obj</div><div class="card-desc">Converts SKN mesh files to OBJ format and back. Needed if you want to edit Sims 1 meshes in a 3D editor that doesn't have native SKN support. Not needed if using TS1 Blender IO or MilkShape (both handle SKN natively). Available from BeyondSims archives.</div></div>
+    <div class="card"><div class="card-title"><span class="tag gold">CLASSIC</span> BodyWarp</div><div class="card-desc">Quick body part manipulation – rotate, scale, and move individual body segments without a full 3D editor. Can also generate CMX configuration files. Useful for simple adjustments like lengthening legs or resizing heads.</div></div>
+    <div class="card"><div class="card-title"><span class="tag teal">FREE</span> UVMapper Classic</div><div class="card-desc">Remaps texture coordinates on meshes. Useful when creating textures for custom meshes – lets you see exactly how a flat BMP wraps around the 3D shape. Free classic edition available.</div><a class="pill-link" href="https://www.uvmapper.com/" target="_blank" rel="noopener">uvmapper.com ↗</a></div>
   </div>
 </section>
 

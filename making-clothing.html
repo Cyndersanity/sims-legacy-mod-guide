@@ -63,11 +63,11 @@
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#tools">Getting Tools Working</a></li><li><a href="#how-it-works">How Clothing Works</a></li><li><a href="#filename-format">Filename Format</a></li><li><a href="#what-you-need">What You Need</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#common-mistakes">Common Mistakes</a></li><li><a href="#tutorials">Tutorials</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
+      <ul class="toc-list"><li><a href="#tools">Getting Tools Working</a></li><li><a href="#how-it-works">How Clothing Works</a></li><li><a href="#filename-format">Filename Format</a></li><li><a href="#what-you-need">What You Need</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#common-mistakes">Common Mistakes</a></li><li><a href="#custom-meshes">Custom Meshes</a></li><li><a href="#tutorials">Tutorials</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
     </div>
   </aside>
   <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#tools">Getting Tools Working</a><a href="#how-it-works">How Clothing Works</a><a href="#filename-format">Filename Format</a><a href="#what-you-need">What You Need</a><a href="#steps">Step-by-Step</a><a href="#common-mistakes">Common Mistakes</a><a href="#tutorials">Tutorials</a></div></details>
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#tools">Getting Tools Working</a><a href="#how-it-works">How Clothing Works</a><a href="#filename-format">Filename Format</a><a href="#what-you-need">What You Need</a><a href="#steps">Step-by-Step</a><a href="#common-mistakes">Common Mistakes</a><a href="#custom-meshes">Custom Meshes</a><a href="#tutorials">Tutorials</a></div></details>
 
 <div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> – screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">r/thesims1</a>.</div>
 <section id="tools">
@@ -155,6 +155,60 @@ Example: Bfa fit lgt_RedDress.bmp</div>
       </tbody>
     </table>
   </div>
+</section>
+
+
+<section id="custom-meshes">
+  <div class="section-head"><div class="section-emoji">🧊</div><div><h2 class="section-title">Custom Meshes – Changing the 3D Shape</h2><p class="section-sub">Go beyond repainting – create new body shapes, accessories, and outfits</p></div></div>
+
+  <p>Everything above covers <strong>texture-only</strong> CC – painting a new look onto an existing body shape. But you can also edit the actual 3D mesh to change how the body, clothing, or accessories look in the game. This is harder and needs a 3D modelling tool, but it lets you make things like flowing dresses, armour, wings, hats, and completely different body shapes.</p>
+
+  <div class="callout teal">ℹ️ <strong>You don't need to create meshes from scratch.</strong> The standard approach is to modify an existing game mesh – stretch it, add geometry, reshape parts. The game's skeleton and animation system stays the same; you're just changing the shape that wraps around it.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">How meshes work</h3>
+
+  <p>Every Sim's appearance involves three files working together, known as the <strong>xskin chain</strong>:</p>
+
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">SKN – the 3D mesh</div><div class="card-desc">The 3D shape data – vertices, faces, UV coordinates (how the texture wraps around the shape), and bone assignments (which body part each point follows during animations).</div></div>
+    <div class="card"><div class="card-title">CMX – the config file</div><div class="card-desc">A plain text file that tells the game which BMP texture to use on which SKN mesh. You can edit these in Notepad – they're just a few lines long.</div></div>
+    <div class="card"><div class="card-title">BMP – the texture</div><div class="card-desc">The flat image (256-colour indexed bitmap) that gets wrapped around the SKN mesh. UV coordinates in the SKN control which part of the image lands where on the 3D shape.</div></div>
+    <div class="card"><div class="card-title">BCF – the skeleton</div><div class="card-desc">The bone structure (pelvis, spine, arms, legs, head) that drives animations. You rarely need to touch this – every Sim uses the same skeleton. Your mesh just needs to be weighted to the right bones.</div></div>
+  </div>
+
+  <p style="margin-top:14px;">These files live in <code>GameData\Skins\</code> – some are loose, others are packed inside <code>.FAR</code> archives. Use <a href="tools.html">FARx</a> to extract files from FAR archives before editing.</p>
+
+  <div class="callout gold" style="margin-top:12px;">⚠️ <strong>xskin filename rules:</strong> The CMX base name segment in an xskin filename must match the CMX filename exactly. Never rename xskin files (filenames starting with <code>xskin-</code>) – the chain will break and the mesh won't load. B-format skin slot numbers <em>are</em> safe to rename.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Modern workflow – Blender + TS1 Blender IO</h3>
+
+  <p>The easier route if you're starting fresh. <a href="https://www.blender.org/" target="_blank" rel="noopener">Blender</a> is free and <a href="https://github.com/mixiate/ts1-blender-io" target="_blank" rel="noopener">TS1 Blender IO</a> by mixiate handles all Sims 1 3D file formats natively.</p>
+
+  <div class="steps" style="margin-top:14px;">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Install Blender and the TS1 Blender IO addon</h4><p>Download <a href="https://www.blender.org/" target="_blank" rel="noopener">Blender 4.1+</a> and the <a href="https://github.com/mixiate/ts1-blender-io/releases" target="_blank" rel="noopener">latest TS1 Blender IO release</a>. In Blender, go to Edit → Preferences → Add-ons → Install From Disk, select the downloaded zip. In the addon preferences, set the texture directory to your <code>GameData\Skins\</code> folder so textures auto-load when importing meshes. See the <a href="https://github.com/mixiate/ts1-blender-io/wiki" target="_blank" rel="noopener">addon wiki</a> for detailed setup.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import the skeleton</h4><p>File → Import → The Sims 1 Skeleton (.bcf). The skeleton files are in <code>GameData\Skins\</code> (may need to extract from a FAR archive first). This gives you the bone hierarchy that animations use.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import the mesh you want to modify</h4><p>Select the skeleton in the viewport, then File → Import → The Sims 1 Mesh (.skn). Choose a base mesh similar to what you want to create – e.g. the default female fit body if you're making a dress. The mesh will load parented to the skeleton with bone weights already assigned and the BMP texture applied.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Edit the mesh</h4><p>Use Blender's modelling tools – move vertices, extrude faces, sculpt, add geometry. Keep the vertex count reasonable (the game is from 2000) and don't move vertices too far from their original bone assignments or they'll deform oddly during animations.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Edit bone weights if needed</h4><p>If you've added new geometry (e.g. a skirt extension), assign it to the correct bones using Blender's weight painting tools. Each vertex must be weighted to 1 or 2 bones. The addon wiki has details on the bone naming convention.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>UV unwrap and paint the texture</h4><p>If you changed the mesh shape, you may need to adjust the UV map so your BMP texture wraps correctly. Export the UV layout from Blender and paint the texture in GIMP. Save as 256-colour indexed BMP.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export the mesh and CMX</h4><p>File → Export → The Sims 1 Mesh (.skn) and File → Export → The Sims 1 Skin (.cmx). Use the correct xskin naming convention for your filenames.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place all files in GameData\Skins\ and test</h4><p>Copy the exported <code>.SKN</code>, <code>.CMX</code>, and your <code>.BMP</code> texture into <code>GameData\Skins\</code>. Launch the game and check the outfit appears correctly in the dresser and animates properly.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Classic workflow – MilkShape 3D</h3>
+
+  <p>The original method used from 2000–2010. <a href="http://www.milkshape3d.com/" target="_blank" rel="noopener">MilkShape 3D</a> ($25 shareware, 30-day trial) has native Sims 1 SKN import/export. Most older tutorials use this tool.</p>
+
+  <div class="steps" style="margin-top:14px;">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Install MilkShape 3D</h4><p>Download from <a href="http://www.milkshape3d.com/" target="_blank" rel="noopener">milkshape3d.com</a>. It has native SKN import/export – no plugins needed for basic Sims 1 mesh work.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import the SKN mesh</h4><p>File → Import → The Sims SKN. Navigate to <code>GameData\Skins\</code> and choose your base mesh. The skeleton loads automatically – you can toggle it off in the Joints tab (uncheck "Show Skeleton") while editing.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Edit the mesh</h4><p>Use MilkShape's vertex tools (Select, Move, Rotate, Scale) to reshape the mesh. Work in wireframe mode for precision. Don't add or remove vertices unless you know the bone assignment implications.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export back to SKN</h4><p>File → Export → The Sims SKN. Follow the xskin naming convention: <code>xskin-b###fafit_name-PELVIS-BODY.skn</code> where ### is a unique 3-digit number.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Write the CMX file</h4><p>Create a new text file in Notepad matching your SKN. The CMX format is simple – see the <a href="https://github.com/mixiate/ts1-blender-io/wiki" target="_blank" rel="noopener">TS1 Blender IO wiki</a> for the exact format, or use SE3D's CMX Builder if you have SimEnhancer 3D.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint texture, place files, and test</h4><p>Same as the Blender workflow – paint your BMP (256-colour indexed), copy SKN + CMX + BMP to <code>GameData\Skins\</code>, test in game.</p></div></div>
+  </div>
+
+  <div class="callout gold" style="margin-top:14px;">⚠️ <strong>Alternative classic route:</strong> If you prefer a 3D editor other than MilkShape (like 3ds Max or an older version of Blender without the TS1 addon), use <strong>Skn2Obj</strong> to convert SKN → OBJ, edit in your tool, then convert OBJ → SKN. Skn2Obj is available from BeyondSims archives.</div>
 </section>
 
 <section id="tutorials">
