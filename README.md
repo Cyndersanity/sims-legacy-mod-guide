@@ -10,78 +10,82 @@ A community-maintained guide for modding, customising and creating content for *
 
 This guide was built because the Legacy Collection has a slightly different folder structure, save location and tool compatibility compared to the original Complete Collection or disc versions – and most existing guides were written for one of those. This guide is specifically for Legacy Collection players on Windows, covering everything from installing your first mod through to creating custom content from scratch.
 
-All content is based on community testing, verified tool compatibility checks, and direct research into what works (and doesn't) with the Legacy Collection as of 2026.
+All content is based on community testing, verified tool compatibility checks, official Maxis design documents, and direct research into what works (and doesn't) with the Legacy Collection as of 2026.
 
 ---
 
 ## What's covered
 
-The guide has 22 pages, grouped into sections:
+The guide has 24 pages, grouped into sections:
 
 ### Playing & modding
 | Page | What it covers |
 |------|---------------|
-| `about-legacy.html` | What the Legacy Collection is, how it differs from older versions, the full expansion pack folder reference (EP1–EP7), technical changes (Vulkan renderer, new save location, no registry, encrypted config), in-game settings reference, and the full EA patch history |
-| `whats-possible.html` | A clear breakdown of what can and can't be modded – engine limits, confirmed working features (edit_char, child ageing, resolution), Steam Deck compatibility, and graphics explained |
-| `installing-mods.html` | Step-by-step installation for every file type, the correct folder paths for both Steam and EA App versions, CC file limits (objects, walls, skins, downloads folder size), and how to import/export lots and families |
-| `download-sites.html` | 52 active CC and mod sites verified working in 2026 (in a scrollable table), archive resources, and community directories |
-| `mod-list.html` | Quality-of-life mods, objects and furniture, debug and runtime tools (FaithBeam), and bug fixes – all with direct download links and install instructions |
+| `about-legacy.html` | What the Legacy Collection is, how it differs from older versions, expansion pack folder reference (EP1–EP7), technical changes (Vulkan renderer, new save location, no registry, encrypted config), and full EA patch history |
+| `whats-possible.html` | What can and can't be modded – engine limits, confirmed working features (edit_char, child ageing, resolution), Steam Deck compatibility |
+| `installing-mods.html` | Step-by-step installation for every file type, correct folder paths for Steam and EA App, CC file limits, lot and family import/export |
+| `download-sites.html` | 52 active CC and mod sites verified working in 2026, archive resources, and community directories |
+| `mod-list.html` | Quality-of-life mods, objects, debug tools (FaithBeam), and bug fixes with direct download links |
 
 ### Gameplay
 | Page | What it covers |
 |------|---------------|
-| `cheats.html` | Every working cheat code including the debug cheats unlocked by FaithBeam's runtime patcher |
-| `careers.html` | Every career track (20 standard + Fame), promotion requirements, salary, work hours, skill requirements, and the level 10 career transfer loop. Data sourced from the Sims Fandom Wiki via u/pedrulho's spreadsheet |
+| `cheats.html` | Every cheat code, Tips & Tricks section with expandable cards, debug cheats via FaithBeam |
+| `careers.html` | Every career track (20 standard + Fame), promotion requirements, salary, work hours, career transfer loop with full transfer table |
 
 ### Creating CC
 | Page | What it covers |
 |------|---------------|
-| `making-cc.html` | Overview hub – how skins work in Sims 1, tools summary with Legacy Collection compatibility notes, links to all CC subpages |
-| `making-clothing.html` | Custom body skins and outfits: body types, skin tones, filename format (B prefix system), step-by-step in GIMP, Feraligatr installer and manual registry fix routes |
-| `making-heads.html` | Custom hair and face textures: C prefix system, Face Photo Wizard in The Sims Creator, skin tone versions |
-| `making-walls-floors.html` | Wall coverings (.WLL), floor tiles (.FLR) via Home Crafter, and roof textures (.BMP) directly in GIMP |
-| `making-objects.html` | Visual-only object retextures using Transmogrifier and IFF Pencil 2 – no BHAV scripting needed |
-| `iff-hacking.html` | Creating gameplay mods from scratch: BHAV scripting, object hacking, custom careers, tool setup |
-| `tools.html` | Every modding tool with download links and Legacy Collection compatibility notes – IFF Pencil 2, Transmogrifier (by Don Hopkins), Career Creator 3, FARx, FaithBeam, The Sims Creator, Home Crafter, Skin Doctor |
+| `making-cc.html` | Overview hub – how skins work in Sims 1, tools summary, links to all CC subpages |
+| `making-clothing.html` | Custom body skins: body types (256×256 BMP), skin tones, filename format, xskin chain, mesh editing in Blender and MilkShape |
+| `making-heads.html` | Custom hair and face textures: C prefix system (128×128 BMP), Face Photo Wizard, skin tone versions |
+| `making-walls-floors.html` | Wall coverings (.WLL), floor tiles (.FLR) via Home Crafter, and roof textures (.BMP) in GIMP |
+| `making-objects.html` | Object retextures using Transmogrifier – clone, export sprites, paint, import. Magic Cookie guide |
+| `iff-hacking.html` | Gameplay mods: BCON editing, TTAB interactions, FAR override system, custom careers, career transfer loop |
+| `tools.html` | Every modding tool with download links – Transmogrifier, IFF Pencil 2, Constant Contraption, Career Creator 3, FARx, FaithBeam, The Sims Creator, Home Crafter, Blender addons |
 
 ### Reference & help
 | Page | What it covers |
 |------|---------------|
-| `terminology.html` | Plain-English definitions of CC, mod, hacking, IFF, FAR, BHAV, Vulkan, Maxis Match, buyable skins, Get Cool Stuff, and more |
-| `cc-troubleshooting.html` | Fixing mods not loading, white blank skins, CC limits, old FAR-packed mods, registry fix, Feraligatr installer |
-| `game-troubleshooting.html` | Vulkan errors, NVIDIA pixel issue, launch crashes, multi-monitor problems, Simscord and community help |
+| `file-reference.html` | Technical reference: game file types, IFF resource types (expandable cards), skin filename prefixes, Magic Cookie guide |
+| `terminology.html` | Plain-English definitions in expandable cards: CC, mod, hacking, IFF, FAR, Maxis Match, buyable skins, and more |
+| `credits.html` | Full attribution for every source, tool creator, and community member |
+| `cc-troubleshooting.html` | Mods not loading, white skins, CC limits, CMX mismatches, missing meshes, IFF Pencil 2 compatibility, registry fix |
+| `game-troubleshooting.html` | Vulkan errors, NVIDIA pixel issue, launch crashes, multi-monitor problems |
 
 ### Site
 | Page | What it covers |
 |------|---------------|
-| `search.html` | Full-text keyword search across all 22 pages |
-| `updates.html` | Site Roadmap – what's in progress, planned, and being considered |
-| `contact.html` | Google Form for corrections, missing mods, broken links and suggestions |
+| `search.html` | Full-text keyword search across all 24 pages |
+| `updates.html` | Site Roadmap – in progress, planned, and being considered |
+| `contact.html` | Google Form for corrections, suggestions, and broken link reports |
 
 ---
 
 ## Site structure
 
-Static HTML only – no framework, no build step, no dependencies. Deployed directly via GitHub Pages from the root of the repository. Shared CSS lives in `style.css`; pages with unique components (index, cheats, careers, terminology, updates) keep only their page-specific rules inline. All JavaScript is inline and vanilla. CC creation subpages include prev/next navigation links for sequential reading.
+Static HTML only – no framework, no build step, no dependencies. Deployed via GitHub Pages from the root of the repository. Shared CSS in `style.css`; page-specific rules are inline. All JavaScript is inline and vanilla.
 
 ```
 /
-├── style.css                   Shared stylesheet (all pages link to this)
-├── index.html                  Homepage with quick-navigation grid
+├── style.css                   Shared stylesheet
+├── index.html                  Homepage
 ├── about-legacy.html
 ├── whats-possible.html
 ├── installing-mods.html
 ├── download-sites.html
 ├── mod-list.html
-├── cheats.html                 Gameplay – Cheats
-├── careers.html                Gameplay – Career Guide
+├── cheats.html
+├── careers.html
 ├── making-cc.html              CC creation hub
-├── making-clothing.html        CC subpage
-├── making-heads.html           CC subpage
-├── making-walls-floors.html    CC subpage
-├── making-objects.html         CC subpage
-├── iff-hacking.html
+├── making-clothing.html
+├── making-heads.html
+├── making-walls-floors.html
+├── making-objects.html         Object retextures (TMog workflow)
+├── iff-hacking.html            Gameplay mods (BCON, TTAB, careers)
 ├── tools.html
+├── file-reference.html         Technical reference (expandable cards)
+├── credits.html                Sources and attribution
 ├── terminology.html
 ├── cc-troubleshooting.html
 ├── game-troubleshooting.html
@@ -89,20 +93,16 @@ Static HTML only – no framework, no build step, no dependencies. Deployed dire
 ├── updates.html
 ├── contact.html
 ├── 404.html
-├── sitemap.xml
-├── robots.txt
-└── nav_builder.py              Maintenance script – see below
+└── icons/                      Career icons and expansion pack badges
 ```
 
 ---
 
-## Navigation structure
+## Navigation
 
-The site uses a horizontal scrolling nav bar on desktop and a slide-in drawer on mobile (opened via the "Menu ☰" button). The desktop nav also has a ☰ button in the bar for users who prefer the drawer.
+Horizontal scrolling nav bar on desktop, slide-in drawer on mobile. Organised into dropdowns:
 
-Nav is organised into dropdowns:
-
-- **Site Info** – About Legacy, Terminology, Site Roadmap, Contact
+- **Site Info** – About Legacy, Terminology, File Reference, Sources & Credits, [divider], Site Roadmap, Contact
 - **Mods / CC** – What's Possible, Installing Mods, Mod Download Sites, Must-Have Mods
 - **Gameplay** – Cheats, Career Guide
 - **Create CC** – Overview, Making Clothing, Making Hair & Heads, Making Walls & Floors, Object Retextures, IFF Hacking, Tools
@@ -110,90 +110,28 @@ Nav is organised into dropdowns:
 
 ---
 
-## Design system
+## Key sources
 
-The site uses a consistent set of CSS custom properties defined in `style.css`:
+- **Maxis Design Documents** (98 PDFs) – [donhopkins.com](https://donhopkins.com/home/TheSimsDesignDocuments/)
+- **Transmogrifier Documentation** – Don Hopkins, [thesimstransmogrifier.com](https://www.thesimstransmogrifier.com/TransmogrifierDocumentation/)
+- **IFF Pencil 2** – Tom van Dijk, [github.com/trolando/Sims1Tools](https://github.com/trolando/Sims1Tools)
+- **Simania Sims Support Page** – tutorials on skinning, object hacking, and character editing
+- **Sims Wiki** – skin filename conventions and general reference
+- **Community testing** – tool compatibility, folder structures, and game behaviour
 
-| Variable | Value | Used for |
-|----------|-------|----------|
-| `--cream` | `#F5F2E8` | Page background |
-| `--green` | `#3BAE5C` | Primary brand colour, buttons, links |
-| `--green-dark` | `#1A5229` | Headings, nav, footer |
-| `--green-pale` | `#E6F5EB` | Card backgrounds, hover states |
-| `--gold` | `#E8B84B` | Warning callouts |
-| `--teal` | `#3AADA8` | Info callouts |
-| `--red` | `#D94F4F` | Error callouts |
-| `--ink` | `#1C2B1F` | Body text |
-
-**Fonts:** Paytone One (headings), Nunito (body), IBM Plex Mono (code) – all loaded from Google Fonts.
-
-**Callout convention:**
-```html
-<div class="callout teal">ℹ️ Info note</div>
-<div class="callout gold">⚠️ Warning</div>
-<div class="callout red">🚨 Critical warning</div>
-<div class="callout green">✅ Tip or confirmation</div>
-```
-
-**Step-by-step lists:**
-```html
-<div class="steps">
-  <div class="step">
-    <div class="step-num"></div>
-    <div class="step-body"><h4>Step title</h4><p>Step content.</p></div>
-  </div>
-</div>
-```
-
-**Tables** must always be wrapped in `.table-wrap`:
-```html
-<div class="table-wrap">
-  <table>...</table>
-</div>
-```
-
----
-
-## Adding or editing pages
-
-### Editing existing content
-
-Each page is self-contained HTML. Open the file in any text editor and edit the content inside `<main class="content">`. Shared CSS is in `style.css`; page-specific styles (if any) are in an inline `<style>` block. Nav is inline per page.
-
-### Adding a new page
-
-1. Copy an existing page (e.g. `about-legacy.html`) as a starting point
-2. Update the `<title>` tag, `<h1>`, `.page-eyebrow`, and `.page-sub` to match the new page
-3. Replace the content inside `<main class="content">` with your new content
-4. Update the nav across all pages – add the new link to every page's nav-inner and drawer blocks
-5. Add the page to `sitemap.xml`
-6. Update the search index in `search.html` (the `INDEX` const at the top of the inline `<script>`)
-
-### Updating the nav
-
-The nav uses JS-driven dropdown panels built inline in each HTML file. To update nav links or add a page, edit the nav block in every HTML file manually, or use find-and-replace in VS Code across the project.
-
-`nav_builder.py` handles the **footer only** – run it to sync footer links and the "Last updated" date across all pages:
-
-```bash
-python nav_builder.py --all
-```
+Full attribution on the [Sources & Credits](https://cyndersanity.github.io/sims-legacy-mod-guide/credits.html) page.
 
 ---
 
 ## Contributing
 
-The easiest way to flag something is via the **contact form on the live site** – it goes straight into a spreadsheet reviewed when the guide is next updated.
-
-If you prefer GitHub:
-- **Issues** – for broken links, factual errors, missing mods, or suggestions
-- **Pull requests** – for direct corrections or additions
+Flag issues via the **contact form on the live site** or use GitHub Issues / Pull Requests.
 
 ---
 
 ## Notes
 
 - Not affiliated with EA, Maxis, or any mod creator
-- All external links verified as of April 2026 – use the contact form to flag anything broken
-- Google Analytics (G-8ZDF0Q80RR) tracks visitor numbers only – no personal data collected
-- The guide covers the Windows version of the Legacy Collection only. Mac version behaviour may differ.
+- All external links verified as of April 2026
+- Google Analytics (G-8ZDF0Q80RR) tracks visitor numbers only
+- Covers the Windows version of the Legacy Collection only

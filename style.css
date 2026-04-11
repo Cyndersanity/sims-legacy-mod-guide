@@ -40,10 +40,6 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .nav-link{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;}
 .nav-link:hover,.nav-link.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
 
-
-/* ── NAV SEPARATORS (desktop) ─────────────────────── */
-.nav-sep{width:1px;height:18px;background:var(--border);margin:0 6px;flex-shrink:0;}
-
 /* ── HAMBURGER BUTTON (mobile only) ──────────────────── */
 .nav-ham{display:none;background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:5px 9px;color:var(--green-dark);cursor:pointer;font-size:16px;margin-left:auto;flex-shrink:0;}
 .nav-ham:hover{background:var(--green-pale);border-color:var(--green);}
@@ -136,7 +132,6 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 
 /* GRIDS */
 .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
-.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
 
 /* CALLOUTS */
 .callout{border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;border-left:4px solid;font-size:15px;line-height:1.7;}
@@ -187,15 +182,6 @@ td:first-child{font-family:var(--font-mono);font-size:13px;font-weight:600;color
 .trouble-list li:last-child{border-bottom:none;}
 .trouble-list li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700;}
 
-/* MOD CARDS */
-.mod-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:20px;transition:all 0.2s;box-shadow:var(--shadow-sm);}
-.mod-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
-.mod-name{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
-.mod-by{font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);margin-bottom:8px;}
-.mod-desc{font-size:13px;color:var(--ink-mid);margin-bottom:10px;line-height:1.6;}
-.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
-.cat-label{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--green-dark);text-transform:uppercase;letter-spacing:1px;background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);display:inline-block;padding:4px 12px;border-radius:999px;margin:28px 0 14px;}
-
 /* COMMUNITY CARDS */
 .community-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px;}
 .community-card{display:flex;align-items:center;gap:14px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:16px 18px;text-decoration:none;color:var(--ink);transition:all 0.2s;box-shadow:var(--shadow-sm);}
@@ -227,7 +213,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 @media(max-width:900px){
   .page-layout{grid-template-columns:1fr;padding:32px 24px 60px;}
   .toc{display:none;}
-  .grid-2,.grid-3,.mod-grid,.roadmap-grid,.welcome-grid{grid-template-columns:1fr;}
+  .grid-2,.grid-3,.mod-grid,.roadmap-grid{grid-template-columns:1fr;}
   .status-row{flex-direction:column;gap:10px;}
   .section-head{gap:12px;}
   .section-emoji{font-size:26px;}
@@ -246,7 +232,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
   .table-wrap{font-size:13px;}
   th{font-size:11px;padding:10px 12px;}
   td{padding:10px 12px;font-size:13px;}
-  .intro-section{padding:0 16px 16px;}
+  
   .mod-card{padding:16px;}
   .card{padding:16px;}
   footer{padding:28px 16px;}
@@ -260,7 +246,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 @media(max-width:640px){
   .table-wrap td:nth-child(2){font-weight:700;color:var(--ink);border-bottom:1px solid var(--border);}
 }
-
 
 .nav-dropdown{position:relative;display:inline-flex;}
 .nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
@@ -276,10 +261,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-drawer-sublink{padding-left:36px!important;font-size:13px!important;}
 .nav-drawer-group-label{padding:6px 16px 2px;font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;}
 
-
 /* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
 html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
-
 
 /* Desktop hamburger button */
 .nav-ham-desktop{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:15px;padding:5px 10px;cursor:pointer;transition:all 0.18s;white-space:nowrap;flex-shrink:0;}
@@ -304,7 +287,6 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 .nav-mobile-menu{background:var(--green);color:#fff;border:none;border-radius:var(--radius-sm);font-size:12px;font-weight:700;padding:7px 10px;cursor:pointer;display:flex;align-items:center;gap:4px;white-space:nowrap;}
 .nav-mobile-menu:hover{background:var(--green-dark);}
 
-
 /* MOBILE NAV – sync with mobile-bar */
 @media(max-width:767px){
   .nav-inner{display:none!important;}
@@ -315,7 +297,6 @@ html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !im
 @media(min-width:768px){
   .nav-mobile-bar{display:none!important;}
 }
-
 
 /* ─── MOBILE IMPROVEMENTS ─────────────────────────────── */
 @media(max-width:640px){

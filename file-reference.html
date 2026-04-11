@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File Reference – Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
+<style>
+.ref-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);margin-bottom:8px;overflow:hidden;transition:border-color 0.2s;}
+.ref-card.open{border-color:var(--green);}
+.ref-head{padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;user-select:none;background:var(--white);border-radius:var(--radius-md);}
+.ref-head:hover{background:var(--white);}
+.ref-card:hover{border-color:var(--green);box-shadow:var(--shadow-md);}
+.ref-arrow{color:var(--ink-muted);font-size:13px;transition:transform 0.2s;flex-shrink:0;}
+.ref-card.open .ref-arrow{transform:rotate(90deg);}
+.ref-code{font-family:var(--font-mono);font-size:14px;font-weight:700;color:var(--green);background:var(--green-pale);padding:2px 10px;border-radius:6px;min-width:52px;text-align:center;}
+.ref-name{font-size:15px;font-weight:700;color:var(--green-dark);flex:1;}
+
+.ref-body{display:none;padding:0 18px 16px;font-size:14px;color:var(--ink-mid);border-top:1px solid var(--border);line-height:1.7;}
+.ref-card.open .ref-body{display:block;padding-top:14px;}
+.ref-body p{margin-bottom:8px;}
+.ref-section{font-family:var(--font-head);font-size:17px;color:var(--green-dark);margin:20px 0 8px;padding:6px 0;border-bottom:2px solid var(--green-pale);}
+.content section{margin-bottom:48px;}
+.ref-locs{margin:8px 0 4px;}
+.ref-loc-label{font-weight:700;font-size:13px;color:var(--ink);margin-bottom:2px;}
+.ref-loc-item{font-size:13px;color:var(--ink-mid);margin:2px 0;line-height:1.6;}
+.ref-loc-item em{font-style:italic;color:var(--ink-muted);min-width:120px;display:inline-block;}
+.ref-loc-item code{background:rgba(27,82,41,0.08);color:var(--green-dark);font-family:var(--font-mono);font-size:12px;padding:1px 6px;border-radius:4px;}
+.ref-head{cursor:pointer;user-select:none;}
+.ref-body p+p{margin-top:8px;}
+
+.expand-all{font-family:var(--font-mono);font-size:12px;color:var(--green-dark);background:var(--green-pale);border:1.5px solid rgba(27,82,41,0.15);padding:6px 14px;border-radius:999px;cursor:pointer;transition:all 0.15s;}
+.expand-all:hover{background:var(--green);color:#fff;border-color:var(--green);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item active">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHam" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){
+    if(!nav||!hint)return;
+    var overflows=nav.scrollWidth>nav.clientWidth+4;
+    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
+    hint.style.display=(overflows&&!atEnd)?'flex':'none';
+  }
+  if(hint){
+    hint.addEventListener('click',function(){
+      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
+    });
+  }
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);
+  setTimeout(check,200);
+})();
+</script>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – Reference</div>
+  <h1 class="page-title">File <span>Reference</span></h1>
+  <p class="page-sub">Every file type and IFF resource explained</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#game-files">Game File Types</a></li><li><a href="#iff-resources">Inside an IFF File</a></li><li><a href="#skin-prefixes">Skin Prefixes</a></li><li><a href="#magic-cookie">Magic Cookie</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="index.html">&larr; Back to Home</a>
+    </div>
+  </aside>
+  <main class="content">
+
+<section id="game-files">
+  <div class="section-head"><div class="section-emoji">📁</div><div><h2 class="section-title">Game File Types</h2><p class="section-sub">Click any header to expand</p></div></div>
+  <div style="margin-bottom:12px;"><button class="expand-all" onclick="toggleSection(this)">Expand all</button></div>
+  <div class="ref-cards-wrap">
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">.IFF</span><span class="ref-name">Object &amp; Data Files</span></div><div class="ref-body">
+    <p>The main file format for everything in The Sims &ndash; objects, characters, career data, UI strings. Each IFF file is a container that holds multiple resources bundled together: sprites (how the object looks), behaviour scripts (what it does), constants (tunable values like price and skill gain), text (catalog name and description), and more.</p>
+    <p>When you download a mod or create one yourself, you're working with IFF files. Custom objects go in the Downloads folder. Mods that replace base game behaviour go in other locations.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Folder Locations:</p>
+      <p class="ref-loc-item"><em>Custom Objects:</em> <code>\Downloads\</code></p>
+      <p class="ref-loc-item"><em>Base Game Overrides:</em> <code>\GameData\Objects\</code></p>
+      <p class="ref-loc-item"><em>Expansion Overrides:</em> <code>\ExpansionPack1-7\</code></p>
+      <p class="ref-loc-item"><em>Inside FAR Archives:</em> <code>\GameData\Global\</code>, <code>\GameData\UserObjects\</code></p>
+    </div>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tools:</p>
+      <p class="ref-loc-item"><em>Cloning &amp; Sprites:</em> TMog (Transmogrifier)</p>
+      <p class="ref-loc-item"><em>Behaviour Editing:</em> IFF Pencil 2</p>
+      <p class="ref-loc-item"><em>BCON Values:</em> Constant Contraption</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">.FAR</span><span class="ref-name">Archive Files</span></div><div class="ref-body">
+    <p>A FAR file bundles multiple IFF or other files into one archive. Think of it like a zip file that the game can read directly without you needing to unpack it. All base game objects and global behaviour files live inside FAR archives &ndash; that's why you don't see individual object files when you browse the game folders.</p>
+    <p>TMog reads FAR contents automatically when you open it, so you don't need to extract anything for retexturing. Use FARx if you need to pull out a specific file for manual editing.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Folder Locations:</p>
+      <p class="ref-loc-item"><em>Base Game:</em> <code>\GameData\Objects\</code>, <code>\GameData\Global\</code></p>
+      <p class="ref-loc-item"><em>Expansions:</em> <code>\ExpansionPack1-7\</code></p>
+      <p class="ref-loc-item"><em>Custom Content:</em> <code>\Downloads\</code></p>
+    </div>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tools:</p>
+      <p class="ref-loc-item"><em>Extract &amp; Browse:</em> FARx</p>
+      <p class="ref-loc-item"><em>Auto-Browse:</em> TMog (reads FAR contents automatically)</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">.BMP</span><span class="ref-name">Skin Textures</span></div><div class="ref-body">
+    <p>Flat bitmap images that wrap around a Sim's body, head, or hands to create their appearance. Every outfit, hairstyle, and skin tone is a BMP file. They must be saved as 256-colour indexed bitmaps &ndash; any other colour depth (like standard 24-bit BMP, PNG, or JPG) will show as a white silhouette in game.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Image Dimensions:</p>
+      <p class="ref-loc-item"><em>Body skins:</em> 256&times;256 pixels</p>
+      <p class="ref-loc-item"><em>Head skins:</em> 128&times;128 pixels</p>
+      <p class="ref-loc-item"><em>Hand skins:</em> 64&times;64 pixels</p>
+      <p class="ref-loc-item"><em>Accessories:</em> 32&times;32 pixels</p>
+    </div>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Folder Locations:</p>
+      <p class="ref-loc-item"><em>Everyday Skins:</em> <code>\GameData\Skins\</code> (no subfolders)</p>
+      <p class="ref-loc-item"><em>Buyable Skins:</em> <code>\ExpansionShared\SkinsBuy\</code> (no subfolders)</p>
+    </div>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tools:</p>
+      <p class="ref-loc-item"><em>Painting:</em> GIMP, Photoshop</p>
+      <p class="ref-loc-item"><em>Template &amp; Export:</em> The Sims Creator</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">.CMX</span><span class="ref-name">Skin Configuration</span></div><div class="ref-body">
+    <p>A plain text file that tells the game which BMP texture to use on which SKN mesh. It can also attach accessory meshes (like hats or glasses) to the main body. The CMX must contain its own filename correctly spelled inside the file &ndash; if the internal name doesn't match the actual filename, the game ignores it silently and the skin won't appear.</p>
+    <p>You rarely need to edit CMX files by hand. The Sims Creator generates them automatically when you export a skin.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Folder Location:</p>
+      <p class="ref-loc-item"><em>All Skins:</em> <code>\GameData\Skins\</code> (alongside matching BMP and SKN files)</p>
+    </div>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tools:</p>
+      <p class="ref-loc-item"><em>Manual Editing:</em> Notepad (plain text format)</p>
+      <p class="ref-loc-item"><em>Auto-Generated:</em> The Sims Creator</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">.SKN</span><span class="ref-name">3D Mesh Files</span></div><div class="ref-body">
+    <p>The 3D shape data for a Sim's body, head, or accessory. Contains:</p>
+    <ul style="margin:4px 0 8px 20px;font-size:14px;color:var(--ink-mid);">
+      <li><strong>Vertices</strong> &ndash; the 3D points that define the shape</li>
+      <li><strong>Faces</strong> &ndash; the surfaces connecting those points</li>
+      <li><strong>UV coordinates</strong> &ndash; how the BMP texture wraps around the shape</li>
+      <li><strong>Bone assignments</strong> &ndash; which part of the skeleton each point follows during animations</li>
+    </ul>
+    <p>Mesh filenames always start with <code>xskin-</code>. Mesh filenames always start with <code>xskin-</code>.</p>
+    <p>Never rename xskin files &ndash; the name inside the file must match the actual filename, or the mesh won't load and the Sim may appear headless or as floating hands.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Folder Location:</p>
+      <p class="ref-loc-item"><em>All Meshes:</em> <code>\GameData\Skins\</code> (alongside matching BMP and CMX files)</p>
+    </div>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tools:</p>
+      <p class="ref-loc-item"><em>Modern:</em> TS1 Blender IO (Blender addon by mixiate)</p>
+      <p class="ref-loc-item"><em>Classic:</em> MilkShape 3D (native SKN support)</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">.WLL</span><span class="ref-name">Wall Coverings</span></div><div class="ref-body">
+    <p>Custom wall textures that appear in Build Mode. Created by importing an image into HomeCrafter, which converts it into the game-ready format and generates the tiling pattern. Unlike skin files, wall coverings can be organised into subfolders.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Folder Location:</p>
+      <p class="ref-loc-item"><em>All Walls:</em> <code>\GameData\Walls\</code> (subfolders OK)</p>
+    </div>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tools:</p>
+      <p class="ref-loc-item"><em>Creation:</em> HomeCrafter (official Maxis tool)</p>
+      <p class="ref-loc-item"><em>Image Editing:</em> GIMP, Photoshop</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">.FLR</span><span class="ref-name">Floor Tiles</span></div><div class="ref-body">
+    <p>Custom floor textures that appear in Build Mode. Same workflow as walls &ndash; import an image into HomeCrafter to generate the game-ready file. Subfolders are supported for organisation.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Folder Location:</p>
+      <p class="ref-loc-item"><em>All Floors:</em> <code>\GameData\Floors\</code> (subfolders OK)</p>
+    </div>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tools:</p>
+      <p class="ref-loc-item"><em>Creation:</em> HomeCrafter (official Maxis tool)</p>
+      <p class="ref-loc-item"><em>Image Editing:</em> GIMP, Photoshop</p>
+    </div>
+  </div></div>
+</div>
+</section>
+
+<section id="iff-resources">
+  <div class="section-head"><div class="section-emoji">📦</div><div><h2 class="section-title">Inside an IFF File</h2><p class="section-sub">Resource types you encounter when modding objects</p></div></div>
+  <div style="margin-bottom:12px;"><button class="expand-all" onclick="toggleSection(this)">Expand all</button></div>
+  <div class="ref-cards-wrap">
+  <div class="ref-section">Graphics</div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">SPR2</span><span class="ref-name">Game-View Sprites</span></div><div class="ref-body">
+    <p>The actual images you see on the lot &ndash; the object rendered at every rotation angle and zoom level. Each sprite frame has three channels:</p>
+    <ul style="margin:4px 0 8px 20px;font-size:14px;color:var(--ink-mid);">
+      <li><strong>Colour pixels</strong> &ndash; what you see on screen</li>
+      <li><strong>Z-buffer</strong> &ndash; depth information so Sims can walk in front of and behind the object correctly</li>
+      <li><strong>Alpha channel</strong> &ndash; transparency data</li>
+    </ul>
+    <p>When you retexture an object using TMog's Export Whizzer, these are the images it exports as editable BMP files. You paint over the colour channel, and TMog regenerates the z-buffer and alpha automatically when you import back in.</p>
+    <p><strong>Example:</strong> the Pink Flamingo has 6 sprite frames &ndash; front and back views at three zoom levels (large, medium, small).</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tool:</p>
+      <p class="ref-loc-item"><em>Export &amp; Import:</em> TMog (Transmogrifier)</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">BMP_</span><span class="ref-name">Catalog Thumbnail &amp; Speech Bubbles</span></div><div class="ref-body">
+    <p>Small images used outside of gameplay. These are separate from the game-view sprites (SPR2) and serve specific UI purposes:</p>
+    <p><strong>ID 2000+:</strong> The catalog thumbnail &ndash; the small picture shown in the Buy Mode catalog when you're browsing objects to purchase.</p>
+    <p><strong>ID 4000+:</strong> Small speech bubble image &ndash; appears when a Sim thinks about or talks about the object.</p>
+    <p><strong>ID 6000+:</strong> Large speech bubble image &ndash; same purpose, larger version.</p>
+    <p>When you retexture an object with TMog, these images are not updated &ndash; the catalog thumbnail will still show the old appearance. To update it, create a new thumbnail in your paint program and import it using IFF Pencil 2 (right-click the BMP_ resource &rarr; Import).</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tool:</p>
+      <p class="ref-loc-item"><em>View &amp; Replace:</em> IFF Pencil 2 (right-click &rarr; Export/Import)</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">DGRP</span><span class="ref-name">Draw Groups</span></div><div class="ref-body">
+    <p>Draw groups tell the game which sprite frame to display for each combination of camera rotation and zoom level. They map the SPR2 sprite frames to specific viewing angles &ndash; so the game knows to show frame 0 when looking from the front at close zoom, frame 1 from the back, and so on.</p>
+    <p>You rarely need to edit these directly. TMog handles draw group mapping automatically during the retexture workflow.</p>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">PALT</span><span class="ref-name">Colour Palette</span></div><div class="ref-body">
+    <p>A 256-colour palette shared across the object's sprites. Each pixel in an SPR2 sprite references a colour by its index number in this palette rather than storing the actual colour value. This is why Sims 1 objects are limited to 256 colours per object.</p>
+    <p>TMog manages palettes during export and import, so you don't need to edit them directly for retexturing.</p>
+  </div></div>
+
+  <div class="ref-section">Behaviour</div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">BHAV</span><span class="ref-name">Behaviour Scripts</span></div><div class="ref-body">
+    <p>SimAntics code &ndash; the programming that controls what an object does. Each BHAV is a "tree" of instructions where every instruction has a True and False outcome, leading to the next instruction or ending the routine.</p>
+    <p>Objects typically have multiple BHAVs for different purposes. The most important ones:</p>
+    <p><strong>Main (ID 4096):</strong> The idle heartbeat loop that runs constantly while the object exists on the lot. This does not control the pie menu &ndash; that's TTAB.</p>
+    <p><strong>Init:</strong> Runs once when the object is first placed on the lot.</p>
+    <p><strong>Interaction BHAVs:</strong> Run when a Sim performs a specific action with the object (sit, study, eat, etc.). These are called by the TTAB entries.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tool:</p>
+      <p class="ref-loc-item"><em>View &amp; Edit:</em> IFF Pencil 2</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">TTAB</span><span class="ref-name">Interaction List (Pie Menu)</span></div><div class="ref-body">
+    <p>The Tree Table controls what appears in the blue pie menu when you click on an object. Each entry in the TTAB represents one interaction option (like "Sit," "Study Cooking," or "Watch TV").</p>
+    <p>Each TTAB entry has:</p>
+    <p><strong>Action Tree:</strong> Points to the BHAV script that runs when a Sim selects this option.</p>
+    <p><strong>Check Tree:</strong> Points to a BHAV that decides whether this option should appear at all (for example, only showing "Study Cooking" if the Sim's Cooking skill is below maximum).</p>
+    <p><strong>Flags:</strong> Who can use this interaction &ndash; Adults, Children, Visitors, or any combination.</p>
+    <p>The companion resource TTAs holds the text labels for each interaction &ndash; the words that actually appear in the pie menu.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tool:</p>
+      <p class="ref-loc-item"><em>View &amp; Edit:</em> IFF Pencil 2</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">BCON</span><span class="ref-name">Tunable Constants</span></div><div class="ref-body">
+    <p>An array of numeric values that BHAV scripts read during gameplay. These are the "knobs and dials" of an object &ndash; things like comfort gain rate, skill teaching speed, energy drain, room score impact, and price. Changing BCON values is the easiest way to modify how an object behaves without writing any code.</p>
+    <p>Not every object has BCONs. Simple decorative objects (like the flamingo) may have only one, while complex interactive objects have many.</p>
+    <p><strong>Example:</strong> the Bookcase has 7 BCON groups labelled Tuning&ndash;Skills, Tuning&ndash;Time, Tuning&ndash;School, Tuning&ndash;Motives, Tuning&ndash;Skills, and Tuning&ndash;Room Impact.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tools:</p>
+      <p class="ref-loc-item"><em>Quick Editing:</em> Constant Contraption (standalone, beginner-friendly)</p>
+      <p class="ref-loc-item"><em>Full Editing:</em> IFF Pencil 2</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">STR#</span><span class="ref-name">String Tables</span></div><div class="ref-body">
+    <p>Text data stored in numbered blocks, used for various purposes depending on the ID number. Different string table IDs serve different functions within the game:</p>
+    <p><strong>ID 129 (a2o):</strong> Adult-to-Object animation names &ndash; tells the game which animation to play when an adult Sim interacts with this object.</p>
+    <p><strong>ID 130 (c2o):</strong> Child-to-Object animation names &ndash; same as above, but for child Sims.</p>
+    <p><strong>ID 200:</strong> Body strings for characters and NPCs &ndash; defines which skin files to use for each outfit type.</p>
+    <p><strong>ID 301:</strong> Dialog text &ndash; what appears in conversation or thought bubbles related to the object.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tools:</p>
+      <p class="ref-loc-item"><em>Quick Editing:</em> Strings Scavenger (standalone, beginner-friendly)</p>
+      <p class="ref-loc-item"><em>Full Editing:</em> IFF Pencil 2</p>
+    </div>
+  </div></div>
+
+  <div class="ref-section">Structure</div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">OBJD</span><span class="ref-name">Object Definition</span></div><div class="ref-body">
+    <p>The master record for the object. Contains:</p>
+    <ul style="margin:4px 0 8px 20px;font-size:14px;color:var(--ink-mid);">
+      <li><strong>Price</strong> &ndash; shown in the Buy Mode catalog</li>
+      <li><strong>Catalog category</strong> &ndash; which room and function section it appears in</li>
+      <li><strong>GUID</strong> &ndash; the unique identifier that distinguishes this object from every other object in the game</li>
+      <li><strong>Resource pointers</strong> &ndash; which TTAB for interactions, which DGRP for graphics, which SLOT for approach positions</li>
+    </ul>
+    <p></p>
+    <p>This is also where the motive advertisement values live &ndash; the numbers that tell Sims how desirable the object is for different needs (Hunger, Comfort, Fun, etc.), which affects autonomous behaviour.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tool:</p>
+      <p class="ref-loc-item"><em>View &amp; Edit:</em> IFF Pencil 2</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">OBJf</span><span class="ref-name">Object Functions</span></div><div class="ref-body">
+    <p>Points to the BHAV scripts that run automatically without a Sim clicking on the object:</p>
+    <p><strong>Init:</strong> Runs when the object is first placed on the lot or when a saved game loads with this object already placed.</p>
+    <p><strong>Main:</strong> The idle loop that runs continuously while the object exists. Handles things like checking if food has spoiled or if a plant needs watering.</p>
+    <p><strong>Load:</strong> Runs when the lot is loaded from a save file.</p>
+    <div class="ref-locs">
+      <p class="ref-loc-label">Tool:</p>
+      <p class="ref-loc-item"><em>View &amp; Edit:</em> IFF Pencil 2</p>
+    </div>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">CTSS</span><span class="ref-name">Catalog Text</span></div><div class="ref-body">
+    <p>The object's name and description as they appear in the Buy Mode catalog. Contains text in multiple languages &ndash; the game displays whichever matches the player's language setting. When creating a custom object, you write your catalog text here.</p>
+    <p>TMog lets you edit catalog text directly without opening IFF Pencil &ndash; click "Edit Object" in TMog to change the name, description, and price.</p>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">SLOT</span><span class="ref-name">Interaction Slots</span></div><div class="ref-body">
+    <p>Defines how Sims physically approach and interact with the object. Includes where the Sim stands, how close they get, which direction they face, and containment slots (positions where other objects can sit on top of this one &ndash; like a plate on a table or a book on a shelf).</p>
+    <p>SLOT editing is rarely needed for beginners. IFF Pencil 2 can display SLOT data but has limited editing support for this resource type.</p>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">FWAV</span><span class="ref-name">Sound Events</span></div><div class="ref-body">
+    <p>References to sound files that play during object interactions. Each FWAV entry points to a sound effect (stored as .XA files in the game's sound archives). BHAV scripts trigger sounds by referencing FWAV IDs &ndash; for example, a chair might have an FWAV for the "sit down" creak and another for "stand up."</p>
+  </div></div>
+
+  <div class="ref-card"><div class="ref-head" onclick="this.parentElement.classList.toggle('open')"><span class="ref-arrow">&#9656;</span><span class="ref-code">GLOB</span><span class="ref-name">Semi-Global Reference</span></div><div class="ref-body">
+    <p>Tells the game which semi-global file to load shared behaviour routines from. Many objects share common code &ndash; for example, all chairs use the same "sit down" animation routine rather than each chair duplicating that code. The GLOB resource points to the right shared file (like "ChairGlobals.iff") so the object can call those routines.</p>
+    <p>You rarely need to edit this unless you're creating entirely new object categories.</p>
+  </div></div>
+</div>
+</section>
+
+<section id="skin-prefixes">
+  <div class="section-head"><div class="section-emoji">👗</div><div><h2 class="section-title">Skin Filename Prefixes</h2><p class="section-sub">How the game knows what type of outfit it is</p></div></div>
+  <p>Everything the game needs to know about a skin is encoded in its filename. The <strong>first letter</strong> tells the game what clothing category the skin belongs to &ndash; which dresser drawer it appears in, whether it's buyable at a clothing rack, and which expansion unlocked it.</p>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th>Prefix</th><th>Type</th><th>Where It Appears</th><th>Requires</th></tr></thead>
+    <tbody>
+      <tr><td><strong>C</strong></td><td>Cranium (Head)</td><td>Create-A-Sim head selection</td><td>Base game</td></tr>
+      <tr><td><strong>B</strong></td><td>Body (Everyday)</td><td>Dresser &ndash; everyday clothing</td><td>Base game</td></tr>
+      <tr><td><strong>L</strong></td><td>Lingerie (Pyjamas / Sleepwear)</td><td>Buyable at clothing rack &ndash; sleepwear</td><td>Hot Date</td></tr>
+      <tr><td><strong>F</strong></td><td>Formal</td><td>Buyable at clothing rack &ndash; formal</td><td>Hot Date</td></tr>
+      <tr><td><strong>S</strong></td><td>Swimwear</td><td>Buyable at clothing rack &ndash; swimwear</td><td>Hot Date</td></tr>
+      <tr><td><strong>W</strong></td><td>Winterwear</td><td>Buyable at clothing rack &ndash; winterwear</td><td>Vacation</td></tr>
+      <tr><td><strong>H</strong></td><td>High Fashion</td><td>Buyable at clothing rack &ndash; high fashion</td><td>Superstar</td></tr>
+      <tr><td><strong>H</strong></td><td>Hand files</td><td>Sim's hand texture (separate from body)</td><td>Base game</td></tr>
+      <tr><td><strong>xskin-</strong></td><td>Mesh file (.skn)</td><td>Defines 3D shape &ndash; paired with BMP textures</td><td>Base game</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>After the type prefix, the rest of the filename encodes: <strong>gender</strong> (f = female, m = male), <strong>age</strong> (a = adult, c = child), <strong>body type</strong> (3 letters), <strong>skin tone</strong> (lgt / med / drk), then an underscore and the outfit name.</p>
+  <p><strong>Example:</strong> <code>Lfa fit lgt_MySleepwear.bmp</code> = Lingerie, female adult, fit body type, light skin tone.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Note on H:</strong> Both High Fashion and hand files start with H. The game distinguishes them by context &ndash; hand files are referenced directly in character files, while High Fashion skins appear in the clothing rack like other buyable types.</div>
+  <p>Pyjamas share the L prefix with lingerie. Creators can rename L to B if they want pyjamas available as everyday wear instead of buyable clothing. Work outfits use career-specific names via the game's career data, not a single-letter prefix.</p>
+</section>
+
+<section id="magic-cookie">
+  <div class="section-head"><div class="section-emoji">🍪</div><div><h2 class="section-title">Magic Cookie</h2><p class="section-sub">Unique creator IDs for custom objects</p></div></div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">🍪 What is a Magic Cookie?</div>
+    <div class="card-desc">When you clone an object in TMog, it asks for a <strong>Magic Cookie number</strong>. TMog combines your cookie with a random number to generate a unique GUID (Global Unique ID) for the clone. Every object in the game needs a unique GUID &ndash; if two objects share the same one, only one of them will load.</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🔑 Key Facts</div>
+      <div class="card-desc">
+        <p>Each creator needs only <strong>one</strong> cookie.</p>
+        <p style="margin-top:8px;">One cookie can generate up to <strong>65,535</strong> unique object GUIDs.</p>
+        <p style="margin-top:8px;">Your cookie is permanent &ndash; use the same one for everything you make.</p>
+        <p style="margin-top:8px;">Store it somewhere safe (text file, notes app, wherever you track your work).</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 Where to Get One</div>
+      <div class="card-desc">
+        <p style="margin-top:14px;"><strong>For personal use and testing:</strong> Enter <code>0</code> in TMog. This is fine for objects that stay on your own computer.</p>
+        <p style="margin-top:14px;"><strong>For sharing CC online:</strong> Get a number from the community <a href="https://docs.google.com/spreadsheets/d/1DWYV4jvMKiVB_GjpGkHl1bxBr3lHEsMHdulSJIqjSJM/edit" target="_blank" rel="noopener" style="font-weight:700;">Magic Cookie Database (Google Sheet)</a>. This replaced the original TMog registry which no longer exists.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout gold" style="margin-top:16px;">⚠️ TMog has a "Get Magic Cookie" button, but it tries to connect to a website that shut down years ago. It will not work. Get your cookie number from the <a href="https://docs.google.com/spreadsheets/d/1DWYV4jvMKiVB_GjpGkHl1bxBr3lHEsMHdulSJIqjSJM/edit" target="_blank" rel="noopener" style="font-weight:700;color:var(--gold-dark);">Magic Cookie Database</a> instead, then type it into the field manually &ndash; TMog will remember it for future clones.</div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection – Modding Guide
+    </div>
+        <div class="footer-links">
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a>
+      <a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a>
+      <a href="search.html">Search</a>
+      <a href="terminology.html">Terminology</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="careers.html">Career Guide</a>
+      <a href="updates.html">Site Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group">
+      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-title">Gameplay</div>
+          <a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a>
+          <a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
+      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Site</div>
+      <a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📅</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="file-reference.html" class="nav-drawer-link nav-drawer-sublink active"><span class="nav-drawer-icon">🗂️</span>File Reference</a>
+      <a href="credits.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📝</span>Sources &amp; Credits</a>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
+    </div>
+  </div></div>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  /* Nav scroll arrows */
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+
+  /* Drawer – both hamburger buttons open it */
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  /* Back to top */
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  /* Dropdown panels – fixed position via JS */
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
+    panel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  setupDD('infoDropdownBtn','infoDropdownPanel');
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+<script>
+function toggleSection(btn){
+  var section=btn.closest('section');
+  var cards=section.querySelectorAll('.ref-card');
+  var anyOpen=section.querySelector('.ref-card.open');
+  cards.forEach(function(c){
+    if(anyOpen)c.classList.remove('open');
+    else c.classList.add('open');
+  });
+  btn.textContent=anyOpen?'Expand all':'Collapse all';
+}
+</script>
+</body>
+</html>
