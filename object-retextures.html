@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Object Retextures – Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="object-retextures.html" class="nav-dropdown-item active">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHam" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){
+    if(!nav||!hint)return;
+    var overflows=nav.scrollWidth>nav.clientWidth+4;
+    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
+    hint.style.display=(overflows&&!atEnd)?'flex':'none';
+  }
+  if(hint){
+    hint.addEventListener('click',function(){
+      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
+    });
+  }
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);
+  setTimeout(check,200);
+})();
+</script>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – Creating CC</div>
+  <h1 class="page-title">Object <span>Retextures</span></h1>
+  <p class="page-sub">Change how in-game objects look without touching any behaviour scripts</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#what-is">What Is a Retexture?</a></li><li><a href="#tools">Tools You Need</a></li><li><a href="#magic-cookie">Magic Cookie</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#catalog-thumb">Catalog Thumbnail</a></li><li><a href="#new-objects">Creating New Objects</a></li><li><a href="#further">Going Further</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
+    </div>
+  </aside>
+  <main class="content">
+
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> – screenshots showing each tool step will be added soon. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">r/thesims1</a>.</div>
+
+<section id="what-is">
+  <div class="section-head"><div class="section-emoji">🎨</div><div><h2 class="section-title">What Is a Retexture?</h2><p class="section-sub">Changing how an object looks without touching gameplay</p></div></div>
+  <p>A retexture changes the visual appearance of an existing game object – its colour, pattern, or design – while keeping all of its behaviour, interactions, and stats identical. The original object stays untouched in your game. Your retexture appears as a separate item in the Buy Mode catalog.</p>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">✅ What you can change</div><div class="card-desc">The game-view sprites (what the object looks like on the lot) and the catalogue thumbnail image (what appears in Buy Mode).</div></div>
+    <div class="card"><div class="card-title">🔧 One tool does the work</div><div class="card-desc">Transmogrifier (TMog) handles the entire retexture process – cloning the object, exporting its sprites as editable images, and importing your painted versions back in. Created by Don Hopkins at Maxis.</div></div>
+    <div class="card"><div class="card-title">🎨 Image editing</div><div class="card-desc">GIMP or Photoshop to paint your retexture onto the exported sprite images. TMog handles all the technical sprite formatting – you just change the colours.</div></div>
+  </div>
+  <div class="callout red" style="margin-top:16px;"> <strong>🚨 Never edit original game files directly.</strong> Always use TMog to create a clone first. The clone is your working copy – the original stays safe inside the game's archive files. If your retexture goes wrong, just delete the clone and start over.</div>
+  <div class="callout gold" style="margin-top:0;"> <strong>⚠️ Never edit or move files while the game is running.</strong> Close the game before making any changes to mod files, then relaunch to test.</div>
+</section>
+
+<section id="tools">
+  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Tools You Need</h2><p class="section-sub">TMog for the retexture workflow, plus any image editor</p></div></div>
+  <div class="grid-2">
+    <div class="card"><div class="card-title"><span class="tag green">ESSENTIAL</span> Transmogrifier (TMog)</div><div class="card-desc">The main tool for object retexturing. TMog clones objects, exports their sprite images as editable BMP files, and imports your painted versions back in. This is the only tool you need for a visual-only retexture. Created by Don Hopkins (Maxis).</div><a class="pill-link" href="https://www.thesimstransmogrifier.com/TransmogrifierDocumentation/TransmogrifierDocumentation.htm" target="_blank" rel="noopener">TMog Documentation &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">ESSENTIAL</span> GIMP or Photoshop</div><div class="card-desc">For painting your retexture onto the exported sprite images. Any image editor that can open and save BMP files will work. GIMP is free.</div><a class="pill-link" href="https://www.gimp.org/" target="_blank" rel="noopener">↗ gimp.org</a></div>
+    <div class="card"><div class="card-title"><span class="tag teal">OPTIONAL</span> IFF Pencil 2</div><div class="card-desc">Only needed if you want to update the catalog thumbnail after retexturing. IFF Pencil edits resources inside IFF files but does not handle sprites – that's TMog's job. Requires Windows XP SP3 compatibility mode and Run as administrator on Windows 10/11. Download from <a href="https://github.com/trolando/Sims1Tools" target="_blank" rel="noopener">trolando's GitHub</a> (includes the required script files).</div></div>
+  </div>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ TMog and IFF Pencil both need Windows registry entries to find your game. The Sims Legacy Collection does not create these automatically. If TMog can't find your game, install the <a href="https://github.com/Secondhand-Feraligatr/Sims-1-Programs-for-Legacy-Collection" target="_blank" rel="noopener">Feraligatr installer</a> first – it creates the registry entries and installs a collection of classic Maxis tools.</div>
+</section>
+
+<section id="magic-cookie">
+  <div class="section-head"><div class="section-emoji">🍪</div><div><h2 class="section-title">What's a Magic Cookie?</h2><p class="section-sub">The number TMog asks for when you clone an object</p></div></div>
+  <p>When you clone an object, TMog asks for a "Magic Cookie Number." This is a unique number that helps generate a unique ID (called a GUID) for your new object. Every object in the game needs its own GUID – if two objects from different creators share the same one, the game can only load one of them.</p>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">🧪 For personal use and testing</div><div class="card-desc">Enter <strong>0</strong> in the Magic Cookie field. This is fine for objects that stay on your own computer.</div></div>
+    <div class="card"><div class="card-title">🌐 For sharing CC online</div><div class="card-desc">Get a cookie number from the <strong>community Magic Cookie Database</strong> (a Google Sheet that replaced the original registry, which no longer exists). Each creator claims one number – that number is yours for everything you make.</div></div>
+  </div>
+  <p style="margin-top:12px;">One cookie can generate up to 65,535 unique object GUIDs – more than any creator will ever need. Keep your number saved somewhere safe (a text file, your notes app) and use the same one every time you clone.</p>
+  <div class="callout gold">⚠️ TMog has a "Get Magic Cookie" button that tries to connect to the old registry website. It will not work – the site shut down years ago. Just type your cookie number into the field manually.</div>
+</section>
+
+<section id="steps">
+  <div class="section-head"><div class="section-emoji">🚶</div><div><h2 class="section-title">Step-by-Step: Retexturing an Object</h2><p class="section-sub">Using the Pink Flamingo as an example – the same process works for any object</p></div></div>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open Transmogrifier and find your object</h4><p>Launch TMog. The left panel shows a list of every object in the game. Scroll through or type in the search box to find the object you want to retexture. For this example, find <strong>flamingo</strong> in the list and click on it.</p><p>The right side of the screen shows information about the selected object – its filename, how many objects are in that file, and a list of objects you can work with. The flamingo file contains one object called "Flamingo."</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Clone the object</h4><p>Click <strong>"Clone Object File…"</strong> at the top right. A dialog appears asking for three things:</p>
+    <ul style="margin:8px 0 8px 20px;">
+      <li><strong>New Object File Name:</strong> Give your clone a unique name. TMog suggests one with random numbers – you can change it to something meaningful like <code>green_flamingo</code>.</li>
+      <li><strong>Magic Cookie Number:</strong> Enter <strong>0</strong> for personal use, or your number from the Magic Cookie Database if you plan to share. See the section above for details.</li>
+      <li><strong>Select Objects to Clone:</strong> The flamingo file only has one object, so it's already selected. For files containing multiple objects (like dining chairs), pick the specific one you want.</li>
+    </ul>
+    <p>Click <strong>OK</strong>. TMog creates your clone as a new IFF file and saves it automatically in <code>Downloads\Transmogrified\</code> inside your game folder. You'll see your clone appear in TMog's object list.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export the sprites</h4><p>With your clone selected in the list, click <strong>"Export Object File…"</strong> (this button was greyed out before cloning – it only works on files you own).</p>
+    <p>The <strong>Export Whizzer</strong> dialog appears with several options. For a simple colour change, the defaults are what you want:</p>
+    <ul style="margin:8px 0 8px 20px;">
+      <li><strong>"Just Change Colors"</strong> should be checked – this tells TMog to preserve the z-buffers (depth information) and alpha channels (transparency) from the original object. You only need to change the colour pixels.</li>
+      <li><strong>"Export All Zooms"</strong> exports sprites at all three zoom levels (near, medium, far view). Leave this checked.</li>
+    </ul>
+    <p>Click <strong>OK</strong>, then choose where to save the export. TMog creates a folder containing:</p>
+    <ul style="margin:8px 0 8px 20px;">
+      <li>An <strong>XML file</strong> (e.g. <code>green_flamingo.xml</code>) – this is the import map that TMog reads later</li>
+      <li>A <strong>sprites subfolder</strong> containing BMP image files for each sprite at each zoom level and rotation angle</li>
+    </ul>
+    <p>The flamingo exports 6 BMP files: front and back views at large, medium, and small zoom. Other objects may have more – animated objects or multi-state objects (like a TV that can be on or off) will have sprites for each state.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint your retexture</h4><p>Open the exported BMP files in GIMP or Photoshop. Each file shows the object on a bright background colour (usually yellow or magenta) – this is the transparent colour that the game replaces with whatever is behind the object. Don't paint over the background – only change the pixels that are part of the object itself.</p>
+    <p>Paint your new colours directly over the existing ones. The flamingo is pink – paint it green, blue, gold, or whatever you like. Try to keep the shading and highlights from the original to maintain a natural look.</p>
+    <p>Save each file as BMP when done. Keep the same filenames – TMog matches them up using the XML file.</p>
+    <div class="callout teal" style="margin:8px 0 0;">ℹ️ You don't need to worry about indexed colour palettes for object sprites. TMog handles the palette conversion when it imports your changes. This is different from body skins, which must be saved as 256-colour indexed BMP.</div></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import the painted sprites back into TMog</h4><p>Go back to TMog. Make sure your clone is still selected in the list, then click <strong>"Import Object File…"</strong>. Navigate to the XML file you exported earlier and select it. TMog reads the XML, finds your edited BMP files in the sprites folder, and writes them back into the clone's IFF file.</p>
+    <p>You'll see an import progress bar. Once it finishes, the retexture is done – your clone now contains your new sprites.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test in game</h4><p>Your finished clone is already in the right place – <code>Downloads\Transmogrified\</code> inside your game folder. Launch The Sims and open Buy Mode. Your retextured object should appear as a new item in the catalog alongside the original.</p>
+    <p>Check it at all three zoom levels (scroll wheel to zoom in and out) and rotate the camera to see all angles. If something looks wrong at a specific zoom level, go back and repaint that specific sprite – the filenames tell you which zoom and angle each one is (e.g. <code>large_front</code>, <code>medium_back</code>, <code>small_front</code>).</p></div></div>
+  </div>
+</section>
+
+<section id="catalog-thumb">
+  <div class="section-head"><div class="section-emoji">🖼️</div><div><h2 class="section-title">Updating the Catalog Thumbnail</h2><p class="section-sub">Optional – the Buy Mode picture may still show the old look</p></div></div>
+  <p>After retexturing, you may notice the small picture in the Buy Mode catalog still shows the original object's appearance. This is the catalog thumbnail – a separate BMP image stored inside the IFF file (called a BMP_ resource) that TMog's sprite export doesn't touch.</p>
+  <p>Many CC creators skip this step and it doesn't affect gameplay. But if you want the catalog picture to match your retexture, you can update it using IFF Pencil 2:</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a thumbnail image</h4><p>Take a screenshot of your retextured object in game, or paint a small image of it in GIMP. The catalog thumbnail is small (around 60×60 pixels), so it doesn't need to be detailed.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the clone in IFF Pencil 2</h4><p>Launch IFF Pencil 2 (with XP SP3 compatibility mode and Run as admin if on Windows 10/11). Open your clone IFF file from <code>Downloads\Transmogrified\</code>. In the left panel, click on <strong>BMP_</strong> to see the bitmap resources. The one labelled "Catalog" (usually ID 2000) is the Buy Mode thumbnail.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your new thumbnail</h4><p>Right-click the Catalog BMP_ resource → Import → select your new thumbnail image. Save the IFF file. The catalog picture will now show your retextured version.</p></div></div>
+  </div>
+
+  <details class="inline-ft" style="margin-top:16px;">
+    <summary>What's inside an object IFF file?</summary>
+    <div style="padding:0 12px 10px;font-size:14px;color:var(--ink-mid);">
+      <p><strong>SPR2:</strong> Game-view sprites (the images you see on the lot). Edited via TMog.</p>
+      <p><strong>BMP_:</strong> Catalog thumbnail shown in Buy Mode. Edited via IFF Pencil 2.</p>
+      <p><strong>DGRP:</strong> Draw groups that map sprites to rotation angles and zoom levels.</p>
+      <p><strong>PALT:</strong> The 256-colour palette used by the sprites.</p>
+      <p><strong>BHAV:</strong> Behaviour scripts controlling what the object does.</p>
+      <p><strong>TTAB:</strong> The interaction list (pie menu options).</p>
+      <p><strong>BCON:</strong> Tunable values like comfort, skill gain, and room impact.</p>
+      <p style="margin-top:8px;"><a href="file-reference.html" style="display:inline-flex;align-items:center;gap:4px;background:var(--green-pale);color:var(--green-dark);padding:3px 10px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;border:1px solid rgba(27,82,41,0.15);">🗂️ Full file type reference →</a></p>
+    </div>
+  </details>
+</section>
+
+<section id="new-objects">
+  <div class="section-head"><div class="section-emoji">🧊</div><div><h2 class="section-title">Creating New Objects from Scratch</h2><p class="section-sub">Model in 3D, render sprites, compile into a game-ready object</p></div></div>
+
+  <p>Retexturing changes how an existing object looks. Creating a new object means modelling it in 3D, rendering it as sprites at every angle the game needs, and packaging everything into an IFF file. This used to be extremely tedious – but modern tools have made it much more doable.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Why objects are sprites, not 3D models</h3>
+
+  <p>Sims 1 objects aren't rendered in real-time 3D. They're <strong>pre-rendered sprites</strong> – flat images displayed at fixed isometric angles. Each object needs sprites for 4 rotations (N/E/S/W) at 3 zoom levels (near/medium/far), plus a matching <strong>z-buffer</strong> sprite for each. The z-buffer is a depth mask that tells the game how to layer Sims in front of and behind the object. Missing or incorrect z-buffers cause Sims to clip through objects.</p>
+
+  <p>Bilaterally symmetrical objects (like the flamingo) only need 2 rotation sprites – TMog flips them automatically for the opposite angles. This halves the work for simple objects.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ A single-tile object needs at minimum 24 sprites (4 rotations × 3 zooms × 2 for colour + z-buffer). Multi-tile objects need even more. This is why making objects by hand was such a pain in the early 2000s – and why mixiate's automated rendering tools are a big deal.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Modern workflow – Blender + TS1 tools</h3>
+
+  <p>The <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer</a> and <a href="https://github.com/mixiate/ts1-compiler" target="_blank" rel="noopener">TS1 Compiler</a> addons by mixiate automate the hardest parts – sprite rendering and IFF assembly.</p>
+
+  <div class="steps" style="margin-top:14px;">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Model your object in Blender</h4><p>Create your 3D model in Blender. Keep the polygon count low – this is being rendered to small sprites, not displayed as a real-time 3D model. Simple geometry with good textures looks better than complex geometry that turns to mush at sprite resolution.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Install TS1 Renderer and set up the scene</h4><p>Install the <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer addon</a> for Blender 4.1, 4.3–4.5 (not 4.2 due to a Blender bug). Follow the <a href="https://github.com/mixiate/ts1-renderer/wiki" target="_blank" rel="noopener">wiki</a> to set up the isometric camera angles and lighting. The addon handles the correct sprite dimensions and angles automatically.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Render all sprites</h4><p>TS1 Renderer renders all required rotation angles, zoom levels, and z-buffer sprites in one batch. This replaces what used to be hours of manual screenshot-and-crop work.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Compile into an IFF file</h4><p>Use <a href="https://github.com/mixiate/ts1-compiler" target="_blank" rel="noopener">TS1 Compiler</a> to assemble the rendered sprites into a complete, game-ready IFF file. The compiler handles sprite indexing, palettisation, z-buffer packaging, and creates the basic OBJD (object definition) resource. You will also need to create a catalog thumbnail image manually – the compiler does not auto-generate this.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place in Downloads\ and test</h4><p>Copy the finished IFF to your <code>Downloads\</code> folder. Launch the game and check the object appears in the Buy Mode catalogue, rotates correctly, and Sims interact with it without visual glitches.</p></div></div>
+  </div>
+
+  <p style="margin-top:20px;">Before TS1 Renderer existed, creators modelled objects in any 3D editor, manually rendered sprites at each angle using specific camera settings, cropped and indexed them as 256-colour BMPs, hand-created z-buffer sprites, and imported everything piece by piece. This is still possible but extremely tedious. If you're creating new objects, use the modern Blender pipeline above.</p>
+</section>
+
+<section id="further">
+  <div class="section-head"><div class="section-emoji">📚</div><div><h2 class="section-title">Going Further</h2><p class="section-sub">Beyond visual changes</p></div></div>
+  <p>Once you're comfortable with visual retextures, the next step is changing the object's behaviour – its price, motive effects, interactions, and so on. That's covered on the <a href="iff-hacking.html">IFF Hacking</a> page.</p>
+  <p>For a detailed walkthrough of the flamingo retexture using TMog (the "Green Flamingo" tutorial by the tool's creator), see the <a href="https://www.thesimstransmogrifier.com/TransmogrifierDocumentation/TransmogrifierTutorial1.htm" target="_blank" rel="noopener">official TMog Tutorial 1</a>.</p>
+</section>
+
+<div class="prevnext">
+  <a href="making-walls-floors.html" class="prevnext-link prev"><span class="prevnext-arrow">←</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">Making Walls & Floors</div></div></a>
+  <a href="iff-hacking.html" class="prevnext-link next"><span class="prevnext-arrow">→</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">IFF Hacking</div></div></a>
+</div>
+
+<div class="page-nav">
+<a href="making-walls-floors.html" class="page-nav-link prev"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Making Walls & Floors</span></a>
+<a href="iff-hacking.html" class="page-nav-link next"><span class="page-nav-label">Next →</span><span class="page-nav-title">IFF Hacking</span></a>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection – Modding Guide
+    </div>
+        <div class="footer-links">
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a>
+      <a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a>
+      <a href="search.html">Search</a>
+      <a href="terminology.html">Terminology</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="careers.html">Career Guide</a>
+      <a href="updates.html">Site Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group">
+      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-title">Gameplay</div>
+          <a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a>
+          <a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
+      <a href="object-retextures.html" class="nav-drawer-link nav-drawer-sublink active"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Site</div>
+      <a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📅</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="file-reference.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🗂️</span>File Reference</a>
+      <a href="credits.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📝</span>Sources &amp; Credits</a>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
+    </div>
+  </div></div>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  /* Nav scroll arrows */
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+
+  /* Drawer – both hamburger buttons open it */
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  /* Back to top */
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  /* Dropdown panels – fixed position via JS */
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
+    panel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  setupDD('infoDropdownBtn','infoDropdownPanel');
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>

@@ -40,7 +40,7 @@ The guide has **24 pages** grouped into sections:
 | `making-clothing.html` | Custom body skins (256×256 BMP), skin tones, filename format, xskin chain, mesh editing |
 | `making-heads.html` | Custom hair and face textures (128×128 BMP), Face Photo Wizard, skin tone versions |
 | `making-walls-floors.html` | Wall coverings (.WLL), floor tiles (.FLR) via HomeCrafter, roof textures (.BMP) |
-| `making-objects.html` | Object retextures using Transmogrifier – clone, export sprites, paint, import. Magic Cookie guide |
+| `object-retextures.html` | Object retextures using Transmogrifier – clone, export sprites, paint, import. Magic Cookie guide |
 | `iff-hacking.html` | Gameplay mods: BCON editing, TTAB interactions, FAR override system, custom careers, career transfer loop |
 | `tools.html` | Every modding tool with download links and Legacy Collection compatibility notes |
 
@@ -83,7 +83,7 @@ Static HTML – no framework, no build step, no dependencies. Deployed via GitHu
 ├── making-clothing.html
 ├── making-heads.html
 ├── making-walls-floors.html
-├── making-objects.html         Object retextures (TMog workflow)
+├── object-retextures.html         Object retextures (TMog workflow)
 ├── iff-hacking.html            Gameplay mods (BCON, TTAB, careers)
 ├── tools.html
 ├── file-reference.html         Technical reference (expandable cards)
