@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sims Legacy Collection Guide – Style Guide & Component Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ─── ROOT VARIABLES (matches site exactly) ─────────────────────────── */
+:root {
+  --cream:       #F5F2E8;
+  --white:       #FFFFFF;
+  --green:       #3BAE5C;
+  --green-dark:  #1A5229;
+  --green-pale:  #E6F5EB;
+  --gold:        #E8B84B;
+  --gold-dark:   #9A6F10;
+  --teal:        #3AADA8;
+  --teal-dark:   #1D5E5B;
+  --red:         #D94F4F;
+  --red-pale:    #FDEAEA;
+  --ink:         #1C2B1F;
+  --ink-mid:     #3D5445;
+  --ink-muted:   #6B8A72;
+  --border:      rgba(27,82,41,0.12);
+  --shadow-sm:   0 1px 4px rgba(27,82,41,0.08);
+  --shadow-md:   0 4px 16px rgba(27,82,41,0.10);
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --font-head:   'Paytone One', sans-serif;
+  --font-body:   'Nunito', sans-serif;
+  --font-mono:   'IBM Plex Mono', monospace;
+}
+
+/* ─── STYLE GUIDE SPECIFIC LAYOUT ───────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--cream); color: var(--ink); line-height: 1.6; }
+
+.sg-header { background: var(--green-dark); color: #fff; padding: 48px 40px 40px; }
+.sg-header h1 { font-family: var(--font-head); font-size: 32px; margin-bottom: 8px; }
+.sg-header p { opacity: 0.8; font-size: 15px; }
+.sg-header .badge { display: inline-block; background: var(--green); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-top: 12px; font-family: var(--font-mono); }
+
+.sg-layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+.sg-sidebar { background: var(--white); border-right: 2px solid var(--border); padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+.sg-sidebar-title { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 1px; padding: 0 20px 8px; }
+.sg-sidebar a { display: block; padding: 7px 20px; font-size: 13px; font-weight: 600; color: var(--ink-mid); text-decoration: none; border-left: 3px solid transparent; }
+.sg-sidebar a:hover { background: var(--green-pale); color: var(--green-dark); border-left-color: var(--green); }
+.sg-sidebar .sg-divider { height: 1px; background: var(--border); margin: 12px 16px; }
+
+.sg-content { padding: 48px 56px; max-width: 900px; }
+
+.sg-section { margin-bottom: 72px; }
+.sg-section-title { font-family: var(--font-head); font-size: 26px; color: var(--green-dark); border-bottom: 3px solid var(--green); padding-bottom: 12px; margin-bottom: 32px; }
+.sg-sub { font-family: var(--font-head); font-size: 16px; color: var(--ink); margin: 32px 0 14px; }
+
+.sg-demo { background: var(--white); border: 2px solid var(--border); border-radius: var(--radius-md); padding: 28px; margin-bottom: 8px; }
+.sg-code { background: #1A2B1C; color: #7EE896; font-family: var(--font-mono); font-size: 12px; padding: 16px 20px; border-radius: 0 0 var(--radius-md) var(--radius-md); margin-bottom: 28px; overflow-x: auto; white-space: pre; line-height: 1.7; }
+.sg-code-standalone { border-radius: var(--radius-md); margin-bottom: 28px; }
+.sg-label { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); margin-bottom: 6px; }
+.sg-note { font-size: 13px; color: var(--ink-muted); margin: -20px 0 28px; padding: 0 4px; font-style: italic; }
+
+/* Colour swatches */
+.swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-bottom: 28px; }
+.swatch { border-radius: var(--radius-sm); overflow: hidden; border: 1px solid rgba(0,0,0,0.1); }
+.swatch-color { height: 64px; }
+.swatch-info { padding: 8px 10px; background: var(--white); }
+.swatch-name { font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: var(--ink); }
+.swatch-hex  { font-family: var(--font-mono); font-size: 10px; color: var(--ink-muted); }
+.swatch-var  { font-family: var(--font-mono); font-size: 10px; color: var(--green-dark); }
+
+/* ─── ACTUAL SITE COMPONENTS (copy-paste from site CSS) ─────────────── */
+/* Callouts */
+.callout { display: flex; gap: 12px; padding: 16px 18px; border-radius: var(--radius-md); font-size: 14px; line-height: 1.6; margin-bottom: 16px; border: 1.5px solid transparent; }
+.callout.teal  { background: #E8F8F7; border-color: var(--teal);      color: var(--teal-dark); }
+.callout.gold  { background: #FDF6E3; border-color: var(--gold);      color: #9A6F10; }
+.callout.red   { background: var(--red-pale); border-color: var(--red); color: #7A1F1F; }
+.callout.green { background: var(--green-pale); border-color: var(--green); color: var(--green-dark); }
+
+/* Cards */
+.card { background: var(--white); border: 2px solid var(--border); border-radius: var(--radius-md); padding: 20px; transition: all 0.18s; }
+.card:hover { border-color: var(--green); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.card-title { font-family: var(--font-head); font-size: 16px; color: var(--green-dark); margin-bottom: 8px; }
+.card-desc { font-size: 14px; color: var(--ink-mid); line-height: 1.6; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+/* Tags */
+.tag { display: inline-block; font-family: var(--font-mono); font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 999px; vertical-align: middle; margin-left: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+.tag.green { background: var(--green-pale); color: var(--green-dark); border: 1px solid rgba(27,82,41,0.2); }
+.tag.teal  { background: #E8F8F7; color: var(--teal-dark); border: 1px solid rgba(58,173,168,0.3); }
+.tag.gold  { background: #FDF6E3; color: #9A6F10; border: 1px solid rgba(232,184,75,0.4); }
+.tag.lilac  { background: #EDE7F6; color: #4527A0; border: 1px solid rgba(179,157,219,0.4); }
+.tag.pink   { background: #FCE4EC; color: #880E4F; border: 1px solid rgba(244,143,177,0.4); }
+.tag.orange { background: #FFF3E0; color: #E65100; border: 1px solid rgba(255,204,128,0.4); }
+.tag.red   { background: var(--red-pale); color: #7A1F1F; border: 1px solid rgba(217,79,79,0.3); }
+
+/* Pill links */
+.pill-link { display: inline-flex; align-items: center; gap: 4px; background: var(--green-pale); color: var(--green-dark); border: 1.5px solid rgba(27,82,41,0.2); padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; font-family: var(--font-mono); transition: all 0.18s; }
+.pill-link:hover { background: var(--green); color: #fff; border-color: var(--green); }
+
+/* Steps */
+.steps { display: flex; flex-direction: column; gap: 0; counter-reset: step-counter; margin-bottom: 16px; }
+.step { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-num { width: 32px; height: 32px; min-width: 32px; background: var(--green); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 14px; counter-increment: step-counter; }
+.step-num::before { content: counter(step-counter); }
+.step-body h4 { font-family: var(--font-head); font-size: 15px; color: var(--green-dark); margin-bottom: 6px; }
+.step-body p { font-size: 14px; color: var(--ink-mid); line-height: 1.6; }
+
+/* Tables */
+.table-wrap { border-radius: var(--radius-md); overflow: hidden; border: 2px solid var(--border); margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+thead { background: var(--green-pale); }
+th { color: var(--green-dark); font-family: var(--font-mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 13px 16px; text-align: left; }
+td { padding: 12px 16px; border-top: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: rgba(230,245,235,0.3); }
+td.ok   { color: var(--green-dark); font-weight: 700; }
+td.warn { color: #7A5C00; font-weight: 700; }
+td.no   { color: #7A1F1F; font-weight: 700; }
+
+/* Code */
+code { background: var(--green-pale); color: var(--green-dark); font-family: var(--font-mono); font-size: 12px; padding: 2px 7px; border-radius: 4px; word-break: break-all; }
+.code-block { background: #1A2B1C; color: #7EE896; font-family: var(--font-mono); font-size: 13px; padding: 18px 20px; border-radius: var(--radius-md); overflow-x: auto; line-height: 1.7; margin-bottom: 16px; white-space: pre; word-break: break-all; }
+
+/* Section head */
+.section-head { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+.section-emoji { font-size: 28px; line-height: 1; padding-top: 2px; }
+.section-title { font-family: var(--font-head); font-size: 22px; color: var(--ink); margin-bottom: 4px; }
+.section-sub { font-size: 14px; color: var(--ink-muted); }
+
+/* Plumbob */
+.plumbob { display: inline-block; width: 16px; height: 16px; background: var(--green); transform: rotate(45deg); border-radius: 2px; flex-shrink: 0; animation: pb-float 3s ease-in-out infinite; }
+.plumbob.lg { width: 32px; height: 32px; }
+@keyframes pb-float { 0%,100%{transform:rotate(45deg) translateY(0);} 50%{transform:rotate(45deg) translateY(-4px);} }
+
+/* Roadmap cards */
+.roadmap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
+.roadmap-card { background: var(--white); border: 2px solid var(--border); border-radius: var(--radius-md); padding: 18px; }
+.roadmap-status { font-family: var(--font-mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.roadmap-card.doing  { border-color: var(--green); }
+.roadmap-card.planned{ border-color: var(--gold); }
+.roadmap-card.maybe  { border-color: var(--teal); }
+.roadmap-status.doing  { color: var(--green-dark); }
+.roadmap-status.planned{ color: #9A6F10; }
+.roadmap-status.maybe  { color: var(--teal-dark); }
+.roadmap-title { font-family: var(--font-head); font-size: 14px; color: var(--ink); margin-bottom: 6px; }
+.roadmap-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="sg-header">
+  <h1>Style Guide &amp; Component Reference</h1>
+  <p>Sims Legacy Collection Modding Guide – cyndersanity.github.io/sims-legacy-mod-guide</p>
+  <span class="badge">v5 &middot; April 2026</span>
+</div>
+
+<div class="sg-layout">
+
+<!-- ─── SIDEBAR ─────────────────────────────────────────────────────── -->
+<aside class="sg-sidebar">
+  <div class="sg-sidebar-title">Contents</div>
+  <a href="#colours">Colours</a>
+  <a href="#typography">Typography</a>
+  <a href="#callouts">Callouts</a>
+  <a href="#cards">Cards &amp; Tags</a>
+  <a href="#steps">Steps</a>
+  <a href="#tables">Tables</a>
+  <a href="#code">Code</a>
+  <a href="#mark">Install Paths</a>
+  <a href="#page-nav">Prev/Next Nav</a>
+  <a href="#sections">Section Heads</a>
+  <a href="#roadmap">Roadmap Cards</a>
+  <a href="#plumbob">Plumbob</a>
+  <a href="#page-structure">Page Structure</a>
+  <a href="#nav">Navigation</a>
+  <a href="#emojis">Emoji Reference</a>
+</aside>
+
+<!-- ─── MAIN CONTENT ─────────────────────────────────────────────────── -->
+<main class="sg-content">
+
+
+<!-- ════════════════════════════════════════════════════════
+     COLOURS
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="colours">
+  <h2 class="sg-section-title">Colours</h2>
+  <p style="margin-bottom:24px;font-size:14px;color:var(--ink-mid);">All colours are defined as CSS custom properties on <code>:root</code> in every page's <code>&lt;style&gt;</code> block. Always use the variable, never hardcode hex values in component CSS.</p>
+
+  <h3 class="sg-sub">Brand colours</h3>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#3BAE5C;"></div><div class="swatch-info"><div class="swatch-name">Green</div><div class="swatch-hex">#3BAE5C</div><div class="swatch-var">--green</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#1A5229;"></div><div class="swatch-info"><div class="swatch-name">Green Dark</div><div class="swatch-hex">#1A5229</div><div class="swatch-var">--green-dark</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#E6F5EB;"></div><div class="swatch-info"><div class="swatch-name">Green Pale</div><div class="swatch-hex">#E6F5EB</div><div class="swatch-var">--green-pale</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F5F2E8;border:1px solid #ccc;"></div><div class="swatch-info"><div class="swatch-name">Cream</div><div class="swatch-hex">#F5F2E8</div><div class="swatch-var">--cream</div></div></div>
+  </div>
+
+  <h3 class="sg-sub">Semantic colours (callouts)</h3>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#3AADA8;"></div><div class="swatch-info"><div class="swatch-name">Teal</div><div class="swatch-hex">#3AADA8</div><div class="swatch-var">--teal</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#E8B84B;"></div><div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-hex">#E8B84B</div><div class="swatch-var">--gold</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#D94F4F;"></div><div class="swatch-info"><div class="swatch-name">Red</div><div class="swatch-hex">#D94F4F</div><div class="swatch-var">--red</div></div></div>
+  </div>
+
+  <h3 class="sg-sub">Credits tag colours (new in v6)</h3>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#B39DDB;"></div><div class="swatch-info"><div class="swatch-name">Lilac</div><div class="swatch-hex">#B39DDB</div><div class="swatch-var">tag lilac</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F48FB1;"></div><div class="swatch-info"><div class="swatch-name">Pink</div><div class="swatch-hex">#F48FB1</div><div class="swatch-var">tag pink</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FFCC80;"></div><div class="swatch-info"><div class="swatch-name">Orange</div><div class="swatch-hex">#FFCC80</div><div class="swatch-var">tag orange</div></div></div>
+  </div>
+
+  <h3 class="sg-sub">Text colours</h3>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#1C2B1F;"></div><div class="swatch-info"><div class="swatch-name">Ink</div><div class="swatch-hex">#1C2B1F</div><div class="swatch-var">--ink</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#3D5445;"></div><div class="swatch-info"><div class="swatch-name">Ink Mid</div><div class="swatch-hex">#3D5445</div><div class="swatch-var">--ink-mid</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#6B8A72;"></div><div class="swatch-info"><div class="swatch-name">Ink Muted</div><div class="swatch-hex">#6B8A72</div><div class="swatch-var">--ink-muted</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:rgba(27,82,41,0.12);"></div><div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">rgba(27,82,41,0.12)</div><div class="swatch-var">--border</div></div></div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     TYPOGRAPHY
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="typography">
+  <h2 class="sg-section-title">Typography</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Role</th><th>Font</th><th>Variable</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td>Headings</td><td>Paytone One</td><td><code>--font-head</code></td><td>All H1–H3, nav brand, section titles, card titles, step titles</td></tr>
+        <tr><td>Body</td><td>Nunito</td><td><code>--font-body</code></td><td>All paragraph text, card descriptions, callouts, table cells</td></tr>
+        <tr><td>Mono</td><td>IBM Plex Mono</td><td><code>--font-mono</code></td><td>Code, file paths, labels, tag text, table headers, eyebrow text</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sg-sub">Type scale</h3>
+  <div class="sg-demo">
+    <p style="font-family:var(--font-head);font-size:clamp(28px,5vw,48px);color:var(--green-dark);margin-bottom:8px;">Page Title (clamp 28–48px)</p>
+    <p style="font-family:var(--font-head);font-size:22px;color:var(--ink);margin-bottom:8px;">Section Title (22px)</p>
+    <p style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin-bottom:8px;">Sub-section Title (17px)</p>
+    <p style="font-size:16px;color:var(--ink-mid);margin-bottom:8px;">Body text – Nunito 16px, color: ink-mid. Used for paragraphs and descriptions throughout the guide.</p>
+    <p style="font-size:14px;color:var(--ink-mid);margin-bottom:8px;">Small body text – 14px. Used inside cards, callouts and table cells.</p>
+    <p style="font-family:var(--font-mono);font-size:12px;color:var(--green-dark);background:var(--green-pale);display:inline-block;padding:2px 8px;border-radius:4px;">Inline code – Mono 12px</p>
+  </div>
+
+  <h3 class="sg-sub">Dashes</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:12px;">The site uses <strong>en dashes (–)</strong> throughout. Not em dashes (–) and not hyphens used as sentence dashes. All page titles follow this format:</p>
+  <div class="sg-code sg-code-standalone">Page Name – Sims Legacy Collection Guide</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CALLOUTS
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="callouts">
+  <h2 class="sg-section-title">Callouts</h2>
+  <p style="margin-bottom:24px;font-size:14px;color:var(--ink-mid);">Four variants. Used for notes, warnings, critical warnings, and tips. Each has a specific emoji that must be used – don't swap them.</p>
+
+  <h3 class="sg-sub">Teal – info / note</h3>
+  <div class="sg-demo"><div class="callout teal">ℹ️ <strong>Note:</strong> This is an informational callout. Used for supplementary context, reminders, or things worth knowing that aren't urgent.</div></div>
+  <div class="sg-code">&lt;div class="callout teal"&gt;ℹ️ &lt;strong&gt;Note:&lt;/strong&gt; Your message here.&lt;/div&gt;</div>
+
+  <h3 class="sg-sub">Gold – warning</h3>
+  <div class="sg-demo"><div class="callout gold">⚠️ <strong>Warning:</strong> This is a warning callout. Used when something could go wrong if the reader isn't careful – wrong folder, common mistake, caveat.</div></div>
+  <div class="sg-code">&lt;div class="callout gold"&gt;⚠️ &lt;strong&gt;Warning:&lt;/strong&gt; Your message here.&lt;/div&gt;</div>
+
+  <h3 class="sg-sub">Red – critical</h3>
+  <div class="sg-demo"><div class="callout red">🚨 <strong>Critical:</strong> This is a critical warning. Used sparingly for actions that could break the game, corrupt files, or cause data loss.</div></div>
+  <div class="sg-code">&lt;div class="callout red"&gt;🚨 &lt;strong&gt;Critical:&lt;/strong&gt; Your message here.&lt;/div&gt;</div>
+
+  <h3 class="sg-sub">Green – tip / confirmation</h3>
+  <div class="sg-demo"><div class="callout green">✅ <strong>Tip:</strong> This is a green callout. Used for positive confirmations, helpful tips, and "this is working correctly" notes.</div></div>
+  <div class="sg-code">&lt;div class="callout green"&gt;✅ &lt;strong&gt;Tip:&lt;/strong&gt; Your message here.&lt;/div&gt;</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CARDS & TAGS
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="cards">
+  <h2 class="sg-section-title">Cards &amp; Tags</h2>
+
+  <h3 class="sg-sub">Card – standard</h3>
+  <div class="sg-demo">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Card title</div>
+        <div class="card-desc">Card description text. Used for tools, mods, sites, and any grouped reference content. Cards have hover state (lift + green border).</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Card with tag <span class="tag green">New</span></div>
+        <div class="card-desc">Tags sit inline inside card-title. Multiple tags can be stacked. See tag variants below.</div>
+        <a class="pill-link" href="#" style="margin-top:12px;">↗ Example link</a>
+      </div>
+    </div>
+  </div>
+  <div class="sg-code">&lt;div class="card"&gt;
+  &lt;div class="card-title"&gt;Title &lt;span class="tag green"&gt;Label&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="card-desc"&gt;Description text.&lt;/div&gt;
+  &lt;a class="pill-link" href="url" target="_blank"&gt;↗ Link text&lt;/a&gt;
+&lt;/div&gt;</div>
+
+  <h3 class="sg-sub">Tags</h3>
+  <div class="sg-demo" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+    <span class="tag green">Green</span>
+    <span class="tag teal">Teal</span>
+    <span class="tag gold">Gold</span>
+    <span class="tag red">Red</span>
+  </div>
+  <div class="sg-code">&lt;span class="tag green"&gt;Text&lt;/span&gt;
+&lt;span class="tag teal"&gt;Text&lt;/span&gt;
+&lt;span class="tag gold"&gt;Text&lt;/span&gt;
+&lt;span class="tag red"&gt;Text&lt;/span&gt;</div>
+
+  <h3 class="sg-sub">Grid layouts</h3>
+  <p class="sg-note">Cards are placed inside a grid container. Both collapse to 1 column on mobile.</p>
+  <div class="sg-code">&lt;!-- Two column grid --&gt;
+&lt;div class="grid-2"&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Three column grid --&gt;
+&lt;div class="grid-3"&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+&lt;/div&gt;</div>
+
+  <h3 class="sg-sub">Pill links</h3>
+  <div class="sg-demo"><a class="pill-link" href="#">↗ External link example</a></div>
+  <div class="sg-code">&lt;a class="pill-link" href="url" target="_blank"&gt;↗ Link text&lt;/a&gt;</div>
+</section>
+
+
+
+  <h3 class="sg-sub">Accordion cards (new in v6)</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:12px;">Used on file-reference.html, credits.html, careers.html (transfer loop), and cheats.html (tips). Click the header to expand/collapse. Body text is selectable without triggering close.</p>
+  <div class="sg-demo">
+    <div style="background:#fff;border:1px solid #D4D9CC;border-radius:10px;margin-bottom:8px;overflow:hidden;">
+      <div style="padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;" onclick="this.parentElement.classList.toggle('sg-open')">
+        <span style="color:#7A8C7D;font-size:13px;" class="sg-arrow">&#9656;</span>
+        <span style="font-size:15px;font-weight:700;color:#1A5229;">Example Card Title</span>
+        <span class="tag gold" style="margin-left:auto;">CC Creator</span>
+      </div>
+      <div style="display:none;padding:0 18px 16px;font-size:14px;color:#3D5040;border-top:1px solid #D4D9CC;" class="sg-abody">
+        <p style="padding-top:14px;">Card body content appears here when expanded. Users can select and copy this text without the card closing.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sg-code">&lt;div class="ref-card"&gt;
+  &lt;div class="ref-head" onclick="this.parentElement.classList.toggle('open')"&gt;
+    &lt;span class="ref-arrow"&gt;&amp;#9656;&lt;/span&gt;
+    &lt;span class="ref-name"&gt;Title&lt;/span&gt;
+    &lt;span class="ref-tool tag gold"&gt;Role Tag&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="ref-body"&gt;&lt;p&gt;Content&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</div>
+  <p class="sg-note">Header text uses <code>color:var(--green-dark)</code>. Hover shows green border but white background stays. Tags go AFTER the name.</p>
+
+  <h3 class="sg-sub">Expand/collapse toggle (new in v6)</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:12px;">Single button per section. Text toggles between "Expand all" and "Collapse all". Scoped to the closest <code>&lt;section&gt;</code> element so it only affects cards in its own section.</p>
+  <div class="sg-demo">
+    <button style="font-family:var(--font-mono);font-size:12px;color:#1A5229;background:#E6F5EB;border:1.5px solid rgba(27,82,41,0.15);padding:6px 14px;border-radius:999px;cursor:pointer;">Expand all</button>
+  </div>
+  <div class="sg-code">&lt;button class="expand-all" onclick="toggleAll(this)"&gt;Expand all&lt;/button&gt;
+
+// JS (scoped per section):
+function toggleAll(btn){
+  var section = btn.closest('section');
+  var cards = section.querySelectorAll('.ref-card');
+  var anyOpen = section.querySelector('.ref-card.open');
+  cards.forEach(function(c){
+    if(anyOpen) c.classList.remove('open');
+    else c.classList.add('open');
+  });
+  btn.textContent = anyOpen ? 'Expand all' : 'Collapse all';
+}</div>
+
+<!-- ════════════════════════════════════════════════════════
+     STEPS
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="steps">
+  <h2 class="sg-section-title">Steps</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Auto-numbered using CSS counter. Don't add numbers manually – they increment automatically. Steps use a 1px bottom border between them, removed on the last child.</p>
+
+  <div class="sg-demo">
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>First step</h4><p>Step description goes here. Can include <code>inline code</code> and links.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>Second step</h4><p>Each step-body can contain any block content – paragraphs, code blocks, callouts.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>Third step</h4><p>The last step has no bottom border.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="sg-code">&lt;div class="steps"&gt;
+  &lt;div class="step"&gt;
+    &lt;div class="step-num"&gt;&lt;/div&gt;
+    &lt;div class="step-body"&gt;
+      &lt;h4&gt;Step title&lt;/h4&gt;
+      &lt;p&gt;Step description.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     TABLES
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="tables">
+  <h2 class="sg-section-title">Tables</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Tables must always be wrapped in <code>.table-wrap</code>. This provides the rounded border, overflow handling, and consistent shadow. Never use a bare <code>&lt;table&gt;</code> without the wrapper.</p>
+
+  <h3 class="sg-sub">Standard table</h3>
+  <div class="sg-demo">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Column A</th><th>Column B</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Row 1 data</td><td>Description here</td><td class="ok">Works</td></tr>
+          <tr><td>Row 2 data</td><td>Description here</td><td class="warn">Partial</td></tr>
+          <tr><td>Row 3 data</td><td>Description here</td><td class="no">No</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sg-code">&lt;div class="table-wrap"&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Column A&lt;/th&gt;&lt;th&gt;Column B&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;Data&lt;/td&gt;&lt;td&gt;Data&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</div>
+
+  <h3 class="sg-sub">Scrollable table (large datasets)</h3>
+  <p class="sg-note">For tables with many rows (e.g. the 52-site active sites list), add a max-height and overflow-y to the wrapper. Use a sticky thead so column headers stay visible while scrolling.</p>
+  <div class="sg-code">&lt;div class="table-wrap" style="max-height:480px;overflow-y:auto;"&gt;
+  &lt;table&gt;
+    &lt;thead style="position:sticky;top:0;z-index:2;background:var(--cream);"&gt;
+      &lt;tr&gt;&lt;th&gt;...&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;...&lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</div>
+
+  <h3 class="sg-sub">Status cell classes</h3>
+  <div class="sg-demo">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Class</th><th>Colour</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td><code>td.ok</code></td><td class="ok">Green bold</td><td>Works / confirmed / supported</td></tr>
+          <tr><td><code>td.warn</code></td><td class="warn">Gold bold</td><td>Partial / needs extra steps / caveats</td></tr>
+          <tr><td><code>td.no</code></td><td class="no">Red bold</td><td>Broken / not supported / not applicable</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CODE
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="code">
+  <h2 class="sg-section-title">Code</h2>
+
+  <h3 class="sg-sub">Inline code</h3>
+  <div class="sg-demo"><p>Place files in <code>GameData\Skins\</code> with no subfolders. Files must be saved as <code>Indexed (256-colour) BMP</code>.</p></div>
+  <div class="sg-code">&lt;code&gt;GameData\Skins\&lt;/code&gt;</div>
+
+  <h3 class="sg-sub">Code block</h3>
+  <div class="sg-demo">
+    <div class="code-block">Bfa skn lgt_OutfitName.bmp
+Bfa skn med_OutfitName.bmp
+Bfa skn drk_OutfitName.bmp</div>
+  </div>
+  <div class="sg-code">&lt;div class="code-block"&gt;
+Your code here – preserves whitespace.
+Can span multiple lines.
+&lt;/div&gt;</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     INSTALL PATH HIGHLIGHT
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="mark">
+  <h2 class="sg-section-title">Install Path Highlight</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Used in the <strong>How to Install</strong> column of all mod tables. The instruction text is bold on the first line; the folder path sits on a new line as inline <code>&lt;code&gt;</code> — same green chip style used throughout the site. Never put both on the same line.</p>
+
+  <h3 class="sg-sub">Pattern</h3>
+  <div class="sg-demo">
+    <p style="font-size:14px;margin-bottom:12px;"><strong>Extract the SocialInteractions.iff to:</strong><br><code>\The Sims Legacy Collection\GameData\Objects</code></p>
+    <p style="font-size:14px;margin-bottom:12px;"><strong>Goes into root directory:</strong><br><code>\The Sims Legacy Collection\Downloads</code></p>
+    <p style="font-size:14px;"><strong>Unzip and place all HDSI_.iff files in:</strong><br><code>\The Sims Legacy Collection\ExpansionShared</code></p>
+  </div>
+  <div class="sg-code">&lt;td style="white-space:normal;"&gt;
+  &lt;strong&gt;Extract the SocialInteractions.iff to:&lt;/strong&gt;
+  &lt;br&gt;
+  &lt;code&gt;\The Sims Legacy Collection\GameData\Objects&lt;/code&gt;
+&lt;/td&gt;</div>
+
+  
+
+  <h3 class="sg-sub">Common folder paths</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Description</th><th>Path</th></tr></thead>
+      <tbody>
+        <tr><td>General mods / CC</td><td><code>\\The Sims Legacy Collection\\Downloads</code></td></tr>
+        <tr><td>Base game objects</td><td><code>\\The Sims Legacy Collection\\GameData\\Objects</code></td></tr>
+        <tr><td>Shared expansion content</td><td><code>\\The Sims Legacy Collection\\ExpansionShared</code></td></tr>
+        <tr><td>Buyable skins</td><td><code>\\The Sims Legacy Collection\\ExpansionShared\\SkinsBuy</code></td></tr>
+        <tr><td>Body skins</td><td><code>\\The Sims Legacy Collection\\GameData\\Skins</code></td></tr>
+        <tr><td>House Party (EP2)</td><td><code>\\The Sims Legacy Collection\\ExpansionPack2</code></td></tr>
+        <tr><td>Hot Date (EP3)</td><td><code>\\The Sims Legacy Collection\\ExpansionPack3</code></td></tr>
+        <tr><td>Vacation (EP4)</td><td><code>\\The Sims Legacy Collection\\ExpansionPack4</code></td></tr>
+        <tr><td>Unleashed (EP5)</td><td><code>\\The Sims Legacy Collection\\ExpansionPack5</code></td></tr>
+        <tr><td>Superstar (EP6)</td><td><code>\\The Sims Legacy Collection\\ExpansionPack6</code></td></tr>
+        <tr><td>Makin' Magic (EP7)</td><td><code>\\The Sims Legacy Collection\\ExpansionPack7</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PREV/NEXT PAGE NAVIGATION
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="page-nav">
+  <h2 class="sg-section-title">Prev/Next Page Navigation</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Used on the CC creation subpages to link readers through the sequence: CC Overview &rarr; Making Clothing &rarr; Making Hair &amp; Heads &rarr; Making Walls &amp; Floors &rarr; Object Retextures &rarr; IFF Hacking. The first page omits the "Previous" link; the last page omits "Next".</p>
+
+  <div class="sg-demo">
+    <div style="display:flex;justify-content:space-between;align-items:stretch;gap:16px;margin-top:16px;padding-top:16px;border-top:2px solid var(--border);">
+      <a href="#" style="display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:16px 20px;border-radius:10px;border:2px solid var(--border);background:var(--white);max-width:48%;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.5px;">&larr; Previous</span>
+        <span style="font-size:15px;font-weight:800;color:var(--green-dark);">Making Clothing</span>
+      </a>
+      <a href="#" style="display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:16px 20px;border-radius:10px;border:2px solid var(--border);background:var(--white);max-width:48%;text-align:right;margin-left:auto;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.5px;">Next &rarr;</span>
+        <span style="font-size:15px;font-weight:800;color:var(--green-dark);">Making Walls &amp; Floors</span>
+      </a>
+    </div>
+  </div>
+  <div class="sg-code">&lt;div class="page-nav"&gt;
+  &lt;a href="making-clothing.html" class="page-nav-link prev"&gt;
+    &lt;span class="page-nav-label"&gt;&amp;larr; Previous&lt;/span&gt;
+    &lt;span class="page-nav-title"&gt;Making Clothing&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;a href="making-walls-floors.html" class="page-nav-link next"&gt;
+    &lt;span class="page-nav-label"&gt;Next &amp;rarr;&lt;/span&gt;
+    &lt;span class="page-nav-title"&gt;Making Walls &amp; Floors&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</div>
+
+  <p class="sg-note">CSS is in style.css under "PREV/NEXT PAGE NAVIGATION". On mobile (&lt;640px) the links stack vertically.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     SECTION HEADS
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="sections">
+  <h2 class="sg-section-title">Section Heads</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Every content section starts with a <code>.section-head</code> block. The emoji sits in <code>.section-emoji</code>, the title goes in <code>.section-title</code>, and an optional subtitle in <code>.section-sub</code>.</p>
+
+  <div class="sg-demo">
+    <div class="section-head">
+      <div class="section-emoji">🎨</div>
+      <div>
+        <h2 class="section-title">Section Title Here</h2>
+        <p class="section-sub">Optional subtitle – one sentence describing what this section covers</p>
+      </div>
+    </div>
+  </div>
+  <div class="sg-code">&lt;section id="section-id"&gt;
+  &lt;div class="section-head"&gt;
+    &lt;div class="section-emoji"&gt;🎨&lt;/div&gt;
+    &lt;div&gt;
+      &lt;h2 class="section-title"&gt;Section Title&lt;/h2&gt;
+      &lt;p class="section-sub"&gt;Optional subtitle.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- section content --&gt;
+&lt;/section&gt;</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     ROADMAP CARDS
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="roadmap">
+  <h2 class="sg-section-title">Roadmap Cards</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Used only on the Site Roadmap page. Three variants: doing (green border), planned (gold), maybe (teal).</p>
+
+  <div class="sg-demo">
+    <div class="roadmap-grid">
+      <div class="roadmap-card doing">
+        <div class="roadmap-status doing">In progress</div>
+        <div class="roadmap-title">Card title</div>
+        <div class="roadmap-desc">Brief description of what's being worked on.</div>
+      </div>
+      <div class="roadmap-card planned">
+        <div class="roadmap-status planned">Planned</div>
+        <div class="roadmap-title">Card title</div>
+        <div class="roadmap-desc">Brief description of what's planned.</div>
+      </div>
+      <div class="roadmap-card maybe">
+        <div class="roadmap-status maybe">Considering</div>
+        <div class="roadmap-title">Card title</div>
+        <div class="roadmap-desc">Brief description of what's being considered.</div>
+      </div>
+    </div>
+  </div>
+  <div class="sg-code">&lt;div class="roadmap-card doing"&gt;
+  &lt;div class="roadmap-status doing"&gt;In progress&lt;/div&gt;
+  &lt;div class="roadmap-title"&gt;Title&lt;/div&gt;
+  &lt;div class="roadmap-desc"&gt;Description.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Variants: doing / planned / maybe --&gt;</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PLUMBOB
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="plumbob">
+  <h2 class="sg-section-title">Plumbob</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">A rotating diamond shape used as a brand accent. Animates with a gentle float. Three sizes. The gold variant is used on the TOC (from a --gold fill).</p>
+
+  <div class="sg-demo" style="display:flex;gap:24px;align-items:center;">
+    <div><span class="plumbob sm"></span> <span style="font-size:12px;color:var(--ink-muted);">sm (16px)</span></div>
+    <div><span class="plumbob"></span> <span style="font-size:12px;color:var(--ink-muted);">md (16px default)</span></div>
+    <div><span class="plumbob lg"></span> <span style="font-size:12px;color:var(--ink-muted);">lg (32px)</span></div>
+    <div><span class="plumbob lg" style="background:var(--gold);"></span> <span style="font-size:12px;color:var(--ink-muted);">gold variant</span></div>
+  </div>
+  <div class="sg-code">&lt;span class="plumbob sm"&gt;&lt;/span&gt;   &lt;!-- 16px --&gt;
+&lt;span class="plumbob"&gt;&lt;/span&gt;     &lt;!-- 16px (same) --&gt;
+&lt;span class="plumbob lg"&gt;&lt;/span&gt;   &lt;!-- 32px --&gt;
+&lt;span class="plumbob lg" style="background:var(--gold);"&gt;&lt;/span&gt;  &lt;!-- gold --&gt;</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PAGE STRUCTURE
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="page-structure">
+  <h2 class="sg-section-title">Page Structure</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Every inner page (not the homepage) follows this exact structure. The homepage uses <code>.hero</code> + <code>.quick-grid</code> instead of <code>.page-hero</code> + <code>.page-layout</code>. All shared CSS lives in <code>style.css</code>; only pages with unique components (index, cheats, terminology, updates) keep an additional inline <code>&lt;style&gt;</code> block.</p>
+
+  <div class="sg-code sg-code-standalone">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Page Name – Sims Legacy Collection Guide&lt;/title&gt;
+  &lt;!-- Google Fonts (Paytone One, Nunito, IBM Plex Mono) --&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;!-- Page-specific &lt;style&gt; block only if needed --&gt;
+  &lt;!-- Google Analytics --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- NAV (identical across all pages – generated by nav_builder.py) --&gt;
+&lt;nav&gt;
+  &lt;div class="nav-wrapper"&gt;
+    &lt;div class="nav-inner" id="navInner"&gt;
+      &lt;!-- Desktop nav links + dropdowns + hamburger button --&gt;
+    &lt;/div&gt;
+    &lt;button class="nav-scroll-hint-left" id="navHintLeft"&gt;‹&lt;/button&gt;
+    &lt;button class="nav-scroll-hint" id="navHint"&gt;›&lt;/button&gt;
+    &lt;!-- Mobile nav bar (shown ≤767px) --&gt;
+    &lt;div class="nav-mobile-bar"&gt;
+      &lt;a class="nav-mobile-brand" href="index.html"&gt;...&lt;/a&gt;
+      &lt;div class="nav-mobile-actions"&gt;
+        &lt;a class="nav-mobile-search" href="search.html"&gt;🔍&lt;/a&gt;
+        &lt;button class="nav-mobile-menu" id="navHamMobile"&gt;Menu ☰&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;!-- PAGE HERO --&gt;
+&lt;div class="page-hero"&gt;
+  &lt;div class="page-eyebrow"&gt;&lt;span class="plumbob sm"&gt;&lt;/span&gt; Sims Legacy Collection – Section Name&lt;/div&gt;
+  &lt;h1 class="page-title"&gt;Page &lt;span&gt;Title&lt;/span&gt;&lt;/h1&gt;
+  &lt;p class="page-sub"&gt;One sentence describing what this page covers.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- PAGE LAYOUT: sidebar TOC + main content --&gt;
+&lt;div class="page-layout"&gt;
+  &lt;aside&gt;
+    &lt;div class="toc"&gt;
+      &lt;div class="toc-title"&gt;&lt;span class="plumbob sm"&gt;&lt;/span&gt; On This Page&lt;/div&gt;
+      &lt;ul class="toc-list"&gt;
+        &lt;li&gt;&lt;a href="#section-id"&gt;Section Name&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;div class="toc-divider"&gt;&lt;/div&gt;
+      &lt;a class="toc-back" href="index.html"&gt;← Back to Home&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/aside&gt;
+
+  &lt;main class="content"&gt;
+    &lt;!-- Mobile TOC (shown only on small screens) --&gt;
+    &lt;details class="mobile-toc"&gt;
+      &lt;summary&gt;&lt;span class="plumbob sm"&gt;&lt;/span&gt; On this page&lt;/summary&gt;
+      &lt;div class="mobile-toc-links"&gt;
+        &lt;a href="#section-id"&gt;Section Name&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/details&gt;
+
+    &lt;!-- Page sections --&gt;
+    &lt;section id="section-id"&gt;
+      &lt;div class="section-head"&gt;...&lt;/div&gt;
+      &lt;!-- content --&gt;
+    &lt;/section&gt;
+
+  &lt;/main&gt;
+&lt;/div&gt;
+
+&lt;!-- FOOTER, DRAWER, BACK-TO-TOP, SCRIPT (identical across all pages) --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+
+  <h3 class="sg-sub">Page title H1 – green highlight</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;">Wrap one word or phrase in a <code>&lt;span&gt;</code> to apply the green highlight colour. Usually the key noun.</p>
+  <div class="sg-code">&lt;h1 class="page-title"&gt;Installing &lt;span&gt;Mods&lt;/span&gt;&lt;/h1&gt;
+&lt;h1 class="page-title"&gt;Mod Download &lt;span&gt;Sites&lt;/span&gt;&lt;/h1&gt;
+&lt;h1 class="page-title"&gt;Making &lt;span&gt;Clothing&lt;/span&gt;&lt;/h1&gt;</div>
+
+  <h3 class="sg-sub">Eyebrow text convention</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;">Format: <code>Sims Legacy Collection – [Section category]</code>. Use an en dash. The section category matches the nav group.</p>
+  <div class="sg-code">Sims Legacy Collection – About
+Sims Legacy Collection – Must-Have Mods
+Sims Legacy Collection – Creating CC
+Sims Legacy Collection – Troubleshooting
+Sims Legacy Collection – Site Roadmap</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     NAVIGATION
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="nav">
+  <h2 class="sg-section-title">Navigation</h2>
+
+  <h3 class="sg-sub">Desktop nav order</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Type</th><th>Contains</th></tr></thead>
+      <tbody>
+        <tr><td>🏠 Home</td><td>Link</td><td>index.html</td></tr>
+        <tr><td>📖 About Legacy</td><td>Link</td><td>about-legacy.html</td></tr>
+        <tr><td>📖 Terminology</td><td>Link</td><td>terminology.html</td></tr>
+        <tr><td>⚙️ Mods / CC</td><td>Dropdown</td><td>What's Possible, Installing Mods, Mod Download Sites, Must-Have Mods</td></tr>
+        <tr><td>🎮 Cheats</td><td>Link</td><td>cheats.html</td></tr>
+        <tr><td>🎨 Create CC</td><td>Dropdown</td><td>Overview & Tools, Making Clothing, Making Hair & Heads, Making Walls & Floors, Object Retextures, [divider], IFF Hacking, Tools</td></tr>
+        <tr><td>🛠️ Troubleshooting</td><td>Dropdown</td><td>CC Issues, Game Issues</td></tr>
+        <tr><td>ℹ️ Site Info</td><td>Dropdown</td><td>About Legacy, Terminology, File Reference, Sources &amp; Credits, [divider], Site Roadmap, Contact</td></tr>
+        <tr><td>🔍 Search</td><td>Link</td><td>search.html</td></tr>
+        <tr><td>☰</td><td>Button</td><td>Opens drawer (desktop + mobile)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sg-sub">Desktop hamburger button</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;">A <code>☰</code> button sits at the end of the desktop nav bar and opens the same drawer as the mobile "Menu ☰" button. Added because some users find dropdown hover menus awkward. Its CSS class is <code>.nav-ham-desktop</code>. Both the desktop <code>id="navHam"</code> button and the mobile <code>id="navHamMobile"</code> button trigger the same <code>openD()</code> function.</p>
+
+  <h3 class="sg-sub">Active states</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:12px;">Add <code>class="nav-link active"</code> to the current page's top-level link. For pages inside a dropdown, add <code>class="nav-dropdown-item active"</code> to the correct item AND <code>class="nav-dropdown-btn active"</code> to the parent button. In the drawer, use <code>nav-drawer-link active</code> or <code>nav-drawer-sublink active</code>.</p>
+
+  <h3 class="sg-sub">Mobile breakpoints</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Width</th><th>Behaviour</th></tr></thead>
+      <tbody>
+        <tr><td>≥ 768px</td><td>Desktop nav-inner shown, mobile bar hidden</td></tr>
+        <tr><td>≤ 767px</td><td>nav-inner hidden, mobile bar shown (Logo | 🔍 | Menu ☰)</td></tr>
+        <tr><td>≤ 900px</td><td>Nav links begin to overflow – horizontal scroll with › ‹ arrows</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     EMOJI REFERENCE
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="emojis">
+  <h2 class="sg-section-title">Emoji Reference</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">These are the assigned emoji for specific contexts. Using the same emoji consistently helps users scan the site. Don't swap them around or use them in other contexts.</p>
+
+  <h3 class="sg-sub">Callout icons (fixed – don't change these)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Emoji</th><th>Callout class</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td style="font-size:18px;">ℹ️</td><td><code>callout teal</code></td><td>Info / note / supplementary context</td></tr>
+        <tr><td style="font-size:18px;">⚠️</td><td><code>callout gold</code></td><td>Warning / common mistake / caveat</td></tr>
+        <tr><td style="font-size:18px;">🚨</td><td><code>callout red</code></td><td>Critical warning / could break things</td></tr>
+        <tr><td style="font-size:18px;">✅</td><td><code>callout green</code></td><td>Tip / confirmation / positive note</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sg-sub">Nav icons (fixed – don't change these)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Emoji</th><th>Page / section</th></tr></thead>
+      <tbody>
+        <tr><td>🏠</td><td>Home (index.html)</td></tr>
+        <tr><td>📅</td><td>About Legacy</td></tr>
+        <tr><td>📖</td><td>Terminology</td></tr>
+        <tr><td>🗂️</td><td>File Reference (new in v6)</td></tr>
+        <tr><td>📝</td><td>Sources &amp; Credits (new in v6)</td></tr>
+        <tr><td>⚙️</td><td>Mods / CC dropdown, Must-Have Mods</td></tr>
+        <tr><td>🔬</td><td>What's Possible</td></tr>
+        <tr><td>📁</td><td>Installing Mods</td></tr>
+        <tr><td>🌐</td><td>Mod Download Sites</td></tr>
+        <tr><td>🎮</td><td>Gameplay dropdown (Cheats, Career Guide)</td></tr>
+        <tr><td>💼</td><td>Career Guide</td></tr>
+        <tr><td>🎨</td><td>Create CC (all CC pages)</td></tr>
+        <tr><td>👗</td><td>Making Clothing</td></tr>
+        <tr><td>💇</td><td>Making Hair & Heads</td></tr>
+        <tr><td>🏠</td><td>Making Walls & Floors (reuses home emoji)</td></tr>
+        <tr><td>🪑</td><td>Object Retextures</td></tr>
+        <tr><td>🔧</td><td>IFF Hacking</td></tr>
+        <tr><td>🧰</td><td>Tools</td></tr>
+        <tr><td>🛠️</td><td>Troubleshooting dropdown, CC Issues</td></tr>
+        <tr><td>🖥️</td><td>Game Issues</td></tr>
+        <tr><td>ℹ️</td><td>Site Info dropdown</td></tr>
+        <tr><td>📋</td><td>Site Roadmap</td></tr>
+        <tr><td>✉️</td><td>Contact</td></tr>
+        <tr><td>🔍</td><td>Search</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sg-sub">Section emoji (flexible – assign per page)</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;">Section emojis sit in <code>.section-emoji</code> and are chosen to reflect the content of that section. They don't need to match nav icons. Pick something that makes the section easy to scan at a glance.</p>
+  <div class="sg-demo" style="display:flex;gap:16px;flex-wrap:wrap;">
+    <span style="font-size:24px;" title="How it works">💡</span>
+    <span style="font-size:24px;" title="Tools">🛠️</span>
+    <span style="font-size:24px;" title="Steps / instructions">🚶</span>
+    <span style="font-size:24px;" title="Common mistakes">⚠️</span>
+    <span style="font-size:24px;" title="Tutorials / reading">📚</span>
+    <span style="font-size:24px;" title="Files / downloads">📦</span>
+    <span style="font-size:24px;" title="Filenames / format">📝</span>
+    <span style="font-size:24px;" title="Bug fixes">🐛</span>
+    <span style="font-size:24px;" title="What you can do">✅</span>
+    <span style="font-size:24px;" title="Map / overview">🗺️</span>
+    <span style="font-size:24px;" title="Community">💬</span>
+    <span style="font-size:24px;" title="Sprite / image">🖼️</span>
+  </div>
+</section>
+
+
+</main>
+</div>
+
+</body>
+</html>
