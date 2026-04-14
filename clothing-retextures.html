@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retexturing Clothing – Sims Legacy Collection Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZDF0Q80RR');</script>
+</head>
+<body>
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview &amp; Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item active" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls &amp; Floors</a><a href="object-retextures.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<script>(function(){var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}window.addEventListener('load',check);setTimeout(check,200);})();</script>
+
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection &ndash; Creating CC &ndash; Clothing</div>
+  <h1 class="page-title">Retexturing <span>Clothing</span></h1>
+  <p class="page-sub">Paint new outfits onto existing body meshes using GIMP and The Sims Creator</p>
+</div>
+
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#tools">Getting the Tools Working</a></li>
+        <li><a href="#starting-files">Getting Your Starting Files</a></li>
+        <li><a href="#tsc-wardrobe">TSC Sim Wardrobe</a></li>
+        <li><a href="#gimp-basics">GIMP Basics for Bodies</a></li>
+        <li><a href="#painting">Painting the Body Texture</a></li>
+        <li><a href="#skin-tones">Making Skin Tone Variants</a></li>
+        <li><a href="#indexed">Converting to Indexed BMP</a></li>
+        <li><a href="#into-game">Getting It Into the Game</a></li>
+        <li><a href="#other-categories">Other Outfit Categories</a></li>
+        <li><a href="#matching-textures">Optional Matching Textures</a></li>
+      </ul>
+      <div class="toc-divider"></div>
+      <a class="toc-back" href="making-clothing.html">&larr; Back to Clothing Overview</a>
+    </div>
+  </aside>
+  <main class="content">
+
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#tools">Getting the Tools Working</a><a href="#starting-files">Getting Your Starting Files</a><a href="#tsc-wardrobe">TSC Sim Wardrobe</a><a href="#gimp-basics">GIMP Basics for Bodies</a><a href="#painting">Painting the Body Texture</a><a href="#skin-tones">Making Skin Tone Variants</a><a href="#indexed">Converting to Indexed BMP</a><a href="#into-game">Getting It Into the Game</a><a href="#other-categories">Other Outfit Categories</a><a href="#matching-textures">Optional Matching Textures</a></div></details>
+
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> &ndash; screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">r/thesims1</a>.</div>
+
+<p>This guide covers retexturing &ndash; painting a new outfit onto an existing body mesh. You paint a new texture in GIMP, then use The Sims Creator (TSC) to generate the companion files the game needs. No 3D modelling required. For background on how clothing files work, filenames, body types, and the xskin chain, see the <a href="making-clothing.html">Clothing Overview</a>. For a full reference of all file types and naming segments, see the <a href="file-reference.html">File Reference</a> page.</p>
+
+<!-- ═══════════════════════════════════════════════════════
+     GETTING THE TOOLS WORKING
+═════════════════════════════════════════════════════════ -->
+<section id="tools">
+  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Getting the Tools Working</h2><p class="section-sub">Legacy Collection needs a registry fix before old Maxis tools will run</p></div></div>
+  <p>The same registry fix described on the <a href="making-clothing.html#tools">Clothing Overview &ndash; Getting Tools Working</a> section applies here. If you have already completed that setup (via the Feraligatr installer or manually), everything you need for clothing retexturing is already installed.</p>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">The Sims Creator (TSC) <span class="tag green">Required</span></div><div class="card-desc">Used to preview body textures on the 3D model, generate the <code>.CMX</code> and <code>.SKN</code> companion files the game needs, and export finished outfits. Installed via the Feraligatr installer or from the Internet Archive.</div></div>
+    <div class="card"><div class="card-title">GIMP <span class="tag green">Required</span></div><div class="card-desc">Free image editor for painting your textures. Body skin BMPs are 256&times;256 pixels and must be saved as Indexed 256-colour BMP. Download from <a href="https://www.gimp.org/" target="_blank" rel="noopener">gimp.org</a>.</div></div>
+    <div class="card"><div class="card-title">FARx <span class="tag teal">Optional</span></div><div class="card-desc">Only needed if you want to extract original Maxis body skin files from FAR archives. Most B-prefix body BMPs are already loose files in <code>GameData\Skins\</code>, so you may not need this.</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     GETTING YOUR STARTING FILES
+═════════════════════════════════════════════════════════ -->
+<section id="starting-files">
+  <div class="section-head"><div class="section-emoji">📂</div><div><h2 class="section-title">Getting Your Starting Files</h2><p class="section-sub">Three ways to get a body BMP to paint over &ndash; pick the one that fits your goal</p></div></div>
+
+  <p>Before painting anything, you need a base body BMP to work from. Never start from a blank canvas &ndash; you need the UV layout from a real body file so your painting lands on the correct parts of the 3D mesh. A blank canvas would look correct in GIMP but would be randomly misaligned on the Sim in game.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Path A: Copy a Maxis body file<br><span class="tag green">Simplest</span></h3>
+  <p>Best for: recolouring an existing outfit (e.g. making a blue dress from a red dress).</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Navigate to your Skins folder</h4><p>Open <code>GameData\Skins\</code> inside your Sims Legacy Collection install folder. On Steam, the typical path is:<br><code>C:\Program Files (x86)\Steam\steamapps\common\The Sims Legacy Collection\GameData\Skins</code><br>On the EA App, the folder is usually under <code>C:\Program Files\EA Games\The Sims Legacy Collection\GameData\Skins</code> &ndash; but check where the EA App installed your game if you are not sure.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find body files (B-prefix)</h4><p>Look for BMP files whose names start with <code>B</code>. The filename tells you exactly what the file is.</p><p><strong>Example:</strong> <code>B300FAFitlgt_redskirt.bmp</code></p><ul style="margin-top:8px;padding-left:18px;"><li><code>B</code> &ndash; Body (everyday clothing)</li><li><code>300</code> &ndash; mesh number</li><li><code>F</code> &ndash; female</li><li><code>A</code> &ndash; adult</li><li><code>Fit</code> &ndash; fit body type</li><li><code>lgt</code> &ndash; light skin tone</li><li><code>_redskirt</code> &ndash; identifier</li></ul><p>There will be many files in this folder. You can sort A&ndash;Z to group all B-prefix files together, or type <code>B*.bmp</code> in the Windows search bar to filter just the body BMPs. For a full breakdown of all filename segments, see the <a href="file-reference.html">File Reference</a> page.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Copy (do not move) the file to a working folder</h4><p>Pick the outfit you want to repaint. In Windows File Explorer, <strong>right-click on the BMP file</strong> and select <strong>Copy</strong>. Then navigate to a working folder on your desktop (for example, create a new folder called <code>ClothingProject</code> on your desktop), <strong>right-click inside that folder</strong> and select <strong>Paste</strong>. Never edit original game files directly &ndash; always work on a copy.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the copy in GIMP</h4><p>In your working folder, <strong>right-click on the copied BMP file</strong> and select <strong>Open With &rarr; GIMP</strong>. If GIMP is not listed, select <strong>Choose another app</strong> and browse to GIMP. The image is 256&times;256 pixels. To zoom in so it fills the screen, go to <strong>View &rarr; Zoom &rarr; Fit Image in Window</strong> (or press <strong>Shift+Ctrl+J</strong>).</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Path B: Export a template from The Sims Creator<br><span class="tag teal">Recommended</span></h3>
+  <p>Best for: creating a new outfit that needs fresh CMX and SKN files generated alongside it. TSC lets you see a live 3D preview of your texture on the actual body mesh while you paint.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open The Sims Creator</h4><p>Launch TSC. The main screen lets you select the head and body for your Sim, and change age, gender, and skin tone. A 3D preview window shows your Sim from different angles.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Select a body mesh</h4><p>On the main screen, browse the available body options. Choose the body type that matches what you want to make (female adult fit, male adult skinny, etc.). The body mesh you select here determines which 3D shape your texture will wrap around.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the Paint tool</h4><p>Click the <strong>Paint</strong> button from the main menu. TSC opens a painting view where you can paint in either 2D flat view or directly on the 3D model. The tool panel at the bottom of the screen has brushes, colours, and textures for basic changes.</p><p>For more detailed painting (layers, precise selections, hue shifting), you will want to work in GIMP instead. See the <a href="#gimp-basics">GIMP Basics</a> section below. TSC and GIMP work well together &ndash; you can do rough changes in TSC's 3D view and fine work in GIMP.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save your skin</h4><p>When done painting in TSC, click <strong>Done</strong> to return to the main screen. Click <strong>Save</strong>, give your skin a name, and TSC saves the BMP, CMX, and SKN files directly into your <code>GameData\Skins\</code> folder.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Path C: Use a community template<br><span class="tag gold">Advanced</span></h3>
+  <p>Best for: using a custom body mesh made by another creator, or starting from a shared template file. Some creators release template packs that show UV seams overlaid on a transparent background &ndash; these make it much easier to know where to paint without guessing.</p>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">Community templates</div><div class="card-desc">Template files typically show a body outline or UV seam guides overlaid on a transparent or white background. You paint your outfit design on top of these guides, then remove the guide layer before saving your final BMP. Always check the creator's terms of use before redistributing anything based on their templates.</div></div>
+    <div class="card"><div class="card-title">Where to find them</div><div class="card-desc">Check the <a href="download-sites.html">Mod Download Sites</a> page &ndash; particularly Simblr.cc and archived communities on the Wayback Machine. Search for "body skin template" or "clothing template".</div></div>
+  </div>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Which path should I pick?</strong> If this is your first time, use <strong>Path A</strong>. Copy a Maxis body file with a simple outfit, change the colours in GIMP, and get it into the game. Once that works, try Path B for the TSC workflow. Path C is for when you have found a specific community mesh or template you want to paint for.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TSC SIM WARDROBE
+═════════════════════════════════════════════════════════ -->
+<section id="tsc-wardrobe">
+  <div class="section-head"><div class="section-emoji">👔</div><div><h2 class="section-title">TSC Sim Wardrobe</h2><p class="section-sub">A quick way to change clothing without touching a separate image editor</p></div></div>
+
+  <p>TSC has a dedicated Wardrobe section that lets you dress and undress your Sim, layer clothing items, and import custom image files directly onto the body without leaving the tool. It is a good starting point for simple changes, but GIMP gives you more control for detailed work.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Access the Wardrobe</h4><p>From the TSC main screen, click <strong>Sim Wardrobe</strong>. This section shows your Sim with their current clothing and gives you options for changing it.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Dress and undress</h4><p>Click <strong>Undress</strong> to strip the Sim back to their base body, or browse clothing items from the list to add outfits. You can layer multiple clothing items on top of each other by selecting more than one garment. This is TSC's intended workflow for mixing existing Maxis clothing.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import a custom texture with Load Texture</h4><p>Click the <strong>Load Texture</strong> button to import your own image file and apply it to the body. This is useful for quickly previewing a texture you have painted externally. TSC accepts <code>.png</code>, <code>.jpg</code>, <code>.tga</code>, <code>.bmp</code>, and <code>.tif</code> files. For best results, the file should be 8-bit (256 colours) &ndash; a full-colour image can be imported but may lose accuracy when the game converts it.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Add a logo or graphic with Add Logo</h4><p>Click <strong>Add Logo</strong> to open the Logo Selector screen. This lets you place a logo or graphic image onto the Sim's clothing in the 2D view, and see how it looks on the 3D model. You can choose from TSC's included logos or click <strong>Load Logo</strong> to import your own graphic. Accepted formats are the same: <code>.png</code>, <code>.jpg</code>, <code>.tga</code>, <code>.bmp</code>, and <code>.tif</code>.</p></div></div>
+  </div>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Wardrobe vs GIMP:</strong> Wardrobe is quickest for placing a logo or importing a pre-made texture. If you want to repaint the whole outfit, use GIMP directly on the BMP file &ndash; you get full control over every pixel, layers, and undo history. Both methods end up producing the same kind of BMP file.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     GIMP BASICS FOR BODIES
+═════════════════════════════════════════════════════════ -->
+<section id="gimp-basics">
+  <div class="section-head"><div class="section-emoji">🎓</div><div><h2 class="section-title">GIMP Basics for Bodies</h2><p class="section-sub">The specific GIMP skills you need for body skin editing &ndash; nothing more</p></div></div>
+
+  <p>You do not need to learn all of GIMP. For body skin editing you need exactly five things: how to switch colour modes, how to use layers, how to pick colours from the image, how to paint, and how to select areas. Each one is explained below in the order you will use them.</p>
+  <p>Body skin BMPs are 256&times;256 pixels &ndash; four times the area of a 128&times;128 head texture. This means you can use slightly larger brush sizes and see more detail while painting, but the core workflow is the same.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">1. Switching colour modes (Indexed &harr; RGB)</h3>
+  <p>Sims 1 body BMPs are saved in <strong>Indexed</strong> colour mode &ndash; a fixed palette of 256 colours maximum. When you open one in GIMP, the title bar will say &ldquo;(indexed)&rdquo; after the filename. In Indexed mode, GIMP restricts you to only the colours already in that palette, so you cannot freely pick new colours to paint with. The first thing to do is switch to <strong>RGB</strong> mode.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Switch to RGB mode</h4><p>Go to <strong>Image &rarr; Mode &rarr; RGB</strong>. The title bar changes from &ldquo;(indexed)&rdquo; to &ldquo;(RGB)&rdquo;. You can now paint with any colour you want.</p></div></div>
+  </div>
+  <div class="callout red" style="margin-top:8px;">🚨 <strong>You must switch back to Indexed mode before saving the final BMP.</strong> The game cannot read RGB BMP files &ndash; the Sim will appear as a blank white body. See the <a href="#indexed">Converting to Indexed BMP</a> section below. The rule is: <strong>RGB for painting, Indexed for saving.</strong></div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">2. What layers are and why you need them</h3>
+  <p>A <strong>layer</strong> is like a transparent sheet of paper stacked on top of your image. You paint on the sheet without changing anything underneath. If you make a mistake, delete the layer and the original image is untouched.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a new layer</h4><p>Go to <strong>Layer &rarr; New Layer</strong> (or press <strong>Shift+Ctrl+N</strong>). In the dialog that appears, set &ldquo;Fill with&rdquo; to <strong>Transparency</strong>. Click OK. You now have a blank transparent layer sitting above your body texture.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Check you are on the right layer</h4><p>Look at the <strong>Layers panel</strong> on the right side of GIMP. If you cannot see it, go to <strong>Windows &rarr; Dockable Dialogs &rarr; Layers</strong>. You will see your new transparent layer on top and the original BMP below it. Click a layer name to make it active. <strong>The highlighted layer is the one your brush paints on.</strong></p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">3. Picking colours from the image</h3>
+  <p>Instead of guessing what colour to use, pick colours directly from the existing body texture to match skin tones and existing clothing colours exactly.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Select the Color Picker tool</h4><p>Press <strong>O</strong> on your keyboard (the letter O), or click the eyedropper icon in the toolbox. Click on any pixel in the image. The colour of that pixel becomes your active foreground colour, shown in the colour swatch at the bottom of the toolbox. You can then switch to the Paintbrush and paint with that exact colour.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">4. Painting with the Paintbrush</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Select the Paintbrush tool</h4><p>Press <strong>P</strong> on your keyboard, or click the paintbrush icon in the toolbox. The foreground colour swatch at the bottom of the toolbox shows what colour your brush will paint with.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Adjust the brush size</h4><p>In the tool options panel below the toolbox, look for the <strong>Size</strong> slider. For a 256&times;256 body texture, you can use larger brushes than for head textures: 5&ndash;20 pixels for detail work (seams, edges), 30&ndash;60 for larger areas (torso fill, trouser legs). Use the <strong>[</strong> and <strong>]</strong> bracket keys to make the brush smaller or larger quickly.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint on the canvas</h4><p>Click and drag to paint. Press <strong>Ctrl+Z</strong> to undo your last stroke. Use the <strong>Eraser</strong> tool (press <strong>E</strong>) to erase parts of a layer without affecting the original image underneath.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">5. Selecting areas (for recolouring)</h3>
+  <p>To change the colour of all the clothing fabric at once rather than painting pixel by pixel, select the area first, then fill or adjust the colour in one go.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Select By Color</h4><p><strong>Select &rarr; By Color</strong> (or press <strong>Shift+O</strong>), then click on the clothing colour in the image. GIMP selects every pixel matching that colour &ndash; you will see a dotted &ldquo;marching ants&rdquo; outline around the selection. Adjust the <strong>Threshold</strong> value in the tool options panel if it is selecting too much or too little (higher = more similar shades included).</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Fill with a new colour</h4><p>Pick your new colour from the colour chooser or use the Color Picker on a reference image. Then go to <strong>Edit &rarr; Fill with Foreground Color</strong> (or press <strong>Alt+Backspace</strong>). Only the selected area gets filled.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Remove the selection</h4><p><strong>Select &rarr; None</strong> (or press <strong>Shift+Ctrl+A</strong>) to deselect the marching ants when you are done.</p></div></div>
+  </div>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>For natural-looking colour shifts:</strong> after selecting a clothing area, try <strong>Colors &rarr; Hue-Saturation</strong> and drag the <strong>Hue</strong> slider. This shifts the colour while keeping all the existing shading and highlights &ndash; it looks much more natural than a flat colour fill.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PAINTING THE BODY TEXTURE
+═════════════════════════════════════════════════════════ -->
+<section id="painting">
+  <div class="section-head"><div class="section-emoji">🎨</div><div><h2 class="section-title">Painting the Body Texture</h2><p class="section-sub">Understanding the UV layout &ndash; why the flat image looks the way it does</p></div></div>
+
+  <div class="callout gold" style="margin-bottom:20px;">⚠️ <strong>Before you start:</strong> make sure you have opened your base body BMP in GIMP and switched to RGB mode (<strong>Image &rarr; Mode &rarr; RGB</strong>). Check the title bar &ndash; if it still says &ldquo;(indexed)&rdquo;, your colours are restricted and painting will not work correctly.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 10px;">How the body is laid out on the 256&times;256 canvas</h3>
+  <p>The flat BMP is not a front-on photograph of the Sim. The body parts are &ldquo;unfolded&rdquo; and arranged across the 256&times;256 square so the game engine can wrap them back onto the 3D mesh. This unfolding is called the UV layout. When you start from a Maxis BMP, the UV layout is already correct &ndash; that is the main reason you never start from a blank canvas.</p>
+  <p>The approximate layout for a standard adult body skin:</p>
+  <ul style="margin-top:8px;padding-left:18px;">
+    <li>The <strong>front torso</strong> (chest and stomach) sits in the <strong>centre</strong> of the image.</li>
+    <li>The <strong>arms</strong> run as horizontal strips <strong>to the left and right</strong> of the torso.</li>
+    <li>The <strong>legs</strong> are arranged <strong>at the bottom</strong> of the image.</li>
+    <li>The <strong>back torso</strong> sits near the front torso, often directly above or beside it.</li>
+    <li>Not every pixel in the 256&times;256 square is used &ndash; there is some blank dead space.</li>
+  </ul>
+  <div class="callout gold" style="margin-top:12px;">⚠️ <strong>Text on the front appears backwards in game.</strong> The game mirrors the front torso area horizontally when wrapping it onto the 3D mesh. This means if you paint the word &ldquo;SIMS&rdquo; normally on the front chest area of the BMP, it will read as &ldquo;SMIS&rdquo; (backwards) on the Sim in game. To make text read correctly on the front of a shirt, you need to <strong>paint the text backwards</strong> in GIMP. Text on the back renders normally without mirroring, so paint that as you normally would.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Seam matching</h3>
+  <p>Where two body parts meet on the 3D mesh (for example, where the arm connects to the torso, or where the leg meets the hip), the edge pixels of those two areas on the flat BMP must match in colour. If they do not match, you will see a visible seam line on the Sim in game.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Zoom in on the boundary areas</h4><p>In GIMP, press <strong>+</strong> or use <strong>View &rarr; Zoom In</strong> to zoom to 200% or 400% around the edges where body parts join. The seam areas are usually at the borders of the arm strips and the top of the leg area.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Sample the colour from the adjacent part</h4><p>Use the Color Picker tool (press <strong>O</strong>) to sample the exact colour of the edge pixel on one side, then paint that same colour on the matching edge pixel on the other side. A few pixels of matching colour at the join is usually enough to prevent a visible seam.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">The actual painting process</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Study the original first</h4><p>Before painting anything, zoom in and look at the existing texture carefully. Notice where the top ends and the trousers begin, where the skin areas (arms, neck) are, and where each body part is positioned on the canvas. If you can, compare the flat BMP against a screenshot of the outfit on a Sim in game.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a working layer</h4><p><strong>Layer &rarr; New Layer &rarr; Fill with: Transparency &rarr; OK.</strong> Paint on this new layer. The original body texture stays safe on the layer underneath.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint the clothing areas</h4><p>Use Select By Color (<strong>Shift+O</strong>) to select the areas of clothing fabric you want to change, then fill with your new colour. Or use the Paintbrush for hand-painted detail. For completely different colours or patterns, painting on the new layer gives you the most flexibility &ndash; you can erase and redo without touching the original.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Keep skin areas correctly toned</h4><p>The skin areas visible on the body (arms, neck, any bare skin) must match the skin tone suffix in the filename. A light-tone BMP (<code>lgt</code>) needs a light skin colour painted in those areas. See the <a href="#skin-tones">Skin Tone Variants</a> section below.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Flatten the image</h4><p>When you are happy with the result, go to <strong>Image &rarr; Flatten Image</strong> to merge all layers into one. Before flattening, consider saving a layered backup first: <strong>File &rarr; Export As &rarr;</strong> save as <code>.xcf</code> (GIMP's own format). You can reopen an XCF later and still have all the layers to edit.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SKIN TONE VARIANTS
+═════════════════════════════════════════════════════════ -->
+<section id="skin-tones">
+  <div class="section-head"><div class="section-emoji">🎨</div><div><h2 class="section-title">Making Skin Tone Variants</h2><p class="section-sub">Why you need three files and how to make them efficiently</p></div></div>
+
+  <p>If your outfit has any visible skin areas (bare arms, legs, or neck), you need three separate BMP files &ndash; one for light (<code>lgt</code>), one for medium (<code>med</code>), and one for dark (<code>drk</code>) skin tones. The clothing areas (the actual fabric) stay identical across all three files. Only the skin-coloured areas change between them.</p>
+  <p>The most efficient workflow is to finish the light skin version completely first, then create the medium and dark versions by adjusting only the skin areas.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Finish the light skin version first</h4><p>Complete all your painting on the <code>lgt</code> file, including all skin areas using a light skin tone. Flatten the image. This is your reference for the other two.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open a Maxis medium-tone body BMP</h4><p>Find any existing Maxis body BMP with <code>med</code> in the filename (for example, any <code>B</code>-prefix file ending in <code>med_somename.bmp</code>) and open it in a second GIMP window. This gives you the exact medium skin tone colours to sample from.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Sample the medium skin tone</h4><p>Use the Color Picker (press <strong>O</strong>) to click on the skin area in the Maxis medium-tone BMP. The sampled colour becomes your foreground colour.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Make a copy for the medium version</h4><p>Switch back to your finished light version. Save a copy of the file with <code>med</code> in the filename instead of <code>lgt</code> (using <strong>File &rarr; Export As</strong>). Open that copy in GIMP. Switch to RGB mode again (<strong>Image &rarr; Mode &rarr; RGB</strong>).</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Repaint only the skin areas</h4><p>Use Select By Color (Shift+O) to select the skin-coloured areas in your medium copy. Fill them with the sampled medium skin tone colour. Clothing stays untouched. Flatten and convert to Indexed BMP (see the next section).</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Repeat for the dark skin version</h4><p>Repeat the process using a Maxis dark-tone BMP to sample the correct dark skin colour. Save with <code>drk</code> in the filename.</p></div></div>
+  </div>
+
+  <div class="callout green" style="margin-top:12px;">✅ <strong>If your outfit covers all skin areas</strong> (gloves, full-body suit, etc.), all three versions will look identical &ndash; just copy the <code>lgt</code> file twice and rename the copies to <code>med</code> and <code>drk</code>. The game still needs all three files to exist, even if they are identical.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     INDEXED BMP CONVERSION
+═════════════════════════════════════════════════════════ -->
+<section id="indexed">
+  <div class="section-head"><div class="section-emoji">💾</div><div><h2 class="section-title">Converting to Indexed BMP</h2><p class="section-sub">The critical final step before the game can use your file</p></div></div>
+
+  <div class="callout red" style="margin-bottom:16px;">🚨 <strong>This step is not optional.</strong> Saving a body BMP in RGB mode produces a file the game cannot read. The Sim will appear as a blank white body. You must convert to Indexed mode and export (not Save) as BMP.</div>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Flatten the image</h4><p>Go to <strong>Image &rarr; Flatten Image</strong>. This merges all layers into a single layer. If you have not already saved a layered XCF backup, do that first.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Convert to Indexed mode</h4><p>Go to <strong>Image &rarr; Mode &rarr; Indexed</strong>. A dialog appears. Set <strong>Maximum number of colours</strong> to <strong>255</strong> (not 256 &ndash; one slot is reserved). Leave the other settings at their defaults. Click <strong>Convert</strong>.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export as BMP (not Save)</h4><p>Go to <strong>File &rarr; Export As</strong>. In the file browser, navigate to where you want to save the file and type the filename with the <code>.bmp</code> extension. Click <strong>Export</strong>. A BMP options dialog may appear &ndash; click <strong>Export</strong> again to accept the defaults. <strong>Do not use File &rarr; Save &ndash; that saves a GIMP XCF file, not a BMP.</strong></p></div></div>
+  </div>
+
+  <div class="callout gold" style="margin-top:12px;">⚠️ <strong>Filename matters.</strong> The BMP filename must follow the correct format and the skin tone suffix (<code>lgt</code>, <code>med</code>, or <code>drk</code>) must match the actual skin colour painted in the file. See the <a href="making-clothing.html#filename-format">Filename Format</a> on the Clothing Overview for the full format breakdown.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     GETTING IT INTO THE GAME
+═════════════════════════════════════════════════════════ -->
+<section id="into-game">
+  <div class="section-head"><div class="section-emoji">🎮</div><div><h2 class="section-title">Getting It Into the Game</h2><p class="section-sub">Generating the companion files and testing your outfit</p></div></div>
+
+  <p>Displaying a custom outfit requires three file types: BMP textures (one per skin tone), a CMX config file, and an SKN mesh file &ndash; five files in total. You have painted the three BMP files. TSC generates the CMX and SKN.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open TSC and select the matching body mesh</h4><p>Launch TSC. On the main screen, select the same body mesh type that your BMP was painted for (female adult skinny, male adult fit, etc.).</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your light-tone BMP via Wardrobe</h4><p>Use the Wardrobe <strong>Load Texture</strong> button to import your light skin tone BMP. TSC displays your texture on the 3D preview model.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save to generate CMX and SKN</h4><p>Click <strong>Save</strong> on the main screen. Give your skin a name &ndash; this becomes the identifier in all the filenames. TSC saves the light-tone BMP and generates a CMX and SKN file alongside it, all into <code>GameData\Skins\</code>. Then manually copy your medium and dark skin tone BMPs into the same folder &ndash; TSC does not generate these.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Verify the files are in the right place</h4><p>Navigate to <code>GameData\Skins\</code> and confirm all five files are present: three BMPs (<code>lgt</code>, <code>med</code>, <code>drk</code>), one CMX, and one SKN. All five must be in the root of the Skins folder &ndash; <strong>not in any subfolder</strong>. The game does not scan subfolders.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test in game</h4><p>Launch the game and open the Create-A-Sim screen (buy a new Sim from the catalogue, or use an existing household). Your outfit should appear in the dresser under everyday clothing. If it does not appear, see the <a href="making-clothing.html#common-mistakes">Common Mistakes</a> table on the Clothing Overview, or the <a href="cc-troubleshooting.html">CC Troubleshooting</a> page.</p></div></div>
+  </div>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>If you already have a working outfit and just want to update the texture:</strong> you can replace the BMP files in <code>GameData\Skins\</code> directly with your new versions, keeping the same filenames. The game will use the new textures the next time it loads. You do not need to run TSC again if the mesh (CMX and SKN) has not changed.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     OTHER OUTFIT CATEGORIES
+═════════════════════════════════════════════════════════ -->
+<section id="other-categories">
+  <div class="section-head"><div class="section-emoji">🏷️</div><div><h2 class="section-title">Other Outfit Categories</h2><p class="section-sub">The B prefix covers everyday wear only &ndash; other categories work the same way but use different prefixes and folders</p></div></div>
+
+  <p>Everything in this guide so far has focused on everyday body skins (B prefix), which appear in the home dresser. The Legacy Collection also includes sleepwear, formal wear, swimwear, winterwear, and high fashion categories &ndash; all introduced by Hot Date and later expansions.</p>
+  <p>The painting process is identical for all categories. The only things that change are:</p>
+  <ul style="margin-top:8px;padding-left:18px;">
+    <li>The <strong>prefix letter</strong> at the start of the filename (e.g. <code>L</code> for sleepwear instead of <code>B</code>).</li>
+    <li>The <strong>destination folder</strong> &ndash; buyable skins go in <code>ExpansionShared\SkinsBuy\</code> rather than <code>GameData\Skins\</code>.</li>
+  </ul>
+  <p>For the full list of prefixes, what each one unlocks, and exactly which folder each type goes in, see the <a href="file-reference.html#skin-prefixes">File Reference &ndash; Skin Prefixes</a> and the <a href="terminology.html">Terminology</a> page.</p>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Buyable skins</strong> (L, F, S, W, and H-prefix) only appear on clothing racks at community shopping lots. Your Sim has to visit a shop and buy them &ndash; they will not show up in the home dresser. If you want your outfit to appear in the dresser too, make a B-prefix version of it.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     OPTIONAL MATCHING TEXTURES
+═════════════════════════════════════════════════════════ -->
+<section id="matching-textures">
+  <div class="section-head"><div class="section-emoji">🤝</div><div><h2 class="section-title">Optional Matching Textures</h2><p class="section-sub">How the game links hands and other skins to your outfit using the end-tag</p></div></div>
+
+  <p>The game uses the <strong>end-tag</strong> &ndash; the part after the underscore in the filename &ndash; to link related textures together. If two skins share the same end-tag, the game treats them as a set and uses them together when your Sim changes clothes.</p>
+
+  <p>For example, if your body skin is <code>B300FAFitlgt_MyOutfit.bmp</code>, you can optionally create matching hand textures that the game will use when your Sim is wearing this outfit. All matching textures must use the same end-tag (<code>_MyOutfit</code>) and the same skin tone suffix.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Hand textures</h3>
+  <p>Hand textures are 64&times;64 pixels (not 256&times;256 like body skins). They follow their own filename format. Common hand files included with the base game are unisex, adult, and apply to all hand gestures.</p>
+  <p>The most commonly needed hand variants are:</p>
+  <ul style="margin-top:8px;padding-left:18px;">
+    <li><code>HUAOlgt_MyOutfit.bmp</code> &ndash; open hand (resting, idle)</li>
+    <li><code>HUAClgt_MyOutfit.bmp</code> &ndash; closed hand (gripping objects)</li>
+    <li><code>HUAPlgt_MyOutfit.bmp</code> &ndash; pointing hand</li>
+  </ul>
+  <p>Hand textures go in the same <code>GameData\Skins\</code> folder as body skins. If no matching hand textures exist for your end-tag, the game uses its default hand textures instead &ndash; so creating hand textures is entirely optional.</p>
+  <p>For a full breakdown of the hand filename format and all gesture variants, see the <a href="file-reference.html">File Reference</a> page.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Do you need matching hand textures?</strong> Usually no. The default Maxis hand textures work fine with most custom outfits, especially if the outfit covers the hands (gloves) or the skin tone is close enough. Matching hand textures are most noticeable on outfits with visible skin at the wrist &ndash; without a matching hand, there can be a slight colour difference at the seam between the body skin and the hand skin.</div>
+</section>
+
+<div class="prevnext">
+  <a href="making-clothing.html" class="prevnext-link prev"><span class="prevnext-arrow">&larr;</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">Clothing Overview</div></div></a>
+  <a href="clothing-meshes.html" class="prevnext-link next"><span class="prevnext-arrow">&rarr;</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">Custom Clothing Meshes</div></div></a>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span> The Sims Legacy Collection &ndash; Modding Guide</div>
+    <div class="footer-links"><a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a><a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a><a href="search.html">Search</a><a href="terminology.html">Terminology</a><a href="cheats.html">Cheats</a><a href="careers.html">Career Guide</a><a href="updates.html">Site Roadmap</a><a href="contact.html">Contact</a></div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group"><a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a><a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Mods &amp; CC</div><a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a><a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a><a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a><a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Gameplay</div><a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a><a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Clothing Overview</a>
+      <a href="clothing-retextures.html" class="nav-drawer-link nav-drawer-sublink active" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Clothing</a>
+      <a href="clothing-meshes.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧵</span>Custom Meshes</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Hair &amp; Heads Overview</a>
+      <a href="head-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Heads</a>
+      <a href="head-creation.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧬</span>FaceLift Gold</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls &amp; Floors</a>
+      <a href="object-retextures.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Troubleshooting</div><a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a><a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Site</div><a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📅</span>About Legacy</a><a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a><a href="file-reference.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🗂️</span>File Reference</a><a href="credits.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📝</span>Sources &amp; Credits</a><a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a><a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a></div>
+  </div></div>
+
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamDesktop,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){var btn=document.getElementById(bid),panel=document.getElementById(pid);if(!btn||!panel)return;document.body.appendChild(panel);btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});panel.addEventListener('click',function(e){e.stopPropagation();});}
+  setupDD('infoDropdownBtn','infoDropdownPanel');setupDD('modsDropdownBtn','modsDropdownPanel');setupDD('ccDropdownBtn','ccDropdownPanel');setupDD('helpDropdownBtn','helpDropdownPanel');setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>

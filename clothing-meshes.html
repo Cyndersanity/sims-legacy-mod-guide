@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Clothing Meshes – Sims Legacy Collection Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8ZDF0Q80RR');</script>
+</head>
+<body>
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview &amp; Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item active" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls &amp; Floors</a><a href="object-retextures.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<script>(function(){var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}window.addEventListener('load',check);setTimeout(check,200);})();</script>
+
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection &ndash; Creating CC &ndash; Clothing</div>
+  <h1 class="page-title">Custom Clothing <span>Meshes</span></h1>
+  <p class="page-sub">Edit the 3D body shape to create new clothing silhouettes and accessories</p>
+</div>
+
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#when-needed">When You Need a Custom Mesh</a></li>
+        <li><a href="#what-is-mesh">What Is a Mesh?</a></li>
+        <li><a href="#mesh-rules">Mesh Rules</a></li>
+        <li><a href="#blender">Blender + TS1 Blender IO</a></li>
+        <li><a href="#milkshape">MilkShape 3D + SKN2OBJ</a></li>
+        <li><a href="#bodywarp">BodyWarp</a></li>
+        <li><a href="#accessories">Making Accessories</a></li>
+        <li><a href="#uv-mapping">UV Mapping for Modified Meshes</a></li>
+        <li><a href="#testing">Testing Your Mesh</a></li>
+      </ul>
+      <div class="toc-divider"></div>
+      <a class="toc-back" href="making-clothing.html">&larr; Back to Clothing Overview</a>
+    </div>
+  </aside>
+  <main class="content">
+
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#when-needed">When You Need a Custom Mesh</a><a href="#what-is-mesh">What Is a Mesh?</a><a href="#mesh-rules">Mesh Rules</a><a href="#blender">Blender + TS1 Blender IO</a><a href="#milkshape">MilkShape 3D + SKN2OBJ</a><a href="#bodywarp">BodyWarp</a><a href="#accessories">Making Accessories</a><a href="#uv-mapping">UV Mapping for Modified Meshes</a><a href="#testing">Testing Your Mesh</a></div></details>
+
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> &ndash; screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">r/thesims1</a>.</div>
+
+<p>This guide covers custom mesh creation &ndash; editing the actual 3D body shape that your texture wraps around. For background on how clothing files work, filenames, and the xskin chain, see the <a href="making-clothing.html">Clothing Overview</a>. If you have not yet made a retextured outfit, start with the <a href="clothing-retextures.html">Retexturing Clothing</a> guide first &ndash; it covers the file system and tools you also need here.</p>
+
+<!-- ═══════════════════════════════════════════════════════
+     WHEN YOU NEED A CUSTOM MESH
+═════════════════════════════════════════════════════════ -->
+<section id="when-needed">
+  <div class="section-head"><div class="section-emoji">❓</div><div><h2 class="section-title">When You Need a Custom Mesh</h2><p class="section-sub">Retexturing changes how an outfit looks &ndash; custom meshes change its shape</p></div></div>
+
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card" style="border-color:var(--teal);">
+      <div class="card-title">Retexturing is enough if you want to&hellip;</div>
+      <div class="card-desc">
+        <ul style="margin:0;padding-left:18px;">
+          <li>Change the colour or pattern of an existing outfit</li>
+          <li>Create a new clothing design on an existing body shape</li>
+          <li>Add a logo, graphic, or custom print to a garment</li>
+          <li>Create all skin tone variants of an existing outfit</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" style="border-color:var(--gold);">
+      <div class="card-title">You need a custom mesh if you want to&hellip;</div>
+      <div class="card-desc">
+        <ul style="margin:0;padding-left:18px;">
+          <li>Create a flowing dress, puffed sleeves, or a coat that extends below the knee</li>
+          <li>Add something that does not exist on the standard body (wings, a tail, a backpack)</li>
+          <li>Make a hat, glasses, or other worn accessory</li>
+          <li>Give a Sim a different body silhouette (longer arms, wider hips)</li>
+          <li>Hold or wear an attached prop (a sword, a tray, a basket)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout gold" style="margin-top:16px;">⚠️ <strong>Custom mesh editing is a significant step up in complexity.</strong> Mistakes can cause the game to crash before it gets to the loading screen. Always test new meshes with SimShow first (see the <a href="#testing">Testing</a> section) before placing them in your game folder.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     WHAT IS A MESH
+═════════════════════════════════════════════════════════ -->
+<section id="what-is-mesh">
+  <div class="section-head"><div class="section-emoji">📐</div><div><h2 class="section-title">What Is a Mesh?</h2><p class="section-sub">A plain-language explanation of 3D mesh concepts you need to know</p></div></div>
+
+  <p>A mesh is a 3D object made of three basic building blocks:</p>
+  <ul style="margin-top:8px;padding-left:18px;">
+    <li><strong>Vertices</strong> (singular: vertex) &ndash; individual points in 3D space. Think of them as the dots in a connect-the-dots drawing. A single dot has a position: how far left/right (X), how far up/down (Y), and how far forward/back (Z) from a centre point.</li>
+    <li><strong>Edges</strong> &ndash; straight lines connecting two vertices. In a 3D editor you often see these as a &ldquo;wireframe&rdquo; &ndash; the mesh shown as lines only, without any texture or fill.</li>
+    <li><strong>Faces</strong> &ndash; a triangle formed by three vertices. Faces are the actual visible surface of the mesh &ndash; what you see in game. The game wraps your flat BMP texture image over these triangles to create the clothed appearance.</li>
+  </ul>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Bone assignments (why vertices matter beyond position)</h3>
+  <p>Each vertex in a Sims 1 body mesh has not just a position, but also a <strong>bone assignment</strong> &ndash; which part of the skeleton controls that vertex during animations. The skeleton is made up of named bones (PELVIS, SPINE, L_ARM, R_HAND, etc.). When your Sim walks, the leg bones move, which pulls the vertices assigned to them along with it. When your Sim waves, the arm and hand bones move.</p>
+  <p>This is why you cannot just move a vertex wherever you like during mesh editing &ndash; its bone assignment determines how it will behave during every animation in the game. A vertex still assigned to the leg bone but physically placed at shoulder height will snap back to the leg area every time the Sim animates.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">UV coordinates (how the texture knows where to go)</h3>
+  <p>Every vertex also has a <strong>UV coordinate</strong> &ndash; a position on the flat BMP texture that tells the game &ldquo;this point on the 3D mesh corresponds to this pixel on the texture image.&rdquo; This is what makes the trouser leg appear on the leg and not on the torso. When you reshape a mesh by moving vertices, the UV coordinates do not move automatically &ndash; the texture can end up misaligned. See the <a href="#uv-mapping">UV Mapping</a> section for what to do about this.</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     MESH RULES
+═════════════════════════════════════════════════════════ -->
+<section id="mesh-rules">
+  <div class="section-head"><div class="section-emoji">📋</div><div><h2 class="section-title">Mesh Rules</h2><p class="section-sub">Five rules you must follow &ndash; each one explained with what goes wrong if you break it</p></div></div>
+
+  <div class="callout red" style="margin-bottom:20px;">🚨 <strong>Read these before touching any mesh files.</strong> Breaking these rules causes real problems &ndash; from visual glitches to conversion errors to game crashes.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:5%">#</th><th style="width:35%">Rule</th><th>What goes wrong if you break it</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td><strong>Never add or remove vertices or faces</strong></td>
+          <td>The SPJ file (produced by SKN2OBJ) contains a fixed vertex count. If your edited mesh has a different number of vertices than the original, SKN2OBJ cannot convert it back to SKN format &ndash; you get a conversion error and the mesh is unusable. Every vertex that existed in the original must still exist in your edit.</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td><strong>Do not change a vertex&rsquo;s bone assignment</strong></td>
+          <td>If you move a leg vertex to the arm area visually but do not change its bone assignment, it is still controlled by the leg bone. During any animation where the arm and leg move independently (which is all of them), that vertex follows the leg &ndash; causing a visible spike or hole in the arm area. The mesh looks fine in a static pose but breaks the moment the Sim animates.</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td><strong>Do not resize or relocate the whole mesh as a unit</strong></td>
+          <td>The game uses the exact vertex coordinates from the mesh to position the Sim relative to furniture and objects. Sitting in a chair, using a counter, kissing &ndash; all of these are calculated from mesh coordinates. If you scale the whole mesh up by 10%, your Sim will appear to float above chairs, clip through desks, and miss every interaction point.</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td><strong>For body meshes: convert using SPJ, not Import OBJ</strong></td>
+          <td>The SPJ file (an intermediate format produced by SKN2OBJ when it reads a SKN file) preserves the bone assignment data that OBJ files cannot store. If you import an edited OBJ directly as a new SKN without going through the SPJ, the bone assignments are lost or guessed incorrectly &ndash; the mesh breaks during animation.</td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td><strong>For accessories: use Import OBJ (not the SPJ route)</strong></td>
+          <td>Accessories are separate mesh objects that are attached to a specific bone by name (see the <a href="#accessories">Making Accessories</a> section). They do not have an existing SPJ to work from &ndash; you create them fresh in a 3D editor and use the Import OBJ function in SKN2OBJ. Using the SPJ route would require an existing SKN to start from, which accessories do not have.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     BLENDER + TS1 BLENDER IO
+═════════════════════════════════════════════════════════ -->
+<section id="blender">
+  <div class="section-head"><div class="section-emoji">🟠</div><div><h2 class="section-title">Blender + TS1 Blender IO</h2><p class="section-sub">The modern free option &ndash; handles all Sims 1 mesh formats in one tool</p></div></div>
+
+  <p>TS1 Blender IO is a Blender addon developed by mixiate that adds native support for Sims 1 file formats: SKN meshes, BCF skeletons, CMX configs, and CFP animations. It is the recommended starting point for anyone who does not have a specific reason to use the older MilkShape + SKN2OBJ workflow.</p>
+  <p>Supported Blender versions are 4.1 through 4.5 as of early 2026. Check the <a href="https://github.com/mixiate/ts1-blender-io" target="_blank" rel="noopener">TS1 Blender IO GitHub page</a> for the current supported version range before installing.</p>
+
+  <div class="callout teal" style="margin-bottom:20px;">ℹ️ <strong>If you have not used Blender before:</strong> Blender has a steep learning curve. The Blender Foundation's own beginner tutorials (available free on their website and YouTube channel) are the best starting point. Learn how to navigate the viewport, select and move objects, and use Edit Mode before trying Sims 1 mesh work.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 10px;">Installing TS1 Blender IO</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download Blender</h4><p>Download and install Blender from <a href="https://www.blender.org/" target="_blank" rel="noopener">blender.org</a>. Use a version between 4.1 and 4.5 &ndash; the addon may not work on versions outside this range.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Download TS1 Blender IO</h4><p>Go to <a href="https://github.com/mixiate/ts1-blender-io" target="_blank" rel="noopener">github.com/mixiate/ts1-blender-io</a>. Under Releases on the right side, download the latest release ZIP file. Do not unzip it &ndash; Blender installs addons from the ZIP directly.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Install the addon in Blender</h4><p>In Blender, go to <strong>Edit &rarr; Preferences &rarr; Add-ons</strong>. Click <strong>Install&hellip;</strong> and browse to the ZIP file you downloaded. Click <strong>Install Add-on</strong>. The addon will appear in the list &ndash; click the checkbox next to it to enable it.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">The editing workflow</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import the skeleton</h4><p>Go to <strong>File &rarr; Import &rarr; Sims 1 BCF</strong> and import a BCF skeleton file from <code>GameData\Skins\</code> (or wherever your game stores BCF files). The skeleton gives you the bone structure to work with and ensures your mesh edits stay in the correct position relative to the Sim&rsquo;s body.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import the body mesh</h4><p>Go to <strong>File &rarr; Import &rarr; Sims 1 SKN</strong> and import the SKN file you want to edit. The mesh appears in the viewport over the skeleton. You can also import the BMP texture to see it applied to the mesh in the viewport.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Edit the mesh in Edit Mode</h4><p>Select the mesh object in the viewport and press <strong>Tab</strong> to enter Edit Mode. Here you can select individual vertices (press <strong>1</strong>), edges (<strong>2</strong>), or faces (<strong>3</strong>), and move them by pressing <strong>G</strong> then dragging. Remember: you can move vertices but must not add or remove them (see <a href="#mesh-rules">Mesh Rules</a>).</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Check bone weights if needed</h4><p>If you have moved vertices into a significantly different position, check that their bone assignments still make sense using the <strong>Weight Paint</strong> mode (select the mesh, then switch the mode dropdown in the top-left from Object Mode to Weight Paint). Blue means no influence from a bone; red means full influence. Vertices that moved into a different body region may need their weights adjusted.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Adjust UV layout if needed</h4><p>If your mesh changes cause the texture to look misaligned in the viewport, open the <strong>UV Editing</strong> workspace (tab at the top of the Blender window) and adjust the UV coordinates there. See the <a href="#uv-mapping">UV Mapping</a> section below for more detail.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export the mesh</h4><p>Go to <strong>File &rarr; Export &rarr; Sims 1 SKN</strong> to export your edited mesh as a SKN file. The addon can also generate a CMX file &ndash; check the export options panel on the right side of the file browser dialog.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     MILKSHAPE 3D + SKN2OBJ
+═════════════════════════════════════════════════════════ -->
+<section id="milkshape">
+  <div class="section-head"><div class="section-emoji">🧱</div><div><h2 class="section-title">MilkShape 3D + SKN2OBJ</h2><p class="section-sub">The classic workflow from the original modding era &ndash; still functional</p></div></div>
+
+  <p>MilkShape 3D is a 3D editor ($25, 30-day trial) that was the standard tool for Sims 1 mesh editing from roughly 2000 to 2010. SKN2OBJ is a free converter that translates Sims 1 SKN mesh files into the OBJ format that MilkShape can open and edit. Most older tutorial guides assume this pair of tools.</p>
+  <p>If you are following an older guide (from the original community era) or are more comfortable with MilkShape, this is still a valid route. If you are starting fresh, the Blender workflow above is free and more actively documented for 2025+.</p>
+
+  <div class="callout gold" style="margin-bottom:20px;">⚠️ <strong>SKN2OBJ produces an intermediate SPJ file that must be kept.</strong> The SPJ preserves bone assignment data that the OBJ format cannot store. You need both the SPJ and your edited OBJ to convert back to SKN. Do not delete the SPJ.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 10px;">The workflow</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Convert SKN to OBJ using SKN2OBJ</h4><p>Open SKN2OBJ. Load the SKN file you want to edit using the <strong>Open SKN</strong> button. SKN2OBJ produces three output files: a <strong>SPJ</strong> (the intermediate file with bone data), an <strong>OBJ</strong> (the editable 3D mesh), and an <strong>MTL</strong> (material/texture information). Keep all three in the same folder.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import the OBJ into MilkShape 3D</h4><p>In MilkShape, go to <strong>File &rarr; Import &rarr; Wavefront OBJ</strong> and open the OBJ file produced by SKN2OBJ. The body mesh appears in the MilkShape viewport.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Edit vertices in MilkShape</h4><p>Use the <strong>Select</strong> tool to select individual vertices or groups of vertices, then use the <strong>Move</strong> tool to reposition them. You can also scale or rotate selected groups. Remember: do not add new vertices, do not delete existing ones (see <a href="#mesh-rules">Mesh Rules</a>).</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Adjust texture mapping if needed</h4><p>If your mesh changes have moved vertices such that the texture no longer maps correctly, use MilkShape&rsquo;s <strong>Texture Coordinate Editor</strong> (<strong>Window &rarr; Texture Coordinate Editor</strong>) to adjust the UV coordinates. See the <a href="#uv-mapping">UV Mapping</a> section below.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export back to OBJ with the same filename</h4><p>Go to <strong>File &rarr; Export &rarr; Wavefront OBJ</strong> and save the file with <strong>exactly the same filename</strong> as the OBJ that SKN2OBJ produced. This overwrites the original OBJ file &ndash; that is intentional. The filename must match because SKN2OBJ links the SPJ and OBJ by filename.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the SPJ in SKN2OBJ and save as SKN</h4><p>Back in SKN2OBJ, open the SPJ file (not the OBJ). SKN2OBJ reads the bone data from the SPJ and the edited geometry from the OBJ (which it finds by matching the filename), then combines them. Click <strong>Save as SKN</strong> to produce your final SKN file. This is the file that goes into your game folder alongside the CMX and BMPs.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     BODYWARP
+═════════════════════════════════════════════════════════ -->
+<section id="bodywarp">
+  <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">BodyWarp</h2><p class="section-sub">Quick body part manipulation without a full 3D editor</p></div></div>
+
+  <p>BodyWarp is a dedicated Sims 1 mesh tool that lets you rotate, scale, and move individual body segments (an arm, a leg, the torso) without needing to open a full 3D editor like Blender or MilkShape. It works on the SKN file directly and is useful for simple adjustments.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 10px;">What BodyWarp is good for</h3>
+  <ul style="margin-top:8px;padding-left:18px;">
+    <li>Previewing how a mesh looks with a BMP texture applied before putting it in the game</li>
+    <li>Checking for holes in the mesh: load a solid black BMP as the texture, then rotate the 3D preview. Holes in the mesh let the background show through as non-black patches &ndash; easy to spot against the black texture</li>
+    <li>The Split Faces function, which subdivides existing faces into smaller triangles, effectively giving you more vertices to work with &ndash; but this changes the vertex count (see Rule 1 in <a href="#mesh-rules">Mesh Rules</a>), so only use this if you are starting from a mesh that will not go back through SKN2OBJ&rsquo;s SPJ route</li>
+    <li>Generating a CMX configuration file for a mesh</li>
+  </ul>
+
+  <div class="callout gold">⚠️ <strong>Split Faces adds new vertices.</strong> If you use Split Faces in BodyWarp, you cannot then use the original SPJ to convert back to SKN (the vertex count will no longer match). Only use Split Faces if you are treating this as the starting point for a completely new mesh that will not be reconciled with an existing SPJ.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     MAKING ACCESSORIES
+═════════════════════════════════════════════════════════ -->
+<section id="accessories">
+  <div class="section-head"><div class="section-emoji">🎩</div><div><h2 class="section-title">Making Accessories</h2><p class="section-sub">Separate mesh objects attached to a skeleton bone &ndash; wings, hats, held props</p></div></div>
+
+  <p>Accessories are not body modifications &ndash; they are separate, independent mesh objects that are &ldquo;attached&rdquo; to a specific bone on the skeleton. This means the accessory moves with that bone during animations: a hat on the HEAD bone nods when the Sim nods; an item in the R_HAND bone moves when the Sim reaches out to pick something up.</p>
+  <p>Because accessories are new meshes (not edits of existing ones), they go through the <strong>Import OBJ</strong> route rather than the SPJ route. Rule 1 from <a href="#mesh-rules">Mesh Rules</a> (never add or remove vertices) does not apply to accessories &ndash; you are creating something entirely new.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Common bone names for accessories</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Bone name</th><th>Where the accessory attaches</th><th>Example use</th></tr></thead>
+      <tbody>
+        <tr><td><code>HEAD</code></td><td>Top of the head</td><td>Hats, crowns, horns, halos</td></tr>
+        <tr><td><code>R_HAND</code></td><td>Right hand</td><td>Held props, weapons, wands</td></tr>
+        <tr><td><code>L_HAND</code></td><td>Left hand</td><td>Shields, books, second-hand items</td></tr>
+        <tr><td><code>SPINE</code></td><td>Upper back / spine area</td><td>Wings, backpacks, capes</td></tr>
+        <tr><td><code>PELVIS</code></td><td>Hip/pelvis area</td><td>Tails, belts, skirts as accessories</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:8px;">Other bone names exist in the skeleton. If you are unsure of a bone&rsquo;s name, import the BCF skeleton file in Blender and check the armature&rsquo;s bone list.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Creating an accessory with SKN2OBJ</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Model the accessory in a 3D editor</h4><p>Create your accessory mesh in Blender, MilkShape, or any 3D editor that can export OBJ files. Keep the vertex count reasonable &ndash; Sims 1 is a 2000-era game engine and was not designed for high-polygon accessories.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export as OBJ</h4><p>Export the mesh from your 3D editor as a Wavefront OBJ file. The export should produce an OBJ file and an MTL file. Keep both in the same folder.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Edit the OBJ to set the bone name</h4><p>Open the OBJ file in a text editor (Notepad works). Find the line that starts with <code>g </code> (lowercase g, then a space). This line names the object group. Change the name after <code>g </code> to the bone name you want the accessory attached to.</p><p><strong>Example:</strong> to attach to the head, change <code>g object_name</code> to <code>g HEAD</code>. To attach to the right hand, change it to <code>g R_HAND</code>. The name must match the skeleton bone name exactly (check capitalisation).</p><p>Save the OBJ file after making this change.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import the OBJ in SKN2OBJ</h4><p>In SKN2OBJ, use the <strong>Import OBJ</strong> function (not Open SKN, which is for the SPJ route). Select your edited OBJ file. SKN2OBJ reads the bone name from the group line and creates a SKN file with the accessory attached to that bone.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a CMX for the accessory</h4><p>The accessory SKN needs its own CMX file pointing to it. You can create one manually (see the <a href="file-reference.html">File Reference</a> for the CMX format), or use BodyWarp&rsquo;s CMX generation feature. The CMX base bodypart for an accessory is the bone it attaches to (e.g. <code>HEAD</code> for a hat).</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create and apply the texture</h4><p>Accessories use their own BMP texture file, separate from the body skin BMP. Paint the texture in GIMP, convert to Indexed BMP (same process as body skins), and name it to match the accessory CMX end-tag. Place it in <code>GameData\Skins\</code> alongside the body skins.</p></div></div>
+  </div>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Creating accessories in Blender + TS1 Blender IO:</strong> the addon handles bone assignment directly in the Blender interface &ndash; you assign vertices to a bone using Vertex Groups rather than editing the OBJ file by hand. Check the addon&rsquo;s documentation on GitHub for the specific workflow.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     UV MAPPING
+═════════════════════════════════════════════════════════ -->
+<section id="uv-mapping">
+  <div class="section-head"><div class="section-emoji">🗺️</div><div><h2 class="section-title">UV Mapping for Modified Meshes</h2><p class="section-sub">When you change the mesh shape, the texture may need remapping</p></div></div>
+
+  <p>UV mapping is how the flat BMP image is projected onto the 3D mesh. Each vertex has a UV coordinate that says &ldquo;this 3D point corresponds to this pixel on the flat image.&rdquo; When you move vertices during mesh editing, the UV coordinates do not move with them automatically &ndash; the texture stays in its original position relative to the new vertex position, which can look stretched, squashed, or misaligned in game.</p>
+
+  <p>You only need to adjust UV mapping if your mesh edits have changed the shape enough that the original UV layout no longer maps the texture correctly. Minor vertex movements (small shape adjustments) usually do not require UV changes. Major shape changes (adding a flared skirt area, extending sleeves significantly) usually do.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Adjusting UVs in MilkShape 3D</h3>
+  <p>MilkShape&rsquo;s <strong>Texture Coordinate Editor</strong> (found under <strong>Window &rarr; Texture Coordinate Editor</strong>) shows you the mesh as a flat layout with the BMP texture behind it. You can select individual UV points (the 2D equivalents of your 3D vertices) and drag them to change which part of the texture maps to which part of the mesh. This is the most direct way to fix a specific seam or misalignment.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Adjusting UVs in Blender</h3>
+  <p>In Blender, switch to the <strong>UV Editing</strong> workspace (tab at the top of the screen). The left side shows the UV layout over the texture image; the right side shows the 3D mesh. Selecting faces in the 3D view highlights the corresponding UV islands on the left. You can then select and move UV points to remap the texture.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">UVMapper for accessories</h3>
+  <p>UVMapper Classic (free, available from <a href="https://www.uvmapper.com/" target="_blank" rel="noopener">uvmapper.com</a>) is a dedicated UV mapping tool that was widely used in the original Sims 1 modding era. It is particularly useful for new accessories where you are setting up a UV layout from scratch &ndash; it can automatically generate a UV unwrap from the OBJ geometry. It works on OBJ files, so use it before importing into SKN2OBJ.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>The simplest UV fix:</strong> if your mesh changes are minimal and the texture just needs a small adjustment, try moving just the affected UV points in MilkShape&rsquo;s Texture Coordinate Editor rather than doing a full UV unwrap. A full unwrap from scratch means you have to repaint the texture to match the new layout.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TESTING
+═════════════════════════════════════════════════════════ -->
+<section id="testing">
+  <div class="section-head"><div class="section-emoji">🧪</div><div><h2 class="section-title">Testing Your Mesh</h2><p class="section-sub">Always test in SimShow before putting anything in your game</p></div></div>
+
+  <div class="callout red" style="margin-bottom:16px;">🚨 <strong>A bad mesh can crash the game before the loading screen appears.</strong> Always test with SimShow first. If SimShow shows a problem, do not put the mesh in your game folder.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 10px;">Step 1: SimShow</h3>
+  <p>SimShow is a standalone viewer that displays Sims 1 meshes outside the game. It can show your SKN mesh with a texture applied and with the skeleton visible, so you can check for obvious problems without launching the full game.</p>
+  <p>What to check in SimShow:</p>
+  <ul style="margin-top:8px;padding-left:18px;">
+    <li><strong>Holes:</strong> any triangles that are missing or flipped will appear as gaps in the surface. Rotate the model in all directions to check.</li>
+    <li><strong>Texture alignment:</strong> load your BMP and check that the texture maps correctly onto the intended body regions.</li>
+    <li><strong>Bone regions:</strong> if SimShow shows a wireframe option, check that the vertex groupings look correct for the body areas you edited.</li>
+  </ul>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Step 2: In-game testing</h3>
+  <p>Once SimShow looks correct, copy all five files (three BMPs, CMX, SKN) to <code>GameData\Skins\</code> (or <code>ExpansionShared\SkinsBuy\</code> for buyable categories). Launch the game and create a new Sim using your outfit.</p>
+  <p>What to check in game:</p>
+  <ul style="margin-top:8px;padding-left:18px;">
+    <li><strong>Animations:</strong> put the Sim through their daily routine. Watch for vertices that pop out of position during movement, sitting, or sleeping.</li>
+    <li><strong>Object interactions:</strong> have the Sim sit on different chairs and use counters. Check that the Sim&rsquo;s body reaches the correct position for each interaction.</li>
+    <li><strong>Skin tone transitions:</strong> check all three skin tone variants to make sure the skin areas look correct in each.</li>
+  </ul>
+
+  <div class="callout gold" style="margin-top:12px;">⚠️ <strong>Keep a backup.</strong> Before testing a new mesh in your actual game save, back up your <code>GameData\Skins\</code> folder or keep the mesh files in a separate test folder. If the game crashes on load, remove the new files and restore the backup before trying to diagnose the problem.</div>
+</section>
+
+<div class="prevnext">
+  <a href="clothing-retextures.html" class="prevnext-link prev"><span class="prevnext-arrow">&larr;</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">Retexturing Clothing</div></div></a>
+  <a href="making-heads.html" class="prevnext-link next"><span class="prevnext-arrow">&rarr;</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">Hair &amp; Heads Overview</div></div></a>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><span class="plumbob sm" style="background:#fff;"></span> The Sims Legacy Collection &ndash; Modding Guide</div>
+    <div class="footer-links"><a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a><a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a><a href="search.html">Search</a><a href="terminology.html">Terminology</a><a href="cheats.html">Cheats</a><a href="careers.html">Career Guide</a><a href="updates.html">Site Roadmap</a><a href="contact.html">Contact</a></div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group"><a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a><a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Mods &amp; CC</div><a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a><a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a><a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a><a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Gameplay</div><a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a><a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Clothing Overview</a>
+      <a href="clothing-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Clothing</a>
+      <a href="clothing-meshes.html" class="nav-drawer-link nav-drawer-sublink active" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧵</span>Custom Meshes</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Hair &amp; Heads Overview</a>
+      <a href="head-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Heads</a>
+      <a href="head-creation.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧬</span>FaceLift Gold</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls &amp; Floors</a>
+      <a href="object-retextures.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Troubleshooting</div><a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a><a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a></div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group"><div class="nav-drawer-group-label">Site</div><a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📅</span>About Legacy</a><a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a><a href="file-reference.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🗂️</span>File Reference</a><a href="credits.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📝</span>Sources &amp; Credits</a><a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a><a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a></div>
+  </div></div>
+
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamDesktop,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){var btn=document.getElementById(bid),panel=document.getElementById(pid);if(!btn||!panel)return;document.body.appendChild(panel);btn.addEventListener('click',function(e){e.stopPropagation();if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');});panel.addEventListener('click',function(e){e.stopPropagation();});}
+  setupDD('infoDropdownBtn','infoDropdownPanel');setupDD('modsDropdownBtn','modsDropdownPanel');setupDD('ccDropdownBtn','ccDropdownPanel');setupDD('helpDropdownBtn','helpDropdownPanel');setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>

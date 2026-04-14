@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FaceLift Gold – Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item active" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="object-retextures.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){
+    if(!nav||!hint)return;
+    var overflows=nav.scrollWidth>nav.clientWidth+4;
+    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
+    hint.style.display=(overflows&&!atEnd)?'flex':'none';
+  }
+  if(hint){
+    hint.addEventListener('click',function(){
+      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
+    });
+  }
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);
+  setTimeout(check,200);
+})();
+</script>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection &ndash; Creating CC &ndash; Hair &amp; Heads</div>
+  <h1 class="page-title">FaceLift <span>Gold</span></h1>
+  <p class="page-sub">Create new head shapes by morphing, blending, and fine-tuning &ndash; no 3D modelling needed</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#what-is-facelift">What Is FaceLift Gold?</a></li>
+        <li><a href="#getting-facelift">Getting FaceLift Gold</a></li>
+        <li><a href="#interface">The Interface</a></li>
+        <li><a href="#workflow">Step-by-Step Workflow</a></li>
+        <li><a href="#fine-tune">Fine Tune</a></li>
+        <li><a href="#exporting">Exporting to the Game</a></li>
+        <li><a href="#tips">Tips</a></li>
+      </ul>
+      <div class="toc-divider"></div>
+      <a class="toc-back" href="making-heads.html">&larr; Back to Hair &amp; Heads</a>
+    </div>
+  </aside>
+  <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#what-is-facelift">What Is FaceLift Gold?</a><a href="#getting-facelift">Getting FaceLift Gold</a><a href="#interface">The Interface</a><a href="#workflow">Step-by-Step Workflow</a><a href="#fine-tune">Fine Tune</a><a href="#exporting">Exporting to the Game</a><a href="#tips">Tips</a></div></details>
+
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page covers creating new head shapes.</strong> If you want to repaint an existing head (change hair colour, add makeup, adjust skin tones), see <a href="head-retextures.html">Retexturing Heads</a> instead. For background on how head files work and filename formats, see the <a href="making-heads.html">Hair &amp; Heads Overview</a> and the <a href="file-reference.html">File Reference</a> page.</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     WHAT IS FACELIFT GOLD
+═════════════════════════════════════════════════════════ -->
+<section id="what-is-facelift">
+  <div class="section-head"><div class="section-emoji">🧬</div><div><h2 class="section-title">What Is FaceLift Gold?</h2></div></div>
+  <p>FaceLift Gold is a standalone Maxis tool that lets you create new Sim heads by morphing, blending, and generating variations from a pool of random starting faces. It was developed by Roger E. Critchlow Jr and Steve DiPaola. You do not need any 3D modelling knowledge to use it &ndash; the tool handles everything through sliders and button clicks.</p>
+  <p style="margin-top:12px;">FaceLift works by showing you a grid of nine randomly generated heads. You pick the one closest to what you want, then tell the tool to generate a new batch of nine heads based on your selection. Each generation gets you closer to your goal. Once you are happy, you fine-tune the facial features with sliders and export the result directly into your game.</p>
+
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">🎲 Generative selection</div><div class="card-desc">Pick a face, generate variations, pick again, repeat. Each round narrows in on your target. You can control whether the variations are dramatic or subtle using the Mutation Rate slider.</div></div>
+    <div class="card"><div class="card-title">✂️ Shape and texture separately</div><div class="card-desc">You can change the 3D shape of the head (<strong>Deform</strong>), the colour and texture (<strong>Blend</strong>), or both at once. You can also target just the head, just the hair, or both together.</div></div>
+    <div class="card"><div class="card-title">🔧 Fine-tune controls</div><div class="card-desc">Once you have a face you like, fine-tune individual features with sliders for <strong>Eyes</strong>, <strong>Nose</strong>, and <strong>Cheek and Jaw</strong>.</div></div>
+    <div class="card"><div class="card-title">📤 Direct game export</div><div class="card-desc">FaceLift exports your finished head directly into your game folder with the correct filename format. You choose the age, gender, and skin tone at export time.</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     GETTING FACELIFT GOLD
+═════════════════════════════════════════════════════════ -->
+<section id="getting-facelift">
+  <div class="section-head"><div class="section-emoji">📥</div><div><h2 class="section-title">Getting FaceLift Gold</h2><p class="section-sub">Where to download and how to set it up</p></div></div>
+  <p>FaceLift Gold is a free tool originally distributed by Maxis. It is no longer on the official EA site but is hosted on community archive sites.</p>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">The Sims Zone</div><div class="card-desc">Hosts FaceLift Gold in the Utilities section.</div><a class="pill-link" href="https://www.thesimszone.co.uk/index.php?/files/category/11-utilities/" target="_blank" rel="noopener">↗ The Sims Zone &ndash; Utilities</a></div>
+    <div class="card"><div class="card-title">BeyondSims</div><div class="card-desc">Hosts FaceLift Gold along with other Sims 1 tools and downloads.</div><a class="pill-link" href="https://www.beyondsims.com/18215/the-sims-1-downloads-programs.html" target="_blank" rel="noopener">↗ BeyondSims &ndash; Downloads</a></div>
+  </div>
+  <div class="callout gold" style="margin-top:16px;">⚠️ <strong>Legacy Collection registry fix:</strong> FaceLift Gold locates your game via the same Windows registry entry that Legacy Collection does not create. You likely need the same registry fix described on the <a href="making-clothing.html#tools">Making Clothing &ndash; Getting Tools Working</a> page (Feraligatr installer or manual registry entry) before FaceLift can find your game files.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     THE INTERFACE
+═════════════════════════════════════════════════════════ -->
+<section id="interface">
+  <div class="section-head"><div class="section-emoji">🖥️</div><div><h2 class="section-title">The Interface</h2><p class="section-sub">What each button and slider does</p></div></div>
+
+  <p>When FaceLift opens, you see a grid of nine randomly generated heads and a toolbar along the left side. Here is what each control does:</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Face windows</h3>
+  <p>The nine face windows are the main area of the screen. <strong>Left-click</strong> on a face to select it as your starting point for the next generation. <strong>Right-click</strong> on a face to see it in a 3D close-up view where you can click and drag to rotate it. Right-click again to return to the main screen.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Mutation controls</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:25%">Control</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Mutation Rate</strong> slider</td><td>Controls how different each new generation is from the one you selected. Slide it up for dramatic changes, down for subtle tweaks. Start high to explore, then lower it as you get closer to what you want.</td></tr>
+        <tr><td><strong>Deform</strong></td><td>New faces vary in 3D <em>shape</em> only (the geometry of the head and hair). Texture stays the same.</td></tr>
+        <tr><td><strong>Blend</strong></td><td>New faces vary in <em>colour and texture</em> only (skin tone, hair colour). Shape stays the same.</td></tr>
+        <tr><td><strong>Deform and Blend</strong></td><td>New faces vary in both shape and colour at the same time.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout teal" style="margin-top:8px;">ℹ️ Deform, Blend, and Deform and Blend are a button group &ndash; only one can be active at a time. They work together with the Head, Hair, and Head and Hair buttons below.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Target controls</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:25%">Control</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Head</strong></td><td>Changes apply to the head (face shape and/or skin) only. Hair stays the same.</td></tr>
+        <tr><td><strong>Hair</strong></td><td>Changes apply to the hair (hairstyle shape and/or colour) only. Face stays the same.</td></tr>
+        <tr><td><strong>Head and Hair</strong></td><td>Changes apply to both the head and hair together.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:8px;">Head, Hair, and Head and Hair are also a button group &ndash; only one can be active at a time. Combine them with the mutation controls to focus on exactly the aspect you want to change.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Other controls</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:25%">Control</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Reset Faces</strong></td><td>Throws away the current set and generates a completely new set of nine random faces.</td></tr>
+        <tr><td><strong>Back / Forward</strong></td><td>Navigate through previous sets of faces, like a browser&rsquo;s back and forward buttons. Handy if you accidentally click past a face you liked.</td></tr>
+        <tr><td><strong>Fine Tune</strong></td><td>Opens the Fine Tune screen for the currently selected face, where you can adjust individual features with sliders. See the <a href="#fine-tune">Fine Tune section</a> below.</td></tr>
+        <tr><td><strong>Save</strong></td><td>Saves the current set of nine faces so you can return to it later. Give it a name and click OK.</td></tr>
+        <tr><td><strong>Recall</strong></td><td>Loads a previously saved set of nine faces.</td></tr>
+        <tr><td><strong>Export</strong></td><td>Exports your selected face into the game. See <a href="#exporting">Exporting to the Game</a> below.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     STEP-BY-STEP WORKFLOW
+═════════════════════════════════════════════════════════ -->
+<section id="workflow">
+  <div class="section-head"><div class="section-emoji">🚶</div><div><h2 class="section-title">Step-by-Step Workflow</h2><p class="section-sub">From launch to finished head</p></div></div>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Launch FaceLift Gold</h4><p>Open the tool. You see a grid of nine randomly generated heads. If none of them look even remotely close to what you want, click <strong>Reset Faces</strong> to get a new set.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Pick the closest face</h4><p>Left-click on whichever face is closest to your goal. It does not need to be perfect &ndash; just the best of the nine. Right-click any face to see it in 3D close-up before deciding.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set your mutation controls</h4><p>Before the next generation appears, choose what you want to change:</p>
+    <p>&bull; Want to change the head <em>shape</em> but keep the skin/hair colour? Click <strong>Deform</strong>.<br>
+    &bull; Want to change the <em>colour/texture</em> but keep the shape? Click <strong>Blend</strong>.<br>
+    &bull; Want to change both? Click <strong>Deform and Blend</strong>.</p>
+    <p>Also choose your target: <strong>Head</strong>, <strong>Hair</strong>, or <strong>Head and Hair</strong>.</p>
+    <p>Set the <strong>Mutation Rate</strong> slider: high for dramatic changes (early on), low for subtle refinements (when you are close).</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Click a face to generate the next round</h4><p>FaceLift generates nine new variations based on your selected face and your mutation settings. Pick the best one again. Repeat this process &ndash; each round gets you closer to what you want.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Fine-tune the result</h4><p>Once you have a face that is close, click <strong>Fine Tune</strong> to open the fine-tuning screen. Adjust the eyes, nose, cheek, and jaw with sliders. See the <a href="#fine-tune">Fine Tune section</a> below for details.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export to the game</h4><p>Click <strong>Export</strong> to save your finished head into the game. See <a href="#exporting">Exporting to the Game</a> below.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FINE TUNE
+═════════════════════════════════════════════════════════ -->
+<section id="fine-tune">
+  <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">Fine Tune</h2><p class="section-sub">Adjusting individual facial features</p></div></div>
+
+  <p>Click <strong>Fine Tune</strong> from the main screen to open the fine-tuning screen for your selected face. This screen has three sets of sliders, each activated by a button at the top:</p>
+
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">Eyes</div><div class="card-desc">Sliders to adjust eye size, spacing, position, and shape.</div></div>
+    <div class="card"><div class="card-title">Nose</div><div class="card-desc">Sliders to adjust nose width, length, and bridge shape.</div></div>
+    <div class="card"><div class="card-title">Cheek and Jaw</div><div class="card-desc">Sliders to adjust cheekbone width, jaw shape, and chin.</div></div>
+  </div>
+
+  <p style="margin-top:12px;">Click one of the three buttons (Eyes, Nose, or Cheek and Jaw) to show that set of sliders, then move the sliders left and right until the face looks right. The changes appear on the face in real-time.</p>
+
+  <div class="callout teal">ℹ️ <strong>If you cannot see changes:</strong> rotate the face to a profile (side) view by clicking and dragging on the face, then move the sliders. Some changes are only visible from the side.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     EXPORTING TO THE GAME
+═════════════════════════════════════════════════════════ -->
+<section id="exporting">
+  <div class="section-head"><div class="section-emoji">📤</div><div><h2 class="section-title">Exporting to the Game</h2><p class="section-sub">Getting your finished head into Create-A-Sim</p></div></div>
+
+  <p>Once you are happy with your head, click the <strong>Export</strong> button. FaceLift asks you to set several properties before it saves:</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Type a name for your face</h4><p>Enter a descriptive name in the text field (e.g. &ldquo;RedheadBob&rdquo; or &ldquo;SquareJaw&rdquo;). FaceLift uses this as part of the filename it generates &ndash; you do not need to worry about the full filename format yourself, as FaceLift constructs it based on the age, skin tone, and gender you select in the next step.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Choose age, skin tone, and gender</h4><p>Select <strong>Adult</strong> or <strong>Child</strong>, then <strong>Light</strong>, <strong>Medium</strong>, or <strong>Dark</strong> skin, then <strong>Male</strong> or <strong>Female</strong>. Your head will appear in the game under whichever combination you choose &ndash; for example, selecting Dark-skinned Adult Female means the head shows up in Create-A-Sim when making a dark-skinned adult female Sim.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Click Export</h4><p>FaceLift saves the head files directly into your game folder with the correct filename format. The head appears in Create-A-Sim the next time you launch the game.</p></div></div>
+  </div>
+
+  <div class="callout gold">⚠️ <strong>One export = one skin tone.</strong> If you want your head available for all three skin tones, you need to export it three times &ndash; once for light, once for medium, once for dark.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TIPS
+═════════════════════════════════════════════════════════ -->
+<section id="tips">
+  <div class="section-head"><div class="section-emoji">💡</div><div><h2 class="section-title">Tips</h2></div></div>
+  <div class="grid-2" style="margin-top:8px;">
+    <div class="card"><div class="card-title">🎯 Start broad, narrow down</div><div class="card-desc">Set the Mutation Rate high and use Deform and Blend on Head and Hair for the first few rounds. Once you find something promising, lower the Mutation Rate and switch to targeting just the part you want to refine.</div></div>
+    <div class="card"><div class="card-title">💾 Save your progress</div><div class="card-desc">Use <strong>Save</strong> frequently to bookmark face sets you like. If you go too far in a direction, <strong>Recall</strong> brings you back to a saved set rather than starting from scratch.</div></div>
+    <div class="card"><div class="card-title">🔄 Use Back and Forward</div><div class="card-desc">Accidentally clicked past a face you liked? The <strong>Back</strong> button takes you to the previous set. <strong>Forward</strong> goes the other way. Works like browser history.</div></div>
+    <div class="card"><div class="card-title">🎨 Retexture afterwards</div><div class="card-desc">FaceLift creates the head shape and a basic texture. If you want to further customise the face or hair colours, export from FaceLift first, then follow the <a href="head-retextures.html">Retexturing Heads</a> guide to paint over the exported BMP in GIMP.</div></div>
+    <div class="card"><div class="card-title">🔍 Use BodyWarp to preview and resize</div><div class="card-desc">BodyWarp is a community tool originally created specifically for resizing and adjusting heads made with FaceLift Gold. It lets you preview your exported head on a mesh, rotate it to check for holes, and resize or reposition individual parts. Available from community download sites listed on the <a href="tools.html">Tools</a> page.</div></div>
+  </div>
+</section>
+
+
+<div class="prevnext">
+  <a href="head-retextures.html" class="prevnext-link prev"><span class="prevnext-arrow">&larr;</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">Retexturing Heads</div></div></a>
+  <a href="making-walls-floors.html" class="prevnext-link next"><span class="prevnext-arrow">&rarr;</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">Making Walls &amp; Floors</div></div></a>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection &ndash; Modding Guide
+    </div>
+        <div class="footer-links">
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a>
+      <a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a>
+      <a href="search.html">Search</a>
+      <a href="terminology.html">Terminology</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="careers.html">Career Guide</a>
+      <a href="updates.html">Site Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group">
+      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Gameplay</div>
+          <a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a>
+          <a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Clothing Overview</a>
+      <a href="clothing-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Clothing</a>
+      <a href="clothing-meshes.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧵</span>Custom Meshes</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Hair &amp; Heads Overview</a>
+      <a href="head-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Heads</a>
+      <a href="head-creation.html" class="nav-drawer-link nav-drawer-sublink active" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧬</span>FaceLift Gold</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
+      <a href="object-retextures.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Site</div>
+      <a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📅</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="file-reference.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🗂️</span>File Reference</a>
+      <a href="credits.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📝</span>Sources &amp; Credits</a>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
+    </div>
+  </div></div>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamDesktop,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
+    panel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  setupDD('infoDropdownBtn','infoDropdownPanel');
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>

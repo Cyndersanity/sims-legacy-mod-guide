@@ -51,7 +51,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://cyndersanity.github.io/sims-legacy-mod-guide/clothing-retextures.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cyndersanity.github.io/sims-legacy-mod-guide/clothing-meshes.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cyndersanity.github.io/sims-legacy-mod-guide/making-heads.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cyndersanity.github.io/sims-legacy-mod-guide/head-retextures.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cyndersanity.github.io/sims-legacy-mod-guide/head-creation.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

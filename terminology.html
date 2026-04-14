@@ -9,18 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-/* TOC */
-.content section{margin-bottom:48px;}
-/* TERM CARDS */
-.term-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);padding:24px 26px;margin-bottom:14px;box-shadow:var(--shadow-sm);}
-.term-card:hover{border-color:var(--green);}
-.term-title{font-family:var(--font-head);font-size:18px;color:var(--green-dark);margin-bottom:4px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
-.term-also{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--ink-muted);background:var(--cream-dark);padding:2px 8px;border-radius:999px;}
-.term-body{font-size:15px;color:var(--ink-mid);line-height:1.8;margin-top:10px;}
-.term-body p+p{margin-top:10px;}
-.term-body strong{color:var(--ink);font-weight:800;}
-</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
 <script>
@@ -36,7 +24,7 @@
   <div class="nav-wrapper">
   <div class="nav-inner" id="navInner">
       <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item active">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Making Clothing</a><a href="making-heads.html" class="nav-dropdown-item">💇 Making Hair & Heads</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="object-retextures.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHam" aria-label="Open menu" title="Open full menu">☰</button>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item active">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="object-retextures.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
       </div>
   <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
   <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
@@ -219,7 +207,7 @@
             <tr><td>xskin-</td><td>Mesh file (.skn)</td><td>Defines the 3D shape – paired with BMP textures</td><td>Base game</td></tr>
           </tbody>
         </table></div>
-      <p>After the type prefix, the rest of the filename encodes: <strong>gender</strong> (f = female, m = male), <strong>age</strong> (a = adult, c = child), <strong>body type</strong> (3 letters), <strong>skin tone</strong> (lgt / med / drk), then an underscore and the outfit name. For example: <code>Lfa fit lgt_MySleepwear.bmp</code> = Lingerie, female adult, fit body type, light skin tone.</p>
+      <p>After the type prefix, the rest of the filename encodes (all run together, no spaces): <strong>mesh number</strong> (3 characters, e.g. 001, 300), <strong>gender</strong> (F = female, M = male, U = unisex), <strong>age</strong> (A = adult, C = child), <strong>body type</strong> (Fat / Fit / Skn / Chd &ndash; bodies only, not heads), <strong>skin tone</strong> (lgt / med / drk &ndash; BMP only, not in CMX/SKN), then an underscore and the identifier. <strong>Example:</strong> <code>L300FAFitlgt_MySleepwear.bmp</code> = Lingerie, mesh 300, female adult, fit body type, light skin tone.</p>
       <p><strong>Note on H:</strong> Both High Fashion and hand files start with H. The game distinguishes them by context – hand files are referenced directly in character files, while High Fashion skins appear in the clothing rack like other buyable types.</p>
     </div>
   </div>
@@ -331,7 +319,35 @@
 
   <div class="term-card">
     <div class="term-title">Meshing</div>
-    <div class="term-body">Creating or editing the 3D geometry of an object rather than just its texture. Meshing in Sims 1 is much more limited than in later games – the engine renders objects as 2D sprites from fixed angles rather than true 3D, so "meshing" usually means editing those sprite images rather than a proper 3D mesh. Full 3D mesh editing in Sims 1 is rarely done.</div>
+    <div class="term-body">
+      <p>Creating or editing the 3D geometry (the shape) of a Sim's body, head, or an accessory, rather than just repainting its texture. Sims 1 <em>body and head</em> CC uses real 3D mesh files (SKN format) that get wrapped with a BMP texture. Objects (furniture, décor) are different &ndash; they are pre-rendered as 2D sprites, so object "meshing" means editing those sprite images rather than a 3D file.</p>
+      <p>For body and head CC, mesh editing requires tools like Blender + TS1 Blender IO (free) or MilkShape 3D + SKN2OBJ (classic paid tool). See the <a href="clothing-meshes.html">Custom Clothing Meshes</a> guide for the full workflow.</p>
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">Vertex <span class="term-also">plural: vertices</span></div>
+    <div class="term-body">A single point in 3D space. A mesh is made up of many vertices connected together. Each vertex has a position (X, Y, Z coordinates &ndash; how far left/right, up/down, and forward/back from a centre point) and, in Sims 1 body meshes, a bone assignment that controls how it moves during animations. When you edit a mesh, you move vertices to reshape the 3D object.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">Face <span class="term-also">in 3D modelling</span></div>
+    <div class="term-body">A triangle formed by connecting three vertices. Faces are the visible surface of a 3D mesh &ndash; the game wraps your BMP texture image over these triangles to create the clothed appearance. Every body mesh is made up of hundreds of these triangles. Not to be confused with the Sim's face (head/facial features), which is a separate concept.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">Wireframe</div>
+    <div class="term-body">A view of a 3D mesh that shows only the edges (lines between vertices) without any texture or fill. In a wireframe view you can see the full structure of a mesh &ndash; how many faces it has, where the vertices are, and how the geometry is laid out. 3D editors like Blender and MilkShape let you switch between solid and wireframe display.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">UV Mapping</div>
+    <div class="term-body">How a flat 2D image (the BMP texture) is projected onto a 3D shape. Think of it like wrapping a world map (flat paper) around a globe &ndash; you have to cut and distort it to cover the sphere. Each vertex in the mesh has a UV coordinate that says "this 3D point corresponds to this pixel on the flat texture." In Sims 1 body skins, the UV layout determines which part of the 256&times;256 BMP wraps around the torso, arms, and legs. When you start from an existing Maxis BMP, the UV layout is already set correctly.</div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-title">Bone Weights</div>
+    <div class="term-body">How much influence each skeleton bone has over each vertex during animations. A vertex on the upper arm might be 100% controlled by the arm bone, or it might be shared &ndash; 70% arm, 30% shoulder &ndash; so it blends smoothly between the two during movement. In Sims 1, body mesh vertices each have a bone assignment that controls them during animations (walking, sitting, waving). You rarely need to change bone weights when retexturing, but mesh editing may require checking that moved vertices are still assigned to the correct bones.</div>
   </div>
 
   <div class="term-card">
@@ -384,7 +400,7 @@
     </div>
     <div class="nav-drawer-divider"></div>
     <div class="nav-drawer-group">
-      <div class="nav-drawer-group-title">Gameplay</div>
+      <div class="nav-drawer-group-label">Gameplay</div>
           <a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a>
           <a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a>
     </div>
@@ -392,8 +408,12 @@
     <div class="nav-drawer-group">
       <div class="nav-drawer-group-label">Creating</div>
       <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
-      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Making Clothing</a>
-      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Making Hair & Heads</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Clothing Overview</a>
+      <a href="clothing-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Clothing</a>
+      <a href="clothing-meshes.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧵</span>Custom Meshes</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Hair &amp; Heads Overview</a>
+      <a href="head-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Heads</a>
+      <a href="head-creation.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧬</span>FaceLift Gold</a>
       <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
       <a href="object-retextures.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
       <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
@@ -431,7 +451,7 @@
   var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
   function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
   function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
-  document.querySelectorAll('#navHam,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  document.querySelectorAll('#navHam,#navHamDesktop,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
   if(cls)cls.addEventListener('click',closeD);
   if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});

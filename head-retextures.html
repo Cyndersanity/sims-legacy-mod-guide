@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retexturing Heads – Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item active" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="object-retextures.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){
+    if(!nav||!hint)return;
+    var overflows=nav.scrollWidth>nav.clientWidth+4;
+    var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;
+    hint.style.display=(overflows&&!atEnd)?'flex':'none';
+  }
+  if(hint){
+    hint.addEventListener('click',function(){
+      if(nav) nav.scrollBy({left:180,behavior:'smooth'});
+    });
+  }
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);
+  setTimeout(check,200);
+})();
+</script>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection &ndash; Creating CC &ndash; Hair &amp; Heads</div>
+  <h1 class="page-title">Retexturing <span>Heads</span></h1>
+  <p class="page-sub">Repaint hair, faces, and skin tones on existing head meshes using GIMP and The Sims Creator</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#tools">Getting Tools Working</a></li>
+        <li><a href="#starting-files">Getting Your Starting Files</a></li>
+        <li><a href="#gimp-basics">GIMP Basics for Beginners</a></li>
+        <li><a href="#painting">Painting Your Head Skin</a></li>
+        <li><a href="#skin-tones">Making Skin Tone Variants</a></li>
+        <li><a href="#indexed">Converting to Indexed BMP</a></li>
+        <li><a href="#tsc-export">Getting It Into the Game</a></li>
+        <li><a href="#face-photo-wizard">Face Photo Wizard</a></li>
+      </ul>
+      <div class="toc-divider"></div>
+      <a class="toc-back" href="making-heads.html">&larr; Back to Hair &amp; Heads</a>
+    </div>
+  </aside>
+  <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#tools">Getting Tools Working</a><a href="#starting-files">Getting Your Starting Files</a><a href="#gimp-basics">GIMP Basics for Beginners</a><a href="#painting">Painting Your Head Skin</a><a href="#skin-tones">Making Skin Tone Variants</a><a href="#indexed">Converting to Indexed BMP</a><a href="#tsc-export">Getting It Into the Game</a><a href="#face-photo-wizard">Face Photo Wizard</a></div></details>
+
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> &ndash; screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">r/thesims1</a>.</div>
+
+<p>This guide covers retexturing &ndash; changing the hair colour, face details, or skin tones on an existing head mesh. You paint a new texture in GIMP, then use The Sims Creator (TSC) to generate the companion files the game needs. No 3D modelling required. For background on how head files work, filenames, and UV layouts, see the <a href="making-heads.html">Hair &amp; Heads Overview</a>. For a full reference of all file types and naming segments, see the <a href="file-reference.html">File Reference</a> page.</p>
+
+<!-- ═══════════════════════════════════════════════════════
+     GETTING THE TOOLS WORKING
+═════════════════════════════════════════════════════════ -->
+<section id="tools">
+  <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Getting the Tools Working</h2><p class="section-sub">Same setup as clothing &ndash; registry fix required</p></div></div>
+  <p>The same registry fix described on the <a href="making-clothing.html#tools">Making Clothing &ndash; Getting Tools Working</a> section applies here. The Sims Creator is the main tool for head CC; GIMP handles the texture painting.</p>
+  <div class="callout teal">ℹ️ If you already completed the tool setup on the <a href="making-clothing.html#tools">Making Clothing</a> page (Feraligatr installer or manual registry fix), everything you need for head CC is already installed. No additional setup needed.</div>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">The Sims Creator (TSC) <span class="tag green">Required</span></div><div class="card-desc">Used to preview head textures on the 3D model, generate the <code>.CMX</code> and <code>.SKN</code> companion files that the game needs, and export finished heads. Installed via the Feraligatr installer.</div></div>
+    <div class="card"><div class="card-title">GIMP <span class="tag green">Required</span></div><div class="card-desc">Free image editor for painting your textures. Head BMPs are 128&times;128 pixels and must be saved as Indexed 256-colour BMP. Download from <a href="https://www.gimp.org/" target="_blank" rel="noopener">gimp.org</a>.</div></div>
+    <div class="card"><div class="card-title">FARx <span class="tag teal">Optional</span></div><div class="card-desc">Only needed if you want to extract original Maxis head files from FAR archives. Most C-prefix head BMPs are already loose in <code>GameData\Skins\</code>, so you may not need this at all.</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     GETTING YOUR STARTING FILES
+═════════════════════════════════════════════════════════ -->
+<section id="starting-files">
+  <div class="section-head"><div class="section-emoji">📂</div><div><h2 class="section-title">Getting Your Starting Files</h2><p class="section-sub">Three ways to get a head BMP to work with &ndash; pick the one that fits your goal</p></div></div>
+
+  <p>Before you paint anything, you need a base head BMP to paint over. Never start from a blank canvas &ndash; you need the UV layout from a real head file so that your painting lands on the correct parts of the 3D model.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Path A: Copy a Maxis head file<br><span class="tag green">Simplest</span></h3>
+  <p>Best for: recolouring an existing hairstyle (e.g. making a blonde ponytail into a red ponytail).</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Navigate to your Skins folder</h4><p>Open <code>GameData\Skins\</code> inside your Sims Legacy Collection install folder. On Steam, the typical path is:<br><code>C:\Program Files (x86)\Steam\steamapps\common\The Sims Legacy Collection\GameData\Skins</code></p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find head files (C-prefix)</h4><p>Look for BMP files whose names start with <code>C</code>. The filename tells you what the file is.</p><p><strong>Example:</strong> <code>C001FAlgt_ponytail.bmp</code></p><p>&bull; <code>C</code> &ndash; Cranium (head file)<br>&bull; <code>001</code> &ndash; mesh number<br>&bull; <code>F</code> &ndash; female<br>&bull; <code>A</code> &ndash; adult<br>&bull; <code>lgt</code> &ndash; light skin tone<br>&bull; <code>_ponytail</code> &ndash; identifier</p><p>There will be hundreds of files in this folder. You can sort by A&ndash;Z to group all the C-prefix files together, or use Windows search &ndash; type <code>C*.bmp</code> in the search bar to filter just the head BMPs. For a full breakdown of all filename segments, see the <a href="file-reference.html">File Reference</a> page.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Copy (do not move) the file to a working folder</h4><p>Pick the hairstyle you want to repaint. In the Windows File Explorer window, <strong>right-click on the BMP file</strong> and select <strong>Copy</strong>. Then navigate to a working folder on your desktop (e.g. create a folder called <code>HeadProject</code> on your desktop), <strong>right-click inside the folder</strong> and select <strong>Paste</strong>. Never edit the original game files directly &ndash; always work on a copy.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the copy in GIMP</h4><p>In your working folder, <strong>right-click on the copied BMP file</strong> and select <strong>Open With &rarr; GIMP</strong>. If GIMP is not listed, select <strong>Choose another app</strong> and browse to GIMP. The image will appear very small because it is only 128&times;128 pixels. To zoom in, go to <strong>View &rarr; Zoom &rarr; Fit Image in Window</strong> (or press <strong>Shift+Ctrl+J</strong>) so it fills the screen.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Path B: Export a template from The Sims Creator<br><span class="tag teal">Recommended</span></h3>
+  <p>Best for: creating a new head that needs fresh CMX/SKN files generated. TSC shows you a live preview of your texture on the 3D model, which makes it easier to see what your painting will look like in game.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open The Sims Creator</h4><p>Launch TSC. The main screen lets you select the head and body for your Sim, and change age, gender, and skin tone. A 3D preview window shows your Sim from different angles.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Select a head mesh</h4><p>Browse the available head meshes (hairstyle shapes) on the main screen. Pick the mesh shape you want your texture to go on &ndash; this determines the 3D hairstyle silhouette. The texture you paint will be wrapped onto whichever shape you choose here.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the Paint tool</h4><p>Click the <strong>Paint</strong> button from the main menu. TSC opens a painting view where you can paint your Sim in either a 2D flat view or directly onto the 3D model. TSC&rsquo;s built-in paint tools include brushes, colours, and textures in the tool panel at the bottom of the screen. This is enough for basic colour changes and touch-ups.</p><p>For more detailed work (layers, precise selections, hue shifting), open the head BMP file in GIMP instead &ndash; you will find it in <code>GameData\Skins\</code>. See the <a href="#gimp-basics">GIMP Basics</a> and <a href="#painting">Painting Your Head Skin</a> sections below for the full GIMP painting workflow.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save your head</h4><p>When done painting in TSC, click <strong>Done</strong> to return to the main screen. Click <strong>Save</strong>, give your skin a name, and TSC saves the BMP, CMX, and SKN files into your <code>GameData\Skins\</code> folder.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Path C: Use a community template or other creator&rsquo;s mesh<br><span class="tag gold">Advanced</span></h3>
+  <p>Best for: using a hairstyle mesh made by another creator, or starting from a community template pack.</p>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">Community head meshes</div><div class="card-desc">Some creators have released custom head meshes (new hairstyles with different 3D shapes) that other creators can paint textures for. These come as SKN + CMX files. You paint the BMP texture to go with their mesh, using their template as your painting base. Always check the creator&rsquo;s terms of use before redistributing.</div></div>
+    <div class="card"><div class="card-title">Where to find them</div><div class="card-desc">Check the <a href="download-sites.html">Mod Download Sites</a> page &ndash; particularly Simblr.cc, SimFreaks, SneakySims, and archived sites on the Wayback Machine. Search for &ldquo;head mesh&rdquo; or &ldquo;hair mesh&rdquo;.</div></div>
+  </div>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Which path should I pick?</strong> If this is your first time, use <strong>Path A</strong>. Copy a Maxis ponytail file, repaint the hair colour in GIMP, and get it into the game. Once that works, try Path B for the TSC workflow with its 3D preview. Path C is for when you have found a specific community mesh you want to paint for.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     GIMP BASICS FOR BEGINNERS
+═════════════════════════════════════════════════════════ -->
+<section id="gimp-basics">
+  <div class="section-head"><div class="section-emoji">🎓</div><div><h2 class="section-title">GIMP Basics for Beginners</h2><p class="section-sub">The specific GIMP skills you need for head skin editing &ndash; nothing more</p></div></div>
+
+  <p>You do not need to learn all of GIMP. For head skin editing you need exactly five things: how to switch colour modes, how to use layers, how to pick colours from the image, how to paint, and how to select areas. Each one is explained below in the order you will use them.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">1. Switching colour modes (Indexed &harr; RGB)</h3>
+  <p>Sims 1 head BMPs are saved in <strong>Indexed</strong> colour mode. This means the image uses a fixed palette of only 256 colours &ndash; no more. When you open one in GIMP, the title bar will say &ldquo;(indexed)&rdquo; after the filename. The problem is that in Indexed mode, GIMP restricts you to only the colours already in that palette &ndash; you cannot freely pick new colours to paint with. So the first thing you do when opening a head BMP for editing is switch to <strong>RGB</strong> mode, which unlocks access to all colours.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Switch to RGB mode</h4><p>Go to <strong>Image &rarr; Mode &rarr; RGB</strong>. The title bar changes from &ldquo;(indexed)&rdquo; to &ldquo;(RGB)&rdquo;. You can now paint with any colour you want.</p></div></div>
+  </div>
+  <div class="callout red" style="margin-top:8px;">🚨 <strong>You must switch back to Indexed mode before saving the final BMP.</strong> The Sims 1 engine cannot read RGB BMP files &ndash; the head will appear as a blank white shape in game. See the <a href="#indexed">Converting to Indexed BMP</a> section below. The rule is simple: <strong>RGB for painting, Indexed for saving.</strong></div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">2. What layers are and why you need them</h3>
+  <p>A <strong>layer</strong> is like a transparent sheet of paper stacked on top of your image. You can paint on the sheet without changing anything underneath. If you make a mistake, you delete the layer and the original image is untouched. This is your safety net.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a new layer</h4><p>Go to <strong>Layer &rarr; New Layer</strong> (or press <strong>Shift+Ctrl+N</strong>). In the dialog box that appears, set &ldquo;Fill with&rdquo; to <strong>Transparency</strong>. Click OK. You now have a blank transparent layer sitting above your head texture.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Check you are painting on the right layer</h4><p>Look at the <strong>Layers panel</strong> on the right side of GIMP. If you cannot see it, go to <strong>Windows &rarr; Dockable Dialogs &rarr; Layers</strong>. You will see two layers listed &ndash; your new transparent one on top and the original head BMP below it. Click on a layer name to make it active. <strong>The highlighted layer is the one your brush paints on</strong> &ndash; make sure you are on the right one before painting.</p></div></div>
+  </div>
+  <p style="margin-top:8px;">Why bother with layers? When you paint new hair over the existing hair, the layer lets you erase and redo without losing the original underneath. Once you are happy with the result, you flatten everything into one image before saving.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">3. Picking colours from the image</h3>
+  <p>Rather than guessing what colour to use, you can pick colours directly from the existing head texture. This is how you match skin tones exactly and sample existing hair colours.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Select the Color Picker tool</h4><p>Press <strong>O</strong> on your keyboard (the letter O), or find the eyedropper icon in the toolbox on the left side of GIMP. Click on any pixel in the image. The colour of that pixel becomes your active foreground colour, shown in the colour swatch at the bottom of the toolbox.</p></div></div>
+  </div>
+  <p style="margin-top:8px;"><strong>Practical use:</strong> open a Maxis medium-skin-tone head in a second GIMP window (any <code>C</code>-prefix file with <code>med</code> in the filename), pick the face skin colour with the Color Picker, then switch to your working file and paint with that exact colour. This ensures your skin tones match the game&rsquo;s built-in tones.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">4. Painting with the Paintbrush</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Select the Paintbrush tool</h4><p>Press <strong>P</strong> on your keyboard, or click the paintbrush icon in the toolbox. The colour swatch at the bottom of the toolbox shows your current foreground colour &ndash; this is the colour your brush will paint with.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Adjust the brush size</h4><p>In the tool options panel (below the toolbox on the left), look for the <strong>Size</strong> slider. For a 128&times;128 head texture, you want very small brushes: 1&ndash;5 pixels for detail work (eyes, lips), 10&ndash;20 for larger areas (hair). You can also use the <strong>[</strong> and <strong>]</strong> bracket keys on your keyboard to make the brush smaller or larger quickly.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint on the canvas</h4><p>Click and drag to paint. Press <strong>Ctrl+Z</strong> to undo your last stroke (you can undo many steps in a row). Use the <strong>Eraser</strong> tool (press <strong>E</strong>) to erase parts of a layer without affecting the original image underneath.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">5. Selecting areas (for recolouring)</h3>
+  <p>To change the colour of all the hair at once rather than painting pixel by pixel, you can select the hair area first, then fill or adjust its colour in one go.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Select By Color</h4><p><strong>Select &rarr; By Color</strong> (or press <strong>Shift+O</strong>), then click on the hair colour in the image. GIMP selects every pixel that matches that colour &ndash; you will see a &ldquo;marching ants&rdquo; dotted outline around the selected areas. If it is selecting too much or too little, adjust the <strong>Threshold</strong> value in the tool options panel (higher number = more similar shades get included in the selection).</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Fill the selection with a new colour</h4><p>Pick your new colour (either from the colour chooser or by using the Color Picker on another image), then go to <strong>Edit &rarr; Fill with Foreground Color</strong> (or press <strong>Alt+Backspace</strong>). Only the selected area gets filled &ndash; everything outside the selection is protected.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Remove the selection</h4><p>When you are done, go to <strong>Select &rarr; None</strong> (or press <strong>Shift+Ctrl+A</strong>) to deselect. The marching ants disappear and you can see the result.</p></div></div>
+  </div>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Alternative for natural-looking colour shifts:</strong> after selecting the hair area, try <strong>Colors &rarr; Hue-Saturation</strong> and drag the <strong>Hue</strong> slider left or right. This shifts the colour while preserving all the shading and highlights &ndash; it looks much more natural than a flat colour fill.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PAINTING YOUR HEAD SKIN
+═════════════════════════════════════════════════════════ -->
+<section id="painting">
+  <div class="section-head"><div class="section-emoji">🎨</div><div><h2 class="section-title">Painting Your Head Skin</h2><p class="section-sub">The actual painting process, step by step</p></div></div>
+
+  <div class="callout gold" style="margin-bottom:20px;">⚠️ <strong>Before you start:</strong> make sure you have opened your base head BMP in GIMP and switched to RGB mode (<strong>Image &rarr; Mode &rarr; RGB</strong>). Check the title bar &ndash; if it still says &ldquo;(indexed)&rdquo;, your available colours will be restricted and painting will not work properly.</div>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Study the original first</h4><p>Before painting anything, zoom in and look at the existing texture carefully. Notice where the face is, where the hair starts and stops, where the neck is, and where the ears sit. If you can, open a second window with the game running (or a screenshot of the head in Create-A-Sim) so you can compare the flat texture to how it actually looks wrapped onto the 3D head.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a working layer</h4><p><strong>Layer &rarr; New Layer &rarr; Fill with: Transparency &rarr; OK.</strong> Paint on this new layer. The original head stays safe on the layer underneath.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint the hair area</h4><p>Two approaches depending on what you prefer:</p>
+    <p><strong>Approach 1 &ndash; Select and fill (quickest):</strong> Click on the original layer in the Layers panel. Use <strong>Select By Color</strong> (Shift+O) to select the existing hair colour. Switch back to your new layer in the Layers panel. Fill the selection with your new colour (<strong>Edit &rarr; Fill with Foreground Color</strong> or Alt+Backspace).</p>
+    <p><strong>Approach 2 &ndash; Paint by hand (more control):</strong> Stay on your new layer. Use the Paintbrush with a small brush size and carefully paint over the hair areas. This gives pixel-level control for adding highlights, lowlights, and texture.</p>
+    </div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Adjust the face (if needed)</h4><p>If you are happy with the existing face, leave it alone. If you want to change it (different eye colour, makeup, freckles, etc.), paint those changes on your working layer. Use very small brushes (1&ndash;3 pixels) for eye and lip details &ndash; the face area is tiny at 128&times;128 resolution.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Check the neck area</h4><p>The neck at the bottom of the image must match the body skin tone. If you have changed the face colour, make sure the neck transitions smoothly into it. Use the Color Picker (press O) to sample the body skin tone from a matching body BMP (any <code>B</code>-prefix file with the same skin tone suffix) if you need the exact colour.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Flatten the image</h4><p><strong>Image &rarr; Flatten Image</strong> merges all your layers into one. Before flattening, consider saving a layered copy first (<strong>File &rarr; Export As &rarr;</strong> save as <code>.xcf</code>) in case you want to come back and edit the layers later.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SKIN TONE VARIANTS
+═════════════════════════════════════════════════════════ -->
+<section id="skin-tones">
+  <div class="section-head"><div class="section-emoji">🎭</div><div><h2 class="section-title">Making Skin Tone Variants</h2><p class="section-sub">Light, medium, and dark &ndash; how to make all three</p></div></div>
+
+  <p>The game expects three versions of every head: light (<code>lgt</code>), medium (<code>med</code>), and dark (<code>drk</code>). The hair stays identical across all three &ndash; only the skin-coloured areas (face, neck, ears) change between versions.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Start with the light version</h4><p>Complete your head texture as described in the painting section above. This becomes your <code>lgt</code> file.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find the correct skin tone colours</h4><p>Open a Maxis medium-skin-tone head in a second GIMP window &ndash; any <code>C</code>-prefix file with <code>med</code> in the filename (e.g. <code>C001FAmed_ponytail.bmp</code>). Use the Color Picker (<strong>O</strong>) to click on the face skin area. This gives you the exact skin tone colour the game uses for medium. Repeat with a <code>drk</code> file for the dark skin tone.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Recolour the skin areas</h4><p>Make a copy of your finished light version file (do not edit the original light file). Open the copy in GIMP and switch to RGB mode. Use <strong>Select By Color</strong> (Shift+O) to select the light skin tone from the face area. Then either fill the selection with the sampled medium tone, or use <strong>Colors &rarr; Hue-Saturation</strong> to shift the colour while keeping the shading intact.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save with the correct filename suffix</h4><p>Save the medium version with <code>med</code> in the filename, dark with <code>drk</code>. The rest of the filename stays identical:<br>
+    <code>C001FAlgt_MyHair.bmp</code><br>
+    <code>C001FAmed_MyHair.bmp</code><br>
+    <code>C001FAdrk_MyHair.bmp</code></p></div></div>
+  </div>
+
+  <div class="callout green">✅ <strong>Shortcut for your first attempt:</strong> start by making just the light version and testing it in game. You can add medium and dark versions later. The head will only appear as an option for light-skinned Sims until you add the others, but it lets you confirm everything works before tripling the effort.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONVERTING TO INDEXED BMP
+═════════════════════════════════════════════════════════ -->
+<section id="indexed">
+  <div class="section-head"><div class="section-emoji">💾</div><div><h2 class="section-title">Converting to Indexed 256-Colour BMP</h2><p class="section-sub">Get this wrong and your head shows as white in game</p></div></div>
+
+  <p>The Sims 1 engine can only read <strong>Indexed 256-colour BMP</strong> files for skins. If you save your file as an RGB (24-bit) BMP instead, the game displays a blank white head. A skin with more than 256 colours will show up white in Create-A-Sim.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Flatten the image first</h4><p><strong>Image &rarr; Flatten Image</strong>. You cannot convert to Indexed mode while layers with transparency still exist &ndash; GIMP will show an error if you try. Flattening first avoids this.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Convert to Indexed</h4><p>Go to <strong>Image &rarr; Mode &rarr; Indexed</strong>. In the dialog box that appears, set these options:</p>
+    <p>&bull; <strong>Maximum number of colors:</strong> 255<br>
+    &bull; <strong>Color dithering:</strong> Floyd-Steinberg (normal) &ndash; this smooths colour transitions so gradients do not look blocky</p>
+    <p>Click <strong>Convert</strong>. The title bar should now say &ldquo;(indexed)&rdquo; instead of &ldquo;(RGB)&rdquo;.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export as BMP</h4><p>Go to <strong>File &rarr; Export As</strong> (not &ldquo;Save&rdquo; &ndash; that saves as GIMP&rsquo;s own <code>.xcf</code> format, which the game cannot read). Type your filename ending in <code>.bmp</code> and click <strong>Export</strong>. In the BMP options dialog that appears, click <strong>Export</strong> again with the default settings.</p></div></div>
+  </div>
+
+  <div class="callout red">🚨 <strong>Common gotcha:</strong> GIMP&rsquo;s <strong>File &rarr; Save</strong> saves as <code>.xcf</code> (GIMP&rsquo;s own project file format), not as BMP. The game cannot read <code>.xcf</code> files. You must use <strong>File &rarr; Export As</strong> every time to produce the <code>.bmp</code> file the game needs.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     GETTING IT INTO THE GAME
+═════════════════════════════════════════════════════════ -->
+<section id="tsc-export">
+  <div class="section-head"><div class="section-emoji">📤</div><div><h2 class="section-title">Getting It Into the Game</h2><p class="section-sub">Generating companion files and testing</p></div></div>
+
+  <p>Your finished BMP texture needs two companion files to work in the game: a <code>.CMX</code> and a <code>.SKN</code>. These files tell the game how to wrap your texture onto the 3D head mesh. Without them, your head will not appear in Create-A-Sim at all. If the CMX file exists but its internal name does not match the filename exactly, the game ignores it silently.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">If you used Path A (copied a Maxis file)</h3>
+  <div class="grid-2" style="margin-top:8px;">
+    <div class="card"><div class="card-title">Option 1: Replace the original texture</div><div class="card-desc">If you kept the exact same filename as the original Maxis file, the existing CMX and SKN files already work with your new BMP. Just place your new BMP in <code>GameData\Skins\</code> and it replaces the original texture on the same hairstyle.</div></div>
+    <div class="card"><div class="card-title">Option 2: New CAS entry via TSC</div><div class="card-desc">If you want your head to appear as a separate option alongside the original (rather than replacing it), import your BMP through TSC so it generates new CMX/SKN files with a unique name.</div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">If you used Path B or want a new CAS entry</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open TSC and select the mesh</h4><p>Browse to the hairstyle mesh that matches your texture. If you exported from TSC originally, select the same clone you created earlier.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your painted BMP</h4><p>Use the &ldquo;Paint&rdquo; or &ldquo;Import&rdquo; option to load your finished BMP file. TSC shows a preview of your texture wrapped onto the 3D head so you can check how it looks.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Check the preview</h4><p>Look for: hair appearing in the wrong place, the face being misaligned, visible seams at the neck, or the skin tone not matching. If something looks wrong, go back to GIMP and fix the texture.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save your new head</h4><p>Click <strong>Done</strong> to return to the main screen. Give your head a unique name and click <strong>Save</strong>. TSC saves the new skin files into your <code>GameData\Skins\</code> folder, generating the CMX and SKN companion files.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Testing in game</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Close the game if it is running</h4><p>The game reads skin files when it launches. Any changes you make while the game is already running will not show up until you restart it.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Verify your files are in GameData\Skins\</h4><p>Check that your BMP, CMX, and SKN files are all directly inside <code>GameData\Skins\</code> &ndash; not inside a subfolder. Skin files do not work from subfolders.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Launch the game and check Create-A-Sim</h4><p>Start a new family or edit an existing Sim. Your custom head should appear in the face/hair selection area. If it does not appear, check the <a href="making-heads.html#common-mistakes">Common Mistakes</a> section on the Hair &amp; Heads overview.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FACE PHOTO WIZARD
+═════════════════════════════════════════════════════════ -->
+<section id="face-photo-wizard">
+  <div class="section-head"><div class="section-emoji">📸</div><div><h2 class="section-title">Face Photo Wizard</h2><p class="section-sub">Using TSC to map a photo onto the head mesh</p></div></div>
+  <p>The Sims Creator includes a built-in Face Photo Wizard &ndash; an import tool for photographs so they can be used as Sims head textures. It handles the UV warping for you, which means you do not need to figure out how to manually paint a face onto the flat texture layout. Accepted photo formats are: <code>.png</code>, <code>.jpg</code>, <code>.tga</code>, <code>.bmp</code>, and <code>.tif</code>.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the Face Photo Wizard</h4><p>Click <strong>Face Photo Wizard</strong> from the TSC main menu.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Load your photo</h4><p>Click <strong>Load Face</strong> and browse to the photo you want to import. Use a well-lit, straight-on portrait with minimal shadows &ndash; the wizard works best when the eyes, nose, and mouth are clearly visible and centred.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Position the face</h4><p>Use the <strong>Rotation</strong> and <strong>Size</strong> sliders to position the face so that it fits within the box boundaries. Click <strong>Next</strong> when done.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Fine-tune the alignment</h4><p>On the editing screen, use the <strong>wireframe</strong> and <strong>mask</strong> sliders to position the image on the 3D head shape. This helps align the eyes and nose correctly on the mesh. Take your time here &ndash; accurate alignment gives noticeably better results.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save or refine further</h4><p>Once done, click <strong>Done</strong> to return to the main screen where you can save your new head. If you want to clean up the edges, paint in the neck area, or add hair, use the <strong>Paint</strong> button in TSC or open the exported BMP in GIMP and use the techniques described in the sections above.</p></div></div>
+  </div>
+</section>
+
+
+<div class="prevnext">
+  <a href="making-heads.html" class="prevnext-link prev"><span class="prevnext-arrow">&larr;</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">Hair &amp; Heads Overview</div></div></a>
+  <a href="head-creation.html" class="prevnext-link next"><span class="prevnext-arrow">&rarr;</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">FaceLift Gold</div></div></a>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection &ndash; Modding Guide
+    </div>
+        <div class="footer-links">
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a>
+      <a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a>
+      <a href="search.html">Search</a>
+      <a href="terminology.html">Terminology</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="careers.html">Career Guide</a>
+      <a href="updates.html">Site Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group">
+      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Gameplay</div>
+          <a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a>
+          <a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Clothing Overview</a>
+      <a href="clothing-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Clothing</a>
+      <a href="clothing-meshes.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧵</span>Custom Meshes</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Hair &amp; Heads Overview</a>
+      <a href="head-retextures.html" class="nav-drawer-link nav-drawer-sublink active" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Heads</a>
+      <a href="head-creation.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧬</span>FaceLift Gold</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls & Floors</a>
+      <a href="object-retextures.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Object Retextures</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Site</div>
+      <a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📅</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="file-reference.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🗂️</span>File Reference</a>
+      <a href="credits.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📝</span>Sources &amp; Credits</a>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
+    </div>
+  </div></div>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamDesktop,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
+    panel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  setupDD('infoDropdownBtn','infoDropdownPanel');
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>

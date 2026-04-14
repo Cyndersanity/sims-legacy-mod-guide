@@ -16,7 +16,7 @@ All content is based on community testing, verified tool compatibility checks, o
 
 ## Pages
 
-The guide has **24 pages** grouped into sections:
+The guide has **28 pages** grouped into sections:
 
 ### Playing & Modding
 | Page | Description |
@@ -37,8 +37,12 @@ The guide has **24 pages** grouped into sections:
 | Page | Description |
 |------|-------------|
 | `making-cc.html` | Overview hub – how skins work, tools summary, links to all CC subpages |
-| `making-clothing.html` | Custom body skins (256×256 BMP), skin tones, filename format, xskin chain, mesh editing |
-| `making-heads.html` | Custom hair and face textures (128×128 BMP), Face Photo Wizard, skin tone versions |
+| `making-clothing.html` | Clothing overview – how skins work, body types, dress style prefixes, filename format, xskin chain, and links to retexturing and mesh guides |
+| `clothing-retextures.html` | Retexturing clothing – GIMP painting workflow, UV layout, backwards-text quirk, skin tone variants, indexed BMP conversion, TSC Wardrobe, getting into game |
+| `clothing-meshes.html` | Custom clothing meshes – what a mesh is, mesh rules, Blender + TS1 Blender IO workflow, MilkShape + SKN2OBJ workflow, BodyWarp, accessories, UV mapping, testing |
+| `making-heads.html` | Hair & Heads overview – how heads work, texture vs mesh, filename format, UV layout, links to retexturing and FaceLift guides |
+| `head-retextures.html` | Retexturing existing heads – GIMP painting workflow, skin tone variants, indexed BMP conversion, TSC export, Face Photo Wizard |
+| `head-creation.html` | FaceLift Gold – creating new head shapes by morphing and blending, full interface reference, export workflow |
 | `making-walls-floors.html` | Wall coverings (.WLL), floor tiles (.FLR) via HomeCrafter, roof textures (.BMP) |
 | `object-retextures.html` | Object retextures using Transmogrifier – clone, export sprites, paint, import. Magic Cookie guide |
 | `iff-hacking.html` | Gameplay mods: BCON editing, TTAB interactions, FAR override system, custom careers, career transfer loop |
@@ -80,8 +84,12 @@ Static HTML – no framework, no build step, no dependencies. Deployed via GitHu
 ├── cheats.html
 ├── careers.html
 ├── making-cc.html              CC creation hub
-├── making-clothing.html
-├── making-heads.html
+├── making-clothing.html        Clothing overview hub
+├── clothing-retextures.html    Retexturing body skins (GIMP + TSC)
+├── clothing-meshes.html        Custom mesh editing and accessories
+├── making-heads.html           Hair & Heads overview hub
+├── head-retextures.html        Retexturing existing heads (GIMP + TSC)
+├── head-creation.html          FaceLift Gold (new head shapes)
 ├── making-walls-floors.html
 ├── object-retextures.html         Object retextures (TMog workflow)
 ├── iff-hacking.html            Gameplay mods (BCON, TTAB, careers)
@@ -114,7 +122,7 @@ Horizontal scrolling nav bar on desktop, slide-in drawer on mobile. Organised in
 | **ℹ️ Site Info** | 📅 About Legacy, 📖 Terminology, 🗂️ File Reference, 📝 Sources & Credits, *(divider)*, 📋 Site Roadmap, ✉️ Contact |
 | **⚙️ Mods / CC** | 🔬 What's Possible, 📁 Installing Mods, 🌐 Mod Download Sites, ⚙️ Must-Have Mods |
 | **🎮 Gameplay** | 🎮 Cheats, 💼 Career Guide |
-| **🎨 Create CC** | 🎨 Overview, 👗 Clothing, 💇 Hair & Heads, 🏠 Walls & Floors, 🪑 Objects, *(divider)*, 🔧 IFF Hacking, 🧰 Tools |
+| **🎨 Create CC** | 🎨 Overview, 👗 Clothing Overview (→ 🎨 Retexturing Clothing, 🧵 Custom Meshes), 💇 Hair & Heads Overview (→ 🎨 Retexturing Heads, 🧬 FaceLift Gold), 🏠 Walls & Floors, 🪑 Objects, *(divider)*, 🔧 IFF Hacking, 🧰 Tools |
 | **🛠️ Troubleshooting** | 🛠️ CC Issues, 🖥️ Game Issues |
 
 Top-level links: 🏠 Home, 🔍 Search, ☰ Menu (opens drawer)
@@ -175,6 +183,10 @@ Always wrapped in `.table-wrap` for responsive overflow:
 | **Transmogrifier Documentation** (Don Hopkins) | Retexture workflow, Export Whizzer, Magic Cookie system |
 | **IFF Pencil 2** (Tom van Dijk / trolando) | BHAV editing, TTAB interactions, BCON constants |
 | **Simania Sims Support Page** | Skinning tutorials, object hacking, character editing |
+| **Crash Creations (Skin Shop)** | Head meshing workflow, body meshing, texture mapping, CMX writing |
+| **Jerome (SimFreaks)** | Mesh creation guide, CMX/SKN file structure documentation, filename naming tables |
+| **The Sims Creator Readme** | Face Photo Wizard workflow, TSC paint tool, accepted file formats |
+| **FaceLift Gold** | Head shape creation via morphing and blending (Roger E. Critchlow Jr and Steve DiPaola) |
 | **Raeven / Woobsha** | Expert corrections on tool workflows, TTAB accuracy, object hacking |
 | **Community testing** | Tool compatibility, folder structures, game behaviour on Legacy Collection |
 

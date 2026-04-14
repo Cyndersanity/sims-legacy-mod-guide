@@ -55,7 +55,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .nav-drawer-close{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:4px 9px;color:var(--ink-mid);cursor:pointer;font-size:15px;}
 .nav-drawer-close:hover{background:var(--green-pale);color:var(--green-dark);}
 .nav-drawer-group{padding:14px 12px 6px;}
-.nav-drawer-group-label{font-family:var(--font-mono);font-size:10px;font-weight:600;color:var(--ink-muted);text-transform:uppercase;letter-spacing:1px;padding:0 8px;margin-bottom:4px;}
+
 .nav-drawer-link{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:14px;font-weight:600;transition:all 0.15s;margin-bottom:2px;}
 .nav-drawer-link:hover,.nav-drawer-link.active{background:var(--green-pale);color:var(--green-dark);}
 .nav-drawer-link.active{border-left:3px solid var(--green);padding-left:11px;}
@@ -103,7 +103,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 .toc-list li{margin-bottom:2px;}
 .toc-list a{font-size:13px;font-weight:600;color:var(--ink-mid);text-decoration:none;padding:5px 10px;border-radius:6px;display:block;border-left:2px solid transparent;transition:all 0.15s;}
 .toc-list a:hover{color:var(--green-dark);background:var(--green-pale);border-left-color:var(--green);}
-.toc-list .toc-sub a{font-size:12px;padding-left:20px;font-weight:600;}
+
 .toc-divider{height:1px;background:var(--border);margin:10px 0;}
 .toc-back{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;margin-top:12px;transition:all 0.15s;}
 .toc-back:hover{background:var(--green-pale);color:var(--green-dark);}
@@ -249,7 +249,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-dropdown-btn{font-family:var(--font-body);font-size:12px;font-weight:700;color:var(--ink-mid);padding:5px 10px;border-radius:var(--radius-sm);white-space:nowrap;transition:all 0.18s;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;gap:4px;}
 .nav-dropdown-btn:hover,.nav-dropdown-btn.active{background:var(--green-pale);color:var(--green-dark);border-color:rgba(27,82,41,0.15);}
 .nav-dropdown-arrow{font-size:9px;transition:transform 0.18s;}
-.nav-dropdown-panel{display:none;position:fixed;min-width:220px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:9999;padding:8px;}
+.nav-dropdown-panel{display:none;position:fixed;min-width:220px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,0.16);z-index:10000;padding:8px;}
 .nav-dropdown-panel.open{display:block;}
 .nav-dropdown-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-sm);text-decoration:none;color:var(--ink-mid);font-size:13px;font-weight:700;transition:all 0.15s;white-space:nowrap;}
 .nav-dropdown-item:hover{background:var(--green-pale);color:var(--green-dark);}
@@ -257,10 +257,9 @@ footer p{font-size:12px;color:rgba(255,255,255,0.5);}
 .nav-dropdown-divider{height:1px;background:var(--border);margin:4px 8px;}
 .nav-scroll-hint-left{display:none;position:absolute;left:0;top:0;bottom:0;width:44px;background:linear-gradient(to left,transparent,rgba(245,242,232,0.97) 60%);align-items:center;justify-content:flex-start;padding-left:8px;font-size:18px;font-weight:bold;color:var(--green-dark);cursor:pointer;border:none;z-index:20;}
 .nav-drawer-sublink{padding-left:36px!important;font-size:13px!important;}
-.nav-drawer-group-label{padding:6px 16px 2px;font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;}
+.nav-drawer-group-label{font-family:var(--font-mono);font-size:10px;font-weight:800;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.08em;padding:6px 16px 2px;margin-bottom:4px;}
 
 /* DROPDOWN Z-INDEX FIX - ensure panels always appear above nav backdrop-filter stacking context */
-html body > .nav-dropdown-panel { z-index: 10000 !important; position: fixed !important; }
 
 /* Desktop hamburger button */
 .nav-ham-desktop{background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--ink-mid);font-size:15px;padding:5px 10px;cursor:pointer;transition:all 0.18s;white-space:nowrap;flex-shrink:0;}
