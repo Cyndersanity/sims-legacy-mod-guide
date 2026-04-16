@@ -63,10 +63,13 @@
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#what-is">What Is a Retexture?</a></li><li><a href="#tools">Tools You Need</a></li><li><a href="#magic-cookie">Magic Cookie</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#catalog-thumb">Catalog Thumbnail</a></li><li><a href="#new-objects">Creating New Objects</a></li><li><a href="#further">Going Further</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
+      <ul class="toc-list"><li><a href="#what-is">What Is a Retexture?</a></li><li><a href="#tools">Tools You Need</a></li><li><a href="#magic-cookie">Magic Cookie</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#catalog-thumb">Finishing Your CC</a></li><li><a href="#new-objects">Creating New Objects</a></li><li><a href="#further">Going Further</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
     </div>
   </aside>
   <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#what-is">What Is a Retexture?</a><a href="#tools">Tools You Need</a><a href="#magic-cookie">Magic Cookie</a><a href="#steps">Step-by-Step</a><a href="#catalog-thumb">Finishing Your CC</a><a href="#new-objects">Creating New Objects</a><a href="#further">Going Further</a></div></details>
+
+
 
 <div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> – screenshots showing each tool step will be added soon. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">r/thesims1</a>.</div>
 
@@ -76,8 +79,8 @@
   <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Older tutorials may call this a &ldquo;recolour.&rdquo;</strong> The Sims 1 community traditionally used &ldquo;recolour&rdquo; for this process. Both terms mean the same thing &ndash; changing how an object looks without changing what it does. This guide uses &ldquo;retexture&rdquo; because you&rsquo;re replacing the full texture image, not just adjusting colours.</div>
   <div class="grid-2" style="margin-top:16px;">
     <div class="card"><div class="card-title">✅ What you can change</div><div class="card-desc">The game-view sprites (what the object looks like on the lot) and the catalogue thumbnail image (what appears in Buy Mode).</div></div>
-    <div class="card"><div class="card-title">🔧 One tool does the work</div><div class="card-desc">Transmogrifier (TMog) handles the entire retexture process – cloning the object, exporting its sprites as editable images, and importing your painted versions back in. Created by Don Hopkins at Maxis.</div></div>
-    <div class="card"><div class="card-title">🎨 Image editing</div><div class="card-desc">GIMP or Photoshop to paint your retexture onto the exported sprite images. TMog handles all the technical sprite formatting – you just change the colours.</div></div>
+    <div class="card"><div class="card-title">🔧 Two tools working together</div><div class="card-desc">Transmogrifier (TMog) handles the technical side &ndash; cloning the object, exporting its sprites as editable images, and importing your changes back in. An image editor (GIMP, Photoshop etc.) is where you do the actual painting.</div></div>
+    <div class="card"><div class="card-title">🎨 Image editing</div><div class="card-desc">GIMP or Photoshop to paint your retexture onto the exported sprite images. TMog handles all the technical sprite formatting. You open the exported BMP files in your image editor and paint your changes there.</div></div>
   </div>
   <div class="callout red" style="margin-top:16px;"> <strong>🚨 Never edit original game files directly.</strong> Always use TMog to create a clone first. The clone is your working copy – the original stays safe inside the game's archive files. If your retexture goes wrong, just delete the clone and start over.</div>
   <div class="callout gold" style="margin-top:0;"> <strong>⚠️ Never edit or move files while the game is running.</strong> Close the game before making any changes to mod files, then relaunch to test.</div>
@@ -86,7 +89,7 @@
 <section id="tools">
   <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Tools You Need</h2><p class="section-sub">TMog for the retexture workflow, plus any image editor</p></div></div>
   <div class="grid-2">
-    <div class="card"><div class="card-title"><span class="tag green">ESSENTIAL</span> Transmogrifier (TMog)</div><div class="card-desc">The main tool for object retexturing. TMog clones objects, exports their sprite images as editable BMP files, and imports your painted versions back in. This is the only tool you need for a visual-only retexture. Created by Don Hopkins (Maxis).</div><a class="pill-link" href="https://www.thesimstransmogrifier.com/TransmogrifierDocumentation/TransmogrifierDocumentation.htm" target="_blank" rel="noopener">TMog Documentation &#8599;</a></div>
+    <div class="card"><div class="card-title"><span class="tag green">ESSENTIAL</span> Transmogrifier (TMog)</div><div class="card-desc">The main tool for object retexturing. TMog clones objects, exports their sprite images as editable BMP files, and imports your edited versions back in. You also need an image editor (below) to paint the actual changes &ndash; TMog handles the technical packaging, not the painting.</div><a class="pill-link" href="https://www.thesimstransmogrifier.com/TransmogrifierDocumentation/TransmogrifierDocumentation.htm" target="_blank" rel="noopener">TMog Documentation &#8599;</a></div>
     <div class="card"><div class="card-title"><span class="tag green">ESSENTIAL</span> GIMP or Photoshop</div><div class="card-desc">For painting your retexture onto the exported sprite images. Any image editor that can open and save BMP files will work. GIMP is free.</div><a class="pill-link" href="https://www.gimp.org/" target="_blank" rel="noopener">↗ gimp.org</a></div>
     <div class="card"><div class="card-title"><span class="tag teal">OPTIONAL</span> IFF Pencil 2</div><div class="card-desc">Only needed if you want to update the catalog thumbnail after retexturing. IFF Pencil edits resources inside IFF files but does not handle sprites – that's TMog's job. Requires Windows XP SP3 compatibility mode and Run as administrator on Windows 10/11. Download from <a href="https://github.com/trolando/Sims1Tools" target="_blank" rel="noopener">trolando's GitHub</a> (includes the required script files).</div></div>
   </div>
@@ -106,6 +109,7 @@
 
 <section id="steps">
   <div class="section-head"><div class="section-emoji">🚶</div><div><h2 class="section-title">Step-by-Step: Retexturing an Object</h2><p class="section-sub">Using the Pink Flamingo as an example – the same process works for any object</p></div></div>
+  <div class="callout teal" style="margin-bottom:16px;">ℹ️ <strong>New to IFF files?</strong> An IFF file is the container holding everything about an object &ndash; its sprites, behaviour, interactions, and values. You do not need to know the internals to retexture, but if you want to understand what each resource type does, see the <a href="file-reference.html#iff-resources">File Reference &ndash; IFF Resources</a>.</div>
   <div class="steps">
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open Transmogrifier and find your object</h4><p>Launch TMog. The left panel shows a list of every object in the game. Scroll through or type in the search box to find the object you want to retexture. For this example, find <strong>flamingo</strong> in the list and click on it.</p><p>The right side of the screen shows information about the selected object – its filename, how many objects are in that file, and a list of objects you can work with. The flamingo file contains one object called "Flamingo."</p></div></div>
 
@@ -144,56 +148,53 @@
 </section>
 
 <section id="catalog-thumb">
-  <div class="section-head"><div class="section-emoji">🖼️</div><div><h2 class="section-title">Updating the Catalog Thumbnail</h2><p class="section-sub">Optional – the Buy Mode picture may still show the old look</p></div></div>
-  <p>After retexturing, you may notice the small picture in the Buy Mode catalog still shows the original object's appearance. This is the catalog thumbnail – a separate BMP image stored inside the IFF file (called a BMP_ resource) that TMog's sprite export doesn't touch.</p>
-  <p>Many CC creators skip this step and it doesn't affect gameplay. But if you want the catalog picture to match your retexture, you can update it using IFF Pencil 2:</p>
-  <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a thumbnail image</h4><p>Take a screenshot of your retextured object in game, or paint a small image of it in GIMP. The catalog thumbnail is small (around 60×60 pixels), so it doesn't need to be detailed.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the clone in IFF Pencil 2</h4><p>Launch IFF Pencil 2 (with XP SP3 compatibility mode and Run as admin if on Windows 10/11). Open your clone IFF file from <code>Downloads\Transmogrified\</code>. In the left panel, click on <strong>BMP_</strong> to see the bitmap resources. The one labelled "Catalog" (usually ID 2000) is the Buy Mode thumbnail.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your new thumbnail</h4><p>Right-click the Catalog BMP_ resource → Import → select your new thumbnail image. Save the IFF file. The catalog picture will now show your retextured version.</p></div></div>
-  </div>
+  <div class="section-head"><div class="section-emoji">🖼️</div><div><h2 class="section-title">Finishing Your CC</h2><p class="section-sub">Update the name, description, and thumbnail before sharing &ndash; or even just for yourself</p></div></div>
 
-  <details class="inline-ft" style="margin-top:16px;">
-    <summary>What's inside an object IFF file?</summary>
-    <div style="padding:0 12px 10px;font-size:14px;color:var(--ink-mid);">
-      <p><strong>SPR2:</strong> Game-view sprites (the images you see on the lot). Edited via TMog.</p>
-      <p><strong>BMP_:</strong> Catalog thumbnail shown in Buy Mode. Edited via IFF Pencil 2.</p>
-      <p><strong>DGRP:</strong> Draw groups that map sprites to rotation angles and zoom levels.</p>
-      <p><strong>PALT:</strong> The 256-colour palette used by the sprites.</p>
-      <p><strong>BHAV:</strong> Behaviour scripts controlling what the object does.</p>
-      <p><strong>TTAB:</strong> The interaction list (pie menu options).</p>
-      <p><strong>BCON:</strong> Tunable values like comfort, skill gain, and room impact.</p>
-      <p style="margin-top:8px;"><a href="file-reference.html" style="display:inline-flex;align-items:center;gap:4px;background:var(--green-pale);color:var(--green-dark);padding:3px 10px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;border:1px solid rgba(27,82,41,0.15);">🗂️ Full file type reference →</a></p>
-    </div>
-  </details>
+  <div class="callout gold" style="margin-bottom:16px;">⚠️ <strong>Do this before sharing your CC.</strong> After retexturing, the Buy Mode catalog still shows the original object&rsquo;s thumbnail and name. Anyone who downloads your CC will see a picture of the original Maxis object next to a description that says nothing about your changes. Update both before uploading. Even if you are keeping the CC for your own game, updating the description now means you can tell your retextures apart from the base game objects later.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 12px;">Step 1 &ndash; Update the catalog name and description in TMog</h3>
+  <p>With your cloned object selected in TMog&rsquo;s left-hand object list, look at the right-hand panel. You will see fields for <strong>Name</strong> and <strong>Description</strong> &ndash; these are what appear in the Buy Mode catalogue when someone hovers over or clicks your object in game.</p>
+  <p style="margin-top:8px;">Click into the Name field and give your retexture a distinct name. Then click into the Description field and write a short description. Standard Sims 1 CC convention is:</p>
+  <div class="callout teal" style="margin:10px 0 16px;">ℹ️ <strong>Example:</strong><br>
+    <strong>Name:</strong> <code>Green Flamingo</code><br>
+    <strong>Description:</strong> <code>Recolour of Maxis &ldquo;Pink Flamingo&rdquo;. Made by [Your Handle] &ndash; [your site or contact]</code>
+  </div>
+  <p>The reason for this format: if someone downloads your CC and wants to know who made it, or wants more of your work, the description is the only place inside the file that carries that information. A name like &ldquo;Green Flamingo&rdquo; also prevents your retexture from showing up in the catalogue as &ldquo;Pink Flamingo&rdquo; alongside the original, which would be confusing for anyone with both installed.</p>
+  <p style="margin-top:8px;">Your Magic Cookie number is baked into the object&rsquo;s GUID automatically when you clone it &ndash; you do not need to write it into the description.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:20px 0 12px;">Step 2 &ndash; Update the catalog thumbnail</h3>
+  <p>The thumbnail is a separate small image stored inside the IFF file (called a <strong>BMP_</strong> resource). TMog&rsquo;s sprite export does not touch it &ndash; it stays as the original Maxis image until you replace it manually using IFF Pencil 2.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a thumbnail image</h4><p>Take a screenshot of your retextured object in game, then open it in GIMP, crop around the object, and resize it to around <strong>60&times;60 pixels</strong> (<strong>Image &rarr; Scale Image</strong>). Or paint a simple icon-style image from scratch at that size. The thumbnail does not need to be detailed &ndash; at 60 pixels it is very small in the catalogue &ndash; but it should clearly show your new colour or design rather than the Maxis original.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the clone in IFF Pencil 2</h4><p>Launch IFF Pencil 2 (right-click the .exe &rarr; Properties &rarr; Compatibility &rarr; Windows XP SP3 mode and Run as administrator, if on Windows 10/11). Go to <strong>File &rarr; Open</strong> and navigate to <code>Downloads\Transmogrified\</code> inside your Legacy Collection folder. Open your cloned IFF file.</p><p style="margin-top:8px;">In the left panel you will see a list of resource types. Click <strong>BMP_</strong> to expand it. You will see one or more bitmap entries listed by ID number. The one labelled <strong>Catalog</strong> (usually ID 2000) is the Buy Mode thumbnail.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your new thumbnail</h4><p>Right-click the Catalog BMP_ entry &rarr; <strong>Import</strong> &rarr; browse to your thumbnail image and select it. IFF Pencil will replace the image. Then go to <strong>File &rarr; Save</strong>. The Buy Mode picture will now show your version of the object rather than the original.</p></div></div>
+  </div>
 </section>
 
 <section id="new-objects">
   <div class="section-head"><div class="section-emoji">🧊</div><div><h2 class="section-title">Creating New Objects from Scratch</h2><p class="section-sub">Model in 3D, render sprites, compile into a game-ready object</p></div></div>
 
-  <p>Retexturing changes how an existing object looks. Creating a new object means modelling it in 3D, rendering it as sprites at every angle the game needs, and packaging everything into an IFF file. This used to be extremely tedious – but modern tools have made it much more doable.</p>
+  <p>Retexturing changes how an existing object looks. Creating a new object means modelling a 3D shape, rendering it as flat images the game can display, and packaging everything into an IFF file. This used to be extremely tedious by hand &ndash; modern tools have made it achievable.</p>
+
+  <div class="callout gold" style="margin-top:12px;">⚠️ <strong>This is advanced territory.</strong> Creating new objects requires 3D modelling skills (Blender) and understanding of how the sprite rendering pipeline works. If you have not retextured an existing object yet, do that first &ndash; it teaches you how the IFF and TMog workflow operates before you need to build from scratch.</div>
 
   <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Why objects are sprites, not 3D models</h3>
+  <p>Sims 1 objects are not rendered in real-time 3D. They are <strong>pre-rendered sprites</strong> &ndash; flat images displayed at fixed isometric angles. Each object needs sprites for 4 rotations (N/E/S/W) at 3 zoom levels (near/medium/far), plus a matching z-buffer depth sprite for each. The z-buffer tells the game how to layer Sims in front of and behind the object. Missing or incorrect z-buffers cause Sims to visually clip through objects.</p>
+  <div class="callout teal" style="margin-top:8px;">ℹ️ <strong>Bilaterally symmetrical objects</strong> (like the flamingo) only need 2 rotation sprites &ndash; TMog automatically mirrors them for the opposite angles. This halves the work for simple objects.</div>
 
-  <p>Sims 1 objects aren't rendered in real-time 3D. They're <strong>pre-rendered sprites</strong> – flat images displayed at fixed isometric angles. Each object needs sprites for 4 rotations (N/E/S/W) at 3 zoom levels (near/medium/far), plus a matching <strong>z-buffer</strong> sprite for each. The z-buffer is a depth mask that tells the game how to layer Sims in front of and behind the object. Missing or incorrect z-buffers cause Sims to clip through objects.</p>
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">The modern workflow: Blender + TS1 tools</h3>
+  <p>The TS1 Renderer and TS1 Compiler addons for Blender (by mixiate) automate the hardest parts. If you have not used Blender before, start with the official <a href="https://www.blender.org/support/tutorials/" target="_blank" rel="noopener">Blender Foundation tutorials</a> (free, on their website and YouTube channel). Learn the interface, how to create and edit basic shapes, and how to apply materials before attempting Sims 1 object work.</p>
 
-  <p>Bilaterally symmetrical objects (like the flamingo) only need 2 rotation sprites – TMog flips them automatically for the opposite angles. This halves the work for simple objects.</p>
+  <div class="callout teal" style="margin-bottom:16px;">ℹ️ <strong>Tool versions:</strong> TS1 Renderer supports Blender 4.1 and 4.3&ndash;4.5. Blender 4.2 has a known bug that breaks it. Check the <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer GitHub page</a> for the current supported version before installing.</div>
 
-  <div class="callout teal" style="margin-top:12px;">ℹ️ A single-tile object needs at minimum 24 sprites (4 rotations × 3 zooms × 2 for colour + z-buffer). Multi-tile objects need even more. This is why making objects by hand was such a pain in the early 2000s – and why mixiate's automated rendering tools are a big deal.</div>
-
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Modern workflow – Blender + TS1 tools</h3>
-
-  <p>The <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer</a> and <a href="https://github.com/mixiate/ts1-compiler" target="_blank" rel="noopener">TS1 Compiler</a> addons by mixiate automate the hardest parts – sprite rendering and IFF assembly.</p>
-
-  <div class="steps" style="margin-top:14px;">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Model your object in Blender</h4><p>Create your 3D model in Blender. Keep the polygon count low – this is being rendered to small sprites, not displayed as a real-time 3D model. Simple geometry with good textures looks better than complex geometry that turns to mush at sprite resolution.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Install TS1 Renderer and set up the scene</h4><p>Install the <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer addon</a> for Blender 4.1, 4.3–4.5 (not 4.2 due to a Blender bug). Follow the <a href="https://github.com/mixiate/ts1-renderer/wiki" target="_blank" rel="noopener">wiki</a> to set up the isometric camera angles and lighting. The addon handles the correct sprite dimensions and angles automatically.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Render all sprites</h4><p>TS1 Renderer renders all required rotation angles, zoom levels, and z-buffer sprites in one batch. This replaces what used to be hours of manual screenshot-and-crop work.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Compile into an IFF file</h4><p>Use <a href="https://github.com/mixiate/ts1-compiler" target="_blank" rel="noopener">TS1 Compiler</a> to assemble the rendered sprites into a complete, game-ready IFF file. The compiler handles sprite indexing, palettisation, z-buffer packaging, and creates the basic OBJD (object definition) resource. You will also need to create a catalog thumbnail image manually – the compiler does not auto-generate this.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place in Downloads\ and test</h4><p>Copy the finished IFF to your <code>Downloads\</code> folder. Launch the game and check the object appears in the Buy Mode catalogue, rotates correctly, and Sims interact with it without visual glitches.</p></div></div>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Model your object in Blender</h4><p>Open Blender and create your 3D model. Keep the geometry simple &ndash; you are rendering to small sprites, not real-time 3D, so complex shapes do not add visual quality. A clean low-polygon model with good textures looks better than a complex one at sprite resolution.</p><p>Resources for learning 3D modelling in Blender:</p><ul style="margin-top:6px;padding-left:18px;"><li><a href="https://www.blender.org/support/tutorials/" target="_blank" rel="noopener">Official Blender tutorials</a> &ndash; start with the Donut tutorial (beginner-friendly, covers all the basics)</li><li><a href="https://www.youtube.com/c/BlenderGuru" target="_blank" rel="noopener">Blender Guru on YouTube</a> &ndash; widely recommended beginner channel</li></ul></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Install TS1 Renderer and set up the scene</h4><p>Install the TS1 Renderer addon for Blender: go to <strong>Edit &rarr; Preferences &rarr; Add-ons &rarr; Install</strong> and select the downloaded ZIP. Enable the addon. Then follow the <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer wiki</a> to set up the isometric camera angles and lighting correctly. The addon handles the exact camera angles and sprite dimensions automatically &ndash; do not adjust the camera manually.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Render all sprites</h4><p>Once your scene is set up, use the TS1 Renderer to batch-render all rotation angles, zoom levels, and z-buffer sprites in one pass. This replaces what used to be hours of manual screenshot-and-crop work. Each sprite will be saved as a correctly sized, correctly indexed image file.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Compile into an IFF file using TS1 Compiler</h4><p>Install the TS1 Compiler addon the same way. Load your rendered sprites and run the compiler. It assembles the sprites into a complete IFF file, handles z-buffer packaging and palette indexing, and creates a basic OBJD (object definition) resource. You will need to add a catalog thumbnail separately (a 32&times;32 pixel BMP_ image) using IFF Pencil 2. See the <a href="#catalog-thumb">Finishing Your CC</a> section above for how that works.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set your Magic Cookie and open in TMog</h4><p>Before distributing your object, assign it a proper Magic Cookie number. See the <a href="#magic-cookie">Magic Cookie</a> section on this page. Once the IFF is assembled, open it in TMog to verify the object appears correctly in the object list and to give it a proper name and description in the catalog.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place in Downloads\ and test</h4><p>Copy the finished IFF to your <code>Downloads\</code> folder. Launch the game and check the object appears in the Buy Mode catalogue, displays correctly at all three zoom levels, and that Sims interact with it without visual clipping. Test all four rotation angles &ndash; rotate the camera to view the object from each direction.</p></div></div>
   </div>
-
-  <p style="margin-top:20px;">Before TS1 Renderer existed, creators modelled objects in any 3D editor, manually rendered sprites at each angle using specific camera settings, cropped and indexed them as 256-colour BMPs, hand-created z-buffer sprites, and imported everything piece by piece. This is still possible but extremely tedious. If you're creating new objects, use the modern Blender pipeline above.</p>
 </section>
 
 <section id="further">
@@ -207,10 +208,6 @@
   <a href="iff-hacking.html" class="prevnext-link next"><span class="prevnext-arrow">→</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">IFF Hacking</div></div></a>
 </div>
 
-<div class="page-nav">
-<a href="making-walls-floors.html" class="page-nav-link prev"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Making Walls & Floors</span></a>
-<a href="iff-hacking.html" class="page-nav-link next"><span class="page-nav-label">Next →</span><span class="page-nav-title">IFF Hacking</span></a>
-</div>
 
 </main>
 </div>

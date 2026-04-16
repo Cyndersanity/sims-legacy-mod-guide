@@ -549,32 +549,47 @@ Can span multiple lines.
 ═════════════════════════════════════════════════════════ -->
 <section class="sg-section" id="page-nav">
   <h2 class="sg-section-title">Prev/Next Page Navigation</h2>
-  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Used on the CC creation subpages to link readers through the sequence: CC Overview &rarr; Making Clothing &rarr; Making Hair &amp; Heads &rarr; Making Walls &amp; Floors &rarr; Object Retextures &rarr; IFF Hacking. The first page omits the "Previous" link; the last page omits "Next".</p>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Used on all CC creation pages to link readers through the sequence. The full chain is: CC Overview &rarr; Clothing Overview &rarr; Retexturing Clothing &rarr; Custom Meshes &rarr; Hair &amp; Heads Overview &rarr; Retexturing Heads &rarr; FaceLift Gold &rarr; Making Walls &amp; Floors &rarr; Object Retextures &rarr; IFF Hacking &rarr; Tools. Pages with no subpages link directly to the next section; subpages link within their own section first.</p>
 
   <div class="sg-demo">
     <div style="display:flex;justify-content:space-between;align-items:stretch;gap:16px;margin-top:16px;padding-top:16px;border-top:2px solid var(--border);">
-      <a href="#" style="display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:16px 20px;border-radius:10px;border:2px solid var(--border);background:var(--white);max-width:48%;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.5px;">&larr; Previous</span>
-        <span style="font-size:15px;font-weight:800;color:var(--green-dark);">Making Clothing</span>
+      <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:16px 20px;border-radius:var(--radius-md);border:2px solid var(--border);background:var(--white);max-width:48%;box-shadow:var(--shadow-sm);">
+        <span style="font-size:20px;color:var(--green);font-weight:700;">&larr;</span>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.5px;">Previous</div>
+          <div style="font-size:14px;font-weight:800;color:var(--ink);">Clothing Overview</div>
+        </div>
       </a>
-      <a href="#" style="display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:16px 20px;border-radius:10px;border:2px solid var(--border);background:var(--white);max-width:48%;text-align:right;margin-left:auto;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-        <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.5px;">Next &rarr;</span>
-        <span style="font-size:15px;font-weight:800;color:var(--green-dark);">Making Walls &amp; Floors</span>
+      <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;padding:16px 20px;border-radius:var(--radius-md);border:2px solid var(--border);background:var(--white);max-width:48%;text-align:right;margin-left:auto;flex-direction:row-reverse;box-shadow:var(--shadow-sm);">
+        <span style="font-size:20px;color:var(--green);font-weight:700;">&rarr;</span>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.5px;">Next</div>
+          <div style="font-size:14px;font-weight:800;color:var(--ink);">Custom Meshes</div>
+        </div>
       </a>
     </div>
   </div>
-  <div class="sg-code">&lt;div class="page-nav"&gt;
-  &lt;a href="making-clothing.html" class="page-nav-link prev"&gt;
-    &lt;span class="page-nav-label"&gt;&amp;larr; Previous&lt;/span&gt;
-    &lt;span class="page-nav-title"&gt;Making Clothing&lt;/span&gt;
+
+  <div class="sg-code">&lt;div class="prevnext"&gt;
+  &lt;a href="prev-page.html" class="prevnext-link prev"&gt;
+    &lt;span class="prevnext-arrow"&gt;&amp;larr;&lt;/span&gt;
+    &lt;div&gt;
+      &lt;div class="prevnext-label"&gt;Previous&lt;/div&gt;
+      &lt;div class="prevnext-title"&gt;Page Title&lt;/div&gt;
+    &lt;/div&gt;
   &lt;/a&gt;
-  &lt;a href="making-walls-floors.html" class="page-nav-link next"&gt;
-    &lt;span class="page-nav-label"&gt;Next &amp;rarr;&lt;/span&gt;
-    &lt;span class="page-nav-title"&gt;Making Walls &amp; Floors&lt;/span&gt;
+  &lt;a href="next-page.html" class="prevnext-link next"&gt;
+    &lt;span class="prevnext-arrow"&gt;&amp;rarr;&lt;/span&gt;
+    &lt;div&gt;
+      &lt;div class="prevnext-label"&gt;Next&lt;/div&gt;
+      &lt;div class="prevnext-title"&gt;Page Title&lt;/div&gt;
+    &lt;/div&gt;
   &lt;/a&gt;
 &lt;/div&gt;</div>
 
-  <p class="sg-note">CSS is in style.css under "PREV/NEXT PAGE NAVIGATION". On mobile (&lt;640px) the links stack vertically.</p>
+  <p class="sg-note">CSS classes: <code>.prevnext</code> (wrapper), <code>.prevnext-link prev</code> / <code>.prevnext-link next</code> (links), <code>.prevnext-arrow</code> (the &larr;/&rarr;), <code>.prevnext-label</code> (small caps PREVIOUS/NEXT text), <code>.prevnext-title</code> (bold page name). On mobile the links stack vertically. Do not use the old <code>.page-nav</code> class &ndash; it has no CSS rules and was removed.</p>
+  <h3 style="font-size:14px;font-weight:700;color:var(--ink);margin:20px 0 6px;">Full prevnext sequence (April 2026)</h3>
+  <p style="font-size:13px;color:var(--ink-mid);">CC Overview &rarr; Clothing Overview &rarr; Retexturing Clothing &rarr; Custom Meshes &rarr; Hair &amp; Heads Overview &rarr; Retexturing Heads &rarr; FaceLift Gold &rarr; Making Walls &amp; Floors &rarr; Object Retextures &rarr; IFF Hacking &rarr; Tools</p>
 </section>
 
 
@@ -776,7 +791,7 @@ Sims Legacy Collection – Site Roadmap</div>
         <tr><td>📖 Terminology</td><td>Link</td><td>terminology.html</td></tr>
         <tr><td>⚙️ Mods / CC</td><td>Dropdown</td><td>What's Possible, Installing Mods, Mod Download Sites, Must-Have Mods</td></tr>
         <tr><td>🎮 Cheats</td><td>Link</td><td>cheats.html</td></tr>
-        <tr><td>🎨 Create CC</td><td>Dropdown</td><td>Overview & Tools, Making Clothing, Making Hair & Heads, Making Walls & Floors, Object Retextures, [divider], IFF Hacking, Tools</td></tr>
+        <tr><td>🎨 Create CC</td><td>Dropdown</td><td>Overview &amp; Tools, <strong>👗 Clothing Overview</strong> (with indented subpages: 🎨 Retexturing Clothing, 🧵 Custom Meshes), <strong>💇 Hair &amp; Heads Overview</strong> (with indented subpages: 🎨 Retexturing Heads, 🧬 FaceLift Gold), Making Walls &amp; Floors, Object Retextures, [divider], IFF Hacking, Tools</td></tr>
         <tr><td>🛠️ Troubleshooting</td><td>Dropdown</td><td>CC Issues, Game Issues</td></tr>
         <tr><td>ℹ️ Site Info</td><td>Dropdown</td><td>About Legacy, Terminology, File Reference, Sources &amp; Credits, [divider], Site Roadmap, Contact</td></tr>
         <tr><td>🔍 Search</td><td>Link</td><td>search.html</td></tr>
@@ -790,6 +805,17 @@ Sims Legacy Collection – Site Roadmap</div>
 
   <h3 class="sg-sub">Active states</h3>
   <p style="font-size:14px;color:var(--ink-mid);margin-bottom:12px;">Add <code>class="nav-link active"</code> to the current page's top-level link. For pages inside a dropdown, add <code>class="nav-dropdown-item active"</code> to the correct item AND <code>class="nav-dropdown-btn active"</code> to the parent button. In the drawer, use <code>nav-drawer-link active</code> or <code>nav-drawer-sublink active</code>.</p>
+
+  <h3 class="sg-sub">Indented subpage links (nested navigation)</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:12px;">When a page has subpages (e.g. Hair &amp; Heads Overview &rarr; Retexturing Heads / FaceLift Gold), the subpage links appear indented beneath the parent in both the dropdown and drawer. No new CSS classes are needed &ndash; use inline styles on the existing classes:</p>
+  <div class="sg-code sg-code-standalone">&lt;!-- Desktop dropdown: indented subpage --&gt;
+&lt;a href="head-retextures.html" class="nav-dropdown-item"
+   style="padding-left:28px;font-size:12px;"&gt;🎨 Retexturing Heads&lt;/a&gt;
+
+&lt;!-- Mobile drawer: indented subpage --&gt;
+&lt;a href="head-retextures.html" class="nav-drawer-link nav-drawer-sublink"
+   style="padding-left:52px!important;font-size:12px!important;"&gt;
+  &lt;span class="nav-drawer-icon"&gt;🎨&lt;/span&gt;Retexturing Heads&lt;/a&gt;</div>
 
   <h3 class="sg-sub">Mobile breakpoints</h3>
   <div class="table-wrap">
@@ -842,8 +868,12 @@ Sims Legacy Collection – Site Roadmap</div>
         <tr><td>🎮</td><td>Gameplay dropdown (Cheats, Career Guide)</td></tr>
         <tr><td>💼</td><td>Career Guide</td></tr>
         <tr><td>🎨</td><td>Create CC (all CC pages)</td></tr>
-        <tr><td>👗</td><td>Making Clothing</td></tr>
-        <tr><td>💇</td><td>Making Hair & Heads</td></tr>
+        <tr><td>👗</td><td>Clothing Overview (making-clothing.html)</td></tr>
+        <tr><td>🎨</td><td>Retexturing Clothing (clothing-retextures.html) &ndash; reuses CC emoji</td></tr>
+        <tr><td>🧵</td><td>Custom Meshes (clothing-meshes.html)</td></tr>
+        <tr><td>💇</td><td>Hair &amp; Heads Overview (making-heads.html)</td></tr>
+        <tr><td>🎨</td><td>Retexturing Heads (head-retextures.html) &ndash; reuses CC emoji</td></tr>
+        <tr><td>🧬</td><td>FaceLift Gold (head-creation.html)</td></tr>
         <tr><td>🏠</td><td>Making Walls & Floors (reuses home emoji)</td></tr>
         <tr><td>🪑</td><td>Object Retextures</td></tr>
         <tr><td>🔧</td><td>IFF Hacking</td></tr>

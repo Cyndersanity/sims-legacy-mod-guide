@@ -214,17 +214,16 @@
 <section id="bodywarp">
   <div class="section-head"><div class="section-emoji">🔧</div><div><h2 class="section-title">BodyWarp</h2><p class="section-sub">Quick body part manipulation without a full 3D editor</p></div></div>
 
-  <p>BodyWarp is a dedicated Sims 1 mesh tool that lets you rotate, scale, and move individual body segments (an arm, a leg, the torso) without needing to open a full 3D editor like Blender or MilkShape. It works on the SKN file directly and is useful for simple adjustments.</p>
+  <p>BodyWarp is a dedicated Sims 1 mesh tool that lets you rotate, scale, and move individual body segments without opening a full 3D editor. It works on the SKN file directly.</p>
 
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 10px;">What BodyWarp is good for</h3>
-  <ul style="margin-top:8px;padding-left:18px;">
-    <li>Previewing how a mesh looks with a BMP texture applied before putting it in the game</li>
-    <li>Checking for holes in the mesh: load a solid black BMP as the texture, then rotate the 3D preview. Holes in the mesh let the background show through as non-black patches &ndash; easy to spot against the black texture</li>
-    <li>The Split Faces function, which subdivides existing faces into smaller triangles, effectively giving you more vertices to work with &ndash; but this changes the vertex count (see Rule 1 in <a href="#mesh-rules">Mesh Rules</a>), so only use this if you are starting from a mesh that will not go back through SKN2OBJ&rsquo;s SPJ route</li>
-    <li>Generating a CMX configuration file for a mesh</li>
-  </ul>
+  <div class="grid-2" style="margin-top:14px;">
+    <div class="card"><div class="card-title">Previewing meshes</div><div class="card-desc">Load a SKN and BMP to see how the texture wraps onto the mesh before putting it in game. Faster than launching the full game for a quick visual check.</div></div>
+    <div class="card"><div class="card-title">Checking for holes</div><div class="card-desc">Load a solid black BMP as the texture and rotate the model. Any holes in the mesh let the background show through as non-black patches &ndash; easy to spot against the black texture.</div></div>
+    <div class="card"><div class="card-title">Generating CMX files</div><div class="card-desc">BodyWarp can generate the CMX configuration file for a mesh. Useful when you have a SKN file without a matching CMX.</div></div>
+    <div class="card"><div class="card-title">Split Faces</div><div class="card-desc">Subdivides existing faces into smaller triangles, giving you more vertices to work with. Use with caution &ndash; see the warning below.</div></div>
+  </div>
 
-  <div class="callout gold">⚠️ <strong>Split Faces adds new vertices.</strong> If you use Split Faces in BodyWarp, you cannot then use the original SPJ to convert back to SKN (the vertex count will no longer match). Only use Split Faces if you are treating this as the starting point for a completely new mesh that will not be reconciled with an existing SPJ.</div>
+  <div class="callout gold" style="margin-top:14px;">⚠️ <strong>Split Faces adds new vertices.</strong> If you use Split Faces, you cannot then use the original SPJ file to convert back to SKN via SKN2OBJ &ndash; the vertex count no longer matches. Only use Split Faces if you are building a new mesh from scratch that will not be reconciled with an existing SPJ.</div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -270,20 +269,16 @@
 <section id="uv-mapping">
   <div class="section-head"><div class="section-emoji">🗺️</div><div><h2 class="section-title">UV Mapping for Modified Meshes</h2><p class="section-sub">When you change the mesh shape, the texture may need remapping</p></div></div>
 
-  <p>UV mapping is how the flat BMP image is projected onto the 3D mesh. Each vertex has a UV coordinate that says &ldquo;this 3D point corresponds to this pixel on the flat image.&rdquo; When you move vertices during mesh editing, the UV coordinates do not move with them automatically &ndash; the texture stays in its original position relative to the new vertex position, which can look stretched, squashed, or misaligned in game.</p>
+  <p>UV mapping is how the flat BMP image is projected onto the 3D mesh. Each vertex has a UV coordinate telling the game which pixel on the BMP corresponds to that point on the mesh. When you move vertices during mesh editing, the UV coordinates do not move automatically &ndash; the texture can look stretched, squashed, or misaligned.</p>
+  <p>You only need to adjust UV mapping if your mesh edits changed the shape enough that the original UV layout no longer maps correctly. Minor vertex movements usually do not require changes. Major shape changes (a flared skirt, significantly extended sleeves) usually do.</p>
 
-  <p>You only need to adjust UV mapping if your mesh edits have changed the shape enough that the original UV layout no longer maps the texture correctly. Minor vertex movements (small shape adjustments) usually do not require UV changes. Major shape changes (adding a flared skirt area, extending sleeves significantly) usually do.</p>
+  <div class="grid-2" style="margin-top:14px;">
+    <div class="card"><div class="card-title">MilkShape 3D &ndash; Texture Coordinate Editor</div><div class="card-desc">Go to <strong>Window &rarr; Texture Coordinate Editor</strong>. Shows the mesh as a flat layout with the BMP behind it. Select individual UV points and drag them to remap specific areas. Most direct for fixing a single seam or misaligned section.</div></div>
+    <div class="card"><div class="card-title">Blender &ndash; UV Editing workspace</div><div class="card-desc">Switch to the <strong>UV Editing</strong> workspace (tab at the top). The left panel shows the UV layout over the texture; the right shows the 3D mesh. Selecting faces in 3D highlights the corresponding UV islands on the left.</div></div>
+    <div class="card"><div class="card-title">UVMapper Classic &ndash; for accessories</div><div class="card-desc">A standalone UV mapping tool useful when setting up a UV layout from scratch for a new accessory. Works on OBJ files &ndash; use it before importing into SKN2OBJ. Free from <a href="https://www.uvmapper.com/" target="_blank" rel="noopener">uvmapper.com</a>.</div></div>
+  </div>
 
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Adjusting UVs in MilkShape 3D</h3>
-  <p>MilkShape&rsquo;s <strong>Texture Coordinate Editor</strong> (found under <strong>Window &rarr; Texture Coordinate Editor</strong>) shows you the mesh as a flat layout with the BMP texture behind it. You can select individual UV points (the 2D equivalents of your 3D vertices) and drag them to change which part of the texture maps to which part of the mesh. This is the most direct way to fix a specific seam or misalignment.</p>
-
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Adjusting UVs in Blender</h3>
-  <p>In Blender, switch to the <strong>UV Editing</strong> workspace (tab at the top of the screen). The left side shows the UV layout over the texture image; the right side shows the 3D mesh. Selecting faces in the 3D view highlights the corresponding UV islands on the left. You can then select and move UV points to remap the texture.</p>
-
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">UVMapper for accessories</h3>
-  <p>UVMapper Classic (free, available from <a href="https://www.uvmapper.com/" target="_blank" rel="noopener">uvmapper.com</a>) is a dedicated UV mapping tool that was widely used in the original Sims 1 modding era. It is particularly useful for new accessories where you are setting up a UV layout from scratch &ndash; it can automatically generate a UV unwrap from the OBJ geometry. It works on OBJ files, so use it before importing into SKN2OBJ.</p>
-
-  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>The simplest UV fix:</strong> if your mesh changes are minimal and the texture just needs a small adjustment, try moving just the affected UV points in MilkShape&rsquo;s Texture Coordinate Editor rather than doing a full UV unwrap. A full unwrap from scratch means you have to repaint the texture to match the new layout.</div>
+  <div class="callout teal" style="margin-top:14px;">ℹ️ <strong>The simplest UV fix:</strong> if your mesh changes are minor and the texture just needs a small adjustment, move only the affected UV points in MilkShape&rsquo;s Texture Coordinate Editor rather than doing a full UV unwrap. A full unwrap means repainting the texture to match the new layout.</div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -294,25 +289,21 @@
 
   <div class="callout red" style="margin-bottom:16px;">🚨 <strong>A bad mesh can crash the game before the loading screen appears.</strong> Always test with SimShow first. If SimShow shows a problem, do not put the mesh in your game folder.</div>
 
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 10px;">Step 1: SimShow</h3>
-  <p>SimShow is a standalone viewer that displays Sims 1 meshes outside the game. It can show your SKN mesh with a texture applied and with the skeleton visible, so you can check for obvious problems without launching the full game.</p>
-  <p>What to check in SimShow:</p>
-  <ul style="margin-top:8px;padding-left:18px;">
-    <li><strong>Holes:</strong> any triangles that are missing or flipped will appear as gaps in the surface. Rotate the model in all directions to check.</li>
-    <li><strong>Texture alignment:</strong> load your BMP and check that the texture maps correctly onto the intended body regions.</li>
-    <li><strong>Bone regions:</strong> if SimShow shows a wireframe option, check that the vertex groupings look correct for the body areas you edited.</li>
-  </ul>
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 12px;">Step 1: SimShow</h3>
+  <p>SimShow is a standalone viewer for Sims 1 meshes that runs outside the game. Load your SKN and BMP to check for problems before launching the full game.</p>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">Check for holes</div><div class="card-desc">Rotate the model in all directions. Any missing or flipped triangles show as gaps in the surface. Use the black BMP trick: load a solid black texture so holes show up clearly as background showing through.</div></div>
+    <div class="card"><div class="card-title">Check texture alignment</div><div class="card-desc">Load your actual BMP and check that the texture maps onto the correct body regions. If areas look stretched, squashed, or misaligned, you need to adjust the UV mapping before testing in game.</div></div>
+  </div>
 
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Step 2: In-game testing</h3>
-  <p>Once SimShow looks correct, copy all five files (three BMPs, CMX, SKN) to <code>GameData\Skins\</code> (or <code>ExpansionShared\SkinsBuy\</code> for buyable categories). Launch the game and create a new Sim using your outfit.</p>
-  <p>What to check in game:</p>
-  <ul style="margin-top:8px;padding-left:18px;">
-    <li><strong>Animations:</strong> put the Sim through their daily routine. Watch for vertices that pop out of position during movement, sitting, or sleeping.</li>
-    <li><strong>Object interactions:</strong> have the Sim sit on different chairs and use counters. Check that the Sim&rsquo;s body reaches the correct position for each interaction.</li>
-    <li><strong>Skin tone transitions:</strong> check all three skin tone variants to make sure the skin areas look correct in each.</li>
-  </ul>
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 12px;">Step 2: In-game testing</h3>
+  <p>Once SimShow looks correct, copy all five files (three BMPs, CMX, SKN) to <code>GameData\Skins\</code> and test in game. Check these specifically:</p>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">Animations</div><div class="card-desc">Put the Sim through their daily routine. Watch for vertices that snap out of position during walking, sitting, sleeping, or waving. If something pops out during an animation, a vertex has the wrong bone assignment.</div></div>
+    <div class="card"><div class="card-title">Object interactions</div><div class="card-desc">Have the Sim sit on chairs and use counters. Check that the Sim reaches the correct position for each. If they float above or clip through furniture, the mesh coordinates have shifted from the original.</div></div>
+  </div>
 
-  <div class="callout gold" style="margin-top:12px;">⚠️ <strong>Keep a backup.</strong> Before testing a new mesh in your actual game save, back up your <code>GameData\Skins\</code> folder or keep the mesh files in a separate test folder. If the game crashes on load, remove the new files and restore the backup before trying to diagnose the problem.</div>
+  <div class="callout gold" style="margin-top:14px;">⚠️ <strong>Keep a backup.</strong> Before testing a new mesh in your actual save, copy your <code>GameData\Skins\</code> folder or keep the new mesh files in a separate test folder first. If the game crashes on load, remove the new files and restore the backup before diagnosing the problem.</div>
 </section>
 
 <div class="prevnext">

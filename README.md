@@ -43,10 +43,10 @@ The guide has **28 pages** grouped into sections:
 | `making-heads.html` | Hair & Heads overview – how heads work, texture vs mesh, filename format, UV layout, links to retexturing and FaceLift guides |
 | `head-retextures.html` | Retexturing existing heads – GIMP painting workflow, skin tone variants, indexed BMP conversion, TSC export, Face Photo Wizard |
 | `head-creation.html` | FaceLift Gold – creating new head shapes by morphing and blending, full interface reference, export workflow |
-| `making-walls-floors.html` | Wall coverings (.WLL), floor tiles (.FLR) via HomeCrafter, roof textures (.BMP) |
-| `object-retextures.html` | Object retextures using Transmogrifier – clone, export sprites, paint, import. Magic Cookie guide |
+| `making-walls-floors.html` | Wall coverings (.WLL), floor tiles (.FLR), and roof textures (.BMP). Sections: How It Works, Getting Tools Working, Designing Your Image (#design-your-image — GIMP walkthrough, free CC0 texture sources: Poly Haven/ambientCG, seamless tiling guide), Making a Wall, Making a Floor, Making a Roof, Common Mistakes |
+| `object-retextures.html` | Object retextures using Transmogrifier – clone, export sprites, paint, import. Magic Cookie guide. Finishing section includes creator handle convention ("Recolour of Maxis X. Made by [handle]") and catalog thumbnail update steps. Creating new objects from scratch (Blender + TS1 Renderer/Compiler workflow) |
 | `iff-hacking.html` | Gameplay mods: BCON editing, TTAB interactions, FAR override system, custom careers, career transfer loop |
-| `tools.html` | Every modding tool with download links and Legacy Collection compatibility notes |
+| `tools.html` | Every modding tool with download links and Legacy Collection compatibility notes. 31 tool cards across 4 sections: Essential Tools, CC Creation (incl. FaceLift Gold, The Sims Creator, GIMP, Paint.NET, IrfanView, Photoshop), 3D & Mesh Tools (incl. Blender, SimShow, Skn2Obj, BMF2SKN, BodyWarp), Community Tools |
 
 ### Reference & Help
 | Page | Description |

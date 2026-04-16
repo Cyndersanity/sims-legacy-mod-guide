@@ -63,6 +63,8 @@
 <!-- ═══════════════════════════════════════════════════════
      GETTING THE TOOLS WORKING
 ═════════════════════════════════════════════════════════ -->
+<div class="callout teal" style="margin-bottom:24px;">ℹ️ <strong>Older Sims 1 guides call this &ldquo;recolouring.&rdquo;</strong> The classic community used &ldquo;recolour&rdquo; for any change to the look of a skin or outfit. Both terms mean the same thing &ndash; changing the texture without changing the underlying 3D mesh. This guide uses &ldquo;retexture&rdquo; for consistency with the rest of the site.</div>
+
 <section id="tools">
   <div class="section-head"><div class="section-emoji">🛠️</div><div><h2 class="section-title">Getting the Tools Working</h2><p class="section-sub">Legacy Collection needs a registry fix before old Maxis tools will run</p></div></div>
   <p>The same registry fix described on the <a href="making-clothing.html#tools">Clothing Overview &ndash; Getting Tools Working</a> section applies here. If you have already completed that setup (via the Feraligatr installer or manually), everything you need for clothing retexturing is already installed.</p>
@@ -99,13 +101,15 @@
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save your skin</h4><p>When done painting in TSC, click <strong>Done</strong> to return to the main screen. Click <strong>Save</strong>, give your skin a name, and TSC saves the BMP, CMX, and SKN files directly into your <code>GameData\Skins\</code> folder.</p></div></div>
   </div>
 
-  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Path C: Use a community template<br><span class="tag gold">Advanced</span></h3>
-  <p>Best for: using a custom body mesh made by another creator, or starting from a shared template file. Some creators release template packs that show UV seams overlaid on a transparent background &ndash; these make it much easier to know where to paint without guessing.</p>
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Path C: Use another creator&rsquo;s mesh<br><span class="tag gold">Advanced</span></h3>
+  <p>Best for: painting a skin for a custom body mesh that another creator has already made and released. Many creators share their meshes specifically so that other people can paint new skins for them. You supply the BMP texture; the creator&rsquo;s mesh files (CMX + SKN) go in your <code>GameData\Skins\</code> folder alongside it.</p>
+  <div class="callout gold" style="margin-top:12px;">⚠️ <strong>Credit is required.</strong> If you use another creator&rsquo;s mesh as the base for your skin, you must credit them in your readme file, on your download page, and anywhere else you list your mod. This is standard Sims 1 modding etiquette. Check the creator&rsquo;s terms of use &ndash; some meshes are free to use with credit, others are restricted.</div>
   <div class="grid-2" style="margin-top:12px;">
-    <div class="card"><div class="card-title">Community templates</div><div class="card-desc">Template files typically show a body outline or UV seam guides overlaid on a transparent or white background. You paint your outfit design on top of these guides, then remove the guide layer before saving your final BMP. Always check the creator's terms of use before redistributing anything based on their templates.</div></div>
-    <div class="card"><div class="card-title">Where to find them</div><div class="card-desc">Check the <a href="download-sites.html">Mod Download Sites</a> page &ndash; particularly Simblr.cc and archived communities on the Wayback Machine. Search for "body skin template" or "clothing template".</div></div>
+    <div class="card"><div class="card-title">Using a Maxis mesh (Path A)</div><div class="card-desc">Maxis body meshes are the base game content. You are free to paint new skins for them and share the result without crediting Maxis. This is the standard starting point for all CC skins.</div></div>
+    <div class="card"><div class="card-title">Using a creator&rsquo;s mesh (Path C)</div><div class="card-desc">A custom mesh created by a community member. The creator owns their mesh. You must credit them. Their CMX and SKN go in <code>GameData\Skins\</code> with your BMP &ndash; do not redistribute the mesh files separately without permission.</div></div>
   </div>
-  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Which path should I pick?</strong> If this is your first time, use <strong>Path A</strong>. Copy a Maxis body file with a simple outfit, change the colours in GIMP, and get it into the game. Once that works, try Path B for the TSC workflow. Path C is for when you have found a specific community mesh or template you want to paint for.</div>
+  <p style="margin-top:12px;"><strong>Where to find meshes and skins from other creators:</strong> SimFreaks (<a href="https://simfreaks.com/" target="_blank" rel="noopener">simfreaks.com</a>) has an archive of community meshes. Many of the active CC sites listed on the <a href="download-sites.html">Mod Download Sites</a> page also host custom body skins that include their mesh files.</p>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Which path should I pick?</strong> If this is your first time, use <strong>Path A</strong>. Copy a Maxis body file with a simple outfit, change the colours in GIMP, and get it into the game. Once that works, try Path B for the TSC workflow. Path C is for when you are painting a skin for a mesh that another creator has already released.</div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -273,12 +277,12 @@
   <div class="section-head"><div class="section-emoji">🏷️</div><div><h2 class="section-title">Other Outfit Categories</h2><p class="section-sub">The B prefix covers everyday wear only &ndash; other categories work the same way but use different prefixes and folders</p></div></div>
 
   <p>Everything in this guide so far has focused on everyday body skins (B prefix), which appear in the home dresser. The Legacy Collection also includes sleepwear, formal wear, swimwear, winterwear, and high fashion categories &ndash; all introduced by Hot Date and later expansions.</p>
-  <p>The painting process is identical for all categories. The only things that change are:</p>
-  <ul style="margin-top:8px;padding-left:18px;">
-    <li>The <strong>prefix letter</strong> at the start of the filename (e.g. <code>L</code> for sleepwear instead of <code>B</code>).</li>
-    <li>The <strong>destination folder</strong> &ndash; buyable skins go in <code>ExpansionShared\SkinsBuy\</code> rather than <code>GameData\Skins\</code>.</li>
-  </ul>
-  <p>For the full list of prefixes, what each one unlocks, and exactly which folder each type goes in, see the <a href="file-reference.html#skin-prefixes">File Reference &ndash; Skin Prefixes</a> and the <a href="terminology.html">Terminology</a> page.</p>
+  <p>The painting process is identical for all categories. Only two things change between them:</p>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card" style="border-color:var(--green);"><div class="card-title">Everyday clothing (B prefix)</div><div class="card-desc">Files go in <code>GameData\Skins\</code>. Appears in the home dresser and Create-A-Sim. This is what all the steps in this guide have covered.</div></div>
+    <div class="card" style="border-color:var(--gold);"><div class="card-title">Buyable clothing (L, F, S, W, H)</div><div class="card-desc">Files go in <code>ExpansionShared\SkinsBuy\</code> instead. Appears on clothing racks at community shopping lots &ndash; your Sim must visit a shop to buy it. The painting process is identical.</div></div>
+  </div>
+  <p style="margin-top:12px;">For the full list of prefixes, what each category is called, and which expansion introduced it, see the <a href="file-reference.html#skin-prefixes">File Reference &ndash; Skin Prefixes</a> page.</p>
   <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Buyable skins</strong> (L, F, S, W, and H-prefix) only appear on clothing racks at community shopping lots. Your Sim has to visit a shop and buy them &ndash; they will not show up in the home dresser. If you want your outfit to appear in the dresser too, make a B-prefix version of it.</div>
 </section>
 
@@ -293,15 +297,18 @@
   <p>For example, if your body skin is <code>B300FAFitlgt_MyOutfit.bmp</code>, you can optionally create matching hand textures that the game will use when your Sim is wearing this outfit. All matching textures must use the same end-tag (<code>_MyOutfit</code>) and the same skin tone suffix.</p>
 
   <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 10px;">Hand textures</h3>
-  <p>Hand textures are 64&times;64 pixels (not 256&times;256 like body skins). They follow their own filename format. Common hand files included with the base game are unisex, adult, and apply to all hand gestures.</p>
-  <p>The most commonly needed hand variants are:</p>
-  <ul style="margin-top:8px;padding-left:18px;">
-    <li><code>HUAOlgt_MyOutfit.bmp</code> &ndash; open hand (resting, idle)</li>
-    <li><code>HUAClgt_MyOutfit.bmp</code> &ndash; closed hand (gripping objects)</li>
-    <li><code>HUAPlgt_MyOutfit.bmp</code> &ndash; pointing hand</li>
-  </ul>
-  <p>Hand textures go in the same <code>GameData\Skins\</code> folder as body skins. If no matching hand textures exist for your end-tag, the game uses its default hand textures instead &ndash; so creating hand textures is entirely optional.</p>
-  <p>For a full breakdown of the hand filename format and all gesture variants, see the <a href="file-reference.html">File Reference</a> page.</p>
+  <p>Hand textures are 64&times;64 pixels (not 256&times;256 like body skins) and go in the same <code>GameData\Skins\</code> folder. The three gestures the game uses are open hand (idle), closed hand (holding objects), and pointing. If you omit any of them, the game falls back to the default Maxis hand for that gesture.</p>
+  <div class="table-wrap" style="margin-top:12px;">
+    <table>
+      <thead><tr><th>Filename</th><th>Gesture</th><th>When the game uses it</th></tr></thead>
+      <tbody>
+        <tr><td><code>HUAOlgt_MyOutfit.bmp</code></td><td>Open</td><td>Idle, resting, carrying flat objects</td></tr>
+        <tr><td><code>HUAClgt_MyOutfit.bmp</code></td><td>Closed</td><td>Gripping handles, objects, tools</td></tr>
+        <tr><td><code>HUAPlgt_MyOutfit.bmp</code></td><td>Pointing</td><td>Pointing gestures and social interactions</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:8px;">Replace <code>lgt</code> with <code>med</code> or <code>drk</code> for the other skin tones. For a full breakdown of the hand filename format, see the <a href="file-reference.html">File Reference</a> page.</p>
 
   <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Do you need matching hand textures?</strong> Usually no. The default Maxis hand textures work fine with most custom outfits, especially if the outfit covers the hands (gloves) or the skin tone is close enough. Matching hand textures are most noticeable on outfits with visible skin at the wrist &ndash; without a matching hand, there can be a slight colour difference at the seam between the body skin and the hand skin.</div>
 </section>

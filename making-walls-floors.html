@@ -63,11 +63,12 @@
   <aside>
     <div class="toc">
       <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
-      <ul class="toc-list"><li><a href="#how-it-works">How It Works</a></li><li><a href="#tools">Getting Tools Working</a></li><li><a href="#walls-steps">Making a Wall</a></li><li><a href="#floors-steps">Making a Floor</a></li><li><a href="#roofs-steps">Making a Roof Texture</a></li><li><a href="#common-mistakes">Common Mistakes</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
+      <ul class="toc-list"><li><a href="#how-it-works">How It Works</a></li><li><a href="#tools">Getting Tools Working</a></li><li><a href="#design-your-image">Designing Your Image</a></li>
+        <li><a href="#walls-steps">Making a Wall</a></li><li><a href="#floors-steps">Making a Floor</a></li><li><a href="#roofs-steps">Making a Roof Texture</a></li><li><a href="#common-mistakes">Common Mistakes</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-cc.html">← Back to Create CC</a>
     </div>
   </aside>
   <main class="content">
-<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#how-it-works">How It Works</a><a href="#tools">Tools</a><a href="#walls-steps">Walls</a><a href="#floors-steps">Floors</a><a href="#roofs-steps">Roofs</a><a href="#common-mistakes">Mistakes</a></div></details>
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#how-it-works">How It Works</a><a href="#tools">Tools</a><a href="#design-your-image">Designing Your Image</a><a href="#walls-steps">Making a Wall</a><a href="#floors-steps">Making a Floor</a><a href="#roofs-steps">Making a Roof</a><a href="#common-mistakes">Common Mistakes</a></div></details>
 
 <div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> – screenshots showing each tool step will be added at some point. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">r/thesims1</a>.</div>
 
@@ -94,13 +95,61 @@
   <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 10px;">Route B – Manual</h3>
   <p>Download Home Crafter from the <a href="https://archive.org/details/SimsArtStudio" target="_blank" rel="noopener">Internet Archive</a>, apply the <a href="cc-troubleshooting.html#registry">registry fix</a>, and set the two compatibility settings manually as described above.</p>
   <div class="callout teal">ℹ️ <strong>For roof textures only – no Home Crafter needed.</strong> Roof textures are plain 32×32 Indexed BMP files made directly in GIMP. No tool setup required.</div>
-  <div class="callout green" style="margin-top:0;">💡 <strong>Browser-based alternative:</strong> If HomeCrafter gives you trouble, <a href="https://sneakysims.net/tools/wallpaper-maker" target="_blank" rel="noopener">SneakySims Wallpaper Maker</a> and <a href="https://sneakysims.net/tools/floor-maker" target="_blank" rel="noopener">SneakySims Floor Maker</a> run entirely in your browser &ndash; no download, no registry fix, no compatibility settings. They produce .WLL and .FLR files tested with the Legacy Collection.</div>
+  <div class="callout green" style="margin-top:0;">💡 <strong>Browser-based alternative:</strong> If HomeCrafter gives you trouble, <a href="https://sneakysims.net/tools/wallpaper-maker" target="_blank" rel="noopener">SneakySims Wallpaper Maker</a> and <a href="https://sneakysims.net/tools/floor-maker" target="_blank" rel="noopener">SneakySims Floor Maker</a> run entirely in your browser. Both produce .WLL and .FLR files tested with the Legacy Collection.</div>
+</section>
+
+<section id="design-your-image">
+  <div class="section-head"><div class="section-emoji">🎨</div><div><h2 class="section-title">Designing Your Image</h2><p class="section-sub">Where to get images, how to work with them in GIMP, and what the restrictions are</p></div></div>
+
+  <div class="callout green" style="margin-bottom:16px;">✅ <strong>No 256-colour limit for walls and floors.</strong> Unlike body skins and head textures, wall and floor images do not need to be converted to Indexed 256-colour. You can save them as full-colour PNG or JPG &ndash; Home Crafter handles all the conversion. This is the most beginner-friendly type of CC to make.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 12px;">Restrictions at a glance</h3>
+  <div class="table-wrap" style="margin-bottom:24px;">
+    <table>
+      <thead><tr><th>Type</th><th>Size</th><th>Colour mode</th><th>Save as</th></tr></thead>
+      <tbody>
+        <tr><td>Wall covering</td><td>128&times;232 pixels</td><td>Any &ndash; full colour fine</td><td>PNG or JPG (Home Crafter converts)</td></tr>
+        <tr><td>Floor tile</td><td>128&times;128 pixels</td><td>Any &ndash; full colour fine</td><td>PNG or JPG (Home Crafter converts)</td></tr>
+        <tr><td>Roof texture</td><td>32&times;32 pixels exactly</td><td>Indexed 256-colour only</td><td>BMP &ndash; done manually in GIMP</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:0 0 12px;">Where to get your image</h3>
+  <div class="grid-2" style="margin-top:8px;">
+    <div class="card"><div class="card-title">Paint it yourself in GIMP</div><div class="card-desc">Create your design from scratch in GIMP &ndash; a solid colour, a geometric pattern, stripes, a hand-painted texture. GIMP is free from <a href="https://www.gimp.org/" target="_blank" rel="noopener">gimp.org</a>. See the full GIMP walkthrough below.</div></div>
+    <div class="card"><div class="card-title">Download a free seamless texture</div><div class="card-desc"><strong><a href="https://polyhaven.com/textures" target="_blank" rel="noopener">Poly Haven</a> &ndash; completely free.</strong> No account required. Every texture is CC0 licensed &ndash; you can use them for anything, including sharing your CC, with no attribution required. Browse the site, click a texture (brick, wood, fabric, carpet etc.), scroll to the Download section, and download the JPG or PNG at any resolution (1K is plenty for Sims 1). Then open it in GIMP and resize to your target dimensions. Search for &ldquo;seamless&rdquo; or browse by category.<br><br><strong><a href="https://ambientcg.com/" target="_blank" rel="noopener">ambientCG</a> &ndash; also completely free.</strong> CC0 licensed, no account needed. Similar range to Poly Haven. Click a material, scroll to Downloads, and grab a JPG.</div></div>
+    <div class="card"><div class="card-title">Use a photo you own</div><div class="card-desc">A photo of real wallpaper, flooring, fabric, tiles, or brickwork from your own camera. Take the photo, transfer it to your computer, open it in GIMP, and crop and resize to the correct dimensions. Works best for flat, evenly lit surfaces &ndash; shadows and perspective distortion from the camera make some photos harder to use.</div></div>
+    <div class="card"><div class="card-title">Use another creator&rsquo;s source image</div><div class="card-desc">Some Sims 1 creators share source images or recolouring bases intended for wall and floor use. Always follow the creator&rsquo;s terms of use. If you share your finished CC, credit them in your readme and on your download page.</div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:24px 0 12px;">Working in GIMP</h3>
+  <p>GIMP is a free image editor. Download it from <a href="https://www.gimp.org/" target="_blank" rel="noopener">gimp.org</a>. Choose your path below depending on whether you are starting from scratch or using an existing image.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:16px;color:var(--ink);margin:16px 0 8px;">Path A &ndash; Create from scratch</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a new document at the right size</h4><p>Go to <strong>File &rarr; New</strong>. Set the dimensions:</p><ul style="margin-top:6px;padding-left:18px;"><li>Wall covering: Width <strong>128</strong>, Height <strong>232</strong></li><li>Floor tile: Width <strong>128</strong>, Height <strong>128</strong></li></ul><p style="margin-top:8px;">Set &ldquo;Fill with&rdquo; to White. Click <strong>OK</strong>. You now have a blank canvas at exactly the right size.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Paint your design</h4><p>Use the <strong>Paintbrush</strong> tool (press <strong>P</strong>) to paint freehand. Use the <strong>Bucket Fill</strong> tool (press <strong>Shift+B</strong>) to flood-fill a large area with a single colour. To pick a colour: click the foreground colour swatch at the bottom of the toolbox to open the colour chooser, or press <strong>O</strong> to pick a colour directly from your image with the eyedropper.</p><p style="margin-top:8px;">For regular patterns (stripes, grids, checkerboard): the <strong>Rectangle Select</strong> tool (press <strong>R</strong>) lets you select a precise rectangular area, then Bucket Fill fills only that selection.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:16px;color:var(--ink);margin:20px 0 8px;">Path B &ndash; Use a downloaded or existing image</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the image in GIMP</h4><p>Go to <strong>File &rarr; Open</strong> and browse to your downloaded texture or photo. Click <strong>Open</strong>. The image appears in GIMP. If the image is in a format GIMP prompts you to convert (such as an sRGB colour profile notice), click <strong>Keep</strong> or <strong>Convert</strong> &ndash; either is fine for this purpose.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Resize to the correct dimensions</h4><p>Go to <strong>Image &rarr; Scale Image</strong>. Turn off the chain link icon between Width and Height (click it once so it shows as broken) so you can set each dimension independently. Enter:</p><ul style="margin-top:6px;padding-left:18px;"><li>Wall covering: Width <strong>128</strong>, Height <strong>232</strong></li><li>Floor tile: Width <strong>128</strong>, Height <strong>128</strong></li></ul><p style="margin-top:8px;">Set Interpolation to <strong>Cubic</strong> for the best quality. Click <strong>Scale</strong>.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Crop if needed</h4><p>If the aspect ratio of your image is very different from the target dimensions, scaling alone may stretch it. In that case, crop first: use the <strong>Rectangle Select</strong> tool (press <strong>R</strong>) to draw a selection over the part you want to keep, then <strong>Image &rarr; Crop to Selection</strong>. Then scale to the final dimensions.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:16px;color:var(--ink);margin:20px 0 8px;">Both paths &ndash; check tiling and export</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Check that it will tile correctly</h4><p>Wall and floor textures tile &ndash; the game places copies of your image edge-to-edge across the surface. If the edges do not match, there will be a visible seam line.</p><p style="margin-top:8px;"><strong>Preview tiling:</strong> go to <strong>Filters &rarr; Map &rarr; Tile</strong> and increase the width and height to 3&times; or 4&times; your image size. Click OK. You can now see exactly how the edges join when repeated.</p><p style="margin-top:8px;"><strong>Fix non-tiling edges:</strong> go to <strong>Filters &rarr; Map &rarr; Make Seamless</strong>. This automatically blends the edges so they join without a visible line. It works very well for organic textures (stone, fabric, grass). Solid colours and geometric patterns with matching edges do not need this step.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export as PNG or JPG</h4><p>Go to <strong>File &rarr; Export As</strong> (not Save &ndash; that creates a GIMP project file, not an image). Navigate to where you want to save the file. Type a filename ending in <code>.png</code> or <code>.jpg</code>. Click <strong>Export</strong>, then <strong>Export</strong> again in the options dialog that appears (the defaults are fine). Your image is ready to import into Home Crafter.</p></div></div>
+  </div>
 </section>
 
 <section id="walls-steps">
-  <div class="section-head"><div class="section-emoji">🧱</div><div><h2 class="section-title">Making a Wall Covering</h2></div></div>
+  <div class="section-head"><div class="section-emoji">🧱</div><div><h2 class="section-title">Making a Wall Covering</h2><p class="section-sub">Import your design into Home Crafter to generate the game file</p></div></div>
   <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create your design in GIMP</h4><p>For walls, create a <strong>128&times;232 pixel</strong> image (not square &ndash; walls are taller than they are wide). For floors, use <strong>128&times;128 pixels</strong>. Save as PNG or any standard format &ndash; HomeCrafter handles the conversion to the game&rsquo;s format.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Have your image ready</h4><p>Your wall design should be <strong>128&times;232 pixels</strong>, saved as PNG or JPG. See the <a href="#design-your-image">Designing Your Image</a> section above for how to create or find one in GIMP, free texture sources, and how to make it tile without seams.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open Home Crafter</h4><p>Launch it from the <code>Programs</code> folder in your Legacy Collection install (if using the Feraligatr installer) or from your Start menu. Select <strong>Wall Coverings</strong> from the main menu.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your image</h4><p>Click Import and select your image file. Home Crafter shows a preview of how it tiles on a wall in game. You can see both the interior and exterior views.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Fill in the details and export</h4><p>Give your wall covering a name and description (these appear in the game's Build mode catalogue). Click Export – Home Crafter generates the <code>.WLL</code> file.</p></div></div>
@@ -109,13 +158,16 @@
 </section>
 
 <section id="floors-steps">
-  <div class="section-head"><div class="section-emoji">🟫</div><div><h2 class="section-title">Making a Floor Tile</h2></div></div>
-  <p>The process is identical to walls but select <strong>Floor Tiles</strong> in Home Crafter instead of Wall Coverings. A few tips specific to floors:</p>
-  <div class="callout teal">ℹ️ Floor tiles repeat across the room – your design will tile. Images that repeat correctly (solid colours, geometric patterns, regular textures) look better than images with a clear centre or focal point.</div>
+  <div class="section-head"><div class="section-emoji">🟫</div><div><h2 class="section-title">Making a Floor Tile</h2><p class="section-sub">Same workflow as walls &ndash; with a few things specific to floors</p></div></div>
+
+  <div class="callout teal" style="margin-bottom:16px;">ℹ️ <strong>Floor tiles repeat across the entire room.</strong> Every tile is placed edge-to-edge to cover the floor surface. Designs with a clear centre or focal point (a logo, a centred image, a portrait) will look strange because the focal point repeats every 128 pixels. Solid colours, regular patterns, and natural textures (wood grain, stone, carpet pile) work well. If you are using a photo or downloaded texture, run <strong>Filters &rarr; Map &rarr; Make Seamless</strong> in GIMP before exporting &ndash; see the <a href="#design-your-image">Designing Your Image</a> section above.</div>
+
   <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Design with tiling in mind</h4><p>Open your image in GIMP and use Filters → Map → Tile to preview how it repeats. Adjust the edges so colours blend at the seams if needed.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import into Home Crafter and export as .FLR</h4><p>Same process as walls – open Home Crafter, select Floor Tiles, import your image, name it, export. The output is a <code>.FLR</code> file.</p></div></div>
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place in GameData\Floors\</h4><p>Copy the <code>.FLR</code> file to <code>GameData\Floors\</code>. Subfolders supported here too.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Have your image ready</h4><p>Your floor design should be <strong>128&times;128 pixels</strong>, saved as PNG or JPG. See the <a href="#design-your-image">Designing Your Image</a> section above for how to create or download one, and how to resize and check tiling in GIMP.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open Home Crafter and select Floor Tiles</h4><p>Launch Home Crafter from the <code>Programs</code> folder in your Legacy Collection install (or from your Start menu). From the main menu, select <strong>Floor Tiles</strong>.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your image</h4><p>Click <strong>Import</strong> and select your 128&times;128 PNG or JPG. Home Crafter shows a preview of how the tile looks when repeated across a floor. Check that the edges join without obvious seams. If there is a visible seam, go back to GIMP and run <strong>Filters &rarr; Map &rarr; Make Seamless</strong>, then export again and re-import.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Fill in the details and export</h4><p>Give your floor tile a name and description (both appear in the Build mode catalogue). Click <strong>Export</strong> &ndash; Home Crafter generates a <code>.FLR</code> file.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place in GameData\Floors\</h4><p>Copy the <code>.FLR</code> file into <code>GameData\Floors\</code> in your Legacy Collection install folder. Subfolders are supported &ndash; you can organise by style or creator. The tile will appear in the Build mode floor picker the next time you load the game.</p></div></div>
   </div>
 </section>
 
@@ -124,7 +176,7 @@
   <p>Roof textures are tiny 32×32 pixel BMP tiles. The game tiles them across the roof surface. You make them directly in GIMP – no Home Crafter, no registry fix.</p>
   <div class="callout gold">⚠️ Roof textures must be saved as <strong>Indexed (256-colour) BMP</strong>, exactly <strong>32×32 pixels</strong>, and placed directly in <code>GameData\Roofs\</code> with no subfolders. Any of these wrong and the texture won't appear.</div>
   <div class="steps">
-    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a 32×32 image in GIMP</h4><p>File → New → set Width and Height both to 32 pixels. Design your roof tile – roof tiles are small so keep the design simple: a brick pattern, shingles, thatch, concrete etc. Consider that it will tile correctly across a large surface.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a 32&times;32 image in GIMP</h4><p>File → New → set Width and Height both to 32 pixels. Design your roof tile – roof tiles are small so keep the design simple: a brick pattern, shingles, thatch, concrete etc. Consider that it will tile correctly across a large surface.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Convert to Indexed 256-colour</h4><p>Image → Mode → Indexed → Maximum colours: 255 → Convert.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Export as BMP</h4><p>File → Export As → name your file (e.g. <code>DarkSlate.bmp</code>) → select BMP format → Export. Leave BMP options at their defaults.</p></div></div>
     <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place in GameData\Roofs\</h4><p>Copy the .BMP directly into <code>GameData\Roofs\</code>. No subfolders. The texture will appear in the Build mode roof picker the next time you load the game.</p></div></div>
@@ -148,14 +200,10 @@
 
 
 <div class="prevnext">
-  <a href="making-heads.html" class="prevnext-link prev"><span class="prevnext-arrow">←</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">Making Hair & Heads</div></div></a>
+  <a href="head-creation.html" class="prevnext-link prev"><span class="prevnext-arrow">&larr;</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">FaceLift Gold</div></div></a>
   <a href="object-retextures.html" class="prevnext-link next"><span class="prevnext-arrow">→</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">Object Retextures</div></div></a>
 </div>
 
-<div class="page-nav">
-<a href="making-heads.html" class="page-nav-link prev"><span class="page-nav-label">← Previous</span><span class="page-nav-title">Making Hair & Heads</span></a>
-<a href="object-retextures.html" class="page-nav-link next"><span class="page-nav-label">Next →</span><span class="page-nav-title">Object Retextures</span></a>
-</div>
 </main>
 </div>
 

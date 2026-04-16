@@ -17,31 +17,6 @@
   gtag('js', new Date());
   gtag('config', 'G-8ZDF0Q80RR');
 </script>
-</head>
-<body>
-<nav>
-  <div class="nav-wrapper">
-  <div class="nav-inner" id="navInner">
-      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
-      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item active">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="object-retextures.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
-      </div>
-  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
-  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
-  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
-  
-  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
-</div>
-</nav>
-<script>
-(function(){
-  var nav=document.getElementById('navInner');
-  var hint=document.getElementById('navHint');
-  function check(){if(!nav||!hint)return;var overflows=nav.scrollWidth>nav.clientWidth+4;var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(overflows&&!atEnd)?'flex':'none';}
-  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
-  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
-  window.addEventListener('load',check);setTimeout(check,200);
-})();
-</script>
 <style>
 .career-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-md);margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow-sm);}
 .career-head{display:flex;align-items:center;gap:10px;padding:14px 18px;cursor:pointer;transition:background 0.15s;user-select:none;}
@@ -91,7 +66,34 @@
   .section-ep-icon{width:36px;height:36px;}
 }
 .career-head{cursor:pointer;user-select:none;}
+.career-sub{font-size:12px;color:var(--ink-muted);font-family:var(--font-mono);}
+.ep-icon{width:36px;height:36px;object-fit:contain;border-radius:6px;flex-shrink:0;}
 </style>
+</head>
+<body>
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item active">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="object-retextures.html" class="nav-dropdown-item">🪑 Object Retextures</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation right">&#8250;</button>
+  
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('navInner');
+  var hint=document.getElementById('navHint');
+  function check(){if(!nav||!hint)return;var overflows=nav.scrollWidth>nav.clientWidth+4;var atEnd=nav.scrollLeft>=nav.scrollWidth-nav.clientWidth-8;hint.style.display=(overflows&&!atEnd)?'flex':'none';}
+  if(hint){hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});}
+  if(nav){nav.addEventListener('scroll',check);window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+})();
+</script>
 <div class="page-hero">
   <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – Gameplay</div>
   <h1 class="page-title">Career <span>Guide</span></h1>
