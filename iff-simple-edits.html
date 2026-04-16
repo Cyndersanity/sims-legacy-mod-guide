@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IFF Hacking – Simple Edits – Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);table-layout:fixed;}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Objects Overview</a><a href="object-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Objects</a><a href="object-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧊 Creating New Objects</a><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="iff-simple-edits.html" class="nav-dropdown-item active" style="padding-left:28px;font-size:12px;">✏️ Simple Edits</a><a href="iff-advanced.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎛️ Advanced Edits</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – IFF Hacking</div>
+  <h1 class="page-title">IFF Hacking – <span>Simple Edits</span></h1>
+  <p class="page-sub">Change values, text, and object properties without writing any logic</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#intro">What's Covered Here</a></li><li><a href="#first-mod">Editing Numeric Values (BCON)</a></li><li><a href="#text-editing">Editing Text</a></li><li><a href="#objd-editing">Editing Object Properties</a></li><li><a href="#next-steps">Next Steps</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="iff-hacking.html">← Back to IFF Hacking</a>
+    </div>
+  </aside>
+  <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#intro">What's Covered Here</a><a href="#first-mod">Editing Numeric Values (BCON)</a><a href="#text-editing">Editing Text</a><a href="#objd-editing">Editing Object Properties</a><a href="#next-steps">Next Steps</a></div></details>
+
+<section id="intro">
+  <div class="section-head"><div class="section-emoji">✏️</div><div><h2 class="section-title">What's Covered Here</h2><p class="section-sub">Three kinds of edit that do not require writing any behaviour logic</p></div></div>
+
+  <p>Every edit on this page follows the same pattern: clone the object with TMog, open the clone in a specific tool, change a value or a piece of text, save, test in game. No BHAV writing, no tree logic, no code &ndash; just finding the right field and changing what is in it.</p>
+
+  <p>The three edits covered here are, in order of how often you are likely to want each one:</p>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">Numeric values (BCON)</div><div class="card-desc">Skill gain rate, motive impact, timing, room score. Tool: <strong>Constant Contraption</strong> (or IFF Pencil 2). Change the number, save, test.</div></div>
+    <div class="card"><div class="card-title">Text (CTSS / TTAs / STR#)</div><div class="card-desc">Catalogue name and description, pie menu option labels, dialog text. Tool: <strong>Strings Scavenger</strong> (or IFF Pencil 2, or TMog for catalogue text only).</div></div>
+    <div class="card" style="grid-column:1 / -1;"><div class="card-title">Object properties (OBJD)</div><div class="card-desc">Price, catalogue category (room and function), community-lot vs residential-lot flag. Tool: <strong>IFF Pencil 2</strong> (Constant Contraption only does BCON, so it will not help here).</div></div>
+  </div>
+
+  <div class="callout gold" style="margin-top:16px;">⚠️ <strong>Always clone first.</strong> Use Transmogrifier to make a copy of the object before editing. Editing original game files inside <code>GameData\Objects\</code> or a FAR archive can corrupt your install. Editing the clone is safe &ndash; if something goes wrong, delete the clone and start again.</div>
+  <div class="callout gold" style="margin-top:0;">⚠️ <strong>Always close the game before editing mod files.</strong> Changing files while the game has them loaded can corrupt your save.</div>
+
+  <div class="callout teal" style="margin-top:16px;">ℹ️ <strong>Prerequisites:</strong> reading the <a href="iff-hacking.html#what-is-iff">IFF Hacking overview</a> first will make this page much easier to follow. In particular, the resource-type glossary on that page explains what BCON, STR#, CTSS, TTAs and OBJD are.</div>
+</section>
+
+<section id="first-mod">
+  <div class="section-head"><div class="section-emoji">🔢</div><div><h2 class="section-title">Editing Numeric Values (BCON)</h2><p class="section-sub">Change how much skill a bookcase teaches, how much fun a stereo gives, how long food takes to cook</p></div></div>
+
+  <p>BCON resources hold all the tunable numbers an object uses. Changing these numbers is the single easiest IFF edit because you do not touch any logic &ndash; the existing behaviour still runs, it just runs with different numbers.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>A good first mod:</strong> speed up skill gain on a bookcase. The Maxis bookcase has clearly labelled tunable values and the result is immediate &ndash; you buy your clone, a Sim reads it, skill gain is faster than the original.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Using Constant Contraption (recommended for this)</h3>
+  <p>Constant Contraption is a small standalone tool that only does one thing: view and edit BCON values. That narrow focus makes it easier to use than the full IFF Pencil 2 for this particular task. It is in the same Sims1Tools download as IFF Pencil 2 &ndash; see the <a href="iff-hacking.html#tools">Tools table</a> on the hub.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Clone a bookcase in TMog</h4><p>Launch Transmogrifier and find <code>bookcases</code> in the object list. Click <strong>"Clone Object File&hellip;"</strong>, give it a name, enter <code>0</code> for the Magic Cookie (fine for personal use), and click OK. TMog creates your clone in <code>Downloads\Transmogrified\</code>. For the Magic Cookie system, see the <a href="file-reference.html#magic-cookie">File Reference</a>.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the clone in Constant Contraption</h4><p>Launch Constant Contraption, then navigate to <code>Downloads\Transmogrified\</code> and open your cloned bookcase. The tool shows each BCON group on its own tab or page, with the numeric values inside each group listed with their labels.</p>
+    <p>The Maxis bookcase carries 7 BCON groups named Side, Skills, Tuning - Time, Tuning - School, Tuning - Motives, Tuning - Skills, and Tuning - Room Impact. The names are descriptive &ndash; you can usually guess which group controls what by reading the label.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Change the values you want</h4><p>Click into a value field and type a new number. Save your changes.</p>
+    <p>Try small changes first so you can see the effect clearly. If "Tuning - Skills" contains a "skill gain per minute" value, doubling it roughly doubles how fast a Sim gains skill from reading. Raising a "Tuning - Room Impact" value makes the bookcase improve the room score more.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test in game</h4><p>Close Constant Contraption. Your clone is already in <code>Downloads\Transmogrified\</code> which the game reads automatically. Launch The Sims, buy your cloned bookcase from the catalogue (it appears alongside the Maxis original), and have a Sim use it. Watch the skill bar &ndash; if it fills faster than before, your edit worked.</p>
+    <p>If the change feels too large or too small, close the game, go back to Constant Contraption, adjust the numbers, save, and try again.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Using IFF Pencil 2 instead</h3>
+  <p>IFF Pencil 2 can edit BCON values too. Open the IFF, click <strong>BCON</strong> in the resource list on the left, double-click the group you want to edit, change the numbers, save. It is a bit more cluttered than Constant Contraption because it shows every resource type, not just BCON &ndash; but it is useful when you already have the file open for other edits.</p>
+
+  <div class="callout teal" style="margin-top:16px;">ℹ️ <strong>Not every object has BCONs.</strong> Simple decorative objects (like the Pink Flamingo) may have none at all. If your cloned object does not show any BCON resources in Constant Contraption, there are no numeric tunables to change &ndash; you are looking at the wrong kind of edit for this object. Try OBJD or text instead, or pick a more complex object.</div>
+</section>
+
+<section id="text-editing">
+  <div class="section-head"><div class="section-emoji">📝</div><div><h2 class="section-title">Editing Text</h2><p class="section-sub">Catalogue names, pie menu labels, and dialog lines &ndash; no logic changes</p></div></div>
+
+  <p>There are three different places text lives inside an object IFF, each handled by its own resource type:</p>
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card"><div class="card-title">CTSS &ndash; Catalogue text</div><div class="card-desc">The object's name and description shown in Buy Mode. Usually one CTSS resource per object, typically at ID 2000. This is what TMog edits when you use its Edit Object dialog after cloning.</div></div>
+    <div class="card"><div class="card-title">TTAs &ndash; Pie menu labels</div><div class="card-desc">The labels on each pie menu option (Sit, Read a Book, Watch TV, etc.). One TTAs resource per pie menu set. Each label matches one TTAB entry by index &ndash; change the text, not the order.</div></div>
+    <div class="card" style="grid-column:1 / -1;"><div class="card-title">STR# &ndash; Other text</div><div class="card-desc">Dialog lines, animation names, and specialised strings for the game's internal systems. On objects you will mostly see ID 301 (Dialog) and, on more complex objects, IDs like 302 (MakeActionString) and 303 (Call Named Tree).</div></div>
+  </div>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Structurally they are the same.</strong> CTSS and TTAs are special kinds of STR# chunk &ndash; the three hold the same shape of data (a list of numbered strings) but the game uses them for different purposes. The editing tools treat them the same way.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Three tools, depending on what you want to edit</h3>
+  <div class="grid-2">
+    <div class="card"><div class="card-title">TMog &ndash; catalogue name and description only</div><div class="card-desc">If you just want to rename the object in Buy Mode and update its description, TMog's <strong>Edit Object</strong> dialog is the fastest route. It writes to the CTSS resource directly. No other tool needed. This is also the last step of any retexture &ndash; see <a href="object-retextures.html#catalog-thumb">Finishing Your CC</a>.</div></div>
+    <div class="card"><div class="card-title">Strings Scavenger &ndash; all three string types</div><div class="card-desc">A small standalone tool dedicated to string editing. Open an IFF, pick the resource (CTSS, TTAs, or STR#), edit any string in a plain text field, save. Recommended for pie menu and dialog edits.</div></div>
+    <div class="card" style="grid-column:1 / -1;"><div class="card-title">IFF Pencil 2 &ndash; all three string types</div><div class="card-desc">The full IFF editor can also edit strings. Useful when you already have the file open for other edits. Otherwise Strings Scavenger is friendlier for text-only work.</div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Editing the catalogue name and description (CTSS)</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Clone the object in TMog</h4><p>Select the object in TMog's list, click <strong>"Clone Object File&hellip;"</strong>, give it a name, enter <code>0</code> or your Magic Cookie, click OK. The clone appears in TMog's list.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Fill in the new name and description</h4><p>With the clone selected, look at the right-hand panel. Edit the <strong>Name</strong> field and the <strong>Description</strong> field directly. Standard Sims 1 CC convention for CC you plan to share is: <code>Made by [Your Handle] &ndash; [your site or contact]</code>. Save the file.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test</h4><p>Launch the game, open Buy Mode, hover over your clone. The new name and description should appear.</p></div></div>
+  </div>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ For anything beyond name and description &ndash; pie menu labels, dialog &ndash; TMog cannot help. Use Strings Scavenger or IFF Pencil 2 below.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Editing pie menu labels (TTAs)</h3>
+  <p>The pie menu options that pop up when you click an object are stored in TTAs. You might want to rename "Study Cooking" to something more specific, or change "Watch TV" to match a themed set. The text only &ndash; changing the pie menu labels does not change what the interactions actually do.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open your cloned IFF in Strings Scavenger</h4><p>Launch Strings Scavenger and open your clone from <code>Downloads\Transmogrified\</code>. The tool shows a list of string-type resources inside the file &ndash; you should see CTSS, one or more TTAs entries (one per TTAB, identified by ID), and any STR# resources.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Pick the TTAs that matches the TTAB you care about</h4><p>TTAs resources pair one-to-one with TTAB resources by ID. Most simple objects have only one TTAB (and therefore one TTAs); more complex objects may have several. For the Maxis computer, for example, there are four TTABs (Cheap, Moderate, Expensive, Very Expensive) and four matching TTAs, one per price tier.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Edit the labels</h4><p>Strings Scavenger shows each entry with its index number and the text. Click the string you want to change, type the new label, save.</p>
+    <p>Do not change the order of entries &ndash; the TTAB references them by index. Entry 0 is the first interaction in the pie menu, entry 1 the second, and so on. Swap the text, not the positions.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test in game</h4><p>Launch The Sims, place your clone on a lot, click it. The pie menu should show your renamed options.</p></div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Editing dialog text (STR# 301)</h3>
+  <p>STR# 301 holds the dialog lines Sims say (or think) related to an object. Changing this is less common than catalogue or pie menu edits but works exactly the same way &ndash; open in Strings Scavenger or IFF Pencil 2, find STR# ID 301, edit the strings, save.</p>
+  <div class="callout gold" style="margin-top:12px;">⚠️ Dialog strings can be referenced from BHAVs by their index. As with TTAs, change the text but do not change the order &ndash; the BHAVs still expect a particular line at a particular index.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">What not to edit</h3>
+  <div class="grid-2">
+    <div class="card"><div class="card-title">STR# 129 (a2o) and 130 (c2o)</div><div class="card-desc">These hold animation filenames, not display text &ndash; "a2o" means adult-to-object, "c2o" means child-to-object. Changing these breaks the object's animations unless you know exactly what you are doing and have a matching replacement animation file on disk.</div></div>
+    <div class="card"><div class="card-title">STR# 302, 303, 304</div><div class="card-desc">Specialised strings for the game's internal systems (action string construction, named tree routing, suit primitives). Changing them can break interactions. Leave alone unless you are working from a tutorial that specifically tells you to edit one.</div></div>
+  </div>
+</section>
+
+<section id="objd-editing">
+  <div class="section-head"><div class="section-emoji">🗂️</div><div><h2 class="section-title">Editing Object Properties (OBJD)</h2><p class="section-sub">Price, catalogue category, and other object-level settings</p></div></div>
+
+  <p>The OBJD resource is the master record for an object. It holds the object's price, which Buy Mode category it appears in, its unique GUID, and various flags controlling how the game treats it. Editing OBJD is a sweet spot between BCON (pure numbers with labels) and full BHAV editing (logic) &ndash; it is a bounded set of named fields, most of which are self-explanatory.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Tool:</strong> IFF Pencil 2 is the standard tool for OBJD editing. It has a dedicated OBJD editor dialog that shows the fields with their names. Constant Contraption only does BCON, so it will not help here.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">The fields you can safely edit</h3>
+  <p>Some OBJD fields are safe for beginners to edit directly. Others are resource pointers (they say "the Main BHAV is ID 4096") and changing them is how you break an object. The safe-to-edit ones below are what most community OBJD hacks touch.</p>
+
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">Price</div><div class="card-desc">The number of simoleons the object costs in Buy Mode. Straight integer. Change freely &ndash; effect is immediate.</div></div>
+    <div class="card"><div class="card-title">Catalogue category (sort flags)</div><div class="card-desc">Which room and function section the object appears under in Buy Mode. The OBJD has sort flags for rooms (Living Room, Kitchen, Bathroom, Bedroom, Kids, Study, Misc, Outdoors) and for function (Seating, Surfaces, Appliances, Electronics, Plumbing, Decorative, Lights, Hobbies, Misc). Flipping a flag moves the object between categories.</div></div>
+    <div class="card"><div class="card-title">Community / residential flag</div><div class="card-desc">Controls whether the object appears on community lots, residential lots, or both. Useful for mixing Maxis categories &ndash; for example, making a residential-only object appear on community lots.</div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Fields to leave alone unless you know what they do</h3>
+  <div class="grid-2">
+    <div class="card"><div class="card-title">GUID</div><div class="card-desc">The object's unique identifier. TMog sets this when you clone and never changes it after. Editing the GUID manually can duplicate another object's GUID and cause the game to load one or the other unpredictably.</div></div>
+    <div class="card"><div class="card-title">Resource pointers (Main ID, TTAB ID, SLOT ID, etc.)</div><div class="card-desc">These tell the game which BHAV is the Main loop, which TTAB holds the pie menu, which SLOT controls where Sims stand. Editing them points the game at the wrong resources and usually breaks the object entirely.</div></div>
+    <div class="card"><div class="card-title">Initial stack size, version</div><div class="card-desc">Engine plumbing. Not modder-tunable.</div></div>
+    <div class="card"><div class="card-title">Prepare Food / Cook Food / Place on Surface IDs</div><div class="card-desc">BHAV pointers for specific food-pipeline interactions. Only meaningful for food objects, and only if you know exactly which BHAV should sit at which field.</div></div>
+  </div>
+
+  <div class="callout gold" style="margin-top:16px;">⚠️ <strong>Be cautious with motive fields.</strong> OBJD holds some motive-related numbers, and the labels in IFF Pencil 2's OBJD editor help you identify them &ndash; but autonomous motive <em>advertising</em> (the values that tell a hungry Sim how appealing a pizza is vs a fridge) lives in the <strong>TTAB</strong>, not OBJD. If you want to change autonomy behaviour, the TTAB editor on the <a href="iff-advanced.html">Advanced Edits</a> page is the correct place. Community tutorials sometimes blur the two &ndash; read carefully before changing an OBJD motive field.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Editing workflow</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Clone the object in TMog</h4><p>Same as always: TMog, find the object, clone, pick a name, Magic Cookie <code>0</code> (or your own), save.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the clone in IFF Pencil 2</h4><p>Launch IFF Pencil 2 (right-click the .exe &rarr; Properties &rarr; Compatibility &rarr; Windows XP SP3 mode and Run as administrator, if on Windows 10/11). <strong>File &rarr; Open</strong> the clone from <code>Downloads\Transmogrified\</code>.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Find the OBJD resource</h4><p>In the resource type list on the left, click <strong>OBJD</strong>. For a single-tile object there is one OBJD. For a multi-tile object (double bed, dining table, foosball table) there is one OBJD per tile plus a master OBJD &ndash; start with the master.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the OBJD editor</h4><p>Double-click the OBJD entry. IFF Pencil 2 opens its OBJD editor dialog, showing the fields grouped by purpose. The exact layout of this dialog is handled by the tool &ndash; follow the field labels there rather than memorising a byte order.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Change the fields you want</h4><p>Adjust price, catalogue sort flags, or community flag. Leave the rest alone. <strong>File &rarr; Save.</strong></p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Test in game</h4><p>Launch The Sims, open Buy Mode, check that the object appears in the expected catalogue category with the new price. If the flags did not move it, double-check which of the room and function flags are checked &ndash; each object needs at least one of each.</p></div></div>
+  </div>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>When the field labels in IFF Pencil 2 do not match what you expected:</strong> community tools have evolved over time and labels differ between tool versions. If a field label seems wrong or missing, cross-reference the <a href="file-reference.html#iff-resources">File Reference OBJD card</a> and the community tutorials listed on the <a href="iff-hacking.html#resources">Further Resources</a> section of the hub. When in doubt, leave the field alone.</div>
+</section>
+
+<section id="next-steps">
+  <div class="section-head"><div class="section-emoji">📚</div><div><h2 class="section-title">Next Steps</h2></div></div>
+
+  <p>Once you are comfortable with the three edits above, the next level up is changing what an object actually <em>does</em> rather than its tuning or metadata. That means touching TTAB (the pie menu) and BHAVs (the behaviour logic). Covered on the next page.</p>
+
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card" style="border-color:var(--gold);">
+      <div class="card-title">🎛️ Advanced Edits</div>
+      <div class="card-desc">Add new pie menu options, edit existing interactions, and create custom careers. Introduces TTAB and BHAV editing at a beginner-readable level.</div>
+      <a class="pill-link" href="iff-advanced.html" style="margin-top:8px;">&rarr; Advanced Edits Guide</a>
+    </div>
+    <div class="card">
+      <div class="card-title">🌳 Back to the Hub</div>
+      <div class="card-desc">If you want to brush up on what an IFF is, what resource types exist, or how BHAV trees are structured before going further, head back to the IFF Hacking overview.</div>
+      <a class="pill-link" href="iff-hacking.html" style="margin-top:8px;">&rarr; IFF Hacking Overview</a>
+    </div>
+  </div>
+</section>
+
+<div class="prevnext">
+  <a href="iff-hacking.html" class="prevnext-link prev"><span class="prevnext-arrow">←</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">IFF Hacking Overview</div></div></a>
+  <a href="iff-advanced.html" class="prevnext-link next"><span class="prevnext-arrow">→</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">Advanced Edits</div></div></a>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection – Modding Guide
+    </div>
+        <div class="footer-links">
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a>
+      <a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a>
+      <a href="search.html">Search</a>
+      <a href="terminology.html">Terminology</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="careers.html">Career Guide</a>
+      <a href="updates.html">Site Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group">
+      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Gameplay</div>
+          <a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a>
+          <a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Clothing Overview</a>
+      <a href="clothing-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Clothing</a>
+      <a href="clothing-meshes.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧵</span>Custom Meshes</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Hair &amp; Heads Overview</a>
+      <a href="head-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Heads</a>
+      <a href="head-creation.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧬</span>FaceLift Gold</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls &amp; Floors</a>
+      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Objects Overview</a>
+      <a href="object-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Objects</a>
+      <a href="object-creation.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧊</span>Creating New Objects</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="iff-simple-edits.html" class="nav-drawer-link nav-drawer-sublink active" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">✏️</span>Simple Edits</a>
+      <a href="iff-advanced.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎛️</span>Advanced Edits</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Site</div>
+      <a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📅</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="file-reference.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🗂️</span>File Reference</a>
+      <a href="credits.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📝</span>Sources &amp; Credits</a>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
+    </div>
+  </div></div>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamDesktop,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
+    panel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  setupDD('infoDropdownBtn','infoDropdownPanel');
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>

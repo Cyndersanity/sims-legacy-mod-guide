@@ -16,7 +16,7 @@ All content is based on community testing, verified tool compatibility checks, o
 
 ## Pages
 
-The guide has **30 pages** grouped into sections:
+The guide has **32 pages** grouped into sections:
 
 ### Playing & Modding
 | Page | Description |
@@ -47,7 +47,9 @@ The guide has **30 pages** grouped into sections:
 | `making-objects.html` | Objects overview hub – how objects work in Sims 1 (sprites + IFF), tools you need, two routes (retexture vs create new), single-tile vs multi-tile explanation, common mistakes. Mirrors the clothing/heads overview pattern. |
 | `object-retextures.html` | Retexturing existing objects using Transmogrifier – clone, export sprites, paint, import. Magic Cookie guide. Finishing section includes creator handle convention ("Recolour of Maxis X. Made by [handle]") and catalog thumbnail update steps. |
 | `object-creation.html` | Creating new objects from scratch – Blender modelling, TS1 Renderer addon for sprite generation, TS1 Compiler for IFF packaging, finishing workflow, further reading. |
-| `iff-hacking.html` | Gameplay mods: BCON editing, TTAB interactions, FAR override system, custom careers, career transfer loop |
+| `iff-hacking.html` | IFF Hacking hub: what an IFF is, 12 resource types explained (SPR2, BMP_, BCON, STR#, CTSS, TTAs, TTAB, BHAV, OBJD, OBJf, PALT, DGRP), How BHAV Trees Work primer (nodes, True/False branches, Main/Init/TTAB callers, action/test BHAV pairs), clone vs FAR deployment, two-paths cards into sub-pages, annotated Further Resources |
+| `iff-simple-edits.html` | Value-level edits without logic changes. BCON (bookcase skill gain example using Constant Contraption), Text (CTSS catalog name/description, TTAs pie menu labels, STR# dialog — Strings Scavenger workflow), OBJD (price, catalog sort flags, community/residential flag) |
+| `iff-advanced.html` | Logic-level edits. Adding new pie menu interactions (TTAB + TTAs + BHAV coordination, Action Tree + Check Tree, reusing vs writing BHAVs), autonomy motive advertising (8-motive TTAB values), Custom Careers using Career Creator 3 (replaces base game career, 10-track limit) |
 | `tools.html` | Every modding tool with download links and Legacy Collection compatibility notes. 31 tool cards across 4 sections: Essential Tools, CC Creation (incl. FaceLift Gold, The Sims Creator, GIMP, Paint.NET, IrfanView, Photoshop), 3D & Mesh Tools (incl. Blender, SimShow, Skn2Obj, BMF2SKN, BodyWarp), Community Tools |
 
 ### Reference & Help
@@ -96,7 +98,9 @@ Static HTML – no framework, no build step, no dependencies. Deployed via GitHu
 ├── making-objects.html           Objects overview hub
 ├── object-retextures.html        Retexturing existing objects (TMog workflow)
 ├── object-creation.html          Creating new objects (Blender + TS1 tools)
-├── iff-hacking.html            Gameplay mods (BCON, TTAB, careers)
+├── iff-hacking.html            IFF Hacking hub (concepts, BHAV trees, clone vs FAR)
+├── iff-simple-edits.html       BCON, text, OBJD value edits
+├── iff-advanced.html           Interactions, motive advertising, custom careers
 ├── tools.html
 ├── file-reference.html         Technical reference (expandable cards)
 ├── credits.html                Sources and attribution

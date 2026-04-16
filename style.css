@@ -111,6 +111,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,242,232,0.95);backdrop
 
 /* CONTENT */
 .content section{margin-bottom:56px;}
+.content section > p + p{margin-top:14px;}
+.content section > ul + p,.content section > p + ul{margin-top:14px;}
 .section-head{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border);}
 .section-emoji{font-size:32px;flex-shrink:0;}
 .section-title{font-family:var(--font-head);font-size:clamp(20px,3vw,28px);color:var(--ink);}

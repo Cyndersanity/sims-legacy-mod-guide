@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IFF Hacking – Advanced Edits – Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);table-layout:fixed;}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Objects Overview</a><a href="object-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Objects</a><a href="object-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧊 Creating New Objects</a><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="iff-simple-edits.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">✏️ Simple Edits</a><a href="iff-advanced.html" class="nav-dropdown-item active" style="padding-left:28px;font-size:12px;">🎛️ Advanced Edits</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – IFF Hacking</div>
+  <h1 class="page-title">IFF Hacking – <span>Advanced Edits</span></h1>
+  <p class="page-sub">Add interactions, edit behaviour trees, and create custom careers</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#intro">What's Covered Here</a></li><li><a href="#new-interactions">Adding New Interactions</a></li><li><a href="#motive-advertising">Autonomy &amp; Motive Advertising</a></li><li><a href="#careers">Creating Custom Careers</a></li><li><a href="#further">Further Reading</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="iff-hacking.html">← Back to IFF Hacking</a>
+    </div>
+  </aside>
+  <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#intro">What's Covered Here</a><a href="#new-interactions">Adding New Interactions</a><a href="#motive-advertising">Autonomy &amp; Motive Advertising</a><a href="#careers">Creating Custom Careers</a><a href="#further">Further Reading</a></div></details>
+
+<section id="intro">
+  <div class="section-head"><div class="section-emoji">🎛️</div><div><h2 class="section-title">What's Covered Here</h2><p class="section-sub">Changes that go beyond tweaking values or text</p></div></div>
+
+  <p>Everything on this page involves coordinating multiple resources. Adding an interaction touches TTAB, TTAs, and at least one BHAV. Motive advertising lives in TTAB and interacts with BHAV logic. Custom careers use a dedicated tool but still replace an entire IFF inside the base game's <code>GameData\Objects\</code> folder. None of this is out of reach, but it assumes you know what the individual resources are and how they relate to each other.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Before this page you should have read:</strong> the <a href="iff-hacking.html#what-is-iff">resource type overview</a> on the hub (so you know what a TTAB or a BHAV actually is), and the <a href="iff-hacking.html#bhav-trees">How BHAV Trees Work</a> primer (so references to "the check tree returns False" make sense). Ideally you will also have done at least one edit from the <a href="iff-simple-edits.html">Simple Edits</a> page &ndash; to confirm your clone-open-save workflow is working before adding complexity.</div>
+
+  <div class="callout gold" style="margin-top:12px;">⚠️ <strong>Always clone first.</strong> Every edit below works on a TMog clone, not on base game files. The only exception is Custom Careers, which explicitly replaces a base game career IFF &ndash; and that one has its own separate warnings further down.</div>
+</section>
+
+<section id="new-interactions">
+  <div class="section-head"><div class="section-emoji">💬</div><div><h2 class="section-title">Adding New Interactions</h2><p class="section-sub">New pie menu options, new BHAVs, and connecting them up</p></div></div>
+
+  <p>A new interaction is three pieces of work, always in this order: add an entry to the TTAB, add a matching label to the TTAs, and make sure the BHAVs the TTAB points at actually exist inside the IFF. If any of the three is missing or mismatched, the interaction either fails to show up or crashes when picked.</p>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">What a TTAB entry looks like</h3>
+  <p>Each entry in a TTAB represents one pie menu option. The fields that matter most to you are:</p>
+  <ul style="padding-left:18px;">
+    <li><strong>Action Tree</strong> &ndash; the ID of the BHAV that runs when a Sim picks this option. This is the meat of the interaction: walk over, sit down, read the book, gain skill, stand up.</li>
+    <li><strong>Check Tree</strong> (also called Guardian) &ndash; the ID of a BHAV that decides whether this option should even appear on the pie menu for the current Sim. Often this is the paired <code>TEST</code> BHAV (see <a href="iff-hacking.html#bhav-trees">How BHAV Trees Work</a> for the naming convention).</li>
+    <li><strong>Motive advertising values</strong> &ndash; eight numbers, one per motive (Hunger, Comfort, Hygiene, Bladder, Energy, Fun, Social, Room), telling autonomous Sims how attractive this interaction is for each need. Covered in the next section.</li>
+    <li><strong>Flags</strong> &ndash; single-bit toggles for things like "requires the Sim to be next to the object", "can run while the Sim is seated", etc. Most beginners do not touch these.</li>
+    <li><strong>Human Readable String Index</strong> &ndash; the number of the label in the matching TTAs. Entry 0 in the TTAB uses label 0 in the TTAs, entry 1 uses label 1, and so on. Keep the ordering aligned.</li>
+  </ul>
+
+  <div class="callout teal" style="margin-top:16px;">ℹ️ <strong>Example &ndash; the Maxis computer:</strong> the IntelliHome desktop computer carries 4 TTAB resources (Cheap, Moderate, Expensive, Very Expensive) because the game swaps which pie menu is in use based on the computer's graphic state. Each TTAB has several entries (Play, Chat, Work, Play Chess, etc.) and each entry points at a different Action Tree BHAV. You edit the TTAB that matches the graphic state you care about. For a single-graphic object like the bookcase, there is only one TTAB and this is simpler.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Two real-world shapes of this task</h3>
+  <div class="grid-2">
+    <div class="card"><div class="card-title">Easier: reuse an existing BHAV</div><div class="card-desc">Add a new TTAB entry that points at a BHAV already inside the IFF or inside a Maxis semi-global file. Example: adding a second "Read a Book" option to a different bookcase by pointing at the same <code>Read a Book</code> BHAV. No BHAV writing, just a TTAB + TTAs addition.</div></div>
+    <div class="card"><div class="card-title">Harder: write a new BHAV</div><div class="card-desc">Add a new TTAB entry that points at a brand-new BHAV you write inside the IFF. Writing a new BHAV tree from scratch is a substantial skill. Most community mods start by <em>copying</em> an existing BHAV and modifying a few instructions &ndash; far less error-prone than starting from nothing.</div></div>
+  </div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Workflow</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Clone the target object in TMog</h4><p>Find the object in TMog, click <strong>"Clone Object File&hellip;"</strong>, give it a name, enter a Magic Cookie, click OK. Your clone lands in <code>Downloads\Transmogrified\</code>.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open in IFF Pencil 2 and locate the TTAB</h4><p>Launch IFF Pencil 2 (XP SP3 compatibility mode plus Run as administrator on Windows 10/11). Open your clone. In the resource list on the left, click <strong>TTAB</strong>. If there is more than one TTAB, use the one that matches the object's default or primary state. If you are unsure, the first TTAB in the list is usually the main one.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Examine an existing entry before adding a new one</h4><p>Double-click an existing TTAB entry to open it. Read the Action Tree ID, the Check Tree ID, and the motive advertising values. This gives you a concrete template for what a working entry looks like &ndash; and it tells you which BHAV IDs are valid targets inside this IFF.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Decide the Action Tree BHAV</h4><p>If you are reusing an existing BHAV, note its ID now (look in the BHAV list on the left, or check the BHAV ID dropdown inside the TTAB entry editor).</p>
+    <p>If you are writing a new one, your best starting point is to duplicate an existing BHAV (right-click &rarr; <strong>Copy</strong> or <strong>Duplicate</strong>, depending on the tool version), modify the duplicate, and give it a new unique ID. Leaving BHAVs inside their owning IFF keeps everything self-contained.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Add the new TTAB entry</h4><p>In the TTAB editor, add a new entry row. Set the <strong>Action Tree</strong> to the BHAV ID you just decided on. Set the <strong>Check Tree</strong> to either the paired TEST BHAV (recommended) or leave it empty if the option should always appear. Motive advertising values can be copied from a similar existing entry, or set to zero for now and tuned later.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Add the matching TTAs label</h4><p>Navigate to the TTAs resource that pairs with this TTAB (they share an ID). Add a new string entry. Make sure the entry index matches the TTAB entry index you just added &ndash; if your new TTAB entry is row 6, your TTAs label must also be at index 6. Type the pie menu label text (e.g. "Study Advanced Cooking"). Save.</p>
+    <p>You can also use Strings Scavenger for the TTAs edit if you find it easier than IFF Pencil 2's string editor &ndash; see the <a href="iff-simple-edits.html#text-editing">Simple Edits text section</a> for the Strings Scavenger workflow.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save and test in game</h4><p>Save the IFF. Launch The Sims, buy your cloned object, and have a Sim click it. The pie menu should now show your new option with the label you set. Picking it should run the Action Tree BHAV.</p>
+    <p>If the new option does not appear, the most common causes are: TTAs label at the wrong index, Check Tree returning False, or Action Tree ID pointing at a BHAV that does not exist. Reopen the IFF, verify each piece, and try again.</p></div></div>
+  </div>
+
+  <div class="callout gold" style="margin-top:16px;">⚠️ <strong>Semi-globals and external BHAV calls:</strong> many Maxis objects call BHAVs that live in shared files like <code>ChairGlobals.iff</code>, <code>GlobalBathroom.iff</code>, or <code>GlobalBookcase.iff</code>. If an Action Tree disappears into a BHAV you cannot find, it is probably in one of these. You can open semi-global IFFs the same way as object IFFs &ndash; they are in your game's <code>GameData\Objects\</code> folder. Do not edit a semi-global unless you understand every object that depends on it; a broken global breaks every object that uses it.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">When you are ready to write BHAVs</h3>
+  <p>Writing a BHAV from scratch requires learning the primitive set (the library of built-in instructions you can string together) and the conventions for things like "push an interaction onto a Sim's queue", "animate a Sim", or "change a motive value". This is outside the scope of this guide &ndash; but two community resources cover it structurally:</p>
+  <ul style="padding-left:18px;">
+    <li><strong>Sims College Archive &ndash; Hacking Lessons</strong> (on the <a href="iff-hacking.html#resources">hub resources list</a>). A preserved archive of the original SimsCollege.com online hacking course, with two structured courses: Entry Level (motives, moods, BCON, sounds and animations) and Intermediate (variable types, global calls, skills, graphics, randomised events). This is the most complete structured BHAV tutorial that still exists.</li>
+    <li><strong>Woobsha DIY Workshop</strong> (also on the hub resources list). Written tutorials on specific hacks, often with step-by-step BHAV instruction listings.</li>
+  </ul>
+</section>
+
+<section id="motive-advertising">
+  <div class="section-head"><div class="section-emoji">📣</div><div><h2 class="section-title">Autonomy &amp; Motive Advertising</h2><p class="section-sub">Why autonomous Sims choose one object over another</p></div></div>
+
+  <p>When a Sim is on free will and their Fun motive drops, the game looks at every object on the lot and picks one to satisfy that motive. The way it picks is by reading the <strong>motive advertising values</strong> inside each object's TTAB entries and choosing whichever looks most appealing for the motive that needs the most help.</p>
+
+  <p>Each TTAB entry carries 8 advertising values &ndash; one per motive. A number is a promise: "If a Sim uses this interaction, their Fun will increase by roughly this much." The game does not actually apply that number; it just uses it as a pitch to autonomy.</p>
+
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Where this is, again:</strong> motive advertising lives in the <strong>TTAB</strong>, not OBJD. If a tutorial tells you to edit motive autonomy via OBJD, it is almost certainly using older documentation. The OBJD has some motive-related fields too, but autonomous object selection runs on TTAB advertising.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Common motive advertising changes</h3>
+  <div class="grid-2" style="margin-top:12px;">
+    <div class="card"><div class="card-title">Make the object more attractive for a motive</div><div class="card-desc">Increase the advertising value for that motive on the relevant TTAB entry. Example: raising the Fun advertising on a stereo's "Dance" interaction will make free-will Sims pick it over lower-value Fun objects when their Fun is low.</div></div>
+    <div class="card"><div class="card-title">Stop autonomous use entirely</div><div class="card-desc">Set all motive advertising values on every TTAB entry to zero. Sims will still use the object when directed, but autonomous free-will will not pick it. Useful for decorative or dangerous objects you do not want autonomous toddlers or Sims to interact with.</div></div>
+    <div class="card"><div class="card-title">Balance multi-interaction objects</div><div class="card-desc">Tune each TTAB entry independently so Sims prefer a specific interaction for a specific motive. A multi-purpose object like the refrigerator has several interactions each advertising different motives &ndash; Snack advertises Hunger weakly, Serve Meal more strongly.</div></div>
+    <div class="card"><div class="card-title">Prioritise among CC objects</div><div class="card-desc">If you have multiple CC objects competing to satisfy the same motive, adjusting their advertising values decides which one free-will Sims pick first. Handy for making a themed set behave consistently.</div></div>
+  </div>
+
+  <div class="callout gold" style="margin-top:16px;">⚠️ <strong>Large advertising values stack across the lot.</strong> Setting a single interaction's Fun advertising to something huge (say, 10000) makes every Sim on the lot drop everything to use that object whenever their Fun is anything less than maxed. It is the Sims 1 equivalent of making every Sim on the lot want to use your object constantly. Tune in small increments and test.</div>
+</section>
+
+<section id="careers">
+  <div class="section-head"><div class="section-emoji">💼</div><div><h2 class="section-title">Creating Custom Careers</h2><p class="section-sub">Using Career Creator 3 &ndash; replaces an existing career, cannot add new ones</p></div></div>
+
+  <div class="callout gold">⚠️ <strong>Important &ndash; you cannot add new careers, only replace existing ones.</strong> This is a hard limitation of The Sims 1 engine and there is no current workaround. Career Creator 3 lets you fully customise a career's name, job titles, wages, schedules and requirements &ndash; but the result overwrites one of the 10 base game career tracks. Choose a career you are happy to lose. Your custom career appears in its place in the newspaper and computer job listings.</div>
+
+  <div class="callout teal" style="margin-top:0;">ℹ️ Career Creator 3 handles everything through a form-based interface. You are not writing BHAVs or editing BCON directly &ndash; the tool does that, and produces a modified .iff file. The output goes into <code>GameData\Objects\</code> (not Downloads) because it is replacing a base game file.</div>
+
+  <div class="callout green" style="margin-bottom:24px;">✅ Career Creator 3 is in the same Sims1Tools download as IFF Pencil 2 and Constant Contraption. Full details on the <a href="iff-hacking.html#tools">Tools table</a> on the hub.</div>
+
+  <h3 style="font-family:var(--font-head);font-size:17px;color:var(--ink);margin:28px 0 12px;">Workflow</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Decide which career to replace</h4><p>The Sims 1 base game has 10 career tracks: Business, Entertainment, Law Enforcement, Medicine, Military, Politics, Pro Athlete, Science, Slacker, and Xtreme. Expansion packs add more (Hacker, Musician, and so on), but Career Creator 3 can only replace the 10 base game tracks. Pick one you are happy to lose &ndash; your custom career takes its slot completely. Sims already in that career continue in it, but the track will now have your custom names and values.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Back up the original career IFF</h4><p>Before touching anything, copy the career's IFF file out of <code>GameData\Objects\</code> and stash it somewhere safe. Career IFFs are named things like <code>career_business.iff</code>. If your custom career goes wrong or you change your mind later, restoring the backup brings the Maxis original back.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open Career Creator 3 and load the career</h4><p>Launch the tool and open the .iff file for the career you are replacing. Loading the original fills in all the existing values, giving you a starting point to edit rather than a blank slate.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set up the career basics</h4><p>Change the career name and set the number of job levels (up to 10). Each level gets its own job title, daily wage, and work schedule. Think through the progression &ndash; entry-level jobs typically pay less and have more days worked per week.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Configure each job level</h4><p>For each level, fill in the job title, salary, work days and hours, and the number of friends required for promotion. You can also set which skills are needed to advance &ndash; requiring Cooking or Charisma, for example, before a Sim can move up.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Set the carpool vehicle</h4><p>Choose which vehicle picks your Sim up for work. Options correspond to vehicles available in your installed expansions. Purely visual, but worth setting to something that fits your career theme.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Save and install</h4><p>Save the modified .iff file and drop it into <code>GameData\Objects\</code> &ndash; not the Downloads folder. Since you are replacing a base game file, the modified file needs to go where the original lives. Launch the game and the career should appear with your new name and values in the job listings.</p></div></div>
+  </div>
+
+  <div class="callout teal" style="margin-top:16px;">ℹ️ <strong>Career transfer loop:</strong> a Sim already in the career you replaced will stay in it under the new rules. If you want a Sim to switch <em>into</em> your new career from another, they need to quit their current job first and then accept an offer for yours. See the <a href="careers.html#career-transfer-loop">Career Guide &ndash; Transfer Loop</a> for the mechanic in detail.</div>
+</section>
+
+<section id="further">
+  <div class="section-head"><div class="section-emoji">📚</div><div><h2 class="section-title">Further Reading</h2></div></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">How BHAV Trees Work</div>
+      <div class="card-desc">Back to the conceptual primer on the hub. Worth re-reading if the TTAB &rarr; BHAV relationship above still feels fuzzy.</div>
+      <a class="pill-link" href="iff-hacking.html#bhav-trees" style="margin-top:8px;">&rarr; BHAV Trees Primer</a>
+    </div>
+    <div class="card">
+      <div class="card-title">Simple Edits</div>
+      <div class="card-desc">If you want to scale back to something less ambitious &ndash; BCON numbers, catalogue text, OBJD price &ndash; those three edits sit on the sibling page.</div>
+      <a class="pill-link" href="iff-simple-edits.html" style="margin-top:8px;">&rarr; Simple Edits Guide</a>
+    </div>
+    <div class="card">
+      <div class="card-title">Hub Resources List</div>
+      <div class="card-desc">Sims College Archive (structured BHAV course), Woobsha's DIY Workshop (written tutorials on specific hacks), Simblr.cc community, and more &ndash; all on the hub's Further Resources list.</div>
+      <a class="pill-link" href="iff-hacking.html#resources" style="margin-top:8px;">&rarr; All Resources</a>
+    </div>
+    <div class="card">
+      <div class="card-title">File Reference</div>
+      <div class="card-desc">The technical card for each resource type &ndash; TTAB fields, BHAV header format, OBJD byte layout &ndash; is on the File Reference page.</div>
+      <a class="pill-link" href="file-reference.html#iff-resources" style="margin-top:8px;">&rarr; File Reference</a>
+    </div>
+  </div>
+</section>
+
+<div class="prevnext">
+  <a href="iff-simple-edits.html" class="prevnext-link prev"><span class="prevnext-arrow">←</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">Simple Edits</div></div></a>
+  <a href="tools.html" class="prevnext-link next"><span class="prevnext-arrow">→</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">Modding Tools</div></div></a>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection – Modding Guide
+    </div>
+        <div class="footer-links">
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a>
+      <a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a>
+      <a href="search.html">Search</a>
+      <a href="terminology.html">Terminology</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="careers.html">Career Guide</a>
+      <a href="updates.html">Site Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group">
+      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Gameplay</div>
+          <a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a>
+          <a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Clothing Overview</a>
+      <a href="clothing-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Clothing</a>
+      <a href="clothing-meshes.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧵</span>Custom Meshes</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Hair &amp; Heads Overview</a>
+      <a href="head-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Heads</a>
+      <a href="head-creation.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧬</span>FaceLift Gold</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls &amp; Floors</a>
+      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Objects Overview</a>
+      <a href="object-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Objects</a>
+      <a href="object-creation.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧊</span>Creating New Objects</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="iff-simple-edits.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">✏️</span>Simple Edits</a>
+      <a href="iff-advanced.html" class="nav-drawer-link nav-drawer-sublink active" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎛️</span>Advanced Edits</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Site</div>
+      <a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📅</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="file-reference.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🗂️</span>File Reference</a>
+      <a href="credits.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📝</span>Sources &amp; Credits</a>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
+    </div>
+  </div></div>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamDesktop,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
+    panel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  setupDD('infoDropdownBtn','infoDropdownPanel');
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>
