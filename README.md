@@ -16,7 +16,7 @@ All content is based on community testing, verified tool compatibility checks, o
 
 ## Pages
 
-The guide has **28 pages** grouped into sections:
+The guide has **30 pages** grouped into sections:
 
 ### Playing & Modding
 | Page | Description |
@@ -44,7 +44,9 @@ The guide has **28 pages** grouped into sections:
 | `head-retextures.html` | Retexturing existing heads – GIMP painting workflow, skin tone variants, indexed BMP conversion, TSC export, Face Photo Wizard |
 | `head-creation.html` | FaceLift Gold – creating new head shapes by morphing and blending, full interface reference, export workflow |
 | `making-walls-floors.html` | Wall coverings (.WLL), floor tiles (.FLR), and roof textures (.BMP). Sections: How It Works, Getting Tools Working, Designing Your Image (#design-your-image — GIMP walkthrough, free CC0 texture sources: Poly Haven/ambientCG, seamless tiling guide), Making a Wall, Making a Floor, Making a Roof, Common Mistakes |
-| `object-retextures.html` | Object retextures using Transmogrifier – clone, export sprites, paint, import. Magic Cookie guide. Finishing section includes creator handle convention ("Recolour of Maxis X. Made by [handle]") and catalog thumbnail update steps. Creating new objects from scratch (Blender + TS1 Renderer/Compiler workflow) |
+| `making-objects.html` | Objects overview hub – how objects work in Sims 1 (sprites + IFF), tools you need, two routes (retexture vs create new), single-tile vs multi-tile explanation, common mistakes. Mirrors the clothing/heads overview pattern. |
+| `object-retextures.html` | Retexturing existing objects using Transmogrifier – clone, export sprites, paint, import. Magic Cookie guide. Finishing section includes creator handle convention ("Recolour of Maxis X. Made by [handle]") and catalog thumbnail update steps. |
+| `object-creation.html` | Creating new objects from scratch – Blender modelling, TS1 Renderer addon for sprite generation, TS1 Compiler for IFF packaging, finishing workflow, further reading. |
 | `iff-hacking.html` | Gameplay mods: BCON editing, TTAB interactions, FAR override system, custom careers, career transfer loop |
 | `tools.html` | Every modding tool with download links and Legacy Collection compatibility notes. 31 tool cards across 4 sections: Essential Tools, CC Creation (incl. FaceLift Gold, The Sims Creator, GIMP, Paint.NET, IrfanView, Photoshop), 3D & Mesh Tools (incl. Blender, SimShow, Skn2Obj, BMF2SKN, BodyWarp), Community Tools |
 
@@ -91,7 +93,9 @@ Static HTML – no framework, no build step, no dependencies. Deployed via GitHu
 ├── head-retextures.html        Retexturing existing heads (GIMP + TSC)
 ├── head-creation.html          FaceLift Gold (new head shapes)
 ├── making-walls-floors.html
-├── object-retextures.html         Object retextures (TMog workflow)
+├── making-objects.html           Objects overview hub
+├── object-retextures.html        Retexturing existing objects (TMog workflow)
+├── object-creation.html          Creating new objects (Blender + TS1 tools)
 ├── iff-hacking.html            Gameplay mods (BCON, TTAB, careers)
 ├── tools.html
 ├── file-reference.html         Technical reference (expandable cards)

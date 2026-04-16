@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating New Objects – Sims Legacy Collection Guide</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZDF0Q80RR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8ZDF0Q80RR');
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-wrapper">
+  <div class="nav-inner" id="navInner">
+      <a class="nav-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-brand-text">SIMS LEGACY COLLECTION</span></a>
+      <a href="index.html" class="nav-link">🏠 Home</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="infoDropdownBtn" aria-expanded="false" aria-haspopup="true">ℹ️ Site Info <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="infoDropdownPanel"><a href="about-legacy.html" class="nav-dropdown-item">📅 About Legacy</a><a href="terminology.html" class="nav-dropdown-item">📖 Terminology</a><a href="file-reference.html" class="nav-dropdown-item">🗂️ File Reference</a><a href="credits.html" class="nav-dropdown-item">📝 Sources &amp; Credits</a><div class="nav-dropdown-divider"></div><a href="updates.html" class="nav-dropdown-item">📋 Site Roadmap</a><a href="contact.html" class="nav-dropdown-item">✉️ Contact</a></div></div><a href="search.html" class="nav-link">🔍 Search</a><div class="nav-dropdown"><button class="nav-dropdown-btn" id="modsDropdownBtn" aria-expanded="false" aria-haspopup="true">⚙️ Mods / CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="modsDropdownPanel"><a href="whats-possible.html" class="nav-dropdown-item">🔬 What's Possible</a><a href="installing-mods.html" class="nav-dropdown-item">📁 Installing Mods</a><a href="download-sites.html" class="nav-dropdown-item">🌐 Mod Download Sites</a><a href="mod-list.html" class="nav-dropdown-item">⚙️ Must-Have Mods</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="gameplayDropdownBtn" aria-expanded="false" aria-haspopup="true">🎮 Gameplay <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="gameplayDropdownPanel"><a href="cheats.html" class="nav-dropdown-item">🎮 Cheats</a><a href="careers.html" class="nav-dropdown-item">💼 Career Guide</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn active" id="ccDropdownBtn" aria-expanded="false" aria-haspopup="true">🎨 Create CC <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="ccDropdownPanel"><a href="making-cc.html" class="nav-dropdown-item">🎨 Overview & Tools</a><div class="nav-dropdown-divider"></div><a href="making-clothing.html" class="nav-dropdown-item">👗 Clothing Overview</a><a href="clothing-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Clothing</a><a href="clothing-meshes.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧵 Custom Meshes</a><a href="making-heads.html" class="nav-dropdown-item">💇 Hair &amp; Heads Overview</a><a href="head-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Heads</a><a href="head-creation.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🧬 FaceLift Gold</a><a href="making-walls-floors.html" class="nav-dropdown-item">🏠 Making Walls & Floors</a><a href="making-objects.html" class="nav-dropdown-item">🪑 Objects Overview</a><a href="object-retextures.html" class="nav-dropdown-item" style="padding-left:28px;font-size:12px;">🎨 Retexturing Objects</a><a href="object-creation.html" class="nav-dropdown-item active" style="padding-left:28px;font-size:12px;">🧊 Creating New Objects</a><div class="nav-dropdown-divider"></div><a href="iff-hacking.html" class="nav-dropdown-item">🔧 IFF Hacking</a><a href="tools.html" class="nav-dropdown-item">🧰 Tools</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-btn" id="helpDropdownBtn" aria-expanded="false" aria-haspopup="true">🛠️ Troubleshooting <span class="nav-dropdown-arrow">▾</span></button><div class="nav-dropdown-panel" id="helpDropdownPanel"><a href="cc-troubleshooting.html" class="nav-dropdown-item">🛠️ CC Issues</a><a href="game-troubleshooting.html" class="nav-dropdown-item">🖥️ Game Issues</a></div></div><button class="nav-ham-desktop" id="navHamDesktop" aria-label="Open menu" title="Open full menu">☰</button>
+      </div>
+  <button class="nav-ham" id="navHam" aria-label="Open navigation menu">&#9776;</button>
+  <button class="nav-scroll-hint-left" id="navHintLeft" aria-label="Scroll navigation left">‹</button>
+  <button class="nav-scroll-hint" id="navHint" aria-label="Scroll navigation">›</button>
+
+  <div class="nav-mobile-bar"><a class="nav-mobile-brand" href="index.html"><span class="plumbob sm"></span><span class="nav-mobile-brand-text">SIMS LEGACY COLLECTION</span></a><div class="nav-mobile-actions"><a class="nav-mobile-search" href="search.html" aria-label="Search">🔍</a><button class="nav-mobile-menu" id="navHamMobile" aria-label="Open menu">Menu ☰</button></div></div>
+</div>
+</nav>
+<div class="page-hero">
+  <div class="page-eyebrow"><span class="plumbob sm"></span> Sims Legacy Collection – Creating CC</div>
+  <h1 class="page-title">Creating New <span>Objects</span></h1>
+  <p class="page-sub">Model in 3D, render sprites, compile into a game-ready object</p>
+</div>
+<div class="page-layout">
+  <aside>
+    <div class="toc">
+      <div class="toc-title"><span class="plumbob sm"></span> On This Page</div>
+      <ul class="toc-list"><li><a href="#what-is">What This Involves</a></li><li><a href="#sprites-not-3d">Why Objects Are Sprites</a></li><li><a href="#workflow">The Modern Workflow</a></li><li><a href="#steps">Step-by-Step</a></li><li><a href="#finishing">Finishing Your Object</a></li><li><a href="#further">Further Reading</a></li></ul><div class="toc-divider"></div><a class="toc-back" href="making-objects.html">← Back to Objects Overview</a>
+    </div>
+  </aside>
+  <main class="content">
+<details class="mobile-toc"><summary><span class="plumbob sm"></span> On this page</summary><div class="mobile-toc-links"><a href="#what-is">What This Involves</a><a href="#sprites-not-3d">Why Objects Are Sprites</a><a href="#workflow">The Modern Workflow</a><a href="#steps">Step-by-Step</a><a href="#finishing">Finishing Your Object</a><a href="#further">Further Reading</a></div></details>
+
+<div class="callout teal" style="margin-bottom:28px;">ℹ️ <strong>This page is a work in progress</strong> &ndash; screenshots showing each step will be added soon. If something is unclear, ask on <a href="https://discord.gg/SIMSCORD" target="_blank" rel="noopener">Simscord</a> or <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">r/thesims1</a>.</div>
+
+<section id="what-is">
+  <div class="section-head"><div class="section-emoji">🧊</div><div><h2 class="section-title">What This Involves</h2><p class="section-sub">More than a retexture &ndash; you are building every part of the object</p></div></div>
+  <p>Retexturing changes how an existing object looks. Creating a new object means modelling a 3D shape, rendering it as flat images the game can display, and packaging everything into an IFF file. This used to be extremely tedious by hand &ndash; modern tools have made it achievable.</p>
+  <div class="callout gold" style="margin-top:12px;">⚠️ <strong>This is advanced territory.</strong> Creating new objects requires 3D modelling skills (Blender) and understanding of how the sprite rendering pipeline works. If you have not retextured an existing object yet, do that first on the <a href="object-retextures.html">Retexturing Objects</a> page &ndash; it teaches you how the IFF and TMog workflow operates before you need to build from scratch.</div>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Prerequisites to read first:</strong> the <a href="making-objects.html">Objects Overview</a> explains what an IFF is and what lives inside it, and the <a href="file-reference.html#iff-resources">File Reference</a> covers each resource type in detail. Familiarity with both will make the rest of this page much easier to follow.</div>
+</section>
+
+<section id="sprites-not-3d">
+  <div class="section-head"><div class="section-emoji">🎞️</div><div><h2 class="section-title">Why Objects Are Sprites, Not 3D Models</h2><p class="section-sub">Understanding the rendering model that constrains everything else</p></div></div>
+  <p>Sims 1 objects are not rendered in real-time 3D. They are <strong>pre-rendered sprites</strong> &ndash; flat images displayed at fixed isometric angles. Each object needs sprites for 4 rotations (N/E/S/W) at 3 zoom levels (near/medium/far), plus a matching z-buffer depth sprite for each. The z-buffer tells the game how to layer Sims in front of and behind the object. Missing or incorrect z-buffers cause Sims to visually clip through objects.</p>
+  <div class="callout teal" style="margin-top:8px;">ℹ️ <strong>Bilaterally symmetrical objects</strong> (like the flamingo) only need 2 rotation sprites &ndash; TMog automatically mirrors them for the opposite angles. This halves the work for simple objects.</div>
+  <p style="margin-top:12px;">This is why every custom object ships its own set of pre-rendered images. You cannot hand the game a mesh and expect it to draw &ndash; you have to pre-bake every angle and every zoom level the camera can show, and the game just picks the right image at render time.</p>
+</section>
+
+<section id="workflow">
+  <div class="section-head"><div class="section-emoji">⚙️</div><div><h2 class="section-title">The Modern Workflow: Blender + TS1 Tools</h2><p class="section-sub">The pipeline replaces hours of manual sprite work</p></div></div>
+  <p>The TS1 Renderer and TS1 Compiler addons for Blender automate the hardest parts &ndash; rendering the four rotations at three zoom levels, generating matching z-buffers, and packaging everything into a valid IFF with the right palette indexing.</p>
+  <p style="margin-top:8px;">If you have not used Blender before, start with the official <a href="https://www.blender.org/support/tutorials/" target="_blank" rel="noopener">Blender Foundation tutorials</a>. Learn the interface, how to create and edit basic shapes, and how to apply materials before attempting Sims 1 object work. Trying to learn Blender and the Sims 1 pipeline at the same time is painful.</p>
+
+  <div class="callout teal" style="margin-top:16px;">ℹ️ <strong>Tool versions:</strong> TS1 Renderer supports Blender 4.1 and 4.3&ndash;4.5. Blender 4.2 has a known bug that breaks it. Check the <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer GitHub page</a> for the current supported version before installing.</div>
+</section>
+
+<section id="steps">
+  <div class="section-head"><div class="section-emoji">🚶</div><div><h2 class="section-title">Step-by-Step</h2></div></div>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Model your object in Blender</h4><p>Open Blender and create your 3D model. Keep the geometry simple &ndash; you are rendering to small sprites, not real-time 3D, so complex shapes do not add visual quality. A clean low-polygon model with good textures looks better than a complex one at sprite resolution.</p><p>Resources for learning 3D modelling in Blender:</p>
+    <ul style="padding-left:18px;">
+      <li><a href="https://www.blender.org/support/tutorials/" target="_blank" rel="noopener">Official Blender tutorials</a> &ndash; start with the Donut tutorial (beginner-friendly, covers all the basics)</li>
+      <li><a href="https://www.youtube.com/c/BlenderGuru" target="_blank" rel="noopener">Blender Guru on YouTube</a> &ndash; widely recommended beginner channel</li>
+    </ul>
+    </div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Install TS1 Renderer and set up the scene</h4><p>Install the TS1 Renderer addon for Blender: go to <strong>Edit &rarr; Preferences &rarr; Add-ons &rarr; Install</strong> and select the downloaded ZIP. Enable the addon. Then follow the <a href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">TS1 Renderer wiki</a> to set up the isometric camera angles and lighting correctly. The addon handles the exact camera angles and sprite dimensions automatically &ndash; do not adjust the camera manually.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Render all sprites</h4><p>Once your scene is set up, use the TS1 Renderer to batch-render all rotation angles, zoom levels, and z-buffer sprites in one pass. This replaces what used to be hours of manual screenshot-and-crop work. Each sprite will be saved as a correctly sized, correctly indexed image file.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Compile into an IFF file using TS1 Compiler</h4><p>Install the TS1 Compiler addon the same way. Load your rendered sprites and run the compiler. It assembles the sprites into a complete IFF file, handles z-buffer packaging and palette indexing, and creates a basic OBJD (object definition) resource.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open in TMog to set name, description, and Magic Cookie</h4><p>Once the IFF is assembled, open it in TMog. Give the object a proper catalogue name and description, and assign a Magic Cookie number &ndash; use <code>0</code> for personal testing or your own number from the <a href="https://docs.google.com/spreadsheets/d/1DWYV4jvMKiVB_GjpGkHl1bxBr3lHEsMHdulSJIqjSJM/edit" target="_blank" rel="noopener">Magic Cookie Database</a> for anything you plan to share.</p></div></div>
+
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Place in Downloads\ and test</h4><p>Copy the finished IFF to your <code>Downloads\</code> folder. Launch the game and check the object appears in the Buy Mode catalogue, displays correctly at all three zoom levels, and that Sims interact with it without visual clipping. Test all four rotation angles &ndash; rotate the camera to view the object from each direction.</p></div></div>
+  </div>
+</section>
+
+<section id="finishing">
+  <div class="section-head"><div class="section-emoji">🖼️</div><div><h2 class="section-title">Finishing Your Object</h2><p class="section-sub">Catalogue thumbnail &ndash; the one piece TS1 Compiler does not produce automatically</p></div></div>
+  <p>TS1 Compiler generates a valid IFF and a basic OBJD, but the catalogue thumbnail (the small image shown in Buy Mode) needs to be added separately. This is the same process as finishing a retexture.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Create a thumbnail image</h4><p>Take a screenshot of your object in game, crop around it in your image editor, and resize to around <strong>60&times;60 pixels</strong>. Or paint a simple icon from scratch at that size. The thumbnail is small in the catalogue &ndash; it does not need fine detail, but it should clearly represent your object rather than a Maxis original.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Open the IFF in IFF Pencil 2</h4><p>Launch IFF Pencil 2 (right-click the .exe &rarr; Properties &rarr; Compatibility &rarr; Windows XP SP3 mode and Run as administrator, if on Windows 10/11). Open your new IFF file. In the left panel, click <strong>BMP_</strong> to expand it. The entry labelled <strong>Catalog</strong> (usually ID 2000) is the Buy Mode thumbnail slot.</p></div></div>
+    <div class="step"><div class="step-num"></div><div class="step-body"><h4>Import your thumbnail</h4><p>Right-click the Catalog BMP_ entry &rarr; <strong>Import</strong> &rarr; browse to your thumbnail and select it. IFF Pencil replaces the image. Save the file with <strong>File &rarr; Save</strong>. The Buy Mode picture now shows your object.</p></div></div>
+  </div>
+  <div class="callout teal" style="margin-top:12px;">ℹ️ <strong>Set a creator handle in the description.</strong> The standard Sims 1 CC convention for the catalogue description is: <code>Made by [Your Handle] &ndash; [your site or contact]</code>. If you are sharing your object, this is the only place inside the file itself that tells someone who made it and where to find more of your work.</div>
+</section>
+
+<section id="further">
+  <div class="section-head"><div class="section-emoji">📚</div><div><h2 class="section-title">Further Reading</h2></div></div>
+  <div class="grid-2">
+    <div class="card"><div class="card-title">TS1 Renderer (GitHub)</div><div class="card-desc">Blender addon for rendering Sims 1 object sprites at the correct angles and zooms.</div><a class="pill-link" href="https://github.com/mixiate/ts1-renderer" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div class="card"><div class="card-title">TS1 Compiler (GitHub)</div><div class="card-desc">Companion tool that packages rendered sprites into a complete IFF with OBJD, DGRP, PALT and SPR2 resources.</div><a class="pill-link" href="https://github.com/mixiate/ts1-compiler" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div class="card"><div class="card-title">IFF Hacking &ndash; Adding Behaviour</div><div class="card-desc">Once you have a working object shell, the next step is giving it custom interactions, prices, and motive effects. Covered on the IFF Hacking page.</div><a class="pill-link" href="iff-hacking.html">IFF Hacking &rarr;</a></div>
+    <div class="card"><div class="card-title">Blender Foundation Tutorials</div><div class="card-desc">Official free 3D modelling tutorials. Do the Donut tutorial first if you have never used Blender before.</div><a class="pill-link" href="https://www.blender.org/support/tutorials/" target="_blank" rel="noopener">blender.org ↗</a></div>
+  </div>
+</section>
+
+<div class="prevnext">
+  <a href="object-retextures.html" class="prevnext-link prev"><span class="prevnext-arrow">←</span><div><div class="prevnext-label">Previous</div><div class="prevnext-title">Retexturing Objects</div></div></a>
+  <a href="iff-hacking.html" class="prevnext-link next"><span class="prevnext-arrow">→</span><div><div class="prevnext-label">Next</div><div class="prevnext-title">IFF Hacking</div></div></a>
+</div>
+
+</main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="plumbob sm" style="background:#fff;"></span>
+      The Sims Legacy Collection – Modding Guide
+    </div>
+        <div class="footer-links">
+      <a href="https://www.reddit.com/r/thesims1/" target="_blank" rel="noopener">Sims 1 Subreddit</a>
+      <a href="https://www.ea.com/games/the-sims/news" target="_blank" rel="noopener">EA Patch Notes</a>
+      <a href="search.html">Search</a>
+      <a href="terminology.html">Terminology</a>
+      <a href="cheats.html">Cheats</a>
+      <a href="careers.html">Career Guide</a>
+      <a href="updates.html">Site Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p>Community guide &middot; Not affiliated with EA or Maxis &middot; Last updated April 2026</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.35);">This site uses Google Analytics to track visitor numbers and page traffic.</p>
+  </div>
+</footer>
+<div class="nav-drawer" id="navDrawer" aria-modal="true" role="dialog"><div class="nav-drawer-backdrop"></div><div class="nav-drawer-panel"><div class="nav-drawer-header"><span class="nav-drawer-title">SIMS LEGACY COLLECTION</span><button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#10005;</button></div>
+    <div class="nav-drawer-group">
+      <a href="index.html" class="nav-drawer-link"><span class="nav-drawer-icon">🏠</span>Home</a>
+      <a href="search.html" class="nav-drawer-link"><span class="nav-drawer-icon">🔍</span>Search</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Mods &amp; CC</div>
+      <a href="whats-possible.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔬</span>What's Possible</a>
+      <a href="installing-mods.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📁</span>Installing Mods</a>
+      <a href="download-sites.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🌐</span>Mod Download Sites</a>
+      <a href="mod-list.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">⚙️</span>Must-Have Mods</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Gameplay</div>
+          <a href="cheats.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎮</span>Cheats</a>
+          <a href="careers.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💼</span>Career Guide</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Creating</div>
+      <a href="making-cc.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🎨</span>Create CC Overview</a>
+      <a href="making-clothing.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">👗</span>Clothing Overview</a>
+      <a href="clothing-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Clothing</a>
+      <a href="clothing-meshes.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧵</span>Custom Meshes</a>
+      <a href="making-heads.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">💇</span>Hair &amp; Heads Overview</a>
+      <a href="head-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Heads</a>
+      <a href="head-creation.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧬</span>FaceLift Gold</a>
+      <a href="making-walls-floors.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🏠</span>Walls &amp; Floors</a>
+      <a href="making-objects.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🪑</span>Objects Overview</a>
+      <a href="object-retextures.html" class="nav-drawer-link nav-drawer-sublink" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🎨</span>Retexturing Objects</a>
+      <a href="object-creation.html" class="nav-drawer-link nav-drawer-sublink active" style="padding-left:52px!important;font-size:12px!important;"><span class="nav-drawer-icon">🧊</span>Creating New Objects</a>
+      <a href="iff-hacking.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🔧</span>IFF Hacking</a>
+      <a href="tools.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🧰</span>Tools</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Troubleshooting</div>
+      <a href="cc-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🛠️</span>CC Issues</a>
+      <a href="game-troubleshooting.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🖥️</span>Game Issues</a>
+    </div>
+    <div class="nav-drawer-divider"></div>
+    <div class="nav-drawer-group">
+      <div class="nav-drawer-group-label">Site</div>
+      <a href="about-legacy.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📅</span>About Legacy</a>
+      <a href="terminology.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📖</span>Terminology</a>
+      <a href="file-reference.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">🗂️</span>File Reference</a>
+      <a href="credits.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📝</span>Sources &amp; Credits</a>
+      <a href="updates.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">📋</span>Site Roadmap</a>
+      <a href="contact.html" class="nav-drawer-link nav-drawer-sublink"><span class="nav-drawer-icon">✉️</span>Contact</a>
+    </div>
+  </div></div>
+<button class="back-top" id="backTop" aria-label="Back to top">&#8679;</button>
+<script>
+(function(){
+  var nav=document.getElementById('navInner'),hint=document.getElementById('navHint'),hintL=document.getElementById('navHintLeft');
+  function check(){if(!nav||!hint)return;var s=nav.scrollLeft,mx=nav.scrollWidth-nav.clientWidth;hint.style.display=(mx>4&&s<mx-4)?'flex':'none';if(hintL)hintL.style.display=s>8?'flex':'none';}
+  if(hint)hint.addEventListener('click',function(){nav.scrollBy({left:180,behavior:'smooth'});});
+  if(hintL)hintL.addEventListener('click',function(){nav.scrollBy({left:-180,behavior:'smooth'});});
+  if(nav){nav.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check);}
+  window.addEventListener('load',check);setTimeout(check,200);
+
+  var drw=document.getElementById('navDrawer'),cls=document.getElementById('navDrawerClose');
+  function openD(){if(drw){drw.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeD(){if(drw){drw.classList.remove('open');document.body.style.overflow='';}}
+  document.querySelectorAll('#navHam,#navHamDesktop,#navHamMobile').forEach(function(b){if(b)b.addEventListener('click',openD);});
+  if(cls)cls.addEventListener('click',closeD);
+  if(drw)drw.addEventListener('click',function(e){if(e.target===drw||e.target.classList.contains('nav-drawer-backdrop'))closeD();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD();});
+
+  var btt=document.getElementById('backTop');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('visible',window.scrollY>400);},{passive:true});btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+  function pos(btn,panel){var r=btn.getBoundingClientRect(),l=r.left+r.width/2;panel.style.top=(r.bottom+4)+'px';panel.style.left=Math.max(8,Math.min(l,window.innerWidth-230))+'px';panel.style.transform='translateX(-50%)';}
+  function setupDD(bid,pid){
+    var btn=document.getElementById(bid),panel=document.getElementById(pid);
+    if(!btn||!panel)return;
+    document.body.appendChild(panel);
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open')){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');return;}
+      document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});
+      pos(btn,panel);panel.classList.add('open');btn.setAttribute('aria-expanded','true');
+    });
+    panel.addEventListener('click',function(e){e.stopPropagation();});
+  }
+  setupDD('infoDropdownBtn','infoDropdownPanel');
+  setupDD('modsDropdownBtn','modsDropdownPanel');
+  setupDD('ccDropdownBtn','ccDropdownPanel');
+  setupDD('helpDropdownBtn','helpDropdownPanel');
+  setupDD('gameplayDropdownBtn','gameplayDropdownPanel');
+  document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown-panel.open').forEach(function(p){p.classList.remove('open');});});
+})();
+</script>
+</body>
+</html>
