@@ -25,7 +25,7 @@ The guide has **32 pages** grouped into sections:
 | `whats-possible.html` | Engine limits, what can and can't be modded, Steam Deck compatibility |
 | `installing-mods.html` | Step-by-step installation for every file type, folder paths for Steam and EA App, CC limits |
 | `download-sites.html` | 52 active CC and mod sites verified working in 2026 |
-| `mod-list.html` | Quality-of-life mods, objects, debug tools (FaithBeam), bug fixes |
+| `mod-list.html` | Maxis Get Cool Stuff archive, quality-of-life mods, objects, debug tools (FaithBeam), bug fixes |
 
 ### Gameplay
 | Page | Description |
@@ -38,7 +38,7 @@ The guide has **32 pages** grouped into sections:
 |------|-------------|
 | `making-cc.html` | Overview hub – how skins work, tools summary, links to all CC subpages |
 | `making-clothing.html` | Clothing overview – how skins work, body types, dress style prefixes, filename format, xskin chain, and links to retexturing and mesh guides |
-| `clothing-retextures.html` | Retexturing clothing – GIMP painting workflow, UV layout, backwards-text quirk, skin tone variants, indexed BMP conversion, TSC Wardrobe, getting into game |
+| `clothing-retextures.html` | Retexturing clothing – GIMP painting workflow, UV layout, backwards-text quirk, skin tone variants, indexed BMP conversion, TSC Wardrobe, getting into game, editing CMX files (duplicating, moving between categories, adding accessories, silent mesh failure causes) |
 | `clothing-meshes.html` | Custom clothing meshes – what a mesh is, mesh rules, Blender + TS1 Blender IO workflow, MilkShape + SKN2OBJ workflow, BodyWarp, accessories, UV mapping, testing |
 | `making-heads.html` | Hair & Heads overview – how heads work, texture vs mesh, filename format, UV layout, links to retexturing and FaceLift guides |
 | `head-retextures.html` | Retexturing existing heads – GIMP painting workflow, skin tone variants, indexed BMP conversion, TSC export, Face Photo Wizard |
@@ -56,9 +56,9 @@ The guide has **32 pages** grouped into sections:
 | Page | Description |
 |------|-------------|
 | `file-reference.html` | Technical reference with expandable cards: game file types, IFF resource types, skin filename prefixes, Magic Cookie guide |
-| `terminology.html` | Plain-English definitions: CC, mod, hacking, IFF, FAR, Maxis Match, buyable skins, and more |
+| `terminology.html` | Plain-English definitions: CC, mod, hacking, IFF, FAR, Maxis Match, buyable skins, and technical file formats and IFF resource types (CMX, SKN, BCF, BMF, BMP, xskin-, identifier, GUID, Magic Cookie, BCON, STR#, PALT, SPR2, OBJD, TTAB/TTAs, SimAntics, accessory, bodystring, dress style, NPC) |
 | `credits.html` | Full attribution for every source, tool creator, and community member |
-| `cc-troubleshooting.html` | Mods not loading, white skins, CC limits, CMX mismatches, missing meshes, registry fix |
+| `cc-troubleshooting.html` | Mods not loading, crashes after mods, invisible meshes (headless/bodyless Sims), white skins, CC limits, CMX mismatches, FAR files, old .exe installers, registry fix |
 | `game-troubleshooting.html` | Vulkan errors, NVIDIA pixel issue, launch crashes, multi-monitor problems |
 
 ### Site
@@ -130,7 +130,7 @@ Horizontal scrolling nav bar on desktop, slide-in drawer on mobile. Organised in
 | **ℹ️ Site Info** | 📅 About Legacy, 📖 Terminology, 🗂️ File Reference, 📝 Sources & Credits, *(divider)*, 📋 Site Roadmap, ✉️ Contact |
 | **⚙️ Mods / CC** | 🔬 What's Possible, 📁 Installing Mods, 🌐 Mod Download Sites, ⚙️ Must-Have Mods |
 | **🎮 Gameplay** | 🎮 Cheats, 💼 Career Guide |
-| **🎨 Create CC** | 🎨 Overview, 👗 Clothing Overview (→ 🎨 Retexturing Clothing, 🧵 Custom Meshes), 💇 Hair & Heads Overview (→ 🎨 Retexturing Heads, 🧬 FaceLift Gold), 🏠 Walls & Floors, 🪑 Objects, *(divider)*, 🔧 IFF Hacking, 🧰 Tools |
+| **🎨 Create CC** | 🎨 Overview, *(divider)*, 👗 Clothing Overview &rarr; Retexturing Clothing, Custom Meshes, *(divider)*, 💇 Hair & Heads Overview &rarr; Retexturing Heads, FaceLift Gold, *(divider)*, 🏠 Walls & Floors, *(divider)*, 🪑 Objects Overview &rarr; Retexturing Objects, Creating New Objects, *(divider)*, 🔧 IFF Hacking &rarr; Simple Edits, Advanced Edits, *(divider)*, 🧰 Tools |
 | **🛠️ Troubleshooting** | 🛠️ CC Issues, 🖥️ Game Issues |
 
 Top-level links: 🏠 Home, 🔍 Search, ☰ Menu (opens drawer)
@@ -156,6 +156,18 @@ Top-level links: 🏠 Home, 🔍 Search, ☰ Menu (opens drawer)
   </div>
 </div>
 ```
+Reserved for genuine imperative tutorial steps. Parallel "checks" or phase groupings should use descriptive H3 subheadings plus card grids instead &ndash; don't label non-step content as "Step 1".
+
+### Prose box
+White panel for multi-paragraph prose blocks on prose-heavy sections. Targeted use only &ndash; blanket application to every section is explicitly rejected. See `_dev/prose_box_preview.html` for candidate sections across the site.
+```html
+<div class="prose-box">
+  <p>First paragraph.</p>
+  <p>Second paragraph.</p>
+  <ul style="padding-left:18px;"><li>...</li></ul>
+</div>
+```
+Currently applied on: `making-cc.html` (4x), `making-clothing.html` (filename-format, 1x), `clothing-retextures.html` (gimp-basics + painting, 2x), `making-objects.html` (1x), `object-retextures.html` (going-further, 1x).
 
 ### Expandable accordion cards
 Used on file-reference, credits, careers (transfer loop), cheats (tips). Click header to expand – body text is selectable without triggering close.
@@ -185,20 +197,7 @@ Always wrapped in `.table-wrap` for responsive overflow:
 
 ## Key Sources
 
-| Source | What it provided |
-|--------|-----------------|
-| **Maxis Design Documents** (98 PDFs) | IFF file format, object system, sprite generation, suit conventions |
-| **Transmogrifier Documentation** (Don Hopkins) | Retexture workflow, Export Whizzer, Magic Cookie system |
-| **IFF Pencil 2** (Tom van Dijk / trolando) | BHAV editing, TTAB interactions, BCON constants |
-| **Simania Sims Support Page** | Skinning tutorials, object hacking, character editing |
-| **Crash Creations (Skin Shop)** | Head meshing workflow, body meshing, texture mapping, CMX writing |
-| **Jerome (SimFreaks)** | Mesh creation guide, CMX/SKN file structure documentation, filename naming tables |
-| **The Sims Creator Readme** | Face Photo Wizard workflow, TSC paint tool, accepted file formats |
-| **FaceLift Gold** | Head shape creation via morphing and blending (Roger E. Critchlow Jr and Steve DiPaola) |
-| **Raeven / Woobsha** | Expert corrections on tool workflows, TTAB accuracy, object hacking |
-| **Community testing** | Tool compatibility, folder structures, game behaviour on Legacy Collection |
-
-Full attribution on the [Sources & Credits](https://cyndersanity.github.io/sims-legacy-mod-guide/credits.html) page.
+The site draws on Maxis design documents (98 PDFs published by Don Hopkins), tool README files, community tutorials from the 2000s era that still apply to Legacy, and direct testing against the Legacy Collection. Specific creators, guides, tools, and references are listed on the [Sources &amp; Credits](https://cyndersanity.github.io/sims-legacy-mod-guide/credits.html) page &ndash; inline attribution is not used on the guide pages themselves.
 
 ---
 
@@ -220,12 +219,28 @@ Open it locally in a browser to see:
 Flag issues via the **contact form on the live site** or use GitHub Issues / Pull Requests.
 
 ### Content rules
-- **Accuracy first** – every claim should be verifiable against a known source
-- **Beginner-friendly** – explain what and why, not just list actions
-- **Consistent formatting** – follow the callout, step, and table patterns above
-- **Accessibility** – use bullet lists for 3+ inline items, keep paragraphs readable
-- **Bold "Example:" prefixes** – always `<strong>Example:</strong>`
-- **Code tags on file paths** – always `<code>\\Downloads\\</code>`
+- **Every claim needs a source** &ndash; all written information on the site should be factual and come from a known source (an attached document, a linked wiki, an official repo, or verified community knowledge). Reasoning from adjacent facts does not count as a source.
+- **Paraphrase, do not copy** &ndash; community guides (Simania, Jerome, Crash Creations, and others) can inform content but must not be copied or closely paraphrased. Rewrite in your own voice with your own sentence structure, use different representative examples, and avoid reusing creators&rsquo; coined terms as structured concepts. The technical process must remain accurate, but the text must be genuinely original.
+- **Credits go on `credits.html` only** &ndash; no inline attribution to creators or guides in the guide pages themselves. No &ldquo;Simania notes&rdquo;, &ldquo;Jerome recommends&rdquo;, &ldquo;per Crash Creations&rdquo;. Every creator, guide, or source the site has drawn on belongs in a ref-card on `credits.html`. Exceptions: resource link cards in &ldquo;Further Resources&rdquo; sections that point users to a specific external URL (they need to name their destination), plus `download-sites.html` and `tools.html` where naming resources is the page&rsquo;s job.
+- **Accuracy first** &ndash; every claim should be verifiable against a known source. If a detail is not sourced, leave it out or rewrite the sentence to say only what is actually known.
+- **Sims Legacy + original Sims 1 framing** &ndash; where a technique carries over to the original Sims 1, frame it as &ldquo;should work&rdquo; (the site has not tested on the original game). Work the note into a natural place on the page, not as a dumped callout at the top. Do not attribute the claim to &ldquo;others have said&rdquo; or similar weak framing.
+- **Beginner-friendly but not dumbed down** &ndash; explain what and why, not just list actions. Technical depth is important; the target tone is knowledgeable friend explaining something to a beginner.
+- **Consistent formatting** &ndash; follow the callout, step, and table patterns in `_dev/style_guide_v6.html`.
+- **Accessibility** &ndash; use bullet lists for 3+ inline items, keep paragraphs readable, en dashes not em dashes.
+- **No nested callouts** &ndash; a callout inside another callout is never acceptable. Adjacent callouts sit in a `.callout-grid`.
+- **Unclassed `<ul>` needs inline padding** &ndash; add `style="padding-left:18px;"` because the CSS reset removes default indent.
+- **Bold &ldquo;Example:&rdquo; prefixes** &ndash; always `<strong>Example:</strong>`
+- **Code tags on file paths** &ndash; always `<code>\Downloads\</code>` (single backslashes, no double)
+- **Plain human writing** &ndash; keep the tone conversational and specific. Avoid stacked negatives for rhetorical effect, capitalised warning words (&ldquo;do NOT&rdquo;), filler intensifiers like &ldquo;ensures that / leverages / seamless / robust&rdquo;, arrow notation outside of actual menu paths, and obvious fillers like &ldquo;as you can see&rdquo; or &ldquo;it is worth noting&rdquo;.
+
+### Files to update together
+When a structural or rule change lands, three files are kept in sync:
+
+- **`_dev/style_guide_v6.html`** &ndash; new rules and patterns
+- **`README.md`** &ndash; structural changes to pages, sections, file layout
+- **`credits.html`** &ndash; any new creator or source the site has drawn on
+
+`_dev/` holds only the style guide. Work-in-progress files and local drafts stay out of the repository.
 
 ### What not to change without discussion
 - Career list and transfer loop data (verified against multiple sources)
