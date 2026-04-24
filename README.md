@@ -8,15 +8,21 @@ A community-maintained guide for modding, customising and creating content for *
 
 ## About
 
-This guide exists because the Legacy Collection has different folder structures, save locations and tool compatibility compared to the original Complete Collection or disc versions. Most existing modding guides were written for those older versions. This guide is specifically for Legacy Collection players on Windows, covering everything from installing your first mod through to creating custom content from scratch.
+This website and subsequent guides have been created due to the Legacy Collection having different folder structures, save locations and tool compatibility compared to the original Complete Collection or disc versions of The Sims 1. 
+
+Most existing modding guides were written for those older versions.
+
+This guide is specifically for Legacy Collection players on Windows, covering everything from installing your first mod through to creating custom content from scratch.
 
 All content is based on community testing, verified tool compatibility checks, official Maxis design documents (98 PDFs published by Don Hopkins), and direct research into what works with the Legacy Collection as of 2026.
+
+The written guides within the website and any CC referenced should work with the Original Sims releases also, though it has not been explicitly confirmed. There wasn't a lot of technical changes between the original games and The Legacy collection. 
 
 ---
 
 ## Pages
 
-The guide has **32 pages** grouped into sections:
+The website has **32 pages** grouped into sections:
 
 ### Playing & Modding
 | Page | Description |
@@ -74,7 +80,7 @@ The guide has **32 pages** grouped into sections:
 
 ## File Structure
 
-Static HTML – no framework, no build step, no dependencies. Deployed via GitHub Pages from the repository root.
+Static HTML deployed via GitHub Pages from the repository root.
 
 ```
 /
@@ -231,7 +237,6 @@ Flag issues via the **contact form on the live site** or use GitHub Issues / Pul
 - **Unclassed `<ul>` needs inline padding** &ndash; add `style="padding-left:18px;"` because the CSS reset removes default indent.
 - **Bold &ldquo;Example:&rdquo; prefixes** &ndash; always `<strong>Example:</strong>`
 - **Code tags on file paths** &ndash; always `<code>\Downloads\</code>` (single backslashes, no double)
-- **Plain human writing** &ndash; keep the tone conversational and specific. Avoid stacked negatives for rhetorical effect, capitalised warning words (&ldquo;do NOT&rdquo;), filler intensifiers like &ldquo;ensures that / leverages / seamless / robust&rdquo;, arrow notation outside of actual menu paths, and obvious fillers like &ldquo;as you can see&rdquo; or &ldquo;it is worth noting&rdquo;.
 
 ### Files to update together
 When a structural or rule change lands, three files are kept in sync:
@@ -254,5 +259,5 @@ When a structural or rule change lands, three files are kept in sync:
 - Not affiliated with EA, Maxis, or any mod creator
 - All external links verified as of April 2026
 - Google Analytics (G-8ZDF0Q80RR) tracks visitor numbers only
-- Covers the Windows version of the Legacy Collection only
+- Covers the Windows version of the Legacy Collection, noting that nearly all existing CC should work interchangeably with both The Sims Legacy Collection and the original Sims 1 releases
 - Built with VSCodium, hosted on GitHub Pages
