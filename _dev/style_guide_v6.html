@@ -169,6 +169,7 @@ code { background: var(--green-pale); color: var(--green-dark); font-family: var
   <a href="#callouts">Callouts</a>
   <a href="#cards">Cards &amp; Tags</a>
   <a href="#steps">Steps</a>
+  <a href="#prose-box">Prose Box</a>
   <a href="#tables">Tables</a>
   <a href="#code">Code</a>
   <a href="#mark">Install Paths</a>
@@ -178,6 +179,7 @@ code { background: var(--green-pale); color: var(--green-dark); font-family: var
   <a href="#plumbob">Plumbob</a>
   <a href="#page-structure">Page Structure</a>
   <a href="#nav">Navigation</a>
+  <a href="#principles">Content Principles</a>
   <a href="#emojis">Emoji Reference</a>
 </aside>
 
@@ -279,6 +281,13 @@ code { background: var(--green-pale); color: var(--green-dark); font-family: var
   <h3 class="sg-sub">Green – tip / confirmation</h3>
   <div class="sg-demo"><div class="callout green">✅ <strong>Tip:</strong> This is a green callout. Used for positive confirmations, helpful tips, and "this is working correctly" notes.</div></div>
   <div class="sg-code">&lt;div class="callout green"&gt;✅ &lt;strong&gt;Tip:&lt;/strong&gt; Your message here.&lt;/div&gt;</div>
+
+  <h3 class="sg-sub">Callout grid – side by side</h3>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:12px;">When two or more callouts appear consecutively, wrap them in a <code>.callout-grid</code> so they sit side by side instead of stacking vertically. Never stack callouts one after another without gridding them.</p>
+  <div class="sg-code">&lt;div class="callout-grid"&gt;
+  &lt;div class="callout gold"&gt;⚠️ First warning.&lt;/div&gt;
+  &lt;div class="callout teal"&gt;ℹ️ Related note.&lt;/div&gt;
+&lt;/div&gt;</div>
 </section>
 
 
@@ -321,7 +330,7 @@ code { background: var(--green-pale); color: var(--green-dark); font-family: var
 &lt;span class="tag red"&gt;Text&lt;/span&gt;</div>
 
   <h3 class="sg-sub">Grid layouts</h3>
-  <p class="sg-note">Cards are placed inside a grid container. Both collapse to 1 column on mobile.</p>
+  <p class="sg-note">Cards are placed inside a grid container. <code>grid-2</code> auto-fills at 300px minimum width &ndash; use for 2, 4, 6, or 8 cards. <code>grid-3</code> forces three equal columns &ndash; use when you have exactly 3 cards so the third does not stretch to full width. Both collapse to 1 column on mobile.</p>
   <div class="sg-code">&lt;!-- Two column grid --&gt;
 &lt;div class="grid-2"&gt;
   &lt;div class="card"&gt;...&lt;/div&gt;
@@ -417,6 +426,39 @@ function toggleAll(btn){
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</div>
+
+  <h3 class="sg-sub" style="margin-top:32px;">When NOT to use steps</h3>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Reserve <code>.steps</code> for genuine sequential imperative instructions. Don't use "Step 1" / "Step 2" as labels for parallel checks, testing phases, or non-imperative subsections &ndash; use descriptive H3 subheadings with card grids instead. If content doesn't read as "do this, then do this", it's not a step.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════
+     PROSE BOX
+═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="prose-box">
+  <h2 class="sg-section-title">Prose Box</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">White panel for multi-paragraph prose blocks. Applied selectively to prose-heavy sections where the cream/grid background makes reading difficult. Blanket application to every section was explicitly rejected &ndash; use targeted placement only.</p>
+
+  <div class="sg-demo">
+    <div class="prose-box">
+      <p>Prose-box wraps a block of related paragraphs in a white panel with a 2px border, matching the visual weight of <code>.term-card</code> but without the title structure.</p>
+      <p>It supports nested lists, inline code, and all standard text formatting. Use it for intro paragraphs, explanatory sections, and tutorial narration that benefit from a clearer reading surface.</p>
+      <ul style="padding-left:18px;margin-top:8px;">
+        <li>Multi-paragraph prose blocks</li>
+        <li>Intro sections with supporting lists</li>
+        <li>Explanatory sections between steps</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sg-code">&lt;div class="prose-box"&gt;
+  &lt;p&gt;First paragraph.&lt;/p&gt;
+  &lt;p&gt;Second paragraph.&lt;/p&gt;
+  &lt;ul style="padding-left:18px;"&gt;&lt;li&gt;List item&lt;/li&gt;&lt;/ul&gt;
+&lt;/div&gt;</div>
+
+  <h3 class="sg-sub" style="margin-top:32px;">When to use it</h3>
+  <p style="margin-bottom:12px;font-size:14px;color:var(--ink-mid);">Good candidates: multi-paragraph explanations, intro prose with supporting bullet lists, filename/format breakdowns, overview sections. Not for cards, callouts, step bodies, or tables (which already have their own styling).</p>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">Current deployments: <code>making-cc.html</code> (4x), <code>making-clothing.html#filename-format</code>, <code>clothing-retextures.html#gimp-basics</code>, <code>clothing-retextures.html#painting</code>, <code>making-objects.html</code>, <code>object-retextures.html#further</code>.</p>
 </section>
 
 
@@ -834,6 +876,73 @@ Sims Legacy Collection – Site Roadmap</div>
 <!-- ════════════════════════════════════════════════════════
      EMOJI REFERENCE
 ═════════════════════════════════════════════════════════ -->
+<section class="sg-section" id="principles">
+  <h2 class="sg-section-title">Content Principles</h2>
+  <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">The writing rules that shape what goes onto the site. These are non-negotiable and apply to every page.</p>
+
+  <h3 class="sg-sub">1. No fabrication</h3>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:14px;">Every factual claim on the site must be traceable to a named source &ndash; Maxis documentation, a community guide, a tool README, or first-hand testing. Reasoning from adjacent facts (&ldquo;the game probably does X because it does Y&rdquo;) is fabrication even when it sounds plausible. If a detail is not sourced, leave it out or rewrite the sentence to say only what is actually known.</p>
+
+  <h3 class="sg-sub">2. Paraphrase &ndash; do not copy community guides</h3>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:14px;">Community sources (Simania, Jerome, Crash Creations, and others) can inform content but must not be copied or closely paraphrased. That means:</p>
+  <ul style="padding-left:18px;font-size:15px;color:var(--ink);margin-bottom:14px;">
+    <li>Rewrite in your own voice and with your own sentence structure. Matching sentence-by-sentence with different word choices is still plagiarism.</li>
+    <li>Do not reuse coined terms that a specific creator uses as structured concepts (for example one guide&rsquo;s specific named &ldquo;code&rdquo; and &ldquo;identifier&rdquo; framing). Describe the same thing in plain terms.</li>
+    <li>Do not reuse specific examples unchanged. If a guide uses the filename <code>B300FASOB</code> to illustrate a point, use a different representative filename.</li>
+    <li>The process being described should be the same &ndash; technical accuracy is not negotiable &ndash; but the text must be genuinely original.</li>
+  </ul>
+
+  <h3 class="sg-sub">3. Credits go on credits.html only</h3>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:14px;">Inline attribution to community creators, guides, or tutorials does not belong on the guide pages themselves. No &ldquo;Simania notes&hellip;&rdquo;, &ldquo;Jerome recommends&hellip;&rdquo;, &ldquo;per Crash Creations&hellip;&rdquo;. Every creator, guide, or source Claude has drawn on belongs in a ref-card on credits.html. The guide pages read as the site&rsquo;s own voice throughout.</p>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:14px;">Exceptions that stay inline:</p>
+  <ul style="padding-left:18px;font-size:15px;color:var(--ink);margin-bottom:14px;">
+    <li><strong>Tools users click through to.</strong> Resource link cards in &ldquo;Further Resources&rdquo; sections need to name their destination (for example a Woobsha DIY Workshop link card). That is the same pattern as <code>download-sites.html</code>.</li>
+    <li><strong>The <code>download-sites.html</code> and <code>tools.html</code> pages.</strong> These pages exist to point users at named resources &ndash; naming them is their job.</li>
+    <li><strong>Tool-name mentions without creator-name attribution.</strong> &ldquo;SneakySims Wallpaper Maker&rdquo; is the product name. &ldquo;The SneakySims wallpaper maker by [person]&rdquo; is inline attribution that belongs in credits only.</li>
+  </ul>
+
+  <h3 class="sg-sub">4. No AI-emphatic language</h3>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:14px;">Avoid patterns that read as AI-written rather than human-written:</p>
+  <ul style="padding-left:18px;font-size:15px;color:var(--ink);margin-bottom:14px;">
+    <li>No stacking negatives (&ldquo;no X, no Y, no Z&rdquo;) for rhetorical effect</li>
+    <li>No &ldquo;do NOT&rdquo; with capitalised warning words &ndash; use normal emphasis</li>
+    <li>No &ldquo;ensures that&rdquo;, &ldquo;leverages&rdquo;, &ldquo;seamless&rdquo;, &ldquo;robust&rdquo; as technical-sounding filler</li>
+    <li>No arrow notation (&ldquo;process &rarr; result&rdquo;) outside of menu paths and actual flow diagrams</li>
+    <li>No stating the obvious (&ldquo;as you can see&rdquo;, &ldquo;it is worth noting&rdquo;)</li>
+  </ul>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:14px;">Target tone: knowledgeable friend explaining something to a beginner. Technical depth is important &ndash; do not dumb content down &ndash; but the wording stays conversational.</p>
+
+  <h3 class="sg-sub">5. Sims Legacy + original Sims 1 framing</h3>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:14px;">The site focuses on Sims Legacy Collection, but the technical foundation is the same as the original Sims 1. Where a guide or technique carries over to the original game, say so &ndash; but:</p>
+  <ul style="padding-left:18px;font-size:15px;color:var(--ink);margin-bottom:14px;">
+    <li>Use &ldquo;should work&rdquo; not &ldquo;works&rdquo; (the site has not tested on the original game).</li>
+    <li>Work the note into a natural place in the page &ndash; usually the overview or introduction section. Do not add it as a dumped callout at the top of every page.</li>
+    <li>Do not attribute the claim to third parties (&ldquo;others have said&rdquo; is weak framing).</li>
+    <li>Frame it as: the site is built on content-pipeline facts that have not changed between versions, so everything here should apply to the original game too.</li>
+  </ul>
+
+  <h3 class="sg-sub">6. Formatting discipline</h3>
+  <ul style="padding-left:18px;font-size:15px;color:var(--ink);margin-bottom:14px;">
+    <li>En dashes (&ndash;) throughout, not em dashes.</li>
+    <li>Oxford commas.</li>
+    <li>Install paths and filenames in <code>&lt;code&gt;</code> with single backslashes.</li>
+    <li>No nested callouts (callout inside another callout). Adjacent callouts sit in a <code>.callout-grid</code>.</li>
+    <li>Unclassed <code>&lt;ul&gt;</code> needs <code>style=&quot;padding-left:18px;&quot;</code> because the CSS reset removes default indent.</li>
+    <li>Every <code>&lt;table&gt;</code> sits inside a <code>.table-wrap</code> or <code>overflow-x:auto</code> container for mobile.</li>
+    <li>Desktop TOC (<code>.toc-list</code>) and mobile TOC (<code>.mobile-toc-links</code>) must hold identical anchor sets and match real section ids on the page.</li>
+  </ul>
+
+  <h3 class="sg-sub">7. Updating files alongside changes</h3>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:14px;">Four files are updated together whenever significant structural or rule changes land:</p>
+  <ul style="padding-left:18px;font-size:15px;color:var(--ink);margin-bottom:14px;">
+    <li><strong>This style guide (<code>_dev/style_guide_v6.html</code>)</strong> &ndash; new rules and patterns</li>
+    <li><strong><code>README.md</code></strong> &ndash; structural changes to pages, sections, file layout</li>
+    <li><strong><code>credits.html</code></strong> &ndash; any new creator or source the site has drawn on</li>
+    <li><strong>Claude&rsquo;s project principles document</strong> &ndash; rules and behaviours to carry forward between sessions</li>
+  </ul>
+  <p style="font-size:15px;color:var(--ink);margin-bottom:14px;"><code>_dev/</code> holds only this style guide. No preview files, session zips, or working scratchpads ship there.</p>
+</section>
+
 <section class="sg-section" id="emojis">
   <h2 class="sg-section-title">Emoji Reference</h2>
   <p style="margin-bottom:20px;font-size:14px;color:var(--ink-mid);">These are the assigned emoji for specific contexts. Using the same emoji consistently helps users scan the site. Don't swap them around or use them in other contexts.</p>
